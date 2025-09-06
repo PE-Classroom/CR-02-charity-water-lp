@@ -46,61 +46,116 @@ body {
 }
 
 /* Hero split layout */
+/* ---------- HERO (replace existing hero rules with this) ---------- */
 .hero {
   display: flex;
-  height: 100vh; /* full screen height */
+  height: 100vh;
+  min-height: 600px; /* keeps it from collapsing on tall screens */
+  overflow: hidden;
 }
 
-/* Left side with image */
+/* LEFT: image + headline + CTA (7/8 width) */
 .hero-left {
-  flex: 2; /* take 2/3 of space */
-  background: url("img/SierraLeone_2023_CG-7551.jpg") center center / cover no-repeat;
-  color: white;
+  flex: 7; /* 7 parts out of 8 */
+  background: url("img/hero-placeholder.jpg") center center / cover no-repeat;
+  color: #fff;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 3rem;
+  align-items: flex-start; /* keeps headline and button left-aligned */
+  padding: 4rem; /* increase padding so headline doesn't touch the edges */
 }
 
-.hero-left {
-  flex: 7; /* take 7/8 of space */
-  background: url("img/SierraLeone_2023_CG-7551.jpg") center center / cover no-repeat;
-  color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 3rem;
+/* Headline styling (bigger, different font to match your mockup) */
+.hero-left h1 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 3.25rem;      /* larger headline */
+  font-weight: 800;
+  line-height: 1.05;
+  margin: 0;
+  max-width: 900px;        /* prevents the headline from getting too wide */
+  color: #ffffff;
 }
 
+/* small accent color for the word "Water" */
 .hero-left h1 span {
-  color: #1a4b84; /* dark blue highlight */
+  color: #1a4b84; /* dark-blue accent */
 }
 
+/* CTA button: left-floating, compact, not full width */
 .cta-btn {
-  background: #ffcc00;
-  color: black;
-  padding: 0.75rem 1.25rem;
-  margin-top: 1.5rem;
-  border-radius: 6px;
-  font-weight: bold;
-  text-decoration: none;
   display: inline-block;
+  align-self: flex-start;  /* ensures it sits to the left under the headline */
+  background: #ffcc00;
+  color: #000;
+  padding: 0.9rem 1.4rem;
+  border-radius: 28px;
+  text-decoration: none;
+  font-weight: 700;
+  margin-top: 1.5rem;
+  max-width: 220px;        /* prevents sprawling */
+  white-space: nowrap;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
 }
 
+/* Hover effect (nice polish) */
 .cta-btn:hover {
-  background: #e6b800;
+  transform: translateY(-2px);
+  transition: transform 180ms ease;
 }
 
-/* Right side solid blue */
+/* RIGHT: slim blue vertical column (~1/8 width) */
 .hero-right {
-  flex: 1; /* take 1/8 of space */
+  flex: 1; /* 1 part out of 8 */
   background: #003366;
   color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1.25rem;
-  font-weight: bold;
-  padding: 1.5rem;
+  padding: 2rem;
   text-align: center;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: 1.6rem;       /* bigger text to match your mockup */
+  line-height: 1.05;
+  letter-spacing: 0.5px;
+}
+
+/* Make sure the blue text wraps as stacked lines like your image */
+.hero-right p {
+  margin: 0;
+  white-space: normal;
+}
+
+/* ---------- Responsive adjustments ---------- */
+@media (max-width: 1000px) {
+  .hero-left h1 {
+    font-size: 2.4rem;
+    max-width: 100%;
+  }
+  .hero-right {
+    font-size: 1.35rem;
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 720px) {
+  .hero {
+    flex-direction: column;
+    height: auto;
+  }
+  .hero-left, .hero-right {
+    flex: none;
+    width: 100%;
+  }
+  .hero-left {
+    padding: 2rem 1.25rem;
+    background-position: center top;
+  }
+  .hero-left h1 {
+    font-size: 1.9rem;
+    margin-bottom: 0.75rem;
+  }
+  .cta-btn { margin-top: 1rem; }
+  .hero-right { font-size: 1.05rem; padding: 1rem; }
 }
