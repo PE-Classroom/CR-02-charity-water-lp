@@ -208,3 +208,77 @@ body {
   .cta-btn { margin-top: 1rem; }
   .hero-right { font-size: 1.05rem; padding: 1rem; }
 }
+/* ----------- Responsive Adjustments ----------- */
+
+/* Large tablets / smaller laptops */
+@media (max-width: 1200px) {
+  .hero-left h1 {
+    font-size: 3rem;
+    padding-left: 2rem;
+  }
+
+  .cta-btn {
+    font-size: 1.3rem;
+    padding: 1.2rem 2rem;
+  }
+
+  .hero-right {
+    font-size: 1.3rem;
+    padding: 1.5rem;
+  }
+}
+
+/* Tablets */
+@media (max-width: 900px) {
+  .hero {
+    flex-direction: column;   /* stack image + blue section */
+    height: auto;             /* allow content to expand */
+  }
+
+  .hero-left, 
+  .hero-right {
+    flex: none;
+    width: 100%;
+  }
+
+  .hero-left {
+    padding: 2rem;
+    justify-content: flex-start;
+  }
+
+  .hero-left h1 {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    padding-left: 1rem;       /* reduce left shift */
+    text-align: center;       /* re-center for smaller screens */
+  }
+
+  .cta-btn {
+    align-self: center;       /* button centered on mobile */
+    margin-bottom: 2rem;      /* spacing so it doesn't hug edges */
+  }
+
+  .hero-right {
+    font-size: 1.2rem;
+  }
+}
+
+/* Phones */
+@media (max-width: 600px) {
+  .hero-left h1 {
+    font-size: 2rem;
+    padding-left: 0;
+  }
+
+  .cta-btn {
+    font-size: 1.1rem;
+    padding: 1rem 1.5rem;
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-right {
+    font-size: 1rem;
+    padding: 1rem;
+  }
+}
