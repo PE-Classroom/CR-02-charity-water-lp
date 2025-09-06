@@ -57,7 +57,7 @@ body {
 /* LEFT: image + headline + CTA (7/8 width) */
 .hero-left {
   flex: 7; /* 7 parts out of 8 */
-  background: url("img/hero-placeholder.jpg") center center / cover no-repeat;
+  background: url("img/SierraLeone_2023_CG-7551.jpg") center center / cover no-repeat;
   color: #fff;
   display: flex;
   flex-direction: column;
