@@ -56,31 +56,38 @@ body {
 
 /* LEFT: image + headline + CTA (7/8 width) */
 .hero-left {
-  flex: 7; /* 7 parts out of 8 */
-  background: url("img/SierraLeone_2023_CG-7551.jpg") center center / cover no-repeat;
+  flex: 7;
+  background: url("img/hero-placeholder.jpg") center center / cover no-repeat;
   color: #fff;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: flex-start; /* keeps headline and button left-aligned */
-  padding: 4rem; /* increase padding so headline doesn't touch the edges */
+  justify-content: flex-start;  /* push content to top */
+  align-items: flex-start;      /* align text to the left */
+  padding: 3rem;                /* adjust as needed */
 }
 
-/* Headline styling (bigger, different font to match your mockup) */
 .hero-left h1 {
   font-family: 'Poppins', sans-serif;
-  font-size: 3.25rem;      /* larger headline */
+  font-size: 3.25rem;
   font-weight: 800;
-  line-height: 1.05;
+  line-height: 1.1;
   margin: 0;
-  max-width: 900px;        /* prevents the headline from getting too wide */
+  max-width: 900px;
   color: #ffffff;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7); /* black shadow for contrast */
 }
 
-/* small accent color for the word "Water" */
 .hero-left h1 span {
-  color: #1a4b84; /* dark-blue accent */
+  color: #1a4b84; /* keep the Water word accented */
 }
+
+/* underline just for "Ends" */
+.hero-left h1 .underline {
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 6px;
+}
+
 
 /* CTA button: left-floating, compact, not full width */
 .cta-btn {
