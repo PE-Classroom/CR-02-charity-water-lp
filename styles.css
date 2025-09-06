@@ -54,7 +54,7 @@ body {
 /* Left side with image */
 .hero-left {
   flex: 2; /* take 2/3 of space */
-  background: url("img/hero-placeholder.jpg") center center / cover no-repeat;
+  background: url("img/SierraLeone_2023_CG-7551.jpg") center center / cover no-repeat;
   color: white;
   display: flex;
   flex-direction: column;
