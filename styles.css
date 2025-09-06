@@ -62,11 +62,14 @@ body {
   padding: 3rem;
 }
 
-.hero-left h1 {
-  font-size: 2.5rem;
-  font-weight: bold;
-  line-height: 1.2;
-  max-width: 500px;
+.hero-left {
+  flex: 7; /* take 7/8 of space */
+  background: url("img/hero-placeholder.jpg") center center / cover no-repeat;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 3rem;
 }
 
 .hero-left h1 span {
@@ -90,14 +93,14 @@ body {
 
 /* Right side solid blue */
 .hero-right {
-  flex: 1; /* take 1/3 of space */
+  flex: 1; /* take 1/8 of space */
   background: #003366;
   color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-weight: bold;
-  padding: 2rem;
+  padding: 1.5rem;
   text-align: center;
 }
