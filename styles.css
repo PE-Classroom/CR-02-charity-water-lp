@@ -83,36 +83,64 @@ body {
 }
 
 /* specifically make Ends white + underlined */
-.hero-left h1 .underline {
+.hero-left {
+  flex: 7;
+  background: url("img/SierraLeone_2023_CG-7551.jpg") center center / cover no-repeat;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* text at top, button at bottom */
+  padding: 3rem;
+  position: relative;
+}
+
+/* Headline block */
+.hero-text {
+  text-align: center; /* center the text inside the top area */
+  width: 100%;
+}
+
+/* Headline styles */
+.hero-left h1 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 3.25rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin: 0;
   color: #ffffff;
-  text-decoration: underline;
-  text-decoration-thickness: 3px;
-  text-underline-offset: 6px;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
 }
 
+.hero-left h1 span {
+  color: #1a4b84; /* "Water" stays blue */
+}
 
-/* underline just for "Ends" */
 .hero-left h1 .underline {
+  color: #ffffff; /* "Ends" stays white */
   text-decoration: underline;
   text-decoration-thickness: 3px;
   text-underline-offset: 6px;
 }
 
-
-/* CTA button: left-floating, compact, not full width */
+/* CTA button: large, bottom-right */
 .cta-btn {
-  display: inline-block;
-  align-self: flex-start;  /* ensures it sits to the left under the headline */
+  align-self: flex-end;       /* stick to the right side */
   background: #ffcc00;
   color: #000;
-  padding: 0.9rem 1.4rem;
-  border-radius: 28px;
+  padding: 1.2rem 2rem;
+  border-radius: 40px;
   text-decoration: none;
-  font-weight: 700;
-  margin-top: 1.5rem;
-  max-width: 220px;        /* prevents sprawling */
-  white-space: nowrap;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+  font-weight: 800;
+  font-size: 1.3rem;
+  margin-top: 2rem;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  transition: transform 180ms ease;
+}
+
+.cta-btn:hover {
+  transform: translateY(-3px);
+}
+
 }
 
 /* Hover effect (nice polish) */
