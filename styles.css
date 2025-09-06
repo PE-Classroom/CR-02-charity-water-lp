@@ -96,14 +96,15 @@ body {
 
 /* Headline block */
 .hero-text {
-  text-align: center; /* center the text inside the top area */
+  text-align: center;
   width: 100%;
+  transform: translateX(-3rem); /* shift text left ~3 inches */
 }
 
 /* Headline styles */
 .hero-left h1 {
   font-family: 'Poppins', sans-serif;
-  font-size: 3.25rem;
+  font-size: 3.6rem; /* slightly larger */
   font-weight: 800;
   line-height: 1.1;
   margin: 0;
@@ -122,18 +123,18 @@ body {
   text-underline-offset: 6px;
 }
 
-/* CTA button: large, bottom-right */
+/* CTA button: larger, bottom-left */
 .cta-btn {
-  align-self: flex-end;       /* stick to the right side */
+  align-self: flex-start;       /* stick to the left side */
   background: #ffcc00;
   color: #000;
-  padding: 1.2rem 2rem;
-  border-radius: 40px;
+  padding: 1.4rem 2.5rem;       /* make bigger */
+  border-radius: 45px;
   text-decoration: none;
   font-weight: 800;
-  font-size: 1.3rem;
+  font-size: 1.5rem;            /* larger text */
   margin-top: 2rem;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
   transition: transform 180ms ease;
 }
 
@@ -141,7 +142,6 @@ body {
   transform: translateY(-3px);
 }
 
-}
 
 /* Hover effect (nice polish) */
 .cta-btn:hover {
