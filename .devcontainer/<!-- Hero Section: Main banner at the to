@@ -1,0 +1,12 @@
+<!-- Hero Section: Main banner at the top of the page -->
+<section class="hero">
+  <div class="hero-content">
+    <!-- Hero text on the left -->
+    <div class="hero-text">
+      <h1>Bringing clean water to millions of people</h1>
+      <p>Join us in bringing safe, clean water to communities in need.</p>
+    </div>
+    <!-- Hero image on the right -->
+    <img src="img/charity_water_Tanzania_TaraShupePhotography_0074.jpg" alt="Clean water in Tanzania" class="hero-image">
+  </div>
+</section>

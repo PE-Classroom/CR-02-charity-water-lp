@@ -7,10 +7,23 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Fixed Header: stays at the top when you scroll -->
+    <header class="fixed-header">
+        <!-- Logo image for charity: water, now smaller -->
+        <img src="img/cw_logo-2.png" alt="charity: water logo" class="logo">
+        <!-- Navigation links, next to the logo -->
+        <nav>
+            <a href="#">TAKE ACTION</a>
+            <a href="#">ABOUT US</a>
+            <a href="#">WHY WATER?</a>
+            <a href="#" class="donate-link">DONATE</a>
+        </nav>
+    </header>
+
     <!-- Hero Section: This is the main banner at the top of the page -->
     <section class="hero">
         <!-- Main headline -->
-        <h1>Clean Water for Everyone</h1>
+        <h1>Bringing clean water to millions of people</h1>
         <!-- Subheadline -->
         <p>Join us in bringing safe, clean water to communities in need.</p>
     </section>
@@ -18,30 +31,29 @@
     <!-- Story Section: This tells the story of the nonprofit -->
     <section class="story">
         <h2>Our Story</h2>
-        <p>
+        <P>Since charity: water was founded in 2006, we’ve been chasing one ambitious goal: ending the global water crisis. And while the water crisis is huge, we’re optimistic. We know how to solve the problem, and we make progress every day thanks to the help of local partners and generous supporters. If we work together, we believe everyone will have access to life’s most basic need within our lifetime. </P>
          
     </section>
 
-    <!-- Real-World Impact Story Section -->
-    <section class="impact-story">
-        <!-- Section headline -->
-        <h2>Real Impact: Meet Amina</h2>
-        <!-- Container for image and text -->
-        <div class="impact-content">
-            <!-- Impact image -->
-            <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80" alt="Amina smiling with clean water" class="impact-image">
-            <!-- Impact story text -->
-            <p>
-                Amina used to walk miles every day to collect water for her family. Thanks to your support, her village now has a clean water well. Amina can go to school and her family is healthier and happier.
-            </p>
-        </div>
-    </section>
+    <!-- Impact and Call-to-Action Sections Side by Side -->
+    <div class="impact-cta-row">
+        <!-- Real-World Impact Story Section -->
+        <section class="impact-story">
+            <h2>Real Impact: Meet Amina</h2>
+            <div class="impact-content">
+                <p>
+                    Amina used to walk miles every day to collect water for her family. Thanks to your support, her village now has a clean water well. Amina can go to school and her family is healthier and happier.
+                </p>
+                <img src="img/charity_water_Tanzania_TaraShupePhotography_0074.jpg" alt="Charity Water Tanzania TaraShupePhotography_007" class="impact-image">
+            </div>
+        </section>
 
-    <!-- Call-to-Action Section: This encourages visitors to take action -->
-    <section class="call-to-action">
-        <h2>Make a Difference</h2>
-        <p>Your support can help save lives. Every donation brings us closer to a world with clean water for all.</p>
-        <a href="#" class="donate-button">Donate Now</a>
-    </section>
+        <!-- Call-to-Action Section -->
+        <section class="call-to-action">
+            <h2>Every dollar you give helps someone get clean water</h2>
+            <p>100% of donations fund sustainable water projects. Every dollar provides 1,100 liters of clean water at a hand pump, and $40 dollars provides someone with lasting clean water access.</p>
+            <a href="#" class="donate-button">DONATE</a>
+        </section>
+    </div>
 </body>
 </html>
