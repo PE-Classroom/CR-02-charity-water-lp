@@ -47,11 +47,19 @@
       align-items: center;
     }
     .currency-select {
-      padding: 6px 8px;
+      padding: 6px 12px;
       border-radius: 4px;
       border: none;
       margin-right: 10px;
-      font-size: 14px;
+      font-size: 16px;
+      background-color: #FFF7E1;
+      color: #77ABBB;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      height: 36px;
+      min-width: 90px;
+      box-sizing: border-box;
     }
     /* Circular search bar */
     .search-bar-container {
@@ -128,6 +136,44 @@
       justify-content: center;
       overflow: hidden;
       margin-bottom: 30px;
+      z-index: 1;
+    }
+    /* Blue animated shape behind everything in the hero section */
+    .hero-blue-shape {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 120vw;
+      height: 120vh;
+      background: #6caec9;
+      /* This shape starts big at the bottom left and gets smaller as it goes to the top right */
+      clip-path: polygon(
+        0% 100%,   /* bottom left */
+        0% 60%,    /* up left */
+        40% 20%,   /* mid left-top */
+        100% 0%,   /* top right */
+        100% 40%,  /* mid right */
+        60% 100%   /* bottom right */
+      );
+      z-index: 0;
+      opacity: 0.9;
+      /* Animation: slide up from bottom */
+      transform: translateY(100%);
+      animation: blueShapeUp 1.2s ease-out forwards;
+      /* Add mix-blend-mode so it does NOT affect the image above */
+      mix-blend-mode: multiply;
+      pointer-events: none; /* So it doesn't block clicks */
+    }
+    /* Animate the blue shape from bottom to its place */
+    @keyframes blueShapeUp {
+      from {
+        transform: translateY(100%);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 0.9;
+      }
     }
     /* Large background image */
     .hero-bg-img {
@@ -138,94 +184,315 @@
       top: 0;
       left: 0;
       z-index: 1;
+      border-radius: 30px;
     }
-    /* Overlay box on the right */
-    .hero-overlay {
+    /* Curvy dark overlay box that covers most of the page under the header and holds all the writing */
+    .hero-dark-overlay {
       position: absolute;
-      top: 50%;
-      right: 5%;
-      transform: translateY(-50%);
-      background: rgba(0,0,0,0.5); /* Black with 50% transparency */
-      padding: 30px 25px;
-      border-radius: 10px;
-      max-width: 400px;
+      top: 0;
+      right: 0;
+      width: 37vw;
+      height: 85vh;
+      background: rgba(26,26,26,0.35); /* #1A1A1A with 35% transparency */
+      border-bottom-left-radius: 80px;
+      border-top-left-radius: 80px;
+      border-bottom-right-radius: 40px;
+      border-top-right-radius: 10px;
       z-index: 2;
       display: flex;
       flex-direction: column;
+      justify-content: center;
       align-items: flex-start;
+      padding: 40px 30px 40px 40px;
+      /* Animation: slide in from the right */
+      transform: translateX(100%);
+      animation: darkOverlayIn 1.2s ease-out forwards;
+      box-sizing: border-box;
     }
-    /* Big bold heading */
-    .hero-title {
+    /* Animation for the overlay coming from the right */
+    @keyframes darkOverlayIn {
+      from {
+        transform: translateX(100%);
+        opacity: 0;
+      }
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+    /* Make the writing inside the overlay readable and spaced */
+    .hero-dark-overlay .hero-title {
+      font-family: 'Proxima Nova', Arial, sans-serif; /* Use Proxima Nova if available */
       color: #FFF7E1;
-      font-size: 2em;
+      font-size: 2.5em; /* Bigger headline */
       font-weight: bold;
-      margin: 0 0 15px 0;
+      margin: 0 0 20px 0;
+      line-height: 1.15;
     }
-    /* Smaller description */
-    .hero-desc {
+
+    .hero-dark-overlay .hero-desc {
+      font-family: 'Proxima Nova', Arial, sans-serif; /* Use Proxima Nova if available */
       color: #FFF7E1;
-      font-size: 1em;
-      margin-bottom: 20px;
+      font-size: 1.35em; /* Bigger than before, but smaller than headline */
+      margin-bottom: 28px;
+      line-height: 1.4;
     }
-    /* Big yellow donate box */
-    .donate-box {
-      background-color: #FFC907;
-      padding: 18px 15px;
-      border-radius: 8px;
+
+    .donate-box-rect {
+      background: #FFC907;
+      border-radius: 18px;
+      padding: 10px 30px;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      width: 100%;
+      width: 370px;      /* Increased width for the label to fit in one line */
+      max-width: 95vw;   /* Responsive: don't overflow on small screens */
       box-sizing: border-box;
+      margin-top: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
     }
-    .donate-label {
+
+    .donate-box-rect .donate-label {
       color: #BF6C46;
       font-weight: bold;
       font-size: 1.1em;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
       display: block;
     }
-    .donate-input {
-      padding: 8px;
-      font-size: 16px;
-      width: 90px;
-      border: none;
-      border-radius: 4px;
-      margin-right: 5px;
-      margin-bottom: 10px;
+
+    .donate-inner-circle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #FFF7E1;
+      border-radius: 50px;
+      width: 100%;
+      height: 38px; /* Shorter height for the circle */
+      margin-bottom: 12px;
+      box-sizing: border-box;
+      padding: 0 10px;
     }
-    .donate-currency {
-      padding: 8px;
-      font-size: 16px;
-      border-radius: 4px;
-      border: none;
-      margin-bottom: 10px;
-    }
-    .donate-btn {
-      background-color: #444;
-      color: #fff;
-      padding: 10px 18px;
-      border-radius: 4px;
-      border: none;
+
+    .currency-symbol {
+      font-size: 1.2em;
+      color: #77ABBB;
+      margin-right: 8px;
       font-weight: bold;
-      cursor: pointer;
-      margin-top: 5px;
+      min-width: 1.5em;
+      text-align: center;
     }
+
+    .donate-input {
+      padding: 6px 8px;
+      font-size: 1em;
+      border: none;
+      border-radius: 30px;
+      outline: none;
+      width: 100%;
+      background: transparent;
+      color: #003366;
+    }
+
+    /* Hide the old donate-currency select in the box */
+    .donate-box-rect select,
+    .donate-box select,
+    .donate-currency {
+      display: none !important;
+    }
+
     /* Responsive for small screens */
     @media (max-width: 700px) {
-      .hero-section {
-        height: auto;
-        min-height: 300px;
+      /* Make header stack and fit on small screens */
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px 8px;
       }
-      .hero-overlay {
-        position: static;
-        transform: none;
-        margin: 20px auto;
-        max-width: 95%;
+      .header-left, .header-right {
+        flex-direction: row;
+        width: 100%;
+        justify-content: flex-start;
+      }
+      .header-left nav {
+        position: absolute;
+        top: 60px;
+        left: 10px;
+        background: #77ABBB;
+        flex-direction: column;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        padding: 10px 0;
+        z-index: 10;
+        width: 90vw;
+      }
+      .header-left nav a, .header-left nav .nav-divider {
+        margin: 8px 16px;
+        display: block;
+      }
+      .logo-section.logo-above-hero {
+        margin-left: 4vw;
+        margin-top: 10px;
+        margin-bottom: 0;
+      }
+      .logo-img-above {
+        height: 1.2em;
+      }
+      .hero-section {
+        min-height: 320px;
+        height: auto;
+        flex-direction: column;
+      }
+      .hero-image-container {
+        width: 98%;
+        height: 160px;
+        margin: 1% 0 0 1%;
+        border-radius: 14px;
+        position: relative;
       }
       .hero-bg-img {
-        height: 250px;
+        border-radius: 14px;
       }
+      .hero-dark-overlay {
+        position: static !important;
+        width: 96vw !important;
+        height: auto !important;
+        margin: 18px auto 0 auto !important;
+        border-radius: 18px !important;
+        padding: 24px 10px 18px 10px !important;
+        box-sizing: border-box;
+        animation: none !important;
+        transform: none !important;
+      }
+      .hero-dark-overlay .hero-title {
+        font-size: 1.3em;
+        margin-bottom: 12px;
+      }
+      .hero-dark-overlay .hero-desc {
+        font-size: 1em;
+        margin-bottom: 18px;
+      }
+      .donate-box-rect {
+        width: 94vw;
+        max-width: 98vw;
+        padding: 8px 10px;
+      }
+      .donate-inner-circle {
+        height: 32px;
+        padding: 0 6px;
+      }
+    }
+
+    /* Hamburger menu styles */
+    .hamburger {
+      display: none; /* Hidden on large screens */
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 36px;
+      height: 36px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      margin-right: 10px;
+    }
+    .hamburger .bar {
+      width: 24px;
+      height: 3px;
+      background-color: #FFF7E1;
+      margin: 3px 0;
+      border-radius: 2px;
+      display: block;
+    }
+
+    /* Show hamburger and hide nav on small screens */
+    @media (max-width: 700px) {
+      .hamburger {
+        display: flex;
+      }
+      .header-left nav {
+        display: none;
+        position: absolute;
+        top: 60px;
+        left: 10px;
+        background: #77ABBB;
+        flex-direction: column;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        padding: 10px 0;
+        z-index: 10;
+      }
+      .header-left nav.show {
+        display: flex;
+      }
+      .header-left nav a, .header-left nav .nav-divider {
+        margin: 8px 16px;
+        display: block;
+      }
+      .header-left {
+        position: relative;
+      }
+    }
+
+    /* Container for the hero image to control its size and cropping */
+    .hero-image-container {
+      position: absolute;
+      top: 0;           /* Start at the very top to make the top border larger */
+      left: 2%;
+      width: 96%;       /* Keep the left and right borders the same */
+      height: 98%;      /* Make the image container taller to show more of the top */
+      overflow: hidden;
+      border-radius: 30px;
+      z-index: 1;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+      background: transparent;
+    }
+
+    /* The hero image itself, centered to show the girl's face and cup */
+    .hero-bg-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 50% 32%; /* Adjust to show more of the top part */
+      display: block;
+      border-radius: 30px;
+    }
+
+    /* Make sure .hero-blue-shape stays behind everything */
+    .hero-blue-shape {
+      z-index: 0;
+    }
+
+    /* Make sure .hero-dark-overlay is above the image */
+    .hero-dark-overlay {
+      z-index: 2;
+    }
+
+    /* Capitalize all header text and make sizes consistent */
+    .header-left nav a,
+    .header-right .donate-btn,
+    .header-right .sign-in {
+      text-transform: uppercase;
+      font-size: 16px;
+      letter-spacing: 1px;
+    }
+
+    /* Make the logo above the hero image smaller and left-aligned */
+    .logo-section.logo-above-hero {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start; /* Align to the left */
+      margin-left: 3.5%;
+      margin-top: 14px;
+      margin-bottom: 0;
+      position: relative;
+      z-index: 3;
+    }
+
+    /* Smaller logo image */
+    .logo-img-above {
+      height: 1.6em; /* Makes the logo smaller */
+      width: auto;
+      vertical-align: middle;
     }
   </style>
 </head>
@@ -233,13 +500,21 @@
   <!-- Header with navigation on the left and controls on the right -->
   <header>
     <div class="header-left">
+      <!-- Hamburger menu for small screens -->
+      <button class="hamburger" id="hamburger-btn" aria-label="Open navigation menu">
+        <!-- Simple hamburger icon using three bars -->
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
       <!-- Navigation links on the left with lines between them -->
-      <nav>
-        <a href="#">Who Are We</a>
+      <nav id="main-nav">
+        <a href="index.html">WHO ARE WE</a>
         <span class="nav-divider"></span>
-        <a href="#">Take Action</a>
+        <!-- "Take Action" now links to the landing page (index.html) -->
+        <a href="index.html">TAKE ACTION</a>
         <span class="nav-divider"></span>
-        <a href="#">Why Water</a>
+        <a href="why-water.html">WHY WATER</a>
       </nav>
     </div>
     <div class="header-right">
@@ -259,54 +534,86 @@
         </svg>
       </div>
       <!-- Donate button -->
-      <button class="donate-btn">Donate</button>
+      <button class="donate-btn">DONATE</button>
       <!-- Divider line -->
       <span class="header-divider"></span>
       <!-- Sign in link in light color -->
-      <a href="#" class="sign-in">Sign In</a>
+      <a href="sign-in.html" class="sign-in">SIGN IN</a>
     </div>
   </header>
 
-  <!-- Logo and company name under the header -->
-  <div class="logo-section">
-    <!-- Logo image: make sure the file exists in the same folder as this HTML file -->
-\    <img src="cw_logo.png" alt="Yellow water can logo representing charity water" class="logo-img">
-    <span class="logo-text">charity: water</span>
+  <!-- Logo above the hero image, left-aligned and smaller -->
+  <div class="logo-section logo-above-hero" style="justify-content: flex-start; margin-left: 3.5%; margin-top: 14px;">
+    <img src="img/cw_logo-2.png" alt="charity: water logo" class="logo-img-above">
   </div>
 
   <!-- Hero section with large background image and overlay box -->
   <section class="hero-section">
-    <!-- Large background image -->
-    <img src="Copy of Charity Water Landing Page Template-3.jpg" alt="Child with clean water" class="hero-bg-img">
-    <!-- Overlay box on the right -->
-    <div class="hero-overlay">
-      <!-- Big bold heading -->
+    <div class="hero-blue-shape"></div>
+    <div class="hero-image-container">
+      <img src="img/Madagascar_2019_CG-2679.jpg"
+        alt="Child with clean water" class="hero-bg-img">
+    </div>
+    <!-- Curvy dark overlay box that covers most of the page under the header and holds all the writing -->
+    <div class="hero-dark-overlay" style="justify-content: flex-start; padding-top: 70px;">
       <h1 class="hero-title">Not All Heroes Wear Capes. Some Donate Clean Water</h1>
-      <!-- Smaller description -->
       <p class="hero-desc">
         You are a part of the most connected generation in history. Let's connect our voices and actions to bring lasting clean water to every community in need.
       </p>
-      <!-- Big yellow donate box -->
-      <div class="donate-box">
-        <span class="donate-label">HELP FAMILIES IN CRISIS</span><br>
-        <!-- Donation input and currency select -->
-        <input type="number" class="donate-input" placeholder="$">
-        <select class="donate-currency">
-          <option value="usd">$ USD</option>
-          <option value="eur">€ EUR</option>
-          <option value="gbp">£ GBP</option>
-        </select>
-        <button class="donate-btn">Donate</button>
+      <div class="donate-box-rect">
+        <span class="donate-label">Donate $25 To Fund Clean Water</span>
+        <div class="donate-inner-circle">
+          <span class="currency-symbol" id="currency-symbol">$</span>
+          <input type="number" class="donate-input" placeholder="Amount">
+        </div>
       </div>
     </div>
   </section>
 
-  <footer>
-    <p>&copy; 2025 charity: water. All Rights Reserved.</p>
-    <!-- Added required legal and address information -->
-    <p style="font-size:12px; color:#e0e0e0; margin-top:10px;">
-      &copy; 2025 | charity: water Donation Processing Center, 230 Franklin Rd., Ste. 11-II, Franklin, TN 37064 | c/o TC Citroen Wells Limited, 5th Floor, 3 Dorset Rise, London EC4Y 8EN | Charity Global, Inc., a US 501 (c)(3) public charity, EIN 22-3936753 and an ANBI in the Netherlands, RSIN 826151656. Charity Global UK Limited is a dual-qualified charity registered in England and Wales, charity number 1169228. Charity Global UK Limited is wholly owned by Charity Global, Inc.
-    </p>
+  <!-- Footer at the very end of the page, only visible when you scroll down -->
+  <footer style="width:100%; position: relative; margin-top: 60px;">
+    <!-- Black box with 50% transparency and white text inside -->
+    <div style="width:100%; background:rgba(26,26,26,0.5); border-radius: 8px; margin:0 auto 0 auto; padding: 18px 10px;">
+      <p style="font-size:12px; color:#fff; margin:0; text-align:center;">
+        &copy; 2025 | charity: water Donation Processing Center, 230 Franklin Rd., Ste. 11-II, Franklin, TN 37064 | c/o TC Citroen Wells Limited, 5th Floor, 3 Dorset Rise, London EC4Y 8EN | Charity Global, Inc., a US 501 (c)(3) public charity, EIN 22-3936753 and an ANBI in the Netherlands, RSIN 826151656. Charity Global UK Limited is a dual-qualified charity registered in England and Wales, charity number 1169228. Charity Global UK Limited is wholly owned by Charity Global, Inc.
+      </p>
+    </div>
   </footer>
+
+  <script>
+    // Simple hamburger menu toggle for beginners
+    document.addEventListener('DOMContentLoaded', function() {
+      var hamburger = document.getElementById('hamburger-btn');
+      var nav = document.getElementById('main-nav');
+      if (hamburger && nav) {
+        hamburger.addEventListener('click', function() {
+          nav.classList.toggle('show');
+        });
+      }
+
+      // Currency symbol change logic
+      var currencySelect = document.querySelector('.currency-select');
+      var currencySymbol = document.getElementById('currency-symbol');
+      if (currencySelect && currencySymbol) {
+        function updateSymbol() {
+          switch (currencySelect.value) {
+            case 'usd':
+              currencySymbol.textContent = '$';
+              break;
+            case 'eur':
+              currencySymbol.textContent = '€';
+              break;
+            case 'gbp':
+              currencySymbol.textContent = '£';
+              break;
+            default:
+              currencySymbol.textContent = '$';
+          }
+        }
+        currencySelect.addEventListener('change', updateSymbol);
+        updateSymbol();
+      }
+    });
+  </script>
 </body>
 </html>

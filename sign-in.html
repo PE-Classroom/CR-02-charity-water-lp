@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sign In | charity: water</title>
+  <style>
+    body {
+      background-color: #FFF7E1;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    /* Simple header for the sign in page */
+    .sign-in-header {
+      background-color: #77ABBB;
+      padding: 18px 0;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .sign-in-logo-img {
+      height: 2em;
+      width: auto;
+      vertical-align: middle;
+    }
+    /* Center the sign in form */
+    .sign-in-container {
+      background: #fff;
+      max-width: 350px;
+      margin: 40px auto;
+      padding: 24px 18px 18px 18px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    }
+    .sign-in-container h2 {
+      color: #77ABBB;
+      text-align: center;
+      margin-top: 0;
+      margin-bottom: 18px;
+      font-size: 1.2em;
+    }
+    .sign-in-form label {
+      display: block;
+      margin-bottom: 6px;
+      color: #003366;
+      font-size: 1em;
+    }
+    .sign-in-form input {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 14px;
+      border: 1px solid #77ABBB;
+      border-radius: 5px;
+      font-size: 1em;
+      box-sizing: border-box;
+    }
+    .sign-in-form button {
+      width: 100%;
+      background-color: #FFC907;
+      color: #BF6C46;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 0;
+      font-size: 1em;
+      font-weight: bold;
+      cursor: pointer;
+      margin-bottom: 10px;
+    }
+    .already-account {
+      text-align: center;
+      margin-top: 10px;
+      font-size: 0.98em;
+    }
+    .already-account a {
+      color: #77ABBB;
+      text-decoration: underline;
+    }
+    /* Simple login form for existing users */
+    .login-form {
+      margin-top: 18px;
+      border-top: 1px solid #eee;
+      padding-top: 18px;
+    }
+    .login-form label {
+      color: #003366;
+    }
+    .login-form input {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 12px;
+      border: 1px solid #77ABBB;
+      border-radius: 5px;
+      font-size: 1em;
+      box-sizing: border-box;
+    }
+    .login-form button {
+      width: 100%;
+      background-color: #77ABBB;
+      color: #FFF7E1;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 0;
+      font-size: 1em;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <!-- Simple header with logo image instead of text -->
+  <div class="sign-in-header">
+    <!-- Logo image for the sign in page -->
+    <img src="img/cw_logo-2.png" alt="charity: water logo" class="sign-in-logo-img">
+  </div>
+
+  <!-- Sign in / Create account form -->
+  <div class="sign-in-container">
+    <h2>Create an Account</h2>
+    <form class="sign-in-form">
+      <!-- First name input -->
+      <label for="first-name">First Name</label>
+      <input type="text" id="first-name" name="first-name" required>
+
+      <!-- Last name input -->
+      <label for="last-name">Last Name</label>
+      <input type="text" id="last-name" name="last-name" required>
+
+      <!-- Email address input -->
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email" required>
+
+      <!-- Phone number input -->
+      <label for="phone">Phone #</label>
+      <input type="tel" id="phone" name="phone">
+
+      <!-- Create account button -->
+      <button type="submit">Create Account</button>
+    </form>
+
+    <div class="already-account">
+      Already have an account?
+      <a href="#login" onclick="document.getElementById('login-form').style.display='block';window.scrollTo(0,document.body.scrollHeight);return false;">Log in</a>
+    </div>
+
+    <!-- Simple login form, hidden by default -->
+    <form class="login-form" id="login-form" style="display:none;">
+      <label for="login-email">Email Address</label>
+      <input type="email" id="login-email" name="login-email" required>
+
+      <label for="login-password">Password</label>
+      <input type="password" id="login-password" name="login-password" required>
+
+      <button type="submit">Log In</button>
+    </form>
+  </div>
+</body>
+</html>
