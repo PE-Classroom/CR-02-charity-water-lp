@@ -1,47 +1,312 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Charity Water Landing Page</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Charity: Water</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Proxima Nova, Avenir;
+      background-color: #FFF7E1;
+    }
+    /* Header styles */
+    header {
+      background-color: #77ABBB;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      color: #FFF7E1;
+    }
+    /* Left side navigation */
+    .header-left {
+      display: flex;
+      align-items: center;
+    }
+    .header-left nav {
+      display: flex;
+      align-items: center;
+    }
+    .header-left nav a {
+      margin-right: 10px;
+      text-decoration: none;
+      color: #FFF7E1;
+      font-weight: bold;
+      padding: 0 5px;
+    }
+    /* Vertical line between nav links */
+    .nav-divider {
+      border-left: 1px solid #FFF7E1;
+      height: 20px;
+      margin: 0 8px;
+    }
+    /* Right side controls */
+    .header-right {
+      display: flex;
+      align-items: center;
+    }
+    .currency-select {
+      padding: 6px 8px;
+      border-radius: 4px;
+      border: none;
+      margin-right: 10px;
+      font-size: 14px;
+    }
+    /* Circular search bar */
+    .search-bar-container {
+      position: relative;
+      margin-right: 10px;
+    }
+    .search-bar {
+      padding: 7px 10px 7px 30px;
+      border-radius: 50px;
+      border: none;
+      font-size: 14px;
+      width: 110px;
+    }
+    .search-icon {
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 14px;
+      height: 14px;
+      pointer-events: none;
+      opacity: 0.7;
+    }
+    .donate-btn {
+      background-color: #FFC907;
+      color: #BF6C46;
+      padding: 8px 16px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      border: none;
+      margin-right: 10px;
+      cursor: pointer;
+    }
+    /* Divider line in header right */
+    .header-divider {
+      border-left: 1px solid #e0e0e0;
+      height: 22px;
+      margin: 0 10px;
+    }
+    /* Sign in link */
+    .sign-in {
+      color: #e0e0e0;
+      font-size: 14px;
+      text-decoration: none;
+      margin-left: 5px;
+    }
+    /* Logo section under header */
+    .logo-section {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 20px 0 10px 0;
+    }
+    .logo-img {
+      height: 1em; /* Makes the image the same height as the text */
+      width: auto;
+      margin-right: 10px;
+      vertical-align: middle;
+    }
+    .logo-text {
+      font-size: 28px;
+      font-weight: bold;
+      color: #77ABBB;
+    }
+    /* Hero section styles */
+    .hero-section {
+      position: relative;
+      width: 100%;
+      height: 70vh; /* Covers most of the page */
+      min-height: 400px;
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+      overflow: hidden;
+      margin-bottom: 30px;
+    }
+    /* Large background image */
+    .hero-bg-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
+    /* Overlay box on the right */
+    .hero-overlay {
+      position: absolute;
+      top: 50%;
+      right: 5%;
+      transform: translateY(-50%);
+      background: rgba(0,0,0,0.5); /* Black with 50% transparency */
+      padding: 30px 25px;
+      border-radius: 10px;
+      max-width: 400px;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    /* Big bold heading */
+    .hero-title {
+      color: #FFF7E1;
+      font-size: 2em;
+      font-weight: bold;
+      margin: 0 0 15px 0;
+    }
+    /* Smaller description */
+    .hero-desc {
+      color: #FFF7E1;
+      font-size: 1em;
+      margin-bottom: 20px;
+    }
+    /* Big yellow donate box */
+    .donate-box {
+      background-color: #FFC907;
+      padding: 18px 15px;
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .donate-label {
+      color: #BF6C46;
+      font-weight: bold;
+      font-size: 1.1em;
+      margin-bottom: 8px;
+      display: block;
+    }
+    .donate-input {
+      padding: 8px;
+      font-size: 16px;
+      width: 90px;
+      border: none;
+      border-radius: 4px;
+      margin-right: 5px;
+      margin-bottom: 10px;
+    }
+    .donate-currency {
+      padding: 8px;
+      font-size: 16px;
+      border-radius: 4px;
+      border: none;
+      margin-bottom: 10px;
+    }
+    .donate-btn {
+      background-color: #444;
+      color: #fff;
+      padding: 10px 18px;
+      border-radius: 4px;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 5px;
+    }
+    /* Responsive for small screens */
+    @media (max-width: 700px) {
+      .hero-section {
+        height: auto;
+        min-height: 300px;
+      }
+      .hero-overlay {
+        position: static;
+        transform: none;
+        margin: 20px auto;
+        max-width: 95%;
+      }
+      .hero-bg-img {
+        height: 250px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <!-- Hero Section: This is the main banner at the top of the page -->
-    <section class="hero">
-        <!-- Main headline -->
-        <h1>Clean Water for Everyone</h1>
-        <!-- Subheadline -->
-        <p>Join us in bringing safe, clean water to communities in need.</p>
-    </section>
+  <!-- Header with navigation on the left and controls on the right -->
+  <header>
+    <div class="header-left">
+      <!-- Navigation links on the left with lines between them -->
+      <nav>
+        <a href="#">Who Are We</a>
+        <span class="nav-divider"></span>
+        <a href="#">Take Action</a>
+        <span class="nav-divider"></span>
+        <a href="#">Why Water</a>
+      </nav>
+    </div>
+    <div class="header-right">
+      <!-- Currency picker first -->
+      <select class="currency-select">
+        <option value="usd">$ USD</option>
+        <option value="eur">€ EUR</option>
+        <option value="gbp">£ GBP</option>
+      </select>
+      <!-- Circular search bar with icon -->
+      <div class="search-bar-container">
+        <input type="text" class="search-bar" placeholder="Search">
+        <!-- Simple magnifying glass icon using SVG -->
+        <svg class="search-icon" viewBox="0 0 20 20">
+          <circle cx="9" cy="9" r="7" stroke="#888" stroke-width="2" fill="none"/>
+          <line x1="14" y1="14" x2="19" y2="19" stroke="#888" stroke-width="2"/>
+        </svg>
+      </div>
+      <!-- Donate button -->
+      <button class="donate-btn">Donate</button>
+      <!-- Divider line -->
+      <span class="header-divider"></span>
+      <!-- Sign in link in light color -->
+      <a href="#" class="sign-in">Sign In</a>
+    </div>
+  </header>
 
-    <!-- Story Section: This tells the story of the nonprofit -->
-    <section class="story">
-        <h2>Our Story</h2>
-        <p>
-         
-    </section>
+  <!-- Logo and company name under the header -->
+  <div class="logo-section">
+    <!-- Logo image: make sure the file exists in the same folder as this HTML file -->
+\    <img src="cw_logo.png" alt="Yellow water can logo representing charity water" class="logo-img">
+    <span class="logo-text">charity: water</span>
+  </div>
 
-    <!-- Real-World Impact Story Section -->
-    <section class="impact-story">
-        <!-- Section headline -->
-        <h2>Real Impact: Meet Amina</h2>
-        <!-- Container for image and text -->
-        <div class="impact-content">
-            <!-- Impact image -->
-            <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80" alt="Amina smiling with clean water" class="impact-image">
-            <!-- Impact story text -->
-            <p>
-                Amina used to walk miles every day to collect water for her family. Thanks to your support, her village now has a clean water well. Amina can go to school and her family is healthier and happier.
-            </p>
-        </div>
-    </section>
+  <!-- Hero section with large background image and overlay box -->
+  <section class="hero-section">
+    <!-- Large background image -->
+    <img src="Copy of Charity Water Landing Page Template-3.jpg" alt="Child with clean water" class="hero-bg-img">
+    <!-- Overlay box on the right -->
+    <div class="hero-overlay">
+      <!-- Big bold heading -->
+      <h1 class="hero-title">Not All Heroes Wear Capes. Some Donate Clean Water</h1>
+      <!-- Smaller description -->
+      <p class="hero-desc">
+        You are a part of the most connected generation in history. Let's connect our voices and actions to bring lasting clean water to every community in need.
+      </p>
+      <!-- Big yellow donate box -->
+      <div class="donate-box">
+        <span class="donate-label">HELP FAMILIES IN CRISIS</span><br>
+        <!-- Donation input and currency select -->
+        <input type="number" class="donate-input" placeholder="$">
+        <select class="donate-currency">
+          <option value="usd">$ USD</option>
+          <option value="eur">€ EUR</option>
+          <option value="gbp">£ GBP</option>
+        </select>
+        <button class="donate-btn">Donate</button>
+      </div>
+    </div>
+  </section>
 
-    <!-- Call-to-Action Section: This encourages visitors to take action -->
-    <section class="call-to-action">
-        <h2>Make a Difference</h2>
-        <p>Your support can help save lives. Every donation brings us closer to a world with clean water for all.</p>
-        <a href="#" class="donate-button">Donate Now</a>
-    </section>
+  <footer>
+    <p>&copy; 2025 charity: water. All Rights Reserved.</p>
+    <!-- Added required legal and address information -->
+    <p style="font-size:12px; color:#e0e0e0; margin-top:10px;">
+      &copy; 2025 | charity: water Donation Processing Center, 230 Franklin Rd., Ste. 11-II, Franklin, TN 37064 | c/o TC Citroen Wells Limited, 5th Floor, 3 Dorset Rise, London EC4Y 8EN | Charity Global, Inc., a US 501 (c)(3) public charity, EIN 22-3936753 and an ANBI in the Netherlands, RSIN 826151656. Charity Global UK Limited is a dual-qualified charity registered in England and Wales, charity number 1169228. Charity Global UK Limited is wholly owned by Charity Global, Inc.
+    </p>
+  </footer>
 </body>
 </html>
