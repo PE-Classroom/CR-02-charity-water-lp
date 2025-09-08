@@ -3,45 +3,126 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Charity Water Landing Page</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Charity Water</title>
+    <!-- We're using Tailwind CSS for a beginner-friendly approach to styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Updated font to Quicksand for a hopeful and inspirational tone -->
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Proxima-Nova', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .bg-image {
+            background-image: url('img/4832_Ethiopia_2019_CG-.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        /* Custom styles to create the overlay and text placement */
+        .overlay {
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .content-container {
+            max-width: 1200px;
+        }
+
+        /* --- Media Queries for Responsive Design --- */
+        /* This is where we write custom CSS for specific screen sizes.
+           We're using a mobile-first approach, meaning the base styles are for mobile,
+           and media queries are for larger screens. */
+
+        /* For screens wider than 768px (medium-sized screens like tablets and up) */
+        @media (min-width: 768px) {
+            .hero-title {
+                font-size: 3.75rem; /* 60px */
+            }
+
+            .hero-subtitle {
+                font-size: 1.125rem; /* 18px */
+            }
+
+            .donate-title {
+                font-size: 3rem; /* 48px */
+            }
+        }
+
+        /* For screens wider than 1024px (large screens like desktops) */
+        @media (min-width: 1024px) {
+            .hero-title {
+                font-size: 4.5rem; /* 72px */
+            }
+        }
+    </style>
 </head>
-<body>
-    <!-- Hero Section: This is the main banner at the top of the page -->
-    <section class="hero">
-        <!-- Main headline -->
-        <h1>Clean Water for Everyone</h1>
-        <!-- Subheadline -->
-        <p>Join us in bringing safe, clean water to communities in need.</p>
-    </section>
+<body class="bg-[#2E9DF7]">
+    <div class="bg-image min-h-screen relative flex items-center justify-center">
+        <!-- Overlay to make the text pop -->
+        <div class="absolute inset-0 overlay"></div>
 
-    <!-- Story Section: This tells the story of the nonprofit -->
-    <section class="story">
-        <h2>Our Story</h2>
-        <p>
-         
-    </section>
+        <!-- Main content container -->
+        <div class="relative z-10 p-8 md:p-16 flex flex-col justify-center w-full content-container">
+            <!-- Header/Logo -->
+            <header class="absolute top-8 left-8 md:left-16 text-white text-2xl font-bold flex items-center space-x-2">
+                <img src="img/cw_logo.png" alt="Your Company Logo" class="h-8 w-auto">
+                <span>charity: water</span>
+            </header>
+            
+            <!-- Hero content -->
+            <div class="max-w-3xl text-white">
+                <h1 class="text-3xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-4">
+                    Changing Lives with Clean Water — and Proving Every Drop
+                </h1>
+                <p class="text-base md:text-lg mb-8 md:mb-12">
+                    More than donations — gain transparency, direct impact where it matters, and grow as a leader for lasting change
+                </p>
+                <button class="bg-[#FFC907] text-[#2C2C2C] font-bold py-3 px-6 md:py-4 md:px-8 rounded-full shadow-lg hover:bg-[#68E26C] transition-colors duration-300">
+                    JOIN AND LEARN THE CAUSE
+                </button>
+            </div>
+        </div>
+    </div>
 
-    <!-- Real-World Impact Story Section -->
-    <section class="impact-story">
-        <!-- Section headline -->
-        <h2>Real Impact: Meet Amina</h2>
-        <!-- Container for image and text -->
-        <div class="impact-content">
-            <!-- Impact image -->
-            <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80" alt="Amina smiling with clean water" class="impact-image">
-            <!-- Impact story text -->
-            <p>
-                Amina used to walk miles every day to collect water for her family. Thanks to your support, her village now has a clean water well. Amina can go to school and her family is healthier and happier.
-            </p>
+    <!-- --- -->
+    <!-- Impact Story Section -->
+    <section class="py-16 bg-white">
+        <div class="content-container mx-auto px-4 md:px-16 lg:flex lg:items-center lg:space-x-12">
+            <div class="lg:w-1/2 mb-8 lg:mb-0">
+                <img src="img/Madagascar_2019_CG-2679.jpg" alt="A child smiling next to a water pump" class="rounded-lg shadow-lg w-full">
+            </div>
+            <div class="lg:w-1/2">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">
+                    The Power of a Single Well
+                </h2>
+                <p class="text-gray-600 leading-relaxed mb-4">
+                    In a small village in Ethiopia, the daily struggle for water meant a long, dangerous journey for women and children. That was until our team, with your help, installed a new well. Now, clean, safe water is just a few steps away, transforming health, education, and economic stability.
+                </p>
+                <p class="text-gray-600 leading-relaxed">
+                    This single project has changed the lives of hundreds, proving that clean water is not just a resource—it's a catalyst for a brighter future.
+                </p>
+            </div>
         </div>
     </section>
 
-    <!-- Call-to-Action Section: This encourages visitors to take action -->
-    <section class="call-to-action">
-        <h2>Make a Difference</h2>
-        <p>Your support can help save lives. Every donation brings us closer to a world with clean water for all.</p>
-        <a href="#" class="donate-button">Donate Now</a>
+    <!-- --- -->
+    <!-- Donation Call to Action Section -->
+    <section class="py-16 bg-[#8BD1CB]">
+        <div class="content-container mx-auto px-4 text-center">
+            <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-6">
+                Ready to make a difference?
+            </h2>
+            <p class="text-lg text-white mb-8 max-w-2xl mx-auto">
+                Your donation can bring clean water to those who need it most. Join the movement and help us build a world where everyone has access to a basic necessity.
+            </p>
+            <button class="bg-[#FFC907] text-[#2C2C2C] font-extrabold text-lg py-4 px-12 rounded-full shadow-xl hover:bg-[#FFD942] transition-colors duration-300">
+                DONATE NOW
+            </button>
+        </div>
     </section>
+
 </body>
 </html>
