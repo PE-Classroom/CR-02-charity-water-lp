@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Why Water | charity: water</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Proxima Nova, Avenir;
+      background-color: #FFF7E1;
+    }
+    /* Header styles */
+    header {
+      background-color: #77ABBB;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      color: #FFF7E1;
+    }
+    .header-left {
+      display: flex;
+      align-items: center;
+    }
+    .header-left nav {
+      display: flex;
+      align-items: center;
+    }
+    .header-left nav a {
+      margin-right: 10px;
+      text-decoration: none;
+      color: #FFF7E1;
+      font-weight: bold;
+      padding: 0 5px;
+    }
+    .nav-divider {
+      border-left: 1px solid #FFF7E1;
+      height: 20px;
+      margin: 0 8px;
+    }
+    .header-right {
+      display: flex;
+      align-items: center;
+    }
+    .currency-select {
+      padding: 6px 8px;
+      border-radius: 4px;
+      border: none;
+      margin-right: 10px;
+      font-size: 14px;
+    }
+    .search-bar-container {
+      position: relative;
+      margin-right: 10px;
+    }
+    .search-bar {
+      padding: 7px 10px 7px 30px;
+      border-radius: 50px;
+      border: none;
+      font-size: 14px;
+      width: 110px;
+    }
+    .search-icon {
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 14px;
+      height: 14px;
+      pointer-events: none;
+      opacity: 0.7;
+    }
+    .donate-btn {
+      background-color: #FFC907;
+      color: #BF6C46;
+      padding: 8px 16px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      border: none;
+      margin-right: 10px;
+      cursor: pointer;
+    }
+    .header-divider {
+      border-left: 1px solid #e0e0e0;
+      height: 22px;
+      margin: 0 10px;
+    }
+    .sign-in {
+      color: #e0e0e0;
+      font-size: 14px;
+      text-decoration: none;
+      margin-left: 5px;
+    }
+    /* Logo section under header */
+    .logo-section {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 20px 0 10px 0;
+    }
+    .logo-img {
+      height: 1em;
+      width: auto;
+      margin-right: 10px;
+      vertical-align: middle;
+    }
+    .logo-text {
+      font-size: 28px;
+      font-weight: bold;
+      color: #77ABBB;
+    }
+    /* Main content styles */
+    .why-hero-section {
+      position: relative;
+      width: 100%;
+      min-height: 300px;
+      background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80') center center/cover no-repeat;
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-end;
+      margin-bottom: 30px;
+    }
+    .why-hero-overlay {
+      background: rgba(0,0,0,0.5);
+      padding: 30px 25px;
+      border-radius: 10px;
+      max-width: 450px;
+      margin: 40px 5% 40px 0;
+    }
+    .why-hero-title {
+      color: #FFF7E1;
+      font-size: 2em;
+      font-weight: bold;
+      margin: 0 0 15px 0;
+    }
+    .why-hero-desc {
+      color: #FFF7E1;
+      font-size: 1em;
+      margin-bottom: 0;
+    }
+    /* Info section styles */
+    .info-section {
+      max-width: 900px;
+      margin: 30px auto 30px auto;
+      background: #fff;
+      border-radius: 10px;
+      padding: 25px 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    .info-section h2 {
+      color: #77ABBB;
+      font-size: 1.3em;
+      margin-top: 20px;
+      margin-bottom: 8px;
+    }
+    .info-section p {
+      color: #444;
+      font-size: 1em;
+      margin: 8px 0 16px 0;
+    }
+    .info-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 20px;
+    }
+    .info-card {
+      background: #FFF7E1;
+      border-radius: 8px;
+      padding: 18px 14px;
+      flex: 1 1 200px;
+      min-width: 200px;
+      max-width: 300px;
+      box-sizing: border-box;
+    }
+    .info-card h3 {
+      color: #BF6C46;
+      margin-top: 0;
+      margin-bottom: 8px;
+      font-size: 1.1em;
+    }
+    .info-card p {
+      color: #444;
+      font-size: 0.98em;
+      margin: 0;
+    }
+    /* Responsive for small screens */
+    @media (max-width: 700px) {
+      .why-hero-section {
+        min-height: 180px;
+      }
+      .why-hero-overlay {
+        margin: 20px 2% 20px 2%;
+        max-width: 98%;
+        padding: 18px 10px;
+      }
+      .info-section {
+        padding: 10px 3px;
+      }
+      .info-list {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header with navigation and controls -->
+  <header>
+    <div class="header-left">
+      <nav>
+        <a href="index.html">Who Are We</a>
+        <span class="nav-divider"></span>
+        <a href="#">Take Action</a>
+        <span class="nav-divider"></span>
+        <a href="why-water.html">Why Water</a>
+      </nav>
+    </div>
+    <div class="header-right">
+      <select class="currency-select">
+        <option value="usd">$ USD</option>
+        <option value="eur">€ EUR</option>
+        <option value="gbp">£ GBP</option>
+      </select>
+      <div class="search-bar-container">
+        <input type="text" class="search-bar" placeholder="Search">
+        <svg class="search-icon" viewBox="0 0 20 20">
+          <circle cx="9" cy="9" r="7" stroke="#888" stroke-width="2" fill="none"/>
+          <line x1="14" y1="14" x2="19" y2="19" stroke="#888" stroke-width="2"/>
+        </svg>
+      </div>
+      <button class="donate-btn">Donate</button>
+      <span class="header-divider"></span>
+      <a href="#" class="sign-in">Sign In</a>
+    </div>
+  </header>
+
+  <!-- Logo and company name under the header -->
+  <div class="logo-section">
+    <!-- Logo image: make sure the file exists in the same folder as this HTML file -->
+    <img src="cw_logo.png" alt="Yellow water can logo representing charity water" class="logo-img">
+    <span class="logo-text">charity: water</span>
+  </div>
+
+  <!-- Hero section for Why Water page -->
+  <section class="why-hero-section">
+    <div class="why-hero-overlay">
+      <h1 class="why-hero-title">Why Water?</h1>
+      <p class="why-hero-desc">
+        703 million people in the world live without clean water. That’s more than twice the population of the United States. The majority live in isolated rural areas and spend hours every day walking to collect water for their family. Not only does walking for water keep kids out of school or take up time that parents could be using to earn money, but the water often carries diseases that can make everyone sick.
+        <br><br>
+        But when a community gets access to clean water, it can change just about everything. It can improve health, increase access to food, grow local economies, and help kids spend more time in school.
+      </p>
+    </div>
+  </section>
+
+  <!-- Info section with cards -->
+  <section class="info-section">
+    <div class="info-list">
+      <!-- Health Card -->
+      <div class="info-card">
+        <h3>Health</h3>
+        <p>Diseases from dirty water kill more people every year than all forms of violence, including war. 43% of those deaths are children under five years old. Access to clean water and basic sanitation can save around 16,000 lives every week.</p>
+      </div>
+      <!-- Time Card -->
+      <div class="info-card">
+        <h3>Time</h3>
+        <p>Women in Sub-Saharan Africa spend an estimated combined total of 16 million hours per day collecting water. Access to clean water gives communities more time to grow food, earn an income, and go to school -- all of which fight poverty.</p>
+      </div>
+      <!-- Education Card -->
+      <div class="info-card">
+        <h3>Education</h3>
+        <p>Clean water helps keep kids in school, especially girls. Less time collecting water means more time in class. Clean water and proper toilets at school means teenage girls don’t have to stay home for a week out of every month.</p>
+      </div>
+      <!-- Women’s Empowerment Card -->
+      <div class="info-card">
+        <h3>Women’s Empowerment</h3>
+        <p>Women are responsible for 72% of the water collected in Sub-Saharan Africa. When a community gets water, women and girls get their lives back. They start businesses, improve their homes, and take charge of their own futures.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p style="font-size:12px; color:#e0e0e0; margin-top:10px;">
+      &copy; 2025 | charity: water Donation Processing Center, 230 Franklin Rd., Ste. 11-II, Franklin, TN 37064 | c/o TC Citroen Wells Limited, 5th Floor, 3 Dorset Rise, London EC4Y 8EN | Charity Global, Inc., a US 501 (c)(3) public charity, EIN 22-3936753 and an ANBI in the Netherlands, RSIN 826151656. Charity Global UK Limited is a dual-qualified charity registered in England and Wales, charity number 1169228. Charity Global UK Limited is wholly owned by Charity Global, Inc.
+    </p>
+  </footer>
+</body>
+</html>

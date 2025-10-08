@@ -1,0 +1,7 @@
+<!-- This will display the image in your HTML page -->
+<img src="img/Copy of Charity Water Landing Page Template-3.jpg" alt="Charity Water Landing Page" width="400">
+<!-- 
+- src: the path to your image file
+- alt: a short description of the image (for accessibility)
+- width: optional, sets the width of the image in pixels
+-->
