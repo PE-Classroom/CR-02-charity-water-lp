@@ -1,47 +1,339 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Charity Water Landing Page</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Charity Water Landing Page</title>
+
+  <!-- Google Fonts as substitutes -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Open+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <!-- Link to your styles.css file for beginners -->
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    /* RESET */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      color: #ffffff;
+      background-color: #003366;
+      overflow-x: hidden;
+    }
+
+    /* HEADER */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #002d72;
+      padding: 1rem 2rem;
+      flex-wrap: wrap;
+    }
+
+    header h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #ffd700;
+    }
+
+    /* HERO SECTION */
+    .hero {
+      background: url('img/Women with water.jpg') no-repeat center center/cover;
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start; /* Moves content to left */
+      text-align: left;
+      position: relative;
+      padding-left: 8%; /* adds space from left edge */
+    }
+
+    .hero-content {
+      position: relative;
+      max-width: 500px;
+      padding: 2rem;
+      z-index: 2;
+    }
+
+    .hero h2 {
+      font-family: 'Poppins', sans-serif; /* Proxima Nova substitute */
+      font-size: 2.8rem;
+      color: #ffd700;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-family: 'Open Sans', sans-serif; /* Canva Sans substitute */
+      font-size: 1.1rem;
+      color: #ffffff;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
+    /* DONATION BOX */
+    .donation-box {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 1rem;
+      border-radius: 8px;
+      max-width: 280px;
+    }
+
+    label {
+      font-weight: 600;
+    }
+
+    input[type="number"] {
+      padding: 0.6rem;
+      border: none;
+      border-radius: 4px;
+      font-size: 1rem;
+      text-align: center;
+      color: #002d72;
+    }
+
+    .donate-btn {
+      background-color: #ffd700;
+      color: #002d72;
+      border: none;
+      border-radius: 4px;
+      padding: 0.75rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .donate-btn:hover {
+      background-color: #ffcc00;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      background-color: #002d72;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: #ffffff;
+    }
+
+    /* Stack images on top of each other on the left side for beginners */
+    .umu-gallery {
+      display: flex; /* Places image column and text side by side */
+      justify-content: flex-start; /* Aligns content to the left */
+      align-items: flex-start; /* Aligns items to the top */
+      gap: 32px; /* Adds space between image column and text */
+      margin-top: 24px;
+      margin-bottom: 24px;
+    }
+
+    .image-column {
+      display: flex;
+      flex-direction: column; /* Stacks images vertically */
+      gap: 24px; /* Adds space between images */
+      align-items: flex-start; /* Aligns images to the left */
+    }
+
+    .image-column img {
+      border-radius: 8px; /* Rounds corners for beginners */
+      max-width: 220px;   /* Decent size for viewing */
+      width: 100%;        /* Makes images responsive */
+      display: block;
+    }
+
+    /* Style for the braid caption */
+    .braid-caption {
+      text-align: center;
+      font-family: 'Poppins', sans-serif; /* Proxima Nova substitute */
+      margin-top: 8px;
+      color: #fff7e1; /* Sets caption color to light yellow */
+      max-width: 350px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Responsive: stack everything vertically on small screens */
+    @media (max-width: 800px) {
+      .umu-gallery {
+        flex-direction: column;
+        align-items: center;
+        gap: 60px;
+      }
+      .braid-caption {
+        max-width: 90vw;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero h2 {
+        font-size: 1.7rem;
+      }
+
+      .hero p {
+        font-size: 0.95rem;
+      }
+
+      .donate-btn {
+        padding: 0.6rem;
+        font-size: 0.95rem;
+      }
+    }
+
+    /* Center the quote, set font size to 18px, use Proxima Nova substitute, and set color */
+    .quote {
+      text-align: center; /* Centers the quote text */
+      font-size: 18px;    /* Sets font size to 18px */
+      font-family: 'Poppins', sans-serif; /* Proxima Nova substitute for beginners */
+      margin-bottom: 1rem; /* Adds space below the quote */
+      color: #ffc907;      /* Sets quote color to gold */
+    }
+
+    /* New styles for the quote box */
+    .quote-box {
+      background-color: #fff7e1; /* Light cream background color */
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin: 0 auto; /* Centers the quote box */
+      max-width: 800px; /* Sets a max width for the quote box */
+    }
+
+    /* New styles for the water drop icon */
+    .water-drop-box {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      width: 24px;
+      height: 24px;
+      background-color: #ffd700;
+      border-radius: 50%;
+      font-size: 1rem;
+      line-height: 1;
+      color: #002d72;
+    }
+  </style>
 </head>
+
 <body>
-    <!-- Hero Section: This is the main banner at the top of the page -->
-    <section class="hero">
-        <!-- Main headline -->
-        <h1>Clean Water for Everyone</h1>
-        <!-- Subheadline -->
-        <p>Join us in bringing safe, clean water to communities in need.</p>
-    </section>
+  <!-- HEADER -->
+  <header>
+    <h1>
+      <!-- The logo image is now smaller using the height attribute -->
+      <img src="img/charitywater_logo_horizontal_WhiteText.png" alt="charity: water logo" height="36">
+      <!-- The height="36" makes the logo smaller for beginners -->
+    </h1>
+    <div class="nav-links">
+      <a href="#">Connect</a>
+      <!-- "Hand" text inside a small rounded yellow box with a water drop next to it -->
+      <a href="#" style="display: flex; align-items: center; gap: 6px;">
+        <!-- Rounded yellow box for "Hand" text and water drop -->
+        <span style="
+          background-color: #ffc907; 
+          color: #002d72; 
+          border-radius: 12px; 
+          padding: 4px 10px; 
+          display: flex; 
+          align-items: center; 
+          gap: 4px;
+          font-weight: 600;
+          font-family: 'Poppins', sans-serif;
+        ">
+          Hand
+          <span style="font-size: 1.1em;">💧</span>
+        </span>
+      </a>
+    </div>
+  </header>
 
-    <!-- Story Section: This tells the story of the nonprofit -->
-    <section class="story">
-        <h2>Our Story</h2>
-        <p>
-         
-    </section>
+  <!-- HERO -->
+  <section class="hero">
+    <!-- Removed the overlay div to get rid of transparency on the background photo -->
+    <div class="hero-content">
+      <h2>Clean Water, Made Simple</h2>
+      <p>With your donation, 100% goes to projects to give safe water usage to people in need. Your money with clear transparency to make a difference.</p>
 
-    <!-- Real-World Impact Story Section -->
-    <section class="impact-story">
-        <!-- Section headline -->
-        <h2>Real Impact: Meet Amina</h2>
-        <!-- Container for image and text -->
-        <div class="impact-content">
-            <!-- Impact image -->
-            <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80" alt="Amina smiling with clean water" class="impact-image">
-            <!-- Impact story text -->
-            <p>
-                Amina used to walk miles every day to collect water for her family. Thanks to your support, her village now has a clean water well. Amina can go to school and her family is healthier and happier.
-            </p>
-        </div>
-    </section>
+      <div class="donation-box">
+        <label for="amount">Give Clean Water</label>
+        <input type="number" id="amount" placeholder="$ USD">
+        <button class="donate-btn">DONATE 💧</button>
+      </div>
+    </div>
+  </section>
 
-    <!-- Call-to-Action Section: This encourages visitors to take action -->
-    <section class="call-to-action">
-        <h2>Make a Difference</h2>
-        <p>Your support can help save lives. Every donation brings us closer to a world with clean water for all.</p>
-        <a href="#" class="donate-button">Donate Now</a>
-    </section>
+  <!-- Add a simple spacer div for beginners to create space between hero and quote section -->
+  <div style="height: 40px;">
+    <!-- This empty div adds less vertical space between hero and quote section -->
+  </div>
+
+  <!-- Quote section for beginners -->
+  <section class="umu-quote-section">
+    <!-- The quote box uses a light cream background color #fff7e1 with no extra white space -->
+    <div class="quote-box" style="background-color: #fff7e1; padding: 1.5rem; border-radius: 8px; margin: 0 auto; max-width: 800px;">
+      <p class="quote" style="margin: 0;">
+        “My wish is that whether it is Sourountouna or a neighboring village or all the villages in Mali or the world, 
+        that they all get clean water. My wish is that all people find peace and live easily without water difficulties.”
+        <br><span>-Umu Bouare</span>
+      </p>
+      <!-- The button is centered right below the quote -->
+      <div style="text-align: center;">
+        <button class="meet-btn">MEET UMU</button>
+      </div>
+    </div>
+  </section>
+  <!-- End of Umu Quote Section -->
+
+  <!-- Image gallery section for beginners -->
+
+<div class="umu-gallery">
+  <!-- Left image stays on the left -->
+  <div class="image-left">
+    <img src="img/imageumu.png" alt="Woman at water tap">
+  </div>
+
+  <!-- Right image and caption are grouped together -->
+  <div class="image-right" style="display: flex; flex-direction: column; align-items: center;">
+    <img src="imagebraiding.png" alt="Woman braiding hair" style="margin-bottom: 12px;">
+    <!-- Caption is now right below the image, but you can move it to the right using flex for beginners -->
+    <p class="braid-caption" style="text-align: center;">
+      Since her village now has access to safe water, she can focus on braiding hair for her business.
+    </p>
+  </div>
+</div>
+
+
+
+
+
+  <!-- FOOTER -->
+  <footer>
+    © 2025 Charity Water Initiative | Transparency. Impact. Change.
+  </footer>
 </body>
 </html>
+

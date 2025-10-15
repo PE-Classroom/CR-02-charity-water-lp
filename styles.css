@@ -25,7 +25,7 @@ Fonts:
 
 /* Set up the main font and background color for the whole page */
 body {
-  background-color: #f4f8fb; /* Soft light blue for a fresh look */
+  background-color: #003366; /* Soft light blue for a fresh look */
   font-family: 'Avenir', 'Proxima Nova', Arial, sans-serif;
   margin: 0;
   padding: 0;
@@ -195,4 +195,261 @@ section {
   .impact-image {
     width: 300px;
   }
+}
+
+/* Umu Impact Story Section */
+.umu-section {
+  background-color: #002C5F; /* Deep blue background */
+  color: #ffffff;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.umu-quote {
+  max-width: 800px;
+  margin: 0 auto 3rem;
+}
+
+.umu-quote .quote {
+  font-family: 'Canva Sans', sans-serif;
+  font-size: 1.1rem;
+  color: #FFD700;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.umu-quote .quote span {
+  display: block;
+  margin-top: 0.5rem;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.meet-btn {
+  background-color: #fff7e1;
+  color: #002C5F;
+  border: none;
+  padding: 0.8rem 1.8rem;
+  font-family: 'Proxima Nova', Arial, sans-serif;
+  font-weight: bold;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.meet-btn:hover {
+  background-color: #f5e6c8;
+}
+
+/* Gallery Section */
+.umu-gallery {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.image-left, .image-right {
+  flex: 1;
+  min-width: 280px;
+  max-width: 500px;
+}
+
+.image-left img, .image-right img {
+  width: 100%;
+  border-radius: 8px;
+  display: block;
+}
+
+.caption {
+  font-family: 'Proxima Nova', Arial, sans-serif;
+  font-size: 1rem;
+  color: #ffffff;
+  margin-top: 1rem;
+  line-height: 1.5;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .umu-section {
+    text-align: center;
+    padding: 3rem 1.5rem;
+  }
+
+  .umu-gallery {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .image-left, .image-right {
+    max-width: 90%;
+  }
+
+  .umu-quote .quote {
+    font-size: 1rem;
+  }
+
+  .meet-btn {
+    font-size: 1rem;
+    padding: 0.7rem 1.5rem;
+  }
+}
+
+/* --- Umu Impact Story Section --- */
+.umu-section {
+  background-color: #002C5F; /* Deep blue background */
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+/* Quote + Button */
+.umu-quote {
+  max-width: 800px;
+  margin: 0 auto 3rem;
+}
+
+.umu-quote .quote {
+  font-family: 'Canva Sans', sans-serif;
+  font-size: 1.1rem;
+  color: #ffc907; /* Gold text for quote */
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.umu-quote .quote span {
+  display: block;
+  margin-top: 0.5rem;
+  font-weight: bold;
+}
+
+.meet-btn {
+  background-color: #fff7e1;
+  color: #002C5F;
+  border: none;
+  padding: 0.8rem 1.8rem;
+  font-family: 'Proxima Nova', Arial, sans-serif;
+  font-weight: bold;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.meet-btn:hover {
+  background-color: #f5e6c8;
+}
+
+/* --- Gallery Layout (Aligned as in Reference) --- */
+.umu-gallery {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 3rem;
+  margin-top: 3rem;
+}
+
+.image-left,
+.image-right {
+  flex: 1;
+  min-width: 280px;
+  max-width: 500px;
+  position: relative;
+}
+
+.image-left img,
+.image-right img {
+  width: 100%;
+  border-radius: 8px;
+  display: block;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Stagger the right image slightly higher */
+.image-right {
+  margin-top: -60px;
+}
+
+.caption {
+  font-family: 'Proxima Nova', Arial, sans-serif;
+  font-size: 1rem;
+  color: #fff7e1; /* Light cream text for caption */
+  margin-top: 1rem;
+  line-height: 1.5;
+  text-align: center;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+  .umu-section {
+    text-align: center;
+    padding: 3rem 1.5rem;
+  }
+
+  .umu-gallery {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .image-right {
+    margin-top: 0;
+  }
+
+  .image-left,
+  .image-right {
+    max-width: 90%;
+  }
+
+  .umu-quote .quote {
+    font-size: 1rem;
+  }
+
+  .meet-btn {
+    font-size: 1rem;
+    padding: 0.7rem 1.5rem;
+  }
+}
+/* --- End of Umu Impact Story Section --- */
+
+/* Center the quote, set font size to 18px, use Proxima Nova substitute, and set color */
+.quote {
+  text-align: center; /* Centers the quote text */
+  font-size: 18px;    /* Sets font size to 18px */
+  font-family: 'Poppins', sans-serif; /* Proxima Nova substitute for beginners */
+  margin-bottom: 1rem; /* Adds space below the quote */
+  color: #ffc907;      /* Sets quote color to gold */
+}
+
+/* Center the MEET UMU button below the quote */
+.meet-btn {
+  background-color: #ffc907;
+  color: #003366;
+  border: none;
+  border-radius: 4px;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 12px;
+  transition: background 0.3s;
+  display: inline-block; /* Keeps button centered in its container */
+}
+
+.meet-btn:hover {
+  background-color: #ffcc00;
+}
+
+/* Add a box for the UMU quote with a light cream background */
+.quote-box {
+  background-color: #fff7e1; /* Light cream background */
+  border-radius: 12px;       /* Rounded corners */
+  padding: 32px 20px;        /* Space inside the box */
+  margin: 0 auto 2rem auto;  /* Center the box and add space below */
+  max-width: 700px;          /* Limit the width for readability */
+  box-shadow: 0 2px 8px rgba(46, 157, 247, 0.07); /* Soft shadow */
 }
