@@ -1,47 +1,77 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Charity Water Landing Page</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Be the Change that Flows — charity: water</title>
+
+  <!-- Google Font: Montserrat (Free and visually similar to Proxima Nova) -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Link to external stylesheet -->
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    <!-- Hero Section: This is the main banner at the top of the page -->
-    <section class="hero">
-        <!-- Main headline -->
-        <h1>Clean Water for Everyone</h1>
-        <!-- Subheadline -->
-        <p>Join us in bringing safe, clean water to communities in need.</p>
-    </section>
 
-    <!-- Story Section: This tells the story of the nonprofit -->
-    <section class="story">
-        <h2>Our Story</h2>
+  <!-- SITE HEADER / LOGO -->
+  <header class="site-header">
+    <div class="container">
+      <a href="#" class="logo-link">
+        <img src="img/Allwhite.png" alt="charity: water logo" class="logo" />
+      </a>
+    </div>
+  </header>
+
+  <!-- ========================== HERO SECTION ========================== -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Be the Change that Flows</h1>
+      <p class="subheadline">
+        Turn your activism into real-world impact. Join a global movement of students bringing clean, safe water to communities in need.
+      </p>
+      <a href="#donate" class="btn-primary">Donate Now</a>
+    </div>
+  </section>
+
+  <!-- ========================== STORY SECTION ========================== -->
+  <section class="story">
+    <div class="story-container">
+      <div class="story-text">
+        <h2>Clean Water Changes Everything</h2>
         <p>
-         
-    </section>
+          In rural communities across the world, millions still lack access to clean drinking water.
+          Through community-driven projects and support from people like you, charity: water brings lasting solutions to those in need.
+        </p>
+        <p>
+          Your contribution helps fund sustainable water systems, empowering women and children to spend more time in school and work — not walking miles for water.
+        </p>
+      </div>
 
-    <!-- Real-World Impact Story Section -->
-    <section class="impact-story">
-        <!-- Section headline -->
-        <h2>Real Impact: Meet Amina</h2>
-        <!-- Container for image and text -->
-        <div class="impact-content">
-            <!-- Impact image -->
-            <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80" alt="Amina smiling with clean water" class="impact-image">
-            <!-- Impact story text -->
-            <p>
-                Amina used to walk miles every day to collect water for her family. Thanks to your support, her village now has a clean water well. Amina can go to school and her family is healthier and happier.
-            </p>
-        </div>
-    </section>
+      <div class="story-image">
+        <img src="img/Walking for Water with Child.jpg" alt="Child collecting clean water" />
+      </div>
+    </div>
+  </section>
 
-    <!-- Call-to-Action Section: This encourages visitors to take action -->
-    <section class="call-to-action">
-        <h2>Make a Difference</h2>
-        <p>Your support can help save lives. Every donation brings us closer to a world with clean water for all.</p>
-        <a href="#" class="donate-button">Donate Now</a>
-    </section>
+  <!-- ========================== DONATION / CTA SECTION ========================== -->
+  <section id="donate" class="donation">
+    <div class="donation-content">
+      <h2>Your Gift Makes an Impact</h2>
+      <p>
+        Every $25 can give 7 people access to clean, safe water for a year. Together, we can end the water crisis.
+      </p>
+      <a href="#" class="btn-primary">Donate Now</a>
+    </div>
+  </section>
+
+  <!-- ========================== FOOTER ========================== -->
+  <footer>
+    <p>© <span id="year"></span> charity: water — Design inspired by your Canva Project.</p>
+  </footer>
+
+  <script>
+    // Automatically updates the footer year
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
