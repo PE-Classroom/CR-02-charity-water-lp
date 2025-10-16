@@ -51,23 +51,28 @@ body {
 /* Header with top-left logo */
 .site-header {
   position: absolute;
-  top: 20px;
-  left: 20px;
-  z-index: 50; /* make sure it sits above the hero background */
+  /* center header horizontally within the top strip and vertically align to its middle */
+  left: 50%;
+  top: 8px; /* center logo within the 44px top strip (adjusted) */
+  transform: translateX(-50%);
+  z-index: 70; /* ensure header sits above top-logo-box */
 }
 .site-header .logo {
   display: block;
-  width: 350px; /* default width on desktop */
-  height: auto;
+  /* constrain by height so it fits visually within the top strip */
+  height: 28px;
+  width: auto;
+  max-width: 240px;
 }
 
 @media (max-width: 600px) {
   .site-header {
-    top: 12px;
+    top: 6px;
     left: 12px;
   }
   .site-header .logo {
-    width: 160px; /* smaller on mobile */
+    height: 22px; /* smaller on mobile */
+    max-width: 160px;
   }
 }
 
@@ -127,8 +132,37 @@ body {
    STORY SECTION — Text + Image side by side
    =========================================================== */
 .story {
+  position: relative;
   background-color: var(--gray);
   padding: 60px 20px;
+}
+
+/* Background video that sits behind the story content */
+.story .story-bg-video {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0; /* behind story content */
+  opacity: 0.65; /* subtle, adjust as needed */
+  pointer-events: none; /* makes video transparent to clicks */
+}
+
+/* Ensure story content sits above the video */
+.story .story-container,
+.story .story-container * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Respect user preference for reduced motion: hide autoplaying background video */
+@media (prefers-reduced-motion: reduce) {
+  .story .story-bg-video {
+    display: none;
+  }
 }
 
 .story-container {
@@ -142,15 +176,27 @@ body {
 
 .story-text {
   flex: 1;
+  background: rgba(0,0,0,0.55); /* dark translucent panel like hero */
+  padding: 28px;
+  border-radius: 10px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
 }
 .story-text h2 {
   font-size: 2rem;
   margin-bottom: 15px;
+  color: #fff7e1; /* cream for better contrast */
+  font-weight: 700;
+  /* subtle shadow and light stroke to improve legibility over video */
+  text-shadow: 0 1px 0 rgba(0,0,0,0.35), 0 6px 18px rgba(0,0,0,0.25);
+  -webkit-text-stroke: 0.5px rgba(0,0,0,0.25);
 }
 .story-text p {
   margin-bottom: 16px;
   font-size: 1rem;
-  color: #333;
+  color: #fff7e1; /* cream for better contrast */
+  font-weight: 600;
+  text-shadow: 0 1px 0 rgba(0,0,0,0.35);
+  -webkit-text-stroke: 0.3px rgba(0,0,0,0.18);
 }
 
 .story-image {
@@ -169,7 +215,7 @@ body {
   background: var(--charcoal);
   color: var(--cream);
   text-align: center;
-  padding: 80px 20px;
+  padding: 30px 20px; /* reduced vertical padding to tighten gap to footer */
 }
 
 .donation-content {
@@ -185,6 +231,45 @@ body {
   margin-bottom: 25px;
 }
 
+/* Donation form styles */
+.donation-form {
+  margin-top: 10px;
+}
+.donation-input-group {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+}
+.donation-input-group input[type="number"] {
+  width: 120px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.06);
+  color: var(--cream);
+  font-weight: 700;
+  text-align: center;
+}
+.donation-note {
+  margin-top: 8px;
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+
+/* screen-reader only helper */
+.sr-only {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 /* ===========================================================
    FOOTER
    =========================================================== */
@@ -194,6 +279,63 @@ footer {
   text-align: center;
   padding: 20px;
   font-size: 0.9rem;
+}
+
+/* Thin charcoal strip above the hero matching footer color */
+.top-strip {
+  background: var(--charcoal);
+  height: 44px; /* taller to fit action buttons */
+  width: 100%;
+  display: block;
+  z-index: 40; /* sit below header (50) but above hero background */
+  position: relative; /* establish containing block for absolute actions */
+}
+
+/* actions area inside the top strip — positioned to the far right */
+.top-strip .top-strip-actions {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+/* small button styles */
+.btn-ghost {
+  background: transparent;
+  color: var(--cream);
+  border: 0;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.btn-accent {
+  background: var(--yellow);
+  color: var(--charcoal);
+  border: 0;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  .top-strip .top-strip-actions {
+    right: 12px;
+  }
+  .btn-accent, .btn-ghost {
+    padding: 6px 10px;
+    font-size: 0.92rem;
+  }
+  /* On very small screens hide the Sign in button to save space */
+  @media (max-width: 420px) {
+    .btn-ghost { display: none; }
+    .btn-accent { padding: 6px 10px; }
+  }
 }
 
 /* ===========================================================
@@ -209,6 +351,11 @@ footer {
   .story-container {
     flex-direction: column; /* Stack text and image */
     text-align: center;
+  }
+
+  .story-text {
+    padding: 22px; /* slightly smaller on tablets */
+    margin-bottom: 18px;
   }
 
   .hero h1 {
@@ -246,4 +393,6 @@ footer {
     padding: 12px 20px;
     font-size: 1rem;
   }
+
+  /* Background video is visible on all screen sizes (user can use reduced-motion preference to hide it) */
 }

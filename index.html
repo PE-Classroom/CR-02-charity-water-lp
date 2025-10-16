@@ -22,6 +22,14 @@
     </div>
   </header>
 
+  <!-- Top charcoal strip (same color as footer, smaller height) -->
+  <div class="top-strip" aria-hidden="false">
+    <div class="top-strip-actions">
+      <button class="btn-ghost" id="sign-in">Sign in</button>
+      <button class="btn-accent" id="sign-up">Sign up</button>
+    </div>
+  </div>
+
   <!-- ========================== HERO SECTION ========================== -->
   <section class="hero">
     <div class="hero-content">
@@ -35,6 +43,13 @@
 
   <!-- ========================== STORY SECTION ========================== -->
   <section class="story">
+    <!-- Background video: using the uploaded local MP4. Replace poster if you want a custom still. -->
+    <video class="story-bg-video" autoplay muted loop playsinline aria-hidden="true" poster="img/Charity Water Photo 1.jpg">
+      <source src="img/river.webm" type="video/webm">
+      <source src="img/river.mp4" type="video/mp4">
+      <!-- Fallback text if video is unsupported -->
+      Your browser does not support the video tag.
+    </video>
     <div class="story-container">
       <div class="story-text">
         <h2>Clean Water Changes Everything</h2>
@@ -60,18 +75,57 @@
       <p>
         Every $25 can give 7 people access to clean, safe water for a year. Together, we can end the water crisis.
       </p>
-      <a href="#" class="btn-primary">Donate Now</a>
+
+      <!-- Donation input: user types an amount and clicks Donate -->
+      <div class="donation-form">
+        <label for="donation-amount" class="sr-only">Donation amount</label>
+        <div class="donation-input-group">
+          <input id="donation-amount" type="number" min="1" step="1" value="25" />
+          <button id="donate-btn" class="btn-primary">Donate <span id="donation-display">$25</span></button>
+        </div>
+        <p class="donation-note">You can enter any whole-dollar amount. We'll redirect you to a secure checkout after you click Donate.</p>
+      </div>
     </div>
   </section>
 
   <!-- ========================== FOOTER ========================== -->
   <footer>
-    <p>© <span id="year"></span> charity: water — Design inspired by your Canva Project.</p>
+    <p>© <span id="year"></span> charity: water — Design inspired by Canva Project.</p>
   </footer>
 
   <script>
     // Automatically updates the footer year
     document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+  <script>
+    // Donation input formatting and handling
+    (function(){
+      const input = document.getElementById('donation-amount');
+      const display = document.getElementById('donation-display');
+      const btn = document.getElementById('donate-btn');
+
+      function formatDollar(value){
+        const n = Number(value) || 0;
+        return '$' + n.toLocaleString();
+      }
+
+      // initialize
+      display.textContent = formatDollar(input.value);
+
+      input.addEventListener('input', () => {
+        // restrict to positive integers
+        let v = Math.max(1, Math.floor(Number(input.value) || 0));
+        input.value = v;
+        display.textContent = formatDollar(v);
+      });
+
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const amount = Math.max(1, Math.floor(Number(input.value) || 0));
+        // In a real site you'd send `amount` to your payment processor here
+        alert('Donate ' + formatDollar(amount) + ' — this would go to checkout.');
+      });
+    })();
   </script>
 </body>
 </html>
