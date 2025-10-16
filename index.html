@@ -2,46 +2,145 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Charity Water Landing Page</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>charity: water</title>
+    <!-- Simple CSS for styling -->
+    <style>
+        /* Style for the navigation bar */
+        .navbar {
+            background-color: #FFF6DC;
+            padding: 10px 0;
+            font-family: Arial, sans-serif;
+            font-size: 18px;
+        }
+        .navbar-table {
+            width: 100%;
+        }
+        .navbar-logo {
+            font-weight: bold;
+            color: #333;
+            padding-left: 20px;
+        }
+        .navbar-link {
+            color: #333;
+            text-decoration: none;
+            padding: 0 15px;
+        }
+        .navbar-right {
+            text-align: right;
+            padding-right: 20px;
+        }
+        .give-btn {
+            background-color: #FFD600;
+            color: #222;
+            border: none;
+            padding: 6px 18px;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+        /* Main content area */
+        .main-table {
+            width: 100%;
+            border-spacing: 0;
+            margin-top: 0;
+        }
+        .left-col {
+            background-color: #27608A;
+            color: #fff;
+            padding: 60px 0;
+            text-align: center;
+            width: 50%;
+        }
+        .main-title {
+            font-size: 56px;
+            font-weight: 400;
+            margin-bottom: 30px;
+            line-height: 1.1;
+        }
+        .main-desc {
+            font-size: 22px;
+            margin-bottom: 40px;
+        }
+        .join-btn {
+            background-color: #FFD600;
+            color: #222;
+            border: none;
+            padding: 18px 40px;
+            border-radius: 12px;
+            font-size: 24px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .right-col {
+            width: 50%;
+            padding: 0;
+            margin: 0;
+        }
+        .main-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+    </style>
 </head>
 <body>
-    <!-- Hero Section: This is the main banner at the top of the page -->
-    <section class="hero">
-        <!-- Main headline -->
-        <h1>Clean Water for Everyone</h1>
-        <!-- Subheadline -->
-        <p>Join us in bringing safe, clean water to communities in need.</p>
-    </section>
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <table class="navbar-table">
+            <tr>
+                <!-- Logo -->
+                <td class="navbar-logo" style="width: 220px;">
+                    <!-- Use local logo image from img folder -->
+                    <img src="img/cw_logo-2.png" alt="charity: water" style="height:28px; vertical-align:middle;">
+                </td>
+                <!-- Navigation Links -->
+                <td>
+                  <<button class="hamburger" id="menuButton" aria-label="Open menu" aria-expanded="false" aria-controls="sidebar">
+  <span class="bar" aria-hidden="true"></span>
+                  </button>
+                    <a class="navbar-link" href="#">Take Action &#9662;</a>
+                    <a class="navbar-link" href="#">About Us &#9662;</a>
+                    <a class="navbar-link" href="#">Why Water ?</a>
+                </td>
+                <!-- Right Side: Sign in and Give button -->
+                <td class="navbar-right">
+                    <a class="navbar-link" href="#">Sign in</a>
+                    <span style="color:#222; font-size:22px; padding:0 8px;">|</span>
+                    <button class="give-btn">Give <span style="font-size:20px;">💧</span></button>
+                </td>
+            </tr>
+        </table>
+    </div>
 
-    <!-- Story Section: This tells the story of the nonprofit -->
-    <section class="story">
-        <h2>Our Story</h2>
-        <p>
-         
-    </section>
-
-    <!-- Real-World Impact Story Section -->
-    <section class="impact-story">
-        <!-- Section headline -->
-        <h2>Real Impact: Meet Amina</h2>
-        <!-- Container for image and text -->
-        <div class="impact-content">
-            <!-- Impact image -->
-            <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80" alt="Amina smiling with clean water" class="impact-image">
-            <!-- Impact story text -->
-            <p>
-                Amina used to walk miles every day to collect water for her family. Thanks to your support, her village now has a clean water well. Amina can go to school and her family is healthier and happier.
-            </p>
-        </div>
-    </section>
-
-    <!-- Call-to-Action Section: This encourages visitors to take action -->
-    <section class="call-to-action">
-        <h2>Make a Difference</h2>
-        <p>Your support can help save lives. Every donation brings us closer to a world with clean water for all.</p>
-        <a href="#" class="donate-button">Donate Now</a>
-    </section>
+    <!-- Main Content: Two columns -->
+    <table class="main-table">
+        <tr>
+            <!-- Left Column: Text and Button -->
+            <td class="left-col">
+                <!-- Main Heading -->
+                <div class="main-title">
+                    Beyond a<br>
+                    Donation. It's a<br>
+                    Movement
+                </div>
+                <!-- Subheading -->
+                <div class="main-desc">
+                    For a new generation of change-makers, join<br>
+                    a global community that invests in permanent,<br>
+                    life-saving access to clean water.
+                </div>
+                <!-- Join Today Button -->
+                <button class="join-btn">Join Today</button>
+            </td>
+            <!-- Right Column: Image -->
+            <td class="right-col">
+                <!-- Use local image from img folder -->
+                <img class="main-img" src="img/Nepal_2022_CG-2081.jpg" alt="Woman washing hands">
+            </td>
+        </tr>
+    </table>
 </body>
 </html>
+
