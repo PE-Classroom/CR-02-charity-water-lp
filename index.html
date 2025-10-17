@@ -1,47 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Charity Water Landing Page</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Charity Water Landing Page</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+
+    :root {
+      --primary-blue: #2E9DF7;
+      --primary-yellow: #FFC907;
+      --secondary-light-blue: #8BD1CB;
+    }
+
+    body {
+      font-family: 'Proxima Nova', 'Montserrat', 'Helvetica Neue', sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      color: #333;
+      background-color: #fff;
+    }
+
+    .hero {
+      background-image: url('img/waves.jpg');
+      background-size: cover;      
+  background-repeat: no-repeat;
+  background-position: center; 
+      text-align: center;
+      padding: 3rem 1rem;
+    }
+
+    .hero h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: var(--primary-blue);
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .story {
+      padding: 2rem 1rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .story h2 {
+      color: var(--primary-blue);
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .impact-story {
+      background-color: #f9f9f9;
+      padding: 2rem 1rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .impact-story h2 {
+      color: var(--primary-yellow);
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .impact-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .impact-content img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .call-to-action {
+      background-color: #003366;
+      color: white;
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+
+    .call-to-action h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .donate-button {
+      display: inline-block;
+      background-color: var(--primary-yellow);
+      color: #333;
+      padding: 0.75rem 1.5rem;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 4px;
+      margin-top: 1rem;
+    }
+
+    .donate-button:hover {
+      background-color: #ffe36c;
+    }
+  </style>
 </head>
 <body>
-    <!-- Hero Section: This is the main banner at the top of the page -->
-    <section class="hero">
-        <!-- Main headline -->
-        <h1>Clean Water for Everyone</h1>
-        <!-- Subheadline -->
-        <p>Join us in bringing safe, clean water to communities in need.</p>
-    </section>
+  <section class="hero">
+    <img src="img/cw_logo-2.png" alt="Charity Water Logo">
+    <h1>From Foundations to Fresh Water: Build Lasting Impact</h1>
+    <p>See how your support brings clean water to life — from the first brick to the first drop.</p>
+  </section>
 
-    <!-- Story Section: This tells the story of the nonprofit -->
-    <section class="story">
-        <h2>Our Story</h2>
-        <p>
-         
-    </section>
+  <section class="story">
+    <h2>Our Story</h2>
+    <p>Charity: water was founded in 2006 by Scott Harrison, who wanted to make a real difference in the world after leaving a career in nightlife. He saw that millions of people around the globe were living without access to clean water, and he knew something had to change. The organization was created to bring safe, clean drinking water to communities in need, funding wells, rainwater catchments, and other sustainable water projects.</p>
+  </section>
 
-    <!-- Real-World Impact Story Section -->
-    <section class="impact-story">
-        <!-- Section headline -->
-        <h2>Real Impact: Meet Amina</h2>
-        <!-- Container for image and text -->
-        <div class="impact-content">
-            <!-- Impact image -->
-            <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80" alt="Amina smiling with clean water" class="impact-image">
-            <!-- Impact story text -->
-            <p>
-                Amina used to walk miles every day to collect water for her family. Thanks to your support, her village now has a clean water well. Amina can go to school and her family is healthier and happier.
-            </p>
-        </div>
-    </section>
+  <section class="impact-story">
+    <h2>Real Impact: Meet Amina</h2>
+    <div class="impact-content">
+      <img src="img/womanandkids.JPG" alt="charity: water hero" width="650">
+      <p>Amina used to walk miles every day to collect water for her family. Thanks to your support, her village now has a clean water well. Amina is able to support her family and is healthier and happier.</p>
+    </div>
+  </section>
 
-    <!-- Call-to-Action Section: This encourages visitors to take action -->
-    <section class="call-to-action">
-        <h2>Make a Difference</h2>
-        <p>Your support can help save lives. Every donation brings us closer to a world with clean water for all.</p>
-        <a href="#" class="donate-button">Donate Now</a>
-    </section>
+  <section class="call-to-action">
+    <h2>Make a Difference</h2>
+    <p>Click here to Donate Now. Be the Change.</p>
+    <a href="#" class="donate-button">Donate Now</a>
+  </section>
 </body>
 </html>
