@@ -1,47 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Charity Water Landing Page</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Charity: Water Landing Page</title>
+  <style>
+    /* Reset styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.5;
+      color: #333;
+    }
+
+    /* Hero section */
+    .hero {
+      position: relative;
+      background: url("img/charitywater.png") no-repeat center center/cover;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      color: #fff;
+    }
+
+    /* Logo */
+    .logo {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: #fff;
+      color: #333;
+      padding: 8px 14px;
+      border-radius: 12px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      z-index: 2;
+    }
+
+    .logo img {
+      width: 24px;
+      height: 24px;
+    }
+
+    /* Headline text */
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 600px;
+      padding: 60px 40px;
+    }
+
+    .hero-content h1 {
+      font-size: 2.8rem;
+      font-weight: bold;
+      line-height: 1.2;
+    }
+
+    /* Bottom CTA bar */
+    .cta-bar {
+      background: #a3c9d9;
+      border-top: 5px solid #f7c600;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      flex-wrap: wrap;
+      gap: 15px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .cta-bar p {
+      color: #fff;
+      font-weight: bold;
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 12px;
+    }
+
+    .cta-buttons a {
+      background: #f7c600;
+      color: #333;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 12px 24px;
+      border-radius: 25px;
+      transition: background 0.3s ease;
+    }
+
+    .cta-buttons a:hover {
+      background: #ffdb4d;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .hero-content h1 {
+        font-size: 2rem;
+      }
+      .cta-bar {
+        flex-direction: column;
+        text-align: center;
+      }
+      .cta-buttons {
+        justify-content: center;
+      }
+    }
+  </style>
 </head>
 <body>
-    <!-- Hero Section: This is the main banner at the top of the page -->
-    <section class="hero">
-        <!-- Main headline -->
-        <h1>Clean Water for Everyone</h1>
-        <!-- Subheadline -->
-        <p>Join us in bringing safe, clean water to communities in need.</p>
-    </section>
+  <!-- Hero section -->
+  <section class="hero">
+    <!-- Logo -->
+    <div class="logo">
+      <img src="img/water-can-transparent.png" alt="Charity Water Logo">
+      charity: water
+    </div>
 
-    <!-- Story Section: This tells the story of the nonprofit -->
-    <section class="story">
-        <h2>Our Story</h2>
-        <p>
-         
-    </section>
+    <!-- Headline -->
+    <div class="hero-content">
+      <h1>SHAPE THE FUTURE:<br>SHAPE YOUR WORLD.</h1>
+    </div>
 
-    <!-- Real-World Impact Story Section -->
-    <section class="impact-story">
-        <!-- Section headline -->
-        <h2>Real Impact: Meet Amina</h2>
-        <!-- Container for image and text -->
-        <div class="impact-content">
-            <!-- Impact image -->
-            <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80" alt="Amina smiling with clean water" class="impact-image">
-            <!-- Impact story text -->
-            <p>
-                Amina used to walk miles every day to collect water for her family. Thanks to your support, her village now has a clean water well. Amina can go to school and her family is healthier and happier.
-            </p>
-        </div>
-    </section>
-
-    <!-- Call-to-Action Section: This encourages visitors to take action -->
-    <section class="call-to-action">
-        <h2>Make a Difference</h2>
-        <p>Your support can help save lives. Every donation brings us closer to a world with clean water for all.</p>
-        <a href="#" class="donate-button">Donate Now</a>
-    </section>
+    <!-- Bottom CTA -->
+    <div class="cta-bar">
+      <p>SMALL DONATION, BIG IMPACT—CLEAN WATER CHANGES LIVES.</p>
+      <div class="cta-buttons">
+        <a href="#">JOIN US TODAY!</a>
+        <a href="#">GET STARTED</a>
+      </div>
+    </div>
+  </section>
 </body>
 </html>
