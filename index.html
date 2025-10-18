@@ -5,25 +5,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Charity Water Landing Page</title>
     <link rel="stylesheet" href="styles.css">
+    <!-- Ensure hero content sits below the nav so it doesn't overlap -->
+    <style>
+      /* Set the navigation bar background color to a soft off-white,
+         and use Avenir for the nav text with sensible fallbacks */
+      .top-nav {
+        background-color: #FFF7E1; /* new nav color */
+        font-family: Avenir, "Avenir Next", "Helvetica Neue", Arial, sans-serif;
+      }
+
+      /* Add enough top padding so the hero section clears the navigation bar.
+         Adjust the 110px value if your nav height is different. */
+      .hero {
+        padding-top: 110px; /* space between top of page (nav) and hero content */
+      }
+
+      /* Reset individual margins so the headline and paragraph align consistently */
+      .hero h1,
+      .hero p {
+        margin-top: 0;
+      }
+
+      /* Donate button color update */
+      .donate-button {
+        background-color: #77A8BB; /* updated button color */
+        color: #ffffff;            /* ensure text is readable */
+        text-decoration: none;
+        display: inline-block;
+        padding: 14px 32px;
+        border-radius: 6px;
+        font-weight: bold;
+      }
+    </style>
 </head>
 <body>
-    <!-- Site header: logo at the very top of the page -->
-    <header class="site-header">
-        <!-- Use the logo image from the img/ folder -->
-        <img src="img/cw_logo.png" alt="Charity: Water logo" class="site-logo">
-    </header>
+    <!-- Top navigation bar: logo + links -->
+    <nav class="top-nav" role="navigation" aria-label="Main navigation">
+        <div class="nav-inner">
+            <!-- Logo inside the nav so it fits the layout -->
+            <a href="#" class="nav-brand" aria-label="Charity Water home">
+                <img src="img/cw_logo.png" alt="Charity: Water logo" class="site-logo">
+            </a>
+
+            <!-- Simple set of navigation links for the landing page -->
+            <ul class="nav-links" role="menubar">
+                <li role="none"><a role="menuitem" href="#about">About</a></li>
+                <li role="none"><a role="menuitem" href="#projects">Projects</a></li>
+                <li role="none"><a role="menuitem" href="#stories">Stories</a></li>
+                <li role="none"><a role="menuitem" href="#donate" class="donate-link">Donate</a></li>
+            </ul>
+        </div>
+    </nav>
     <!-- Hero Section: This is the main banner at the top of the page -->
     <section class="hero">
         <!-- Main headline -->
         <h1>Redefining What Global Change Looks Like</h1>
         <!-- Subheadline -->
-        <p>At Charity:Water, we are building a future where every drop of clean water represents measurable progress - powered by data, trust, and people like YOU</p>
+        <p>At Charity:Water, we are building a future where every drop of clean water represents measurable progress - powered by data, trust, and people like YOU!!</p>
     </section>
 
     <!-- Call-to-Action Section: This encourages visitors to take action -->
     <section class="call-to-action">
-        <h2>Make a Difference</h2>
-        <p>Your support can help save lives. Every donation brings us closer to a world with clean water for all.</p>
         <a href="#" class="donate-button">Donate Now</a>
     </section>
 </body>

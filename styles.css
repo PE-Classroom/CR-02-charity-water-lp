@@ -30,9 +30,12 @@ body {
   margin: 0;
   padding: 0;
   color: #222;
-/* Use Proxima Nova for all headers */
+} /* close body properly */
+
+/* Use Proxima Nova for all headers and make them bold */
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Proxima Nova', Arial, sans-serif;
+  font-weight: 700; /* bold */
 }
 
 /* Add a slight shadow and rounded corners to each section for depth */
@@ -50,20 +53,63 @@ section {
   /* image removed so the hero uses a clean color background */
   background-color: rgba(46, 157, 247, 0.08); /* subtle blue tint as fallback */
   color: #fff;                 /* White text for contrast */
-  text-align: center;          /* Center the text */
-  padding: 60px 20px;          /* Add space above and below */
+
+  /* place content at the top-left */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  text-align: left;
+
+  /* move content higher: smaller top padding and shorter hero */
+  padding: 8px 20px 60px 20px;
   border-radius: 0 0 16px 16px; /* Only round bottom corners */
+  min-height: 20vh; /* shorter so text sits nearer top */
+}
+
+/* Move headline + subheadline 4× higher (8px × 4 = 32px) plus 10px more */
+.hero h1,
+.hero p {
+  transform: translateY(-62px); /* was -42px */
+}
+
+/* Small-screen override: remove the upward shift on phones */
+@media (max-width: 600px) {
+  .hero h1,
+  .hero p {
+    transform: none;
+  }
+}
+
+/* constrain headline + subheadline so they don't extend past 30% of viewport */
+.hero h1,
+.hero p {
+  max-width: 30vw;
+}
+
+/* Small-screen override: keep previous centered behavior on phones */
+@media (max-width: 600px) {
+  .hero {
+    align-items: center;
+    text-align: center;
+    padding: 32px 8px;
+  }
+  .hero h1,
+  .hero p {
+    max-width: none;
+  }
 }
 
 /* Make the headline bold and modern */
 .hero h1 {
   font-size: 2.5em;
-  font-weight: bold;
+  font-weight: 700; /* ensure bold */
   letter-spacing: 1px;
+  margin-top: 0; /* ensure headline sits up against the top padding */
   margin-bottom: 15px;
   text-shadow: 0 2px 8px rgba(0,0,0,0.15); /* Soft shadow for readability */
   font-family: 'Proxima Nova', Arial, sans-serif;
-}
+  color: #FFF7E1; /* updated headline color */
 }
 
 /* Site header and logo styles */
@@ -80,11 +126,72 @@ section {
   display: inline-block;
 }
 
+/* Top Navigation Bar */
+.top-nav {
+  position: fixed;      /* Fix to top */
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255,255,255,0.96); /* Slightly translucent white */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  z-index: 1000;        /* Sit above page content */
+}
+
+.nav-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+}
+
+.nav-brand .site-logo {
+  width: 140px; /* Slightly smaller when inside nav */
+  max-width: none;
+}
+
+.nav-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 18px;
+  align-items: center;
+}
+
+.nav-links a {
+  color: #222;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 6px 8px;
+}
+
+.nav-links a:hover {
+  color: #2E9DF7;
+}
+
+.donate-link {
+  background: #4FCB53;
+  color: #fff !important;
+  padding: 8px 12px;
+  border-radius: 6px;
+}
+
+/* Make sure the page content does not sit under the fixed nav */
+body {
+  padding-top: 72px; /* equal or slightly larger than nav height */
+}
+
 /* Style the subheadline */
 .hero p {
+  font-family: 'Avenir', Arial, sans-serif;
+  font-weight: 400;
   font-size: 1.2em;
   margin-top: 0;
   text-shadow: 0 1px 4px rgba(0,0,0,0.12);
+  color: #FFF7E1; /* updated subheadline color */
+  max-width: 25vw; /* ensure subheadline does not go past 25% from left */
 }
 
 /* Story Section Styles */
@@ -105,7 +212,8 @@ h2 {
 
 /* Call-to-Action Section Styles */
 .call-to-action {
-  background-color: #4FCB53; /* Green */
+  /* removed green background so the section uses the page default */
+  background-color: transparent;
   color: #222;
   text-align: center;
   padding: 30px 20px;
@@ -207,6 +315,12 @@ section {
   .impact-image {
     width: 300px;
   }
+}
+
+/* Make all fonts twice as large by increasing the root font-size.
+   This scales em/rem-based sizes across the stylesheet. */
+:root {
+  font-size: 120%;
 }
 
 /* Use the provided backrnd.png as the page background.
