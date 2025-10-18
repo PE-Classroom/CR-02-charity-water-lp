@@ -1,47 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Charity Water Landing Page</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>charity: water — Clean Water Changes Everything</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Libre+Baskerville:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    <!-- Hero Section: This is the main banner at the top of the page -->
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+    <a class="brand">
+        <img src="img/charitywater_logo_horizontal_BlackText.png"
+        alt="charity: water logo"
+        class="brand-logo">
+    </a>
+      <nav class="nav">
+        <a href="#impact">Impact</a>
+        <a href="#how">How it works</a>
+        <a href="#stories">Stories</a>
+        <a class="btn btn--sm btn--primary" href="#donate">Donate</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
     <section class="hero">
-        <!-- Main headline -->
-        <h1>Clean Water for Everyone</h1>
-        <!-- Subheadline -->
-        <p>Join us in bringing safe, clean water to communities in need.</p>
-    </section>
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <h1>Turn small daily costs into measurable impact.</h1>
+          <p class="lead">
+            One $4 donation funds a week of clean water for five children.
+          </p>
 
-    <!-- Story Section: This tells the story of the nonprofit -->
-    <section class="story">
-        <h2>Our Story</h2>
-        <p>
-         
-    </section>
-
-    <!-- Real-World Impact Story Section -->
-    <section class="impact-story">
-        <!-- Section headline -->
-        <h2>Real Impact: Meet Amina</h2>
-        <!-- Container for image and text -->
-        <div class="impact-content">
-            <!-- Impact image -->
-            <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80" alt="Amina smiling with clean water" class="impact-image">
-            <!-- Impact story text -->
-            <p>
-                Amina used to walk miles every day to collect water for her family. Thanks to your support, her village now has a clean water well. Amina can go to school and her family is healthier and happier.
-            </p>
+          <div class="hero-cta">
+            <a id="donate" class="btn btn--primary btn--lg" href="#">
+              Donate $4
+            </a>
+            <p class="trust-note">100% of donations fund clean water projects.</p>
+          </div>
         </div>
+
+        <!-- Side-by-side imagery like the Canva design -->
+        <div class="hero-media">
+          <img
+            src="img/4692_Ethiopia_2019_CG-.jpg"
+            alt="Child smiling while holding clean water"
+            class="media-left"
+          />
+          <img
+            src="img/8912_Ethiopia_2019_CG-.jpg"
+            alt="Water well drilling equipment"
+            class="media-right"
+          />
+        </div>
+      </div>
     </section>
 
-    <!-- Call-to-Action Section: This encourages visitors to take action -->
-    <section class="call-to-action">
-        <h2>Make a Difference</h2>
-        <p>Your support can help save lives. Every donation brings us closer to a world with clean water for all.</p>
-        <a href="#" class="donate-button">Donate Now</a>
+    <!-- TRUST STRIP / QUICK STATS -->
+    <section id="impact" class="stats">
+      <div class="container stats-grid">
+        <div class="stat">
+          <span class="stat-num">5</span>
+          <span class="stat-label">children helped per $4</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">7</span>
+          <span class="stat-label">days of clean water</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">100%</span>
+          <span class="stat-label">goes to projects</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">20k+</span>
+          <span class="stat-label">community projects</span>
+        </div>
+      </div>
     </section>
+
+    <!-- STORY / IMPACT CARD -->
+    <section id="stories" class="impact">
+      <div class="container impact-card">
+        <div class="impact-media">
+          <img
+            src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=1400&q=80"
+            alt="Amina with a cup of water"
+          />
+        </div>
+        <div class="impact-copy">
+          <h2>Real impact: meet Amina</h2>
+          <p>
+            Amina used to walk miles every day to collect water for her family.
+            Thanks to supporters like you, her village now has a local well.
+            She’s in school, her family is healthier, and the hours once spent
+            fetching water are now spent building a future.
+          </p>
+          <a class="btn btn--outline" href="#">Read more stories</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section id="how" class="how">
+      <div class="container">
+        <h2 class="section-title">How your donation gets to work</h2>
+        <div class="steps">
+          <div class="step">
+            <div class="step-num">1</div>
+            <h3>Give</h3>
+            <p>You donate what you can. Even $4 makes a real dent.</p>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <h3>Build</h3>
+            <p>Local partners drill wells and install sustainable systems.</p>
+          </div>
+          <div class="step">
+            <div class="step-num">3</div>
+            <h3>Thrive</h3>
+            <p>Communities gain time, health, and opportunity. That’s the point.</p>
+          </div>
+        </div>
+
+        <div class="donation-panel">
+          <h3>Ready to make it happen?</h3>
+          <div class="donation-buttons">
+            <a class="btn btn--primary" href="#">Donate $4</a>
+            <a class="btn btn--light" href="#">Donate $20</a>
+            <a class="btn btn--light" href="#">Donate $50</a>
+            <a class="btn btn--light" href="#">Custom amount</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p class="brand-foot"><img src="img/charitywater_logo_horizontal_BlackText.png"
+        alt="charity: water logo"
+        class="brand-logo"></p>
+      <p class="fineprint">© <span id="year"></span> Clean water changes everything.</p>
+    </div>
+  </footer>
+
+  <!-- No JS required; this tiny inline script just updates the year. Delete if you hate joy. -->
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>

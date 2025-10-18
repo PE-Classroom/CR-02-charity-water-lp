@@ -1,198 +1,275 @@
-/* charity: water Brand Colors & Fonts
+/* ================================
+   charity: water landing styles
+   Simple, beginner-friendly CSS
+==================================*/
 
-Primary Colors:
-- Yellow:     #FFC907
-- Blue:       #2E9DF7
+:root {
+  --yellow:   #FFC907;
+  --cream:    #FFF7E1;
+  --ink:      #1a1a1a;
+  --ink-soft: #1a1a1a;
+  --line:     #FFF7E1;
 
-Secondary Colors:
-- Light Blue: #8BD1CB
-- Green:      #4FCB53
-- Orange:     #FF902A
-- Red:        #F5402C
-- Dark Green: #159A48
-- Pink:       #F16061
+  --radius-lg: 18px;
+  --radius-sm: 10px;
+  --shadow: 0 12px 30px rgba(0,0,0,.08);
+}
 
-Fonts:
-- Proxima Nova
-- Avenir
+* { box-sizing: border-box; }
+html, body { height: 100%; }
 
-*/
-
-/* 
-  Charity: Water Landing Page Styles
-  This CSS uses the provided color palette and beginner-friendly styles.
-*/
-
-/* Set up the main font and background color for the whole page */
 body {
-  background-color: #f4f8fb; /* Soft light blue for a fresh look */
-  font-family: 'Avenir', 'Proxima Nova', Arial, sans-serif;
   margin: 0;
-  padding: 0;
-  color: #222;
+  color: var(--ink);
+  background: var(--cream);
+  font: 16px/1.6 "Inter", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+  animation: fadeInPage .5s ease-out both; /* Page transition */
 }
 
-/* Add a slight shadow and rounded corners to each section for depth */
-section {
-  background: #fff; /* White background for sections */
-  border-radius: 12px; /* Rounded corners */
-  box-shadow: 0 2px 8px rgba(46, 157, 247, 0.07); /* Soft blue shadow */
-  margin: 24px 10px; /* Space between sections */
-  padding: 24px 16px;
+/* Fade-in animation for page load */
+@keyframes fadeInPage {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-/* Hero Section Styles */
-.hero {
-  position: relative; /* Needed for overlay */
-  /* Set a background image that covers the whole section */
-  background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1500&q=80');
-  background-size: cover;      /* Make the image cover the whole area */
-  background-position: center; /* Center the image */
-  background-repeat: no-repeat;
-  color: #fff;                 /* White text for contrast */
-  text-align: center;          /* Center the text */
-  padding: 60px 20px;          /* Add space above and below */
-  border-radius: 0 0 16px 16px; /* Only round bottom corners */
+/* Smooth in-page scroll */
+html { scroll-behavior: smooth; }
 
-  /* Add a dark overlay for better text readability */
-  /* This uses a simple linear-gradient overlay */
-  background-blend-mode: darken;
-  background-color: rgba(46, 157, 247, 0.45); /* Blue overlay */
+h1, h2, h3 { margin: 0 0 .6rem; line-height: 1.2; }
+h1 { font-size: clamp(2rem, 3.4vw + .5rem, 3rem); font-family: "Libre Baskerville", Georgia, serif; }
+h2 { font-size: clamp(1.5rem, 2.2vw + .25rem, 2rem); }
+p  { margin: 0 0 1rem; color: var(--ink-soft); }
+
+.container { width: min(1100px, 92%); margin: 0 auto; }
+
+/* ---------------- Header ---------------- */
+.site-header {
+  background: var(--cream);
+  border-bottom: 1px solid var(--line);
 }
 
-/* Make the headline bold and modern */
-.hero h1 {
-  font-size: 2.5em;
-  font-weight: bold;
-  letter-spacing: 1px;
-  margin-bottom: 15px;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.15); /* Soft shadow for readability */
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding: .9rem 0;
 }
 
-/* Style the subheadline */
-.hero p {
-  font-size: 1.2em;
-  margin-top: 0;
-  text-shadow: 0 1px 4px rgba(0,0,0,0.12);
+.brand-logo {
+  width: clamp(120px, 16vw, 200px);
+  height: auto;
+  object-fit: contain;
+  display: block;
 }
 
-/* Story Section Styles */
-.story {
-  background-color: #8BD1CB; /* Secondary Light Blue */
-  color: #222;
-  text-align: center;
-  padding: 30px 20px;
+.brand-logo:hover {
+  transform: scale(1.03);
 }
 
-/* Add accent color to section headings */
-h2 {
-  color: #2E9DF7; /* Primary blue */
-  margin-top: 0;
-  font-weight: bold;
+/* Nav */
+.nav {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
 }
 
-/* Call-to-Action Section Styles */
-.call-to-action {
-  background-color: #FFC907; /* Primary Yellow */
-  color: #222;
-  text-align: center;
-  padding: 30px 20px;
-}
-
-/* Style the impact story image */
-.impact-image {
-  width: 100%;
-  max-width: 320px;
-  border-radius: 10px;
-  margin-bottom: 16px;
-  box-shadow: 0 2px 8px rgba(46, 157, 247, 0.10);
-}
-
-/* Donate Button Styles */
-.donate-button {
-  display: inline-block;
-  background-color: #4FCB53; /* Green */
-  color: #fff;
-  padding: 14px 32px;
+.nav a {
+  color: var(--ink);
   text-decoration: none;
+  font-weight: 600;
+  padding: 8px 10px;
   border-radius: 6px;
-  font-weight: bold;
-  font-size: 1.1em;
-  margin-top: 18px;
-  box-shadow: 0 2px 8px rgba(79, 203, 83, 0.10);
-  transition: background 0.3s, transform 0.2s;
-  border: none;
-  cursor: pointer;
+  transition: background-color .2s ease, transform .1s ease;
 }
 
-/* Change button color when hovered */
-.donate-button:hover {
-  background-color: #159A48; /* Dark Green */
-  transform: translateY(-2px) scale(1.04); /* Slight lift */
+.nav a:hover {
+  background: rgba(0,0,0,.05);
+  transform: translateY(-1px);
 }
 
-/* Add some spacing between sections */
-section {
-  margin-bottom: 20px;
+/* ---------------- Buttons ---------------- */
+.btn {
+  display: inline-block;
+  padding: .75rem 1rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 800;
+  border: 2px solid transparent;
+  transition: transform .08s ease, box-shadow .2s ease, background-color .2s ease;
 }
 
-/* 
-  Media Queries for Responsive Design
-  Media queries help make your website look good on different screen sizes,
-  like phones (small screens) and computers (large screens).
-*/
+.btn:hover { transform: translateY(-2px); }
+.btn:active { transform: translateY(0); }
 
-/* This media query applies styles when the screen is 600px wide or less (like on most phones) */
-@media (max-width: 600px) {
-  /* Make hero section padding smaller on small screens */
-  .hero {
-    padding: 32px 8px;
-    font-size: 1em;
-  }
+.btn--primary { background: var(--yellow); color: #1a1400; }
+.btn--outline  { background: transparent; color: #000; border-color: #000; }
+.btn--light    { background: var(--cream); color: var(--ink); border-color: var(--line); }
 
-  /* Make headline font size smaller so it fits on small screens */
-  .hero h1 {
-    font-size: 1.4em;
-  }
+.btn--sm { padding: .5rem .85rem; }
+.btn--lg { padding: .95rem 1.25rem; }
 
-  /* Make subheadline font size smaller */
-  .hero p {
-    font-size: 1em;
-  }
-
-  /* Make story and call-to-action sections have less padding */
-  .story,
-  .call-to-action,
-  .donation-section {
-    padding: 14px 8px;
-  }
-
-  /* Make impact story image smaller and stack above the text */
-  .impact-content {
-    display: block; /* Stack items vertically */
-    text-align: center;
-  }
-
-  .impact-image {
-    width: 90%;    /* Make image take up most of the width */
-    max-width: 220px;
-  }
+/* ---------------- Hero ---------------- */
+.hero {
+  padding: 3rem 0 2rem;
+  border: 0; box-shadow: none; background: transparent; margin: 0;
+}
+.hero-inner {
+  display: grid; gap: 2rem; align-items: center;
+  grid-template-columns: 1.1fr 1fr;
+  background: var(--cream);
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
 }
 
-/* This media query applies styles when the screen is wider than 600px (like on tablets and computers) */
-@media (min-width: 601px) {
-  /* Show image and text side by side in the impact story */
-  .impact-content {
-    display: flex;           /* Place items in a row */
-    align-items: center;     /* Vertically center items */
-    justify-content: center; /* Center the whole group */
-    gap: 28px;               /* Space between image and text */
-    text-align: left;
-    max-width: 800px;
-    margin: 0 auto;
-  }
+.hero-copy .lead { font-size: 1.125rem; }
+.hero-copy .lead strong { color: #000; }
 
-  .impact-image {
-    width: 300px;
+.hero-cta { margin-top: .75rem; }
+.trust-note { font-size: .95rem; margin-top: .5rem; color: var(--ink); }
+
+/* Hero images */
+.hero-media {
+  display: grid; grid-template-columns: 1fr 1fr; gap: .75rem;
+}
+.hero-media img {
+  width: 100%; height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+.hero-media img:hover {
+  transform: scale(1.02);
+  box-shadow: 0 14px 36px rgba(0,0,0,.12);
+}
+
+/* ---------------- Stats strip ---------------- */
+.stats {
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  background: var(--cream);
+  margin-top: 20px;
+}
+.stats-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 1rem; padding: 1.1rem 0;
+}
+.stat {
+  background: var(--cream); border: 1px solid var(--line);
+  border-radius: 12px; text-align: center; padding: .9rem;
+  transition: transform .15s ease, box-shadow .2s ease;
+}
+.stat:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 28px rgba(0,0,0,.1);
+}
+.stat-num { font-weight: 900; font-size: 1.5rem; color: #000; }
+.stat-label { display: block; font-size: .92rem; }
+
+/* ---------------- Impact card ---------------- */
+.impact { padding: 2.2rem 0; }
+.impact-card {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;
+  align-items: center;
+  background: var(--cream);
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.impact-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 36px rgba(0,0,0,.12);
+}
+.impact-media img {
+  width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block;
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+}
+.impact-copy h2 { color: var(--ink); }
+
+/* ---------------- How it works ---------------- */
+.how { padding: 2.2rem 0 3rem; }
+.section-title { text-align: center; margin-bottom: 1rem; }
+.steps {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;
+}
+.step {
+  background: var(--cream); border: 1px solid var(--line);
+  border-radius: 14px; padding: 1rem;
+  box-shadow: var(--shadow);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.step:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 36px rgba(0,0,0,.12);
+}
+.step-num {
+  width: 36px; height: 36px; border-radius: 999px;
+  display: inline-grid; place-items: center;
+  background: var(--yellow);
+  font-weight: 900; margin-bottom: .5rem;
+}
+
+.donation-panel {
+  margin-top: 1.25rem;
+  background: var(--cream);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 1rem;
+  text-align: center;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.donation-panel:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 28px rgba(0,0,0,.1);
+}
+.donation-buttons {
+  display: flex; flex-wrap: wrap; gap: .5rem;
+  justify-content: center; margin-top: .25rem;
+}
+.micro { font-size: .85rem; color: var(--ink-soft); }
+
+/* ---------------- Footer ---------------- */
+.site-footer {
+  border-top: 1px solid var(--line);
+  background: var(--cream);
+}
+.footer-inner {
+  padding: 1.2rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.brand-foot { font-weight: 900; }
+.fineprint { color: var(--ink-soft); }
+
+/* ---------------- Responsive ---------------- */
+@media (max-width: 1024px) {
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 720px) {
+  .hero-inner { grid-template-columns: 1fr; }
+  .hero-media { order: -1; }
+  .impact-card { grid-template-columns: 1fr; }
+  .steps { grid-template-columns: 1fr; }
+  .nav { justify-content: center; }
+  .header-inner { justify-content: center; }
+  .brand-logo { width: clamp(120px, 40vw, 180px); }
+}
+
+/* Respect users who disable motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    transition: none !important;
+    animation: none !important;
   }
 }
