@@ -14,6 +14,40 @@
         font-family: Avenir, "Avenir Next", "Helvetica Neue", Arial, sans-serif;
       }
 
+      /* Simple horizontal layout for nav: brand at left, links at right */
+      .nav-inner {
+        max-width: 1100px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 12px 16px; /* small space inside the nav */
+      }
+
+      /* Inline list for the nav links */
+      .nav-links {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        gap: 16px;
+        align-items: center;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      /* Make the top-right donate link look like the primary donate button */
+      .donate-link {
+        background-color: #77A8BB; /* same blue as the donate button */
+        color: #ffffff;
+        padding: 10px 18px;
+        border-radius: 6px;
+        font-weight: bold;
+      }
+
       /* Add enough top padding so the hero section clears the navigation bar.
          Adjust the 110px value if your nav height is different. */
       .hero {
