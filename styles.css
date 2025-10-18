@@ -4,7 +4,7 @@
   --blue: #2E9DF7; /* primary */
   --dark-blue: #003366; /* secondary (updated per user request) */
   --green: #4FCB53; /* secondary */
-  --bg: #f7fbff;
+  --bg: #ffc907;
   --text: #07204a;
 }
 
@@ -20,17 +20,48 @@ body {
 .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
 
 /* Header */
-.site-header { background: white; border-bottom: 1px solid #e6f2fb; }
-.site-header .container { display: flex; align-items: center; justify-content: space-between; padding: 18px 0; }
-.logo { height: 36px; }
-.nav a { color: var(--blue); text-decoration: none; margin-left: 18px; font-weight: 600; }
+.site-header {
+  /* make the top background the requested yellow */
+  background: var(--yellow);
+  /* subtle separator that works on yellow */
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+
+/* ensure links remain visible on the yellow background (adjust if you prefer a different color) */
+.site-header .nav a { color: var(--blue); text-decoration: none; margin-left: 18px; font-weight: 600; }
 
 .btn { display: inline-block; padding: 10px 16px; border-radius: 6px; text-decoration: none; font-weight: 700; }
 .btn-primary { background: var(--blue); color: white; }
 .btn-secondary { background: transparent; color: var(--blue); border: 2px solid transparent; }
 .btn-outline { border: 2px solid #e6eef7; padding: 8px 14px; border-radius: 6px; }
 
+/* Restore header container layout so logo and nav are spaced as before */
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 0;
+}
+
 /* Hero */
+.hero {
+  /* reset to normal flow (no pseudo-element positioning) */
+  position: static;
+  overflow: visible;
+  padding: 48px 0; /* keep hero spacing */
+}
+
+/* restore hero-copy to normal flow so text is unaffected by z-index/positioning */
+.hero-copy {
+  position: static;
+  z-index: auto;
+}
+
+/* smaller screens: hide the decorative rectangle to avoid layout issues */
+@media (max-width: 820px) {
+  .hero::before { display: none; }
+}
+
 .hero { padding: 48px 0; }
 .hero-inner { display: flex; align-items: center; gap: 40px; }
 .hero-copy { flex: 1 1 420px; }
