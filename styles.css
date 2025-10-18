@@ -12,7 +12,8 @@
 * { box-sizing: border-box; }
 body {
   margin: 0;
-  font-family: Avenir, 'Proxima Nova', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  /* prefer Proxima Nova for all text, keep fallbacks in case it's not installed */
+  font-family: 'Proxima Nova', Avenir, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
   background: var(--bg);
   color: var(--text);
 }
@@ -21,10 +22,22 @@ body {
 
 /* Header */
 .site-header {
-  /* make the top background the requested yellow */
+  /* restore to original header sizing */
+  position: relative;
   background: var(--yellow);
   /* subtle separator that works on yellow */
   border-bottom: 1px solid rgba(0,0,0,0.06);
+  padding: 18px 0; /* original spacing */
+  /* removed min-height so header returns to normal height */
+}
+
+/* Center the logo but restore original height */
+.logo {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  height: 36px; /* restored from 48px */
 }
 
 /* ensure links remain visible on the yellow background (adjust if you prefer a different color) */
@@ -40,15 +53,103 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 18px 0;
+  padding: 18px 0; /* restored original padding */
+}
+
+/* Ensure header nav (donate button) sits at the far right of the header */
+.site-header .nav {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
 }
 
 /* Hero */
 .hero {
   /* reset to normal flow (no pseudo-element positioning) */
-  position: static;
+  position: relative;
   overflow: visible;
   padding: 48px 0; /* keep hero spacing */
+}
+
+/* Diagonal black strip in the top-right corner (behind content) */
+.hero::before {
+  content: "";
+  position: absolute;
+  /* place near the top-right and extend diagonally across the corner */
+  top: -80px;
+  right: -280px;
+  width: 920px;
+  height: 220px;
+  background: #0b0b0b; /* bold black strip */
+  transform: rotate(25deg);
+  z-index: 0; /* behind content */
+  pointer-events: none;
+  border-radius: 6px;
+}
+
+/* Diagonal black strip in the bottom-left corner (behind content) */
+.hero::after {
+  content: "";
+  position: absolute;
+  /* place near the bottom-left and extend diagonally across the corner */
+  bottom: -80px;
+  left: -280px;
+  width: 920px;
+  height: 220px;
+  background: #0b0b0b;
+  transform: rotate(-25deg);
+  z-index: 0;
+  pointer-events: none;
+  border-radius: 6px;
+}
+
+/* restore hero-copy to normal flow so text is unaffected by z-index/positioning */
+.hero-copy {
+  position: relative;
+  z-index: 1;
+}
+
+/* smaller screens: hide the decorative rectangle to avoid layout issues */
+@media (max-width: 820px) {
+  .hero::before,
+  .hero::after {
+    width: 620px;
+    height: 160px;
+    top: -60px;
+    bottom: -60px;
+    right: -180px;
+    left: -180px;
+    transform: rotate(20deg);
+  }
+}
+
+.hero { padding: 48px 0; }
+.hero-inner {
+  display: flex;
+  align-items: stretch; /* allow children to match height */
+  gap: 40px;
+  min-height: 420px; /* ensures a visible area for the image */
+}
+
+/* Give the text and image each a roughly half layout */
+.hero-copy { flex: 1 1 48%; }
+.hero-image { flex: 0 0 48%; display: block; }
+
+/* Make the image fill its container and crop nicely */
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* crop to cover the area */
+  border-radius: 12px;
+  box-shadow: 0 20px 40px rgba(4,24,64,0.12);
+}
+
+/* Responsive: stack on small screens (unchanged behavior) */
+@media (max-width: 820px) {
+  .hero-inner { flex-direction: column-reverse; text-align: center; min-height: auto; }
+  .hero-copy { flex: 1 1 auto; }
+  .hero-image { flex: 0 0 auto; width: 100%; }
+  .hero-image img { height: auto; object-fit: contain; }
 }
 
 /* restore hero-copy to normal flow so text is unaffected by z-index/positioning */
@@ -57,61 +158,25 @@ body {
   z-index: auto;
 }
 
-/* smaller screens: hide the decorative rectangle to avoid layout issues */
-@media (max-width: 820px) {
-  .hero::before { display: none; }
-}
-
-.hero { padding: 48px 0; }
-.hero-inner { display: flex; align-items: center; gap: 40px; }
-.hero-copy { flex: 1 1 420px; }
-.hero-copy h1 { font-size: 44px; margin: 0 0 12px 0; color: var(--text); }
-.hero-copy p { color: #27405a; font-size: 18px; margin: 0 0 20px 0; }
-.hero-ctas a + a { margin-left: 12px; }
-.hero-image { flex: 0 0 420px; text-align: center; }
-.hero-image img { max-width: 100%; border-radius: 12px; box-shadow: 0 20px 40px rgba(4,24,64,0.12); }
-
-.stats { list-style: none; padding: 0; margin: 22px 0 0 0; display: flex; gap: 24px; }
-.stats li { background: #ffffff; padding: 10px 14px; border-radius: 8px; text-align: left; }
-.stats strong { display: block; font-size: 18px; color: var(--text); }
-.stats span { font-size: 12px; color: #547088; }
-
-/* Info section */
-.info { padding: 40px 0; background: transparent; }
-.info h2 { margin-top: 0; color: var(--text); }
-
-.site-footer { background: #ffffff; border-top: 1px solid #e6eef7; padding: 18px 0; margin-top: 40px; }
-.site-footer p { margin: 0; color: #547088; }
-
-/* Style the Donate link/button: dark blue background and cream text.
-   We target the exact donate anchor so other buttons are unchanged. */
-a[href="#donate"],
-a[href="#donate"].btn,
-a[href="#donate"].btn-outline,
-a[href="#donate"].btn-primary {
-	/* dark blue background */
-	background-color: #003366;
-	/* requested font color */
-	color: #fff7e1;
-	/* match border to background for a clean "box" look */
-	border: 1px solid #003366;
-	/* keep basic button spacing (may already exist in .btn) */
-	padding: 0.5rem 1rem;
-	text-decoration: none;
-	display: inline-block;
-}
-
-/* Slightly darker on hover for a visible interaction */
-a[href="#donate"]:hover,
-a[href="#donate"].btn:hover {
-	background-color: #002546;
-	border-color: #002546;
-	color: #fff7e1;
-}
-
 /* Change hero heading and subheading font color to the requested cream */
-.hero-copy h1 { color: #fff7e1; }
-.hero-copy p  { color: #fff7e1; }
+.hero-copy h1 {
+  font-size: 64px;       /* made much larger */
+  line-height: 1.02;
+  margin: 0 0 12px 0;
+  color: #fff7e1;
+}
+
+.hero-copy p {
+  color: #fff7e1;
+  font-size: 20px; /* slightly bigger (was ~18px) */
+  line-height: 1.45; /* improve readability */
+  margin: 0 0 20px 0;
+}
+
+/* ensure the large heading scales on smaller screens */
+@media (max-width: 820px) {
+  .hero-copy h1 { font-size: 36px; }
+}
 
 /* Responsive */
 @media (max-width: 820px) {
@@ -122,3 +187,167 @@ a[href="#donate"].btn:hover {
 
 /* helpers */
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+
+/* Make the Donate button in the header a dark-blue filled button */
+.site-header .nav a[href="#donate"] {
+  background: var(--dark-blue); /* dark blue background */
+  color: #fff7e1;               /* requested text color */
+  border: 1px solid var(--dark-blue);
+  padding: 8px 14px;
+  border-radius: 6px;
+  text-decoration: none;
+  display: inline-block;
+  font-weight: 700;
+}
+
+/* Hover state */
+.site-header .nav a[href="#donate"]:hover {
+  background: #002546;
+  border-color: #002546;
+  color: #fff7e1;
+}
+
+/* Stats: put each stat into its own box */
+.stats {
+  list-style: none;
+  padding: 0;
+  margin: 22px 0 0 0;
+  display: flex;
+  gap: 20px;
+  justify-content: center; /* center the row of boxes */
+  align-items: stretch;
+}
+
+.stats li {
+  background: #ffffff;
+  padding: 18px 22px;
+  border-radius: 12px;
+  text-align: center;
+  /* make all boxes equal width and grow/shrink nicely */
+  flex: 1 1 140px;
+  min-width: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 20px rgba(4,24,64,0.06);
+  border: 1px solid rgba(4,24,64,0.06);
+}
+
+/* Slightly larger number and spacing inside the box */
+.stats strong {
+  display: block;
+  font-size: 20px;
+  color: var(--text);
+  line-height: 1;
+}
+
+.stats span {
+  font-size: 13px;
+  color: #547088;
+  margin-top: 6px;
+}
+
+/* Mobile: stack boxes vertically for narrow screens */
+@media (max-width: 520px) {
+  .stats { flex-direction: column; gap: 12px; }
+  .stats li { width: 100%; }
+}
+
+/* Simple empty text box used in the hero CTAs */
+.hero-input {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 2px solid #e6eef7;
+  background: #ffffff; /* visible box */
+  color: var(--text);
+  min-width: 200px;
+  font-size: 15px;
+  font-weight: 600;
+  box-sizing: border-box;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* Wrapper that holds the input and an inline donate button inside the input on the right */
+.hero-input-wrap {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* Give extra right padding so the input content doesn't overlap the button */
+.hero-input {
+  padding: 8px 14px;
+  padding-right: 110px; /* restored smaller space for the button */
+  border-radius: 6px;
+  border: 2px solid #e6eef7;
+  background: #ffffff;
+  color: var(--text);
+  /* removed explicit width so the input returns to its default/min-width behavior */
+  min-width: 200px;
+  max-width: none;
+  font-size: 15px;
+  font-weight: 600;
+  box-sizing: border-box;
+}
+
+/* The duplicate Donate button placed inside the input area on the right */
+.hero-input-btn {
+  position: absolute;
+  right: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--dark-blue);
+  color: #fff7e1;
+  border: 1px solid var(--dark-blue);
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* Hover state for the in-input donate button */
+.hero-input-btn:hover {
+  background: #002546;
+  border-color: #002546;
+  color: #fff7e1;
+}
+
+/* Mobile: stack the CTA elements for small screens so the button isn't cramped */
+@media (max-width: 520px) {
+  .hero-ctas { display: flex; flex-direction: column; gap: 10px; align-items: center; }
+  .hero-input { width: 100%; padding-right: 14px; min-width: auto; }
+  .hero-input-wrap { width: 100%; }
+  .hero-input-btn { position: static; transform: none; width: auto; margin-left: 0; }
+}
+
+/* Block shown below the stats, constrained to the left column and prevented from overflowing */
+.below-stats {
+  margin-top: 20px;
+  text-align: left;
+  box-sizing: border-box;
+  max-width: 100%;            /* stay within the left column */
+  overflow-wrap: break-word;  /* break long words to avoid overflow */
+  word-break: break-word;
+  white-space: normal;
+}
+
+/* Visual styling that matches hero text */
+.below-stats-title {
+  margin: 0 0 8px 0;
+  font-size: 18px;
+  color: #fff7e1;
+  font-weight: 700;
+}
+
+.below-stats-copy {
+  margin: 0;
+  color: #fff7e1;
+  line-height: 1.5;
+}
+
+/* Small screens: keep block full width of the column */
+@media (max-width: 820px) {
+  .below-stats { padding: 0 10px; }
+}

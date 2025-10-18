@@ -10,7 +10,7 @@
 		<!-- Header -->
 		<header class="site-header">
 			<div class="container">
-				<!-- use the provided white logo file (place it at img/charitywater_logo_horizontal_AllWhite (1).png) -->
+				<!-- use the provided white logo file -->
 				<img src="img/charitywater_logo_horizontal_AllWhite (1).png" alt="Charity Water logo (white)" class="logo" />
 				<nav class="nav">
 					<a href="#donate" class="btn btn-outline">Donate</a>
@@ -32,31 +32,39 @@
 
 						<!-- ...existing code... -->
 						<div class="hero-ctas">
-							<a href="#donate" class="btn btn-primary">Donate now</a>
-							<a href="#learn" class="btn btn-secondary">Learn more</a>
+							<!-- Removed the "Donate now" button per request -->
+							<!-- previously: <a href="#donate" class="btn btn-primary">Donate now</a> -->
+							<!-- keep the input + duplicate donate button on the right -->
+							<div class="hero-input-wrap">
+								<input type="text" class="hero-input" aria-label="Empty input" value="Contribute Today" />
+								<button type="button" class="hero-input-btn">Donate</button>
+							</div>
 						</div>
 						<ul class="stats">
 							<li><strong>30,000+</strong><span>People helped</span></li>
 							<li><strong>1,200</strong><span>Projects</span></li>
 							<li><strong>10</strong><span>Years</span></li>
 						</ul>
+
+						<!-- Added: left-column "Our approach" block placed directly under the three stat boxes -->
+						<div class="below-stats">
+							<h3 class="below-stats-title">Our approach</h3>
+							<p class="below-stats-copy">
+								We partner with local communities to build sustainable water systems and train locals
+								to maintain them. Every project is monitored and supported for years after construction.
+							</p>
+						</div>
+
 					</div>
 
 					<!-- Use the provided Ethiopia image on the right (place it at img/6391_Ethiopia_2019_CG- (1).png) -->
 					<div class="hero-image">
+						<!-- use the provided Ethiopia image on the right -->
 						<img src="img/6391_Ethiopia_2019_CG- (1).png" alt="Community receiving clean water in Ethiopia" />
 					</div>
 				</div>
 			</section>
 
-			<section class="info container">
-				<h2>Our approach</h2>
-				<p>
-					We partner with local communities to build sustainable water systems
-					and train locals to maintain them. Every project is monitored and
-					supported for years after construction.
-				</p>
-			</section>
 		</main>
 
 		<footer class="site-footer">
