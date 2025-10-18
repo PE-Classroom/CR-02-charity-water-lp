@@ -1,47 +1,366 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Charity Water Landing Page</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>charity: water — Campus Action</title>
+  <meta name="description" content="A student-built landing page to mobilize college students to help end the global water crisis." />
+  <!-- Optional: Google Font (safe and readable). Remove if you want only system fonts. -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* =====================
+       Basic, beginner-friendly CSS
+       - Only HTML & CSS (no JS)
+       - Easy to customize brand colors and spacing
+       ====================== */
+
+    :root {
+      /* ===== Brand palette (edit these to match your Canva mockup) ===== */
+      --brand-yellow: #FFD200; /* "charity: water" vibe */
+      --ink: #111111;          /* primary text */
+      --muted-ink: #5C5C5C;    /* secondary text */
+      --bg: #ffffff;           /* page background */
+      --panel: #f7f7f7;        /* light gray for sections */
+      --link: #0B6EF3;         /* accent link color if needed */
+
+      /* ===== Layout tokens ===== */
+      --radius: 16px;
+      --shadow: 0 10px 28px rgba(0,0,0,0.08);
+      --maxw: 1120px;
+      --g1: 8px;  --g2: 12px;  --g3: 16px;  --g4: 24px;  --g5: 32px;  --g6: 48px;  --g7: 72px;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 var(--g4); }
+
+    a { color: inherit; text-decoration: none; }
+    a.btn { display: inline-block; padding: 14px 20px; border-radius: 999px; font-weight: 700; letter-spacing: .2px; transition: transform .15s ease, box-shadow .15s ease, background-color .2s ease; }
+    a.btn:focus-visible { outline: 3px solid #000; outline-offset: 3px; }
+
+    .btn-primary { background: var(--brand-yellow); color: #111; box-shadow: 0 6px 20px rgba(255,210,0,.45); }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 26px rgba(255,210,0,.55); }
+
+    .btn-ghost { border: 2px solid #111; color: #111; background: #fff; }
+    .btn-ghost:hover { transform: translateY(-2px); }
+
+    /* ===== Skip link for accessibility ===== */
+    .skip { position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; }
+    .skip:focus { left: 12px; top: 12px; width: auto; height: auto; padding: 8px 12px; background:#fff; border: 2px solid #000; border-radius: 8px; z-index: 10; }
+
+    /* ===== Header ===== */
+    header.site-header { position: sticky; top: 0; z-index: 5; background: rgba(255,255,255,.8); backdrop-filter: blur(8px); border-bottom: 1px solid #eee; }
+    .nav { display:flex; align-items:center; justify-content:space-between; gap: var(--g4); padding: var(--g3) 0; }
+    .brand { display:flex; align-items:center; gap:12px; font-weight: 800; font-size: 1.025rem; }
+    .logo { width: 28px; height: 28px; border-radius: 6px; background: var(--brand-yellow); box-shadow: inset 0 0 0 2px #111; position: relative; }
+    /* simple jerry-can glyph */
+    .logo:before, .logo:after { content:""; position:absolute; background:#111; }
+    .logo:before { width: 10px; height: 2px; top: 4px; left: 10px; transform: rotate(-20deg); border-radius: 2px; }
+    .logo:after { width: 14px; height: 8px; bottom: 4px; left: 7px; border: 2px solid #111; background: transparent; border-radius: 3px; }
+
+    .nav-actions { display:flex; align-items:center; gap: var(--g3); }
+    .mini-cta { padding: 8px 12px; border-radius: 999px; font-weight: 700; background: #111; color:#fff; }
+    .mini-cta:hover { transform: translateY(-1px); }
+
+    /* ===== Hero ===== */
+    .hero { padding: var(--g7) 0 var(--g6); }
+    .hero .grid { display:grid; grid-template-columns: 1.1fr .9fr; gap: var(--g6); align-items: center; }
+
+    .eyebrow { display:inline-block; font-weight:700; letter-spacing:.3px; background:#111; color:#fff; padding: 4px 10px; border-radius: 999px; }
+
+    h1 { font-size: clamp(2rem, 3.4vw + .5rem, 3.5rem); line-height: 1.05; margin: var(--g3) 0 var(--g4); letter-spacing: -.5px; }
+    .lead { font-size: clamp(1rem, .45vw + 1rem, 1.125rem); color: var(--muted-ink); max-width: 58ch; margin-bottom: var(--g5); }
+
+    .hero-media { position: relative; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); background: linear-gradient(135deg, #fff6bf, #f6f6f6); min-height: 320px; }
+    .hero-media .ph { position:absolute; inset:0; display:grid; place-items:center; color:#222; text-align:center; padding: var(--g4); font-weight:600; }
+    .hero-media img { width: 100%; height: 100%; object-fit: cover; display:block; }
+
+    /* ===== Stat cards ===== */
+    .stats { background: var(--panel); padding: var(--g6) 0; }
+    .cards { display:grid; grid-template-columns: repeat(3, 1fr); gap: var(--g4); }
+    .card { background:#fff; border-radius: var(--radius); padding: var(--g5); box-shadow: var(--shadow); }
+    .kpi { font-size: clamp(1.6rem, 2.6vw + .5rem, 2.4rem); font-weight: 800; }
+    .k-label { color: var(--muted-ink); margin-top: 6px; }
+
+    /* ===== Story (two columns) ===== */
+    .story { padding: var(--g7) 0; }
+    .story .grid { display:grid; grid-template-columns: 1fr 1fr; gap: var(--g6); align-items: center; }
+    .story figure { border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); margin:0; }
+    .story img { width: 100%; display:block; height: 100%; object-fit: cover; }
+
+    /* ===== How it works ===== */
+    .how { padding: var(--g6) 0; background: #fff; }
+    .steps { display:grid; grid-template-columns: repeat(3, 1fr); gap: var(--g4); }
+    .step { background: var(--panel); border-radius: var(--radius); padding: var(--g5); border: 1px solid #eee; }
+    .step b { display:block; font-size: 1.05rem; margin-bottom: 6px; }
+
+    /* ===== Big CTA ===== */
+    .cta { padding: var(--g7) 0; }
+    .cta-box { background:#111; color:#fff; border-radius: var(--radius); padding: clamp(24px, 5vw, 64px); display:grid; grid-template-columns: 1.2fr .8fr; gap: var(--g5); align-items: center; box-shadow: var(--shadow); }
+    .cta h2 { font-size: clamp(1.6rem, 2.4vw + .6rem, 2.4rem); line-height: 1.1; margin: 0 0 var(--g3); }
+    .cta p { color: #d2d2d2; margin: 0 0 var(--g5); }
+    .cta .btn-primary { background: var(--brand-yellow); }
+
+    /* ===== FAQ (no JS) ===== */
+    .faq { padding: var(--g6) 0 var(--g7); }
+    details { background: #fff; border-radius: 12px; padding: 16px 18px; border: 1px solid #ececec; box-shadow: var(--shadow); }
+    details + details { margin-top: 12px; }
+    summary { cursor: pointer; font-weight: 700; }
+    details[open] { background: #fffbe6; border-color: #ffe37a; }
+
+    /* ===== Footer ===== */
+    footer { background: #111; color:#bbb; padding: var(--g6) 0; }
+    .foot-grid { display:grid; grid-template-columns: 1fr auto; gap: var(--g4); align-items: center; }
+    .foot-brand { display:flex; align-items:center; gap: 12px; color:#fff; font-weight: 700; }
+    .foot-small { font-size: .9rem; color:#9c9c9c; }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 960px) {
+      .hero .grid, .story .grid, .cta-box { grid-template-columns: 1fr; }
+      .steps, .cards { grid-template-columns: 1fr; }
+      .nav { flex-wrap: wrap; gap: var(--g2); }
+      .hero { padding-top: var(--g6); }
+    }
+    /* ===================== */
+/* TRANSITIONS & HOVERS  */
+/* ===================== */
+a.btn,
+.card,
+.step,
+.nav .mini-cta,
+.cta-box img {
+  transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease, color .2s ease;
+}
+
+.btn-primary:hover,
+.btn-ghost:hover,
+.nav .mini-cta:hover {
+  transform: translateY(-2px);
+}
+
+.card:hover { transform: translateY(-4px); box-shadow: 0 18px 36px rgba(0,0,0,.12); }
+.step:hover { transform: translateY(-3px); }
+.hero-media:hover img { transform: scale(1.02); }
+
+/* Subtle FAQ feedback */
+details { transition: background-color .2s ease, border-color .2s ease; }
+details[open] { background: #fffbe6; border-color: #ffe37a; }
+
+/* Optional: tasteful fade-up on first paint */
+@keyframes fadeUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+.hero .grid > * { animation: fadeUp .35s ease both; }
+.story .grid > * { animation: fadeUp .35s ease both; animation-delay: .05s; }
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
+
+/* ===================== */
+/* RESPONSIVE LAYOUT     */
+/* ===================== */
+
+/* Large tablets / small laptops */
+@media (max-width: 1200px) {
+  .wrap { padding: 0 20px; }
+  .cta-box { grid-template-columns: 1.1fr .9fr; }
+}
+
+/* Tablets & below */
+@media (max-width: 960px) {
+  .hero .grid,
+  .story .grid,
+  .cta-box { grid-template-columns: 1fr; }
+
+  .cards,
+  .steps { grid-template-columns: 1fr; }
+
+  .hero { padding-top: 48px; }
+  .hero-media { min-height: 260px; } /* reduce stretch for small images */
+}
+
+/* Phones */
+@media (max-width: 680px) {
+  h1 { font-size: clamp(1.75rem, 7vw, 2.25rem); }
+  .lead { font-size: 1rem; }
+  .nav { gap: 8px; flex-wrap: wrap; }
+  .nav-actions { gap: 8px; }
+  .cta h2 { font-size: clamp(1.4rem, 5.5vw, 2rem); }
+  .cta-box { padding: 24px; }
+  .hero-media { min-height: 220px; }
+}
+
+/* Very small phones */
+@media (max-width: 420px) {
+  .actions a.btn { width: 100%; text-align: center; }
+}
+
+  </style>
 </head>
 <body>
-    <!-- Hero Section: This is the main banner at the top of the page -->
-    <section class="hero">
-        <!-- Main headline -->
-        <h1>Clean Water for Everyone</h1>
-        <!-- Subheadline -->
-        <p>Join us in bringing safe, clean water to communities in need.</p>
-    </section>
+  <a class="skip" href="#main">Skip to content</a>
 
-    <!-- Story Section: This tells the story of the nonprofit -->
-    <section class="story">
-        <h2>Our Story</h2>
-        <p>
-         
-    </section>
+  <!-- ================= HEADER ================= -->
+  <header class="site-header" role="banner">
+    <div class="wrap nav">
+      <div class="brand">
+        <span class="logo" aria-hidden="true"></span>
+        <span>charity: water • Campus</span>
+      </div>
+      <nav class="nav-actions" aria-label="Primary">
+        <a href="#how" class="mini-cta" aria-label="How it works">How it works</a>
+        <a href="#story" class="mini-cta" aria-label="Read a story">Story</a>
+        <a href="#cta" class="mini-cta" style="background: var(--brand-yellow); color:#111;" aria-label="Start a fundraiser">Start a fundraiser</a>
+      </nav>
+    </div>
+  </header>
 
-    <!-- Real-World Impact Story Section -->
-    <section class="impact-story">
-        <!-- Section headline -->
-        <h2>Real Impact: Meet Amina</h2>
-        <!-- Container for image and text -->
-        <div class="impact-content">
-            <!-- Impact image -->
-            <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80" alt="Amina smiling with clean water" class="impact-image">
-            <!-- Impact story text -->
-            <p>
-                Amina used to walk miles every day to collect water for her family. Thanks to your support, her village now has a clean water well. Amina can go to school and her family is healthier and happier.
-            </p>
+  <main id="main">
+    <!-- ================= HERO ================= -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="wrap grid">
+        <div>
+          <span class="eyebrow">Student Project</span>
+          <h1 id="hero-title">College students can help end the water crisis.</h1>
+          <p class="lead">Bring clean and safe water to communities around the world. Rally your campus, tell the story, and turn birthdays, games, and club events into real impact.</p>
+          <div class="actions" style="display:flex; gap: 12px; flex-wrap:wrap;">
+            <a href="#cta" class="btn btn-primary">Start a Campus Fundraiser</a>
+            <a href="#how" class="btn btn-ghost">See how it works</a>
+          </div>
+          <p class="foot-small" style="margin-top:12px; color:#8c8c8c;">This is a student-built demo inspired by charity: water’s mission.</p>
         </div>
+        <div class="hero-media" aria-hidden="true">
+          <!-- Replace this with your own image placed at /img/hero.jpg -->
+          <img src="img/hero.jpg" alt="Students gathering around a clean water point, smiling and celebrating" onerror="this.style.display='none'; this.parentElement.querySelector('.ph').style.display='grid';">
+          <div class="ph"><br><code>/</code></div>
+        </div>
+      </div>
     </section>
 
-    <!-- Call-to-Action Section: This encourages visitors to take action -->
-    <section class="call-to-action">
-        <h2>Make a Difference</h2>
-        <p>Your support can help save lives. Every donation brings us closer to a world with clean water for all.</p>
-        <a href="#" class="donate-button">Donate Now</a>
+    <!-- ================= STATS ================= -->
+    <section class="stats" aria-labelledby="stats-title">
+      <div class="wrap">
+        <h2 id="stats-title" style="margin-top:0; margin-bottom: var(--g4);">Why it matters</h2>
+        <div class="cards" role="list">
+          <article class="card" role="listitem">
+            <div class="kpi">Millions</div>
+            <div class="k-label">of people still lack access to clean and safe water.</div>
+          </article>
+          <article class="card" role="listitem">
+            <div class="kpi">Campus power</div>
+            <div class="k-label">Student-led fundraisers can fund sustainable water projects.</div>
+          </article>
+          <article class="card" role="listitem">
+            <div class="kpi">Transparent</div>
+            <div class="k-label">Track the impact of your campaign from start to finish.</div>
+          </article>
+        </div>
+      </div>
     </section>
+
+    <!-- ================= STORY ================= -->
+    <section id="story" class="story" aria-labelledby="story-title">
+      <div class="wrap grid">
+        <figure>
+          <!-- Replace with your story image at /img/story.jpg -->
+          <img src="img/story.jpg" alt="Community members using a new water point" onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg,#fff6bf,#ececec)'; this.parentElement.style.minHeight='320px';">
+        </figure>
+        <div>
+          <h2 id="story-title">A story worth sharing</h2>
+          <p>Use this space to tell a short, human story that connects your audience to the cause. Describe the challenge of finding water, how a local partner works with the community, and how a completed project changes health, education, and opportunity.</p>
+          <p>Keep it concise (120–180 words). Add a photo that matches your Canva design.</p>
+          <div style="margin-top: var(--g4); display:flex; gap:12px; flex-wrap:wrap;">
+            <a href="#cta" class="btn btn-primary">I’m in — let’s start</a>
+            <a href="#faq" class="btn btn-ghost">Common questions</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= HOW IT WORKS ================= -->
+    <section id="how" class="how" aria-labelledby="how-title">
+      <div class="wrap">
+        <h2 id="how-title" style="margin-top:0;">How it works</h2>
+        <div class="steps">
+          <div class="step">
+            <b>1) Pick your moment</b>
+            <p>Birthday, game day, club week — set a goal and personalize your page.</p>
+          </div>
+          <div class="step">
+            <b>2) Rally your campus</b>
+            <p>Share your link. Invite friends and orgs to donate or join the team.</p>
+          </div>
+          <div class="step">
+            <b>3) See your impact</b>
+            <p>Funds help build clean water projects. Share updates and celebrate together.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= BIG CTA ================= -->
+    <section id="cta" class="cta" aria-labelledby="cta-title">
+      <div class="wrap">
+        <div class="cta-box">
+          <div>
+            <h2 id="cta-title">Launch your campus fundraiser today</h2>
+            <p>Two minutes to get started. You’ll get a shareable page, a clear goal, and tips to spread the word across your campus.</p>
+            <a class="btn btn-primary" href="#" aria-label="Start a fundraiser link (replace # with your page)">Start a Fundraiser</a>
+            <a class="btn btn-ghost" href="#" style="margin-left: 8px;" aria-label="Donate link (replace # with your donation page)">Donate</a>
+          </div>
+          <div aria-hidden="true">
+            <!-- Replace with /img/cta.jpg -->
+            <img src="img/cta.jpg" alt="Hands under clean running water" style="width:100%; border-radius: 12px; box-shadow: var(--shadow);" onerror="this.style.display='none';">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FAQ ================= -->
+    <section id="faq" class="faq" aria-labelledby="faq-title">
+      <div class="wrap">
+        <h2 id="faq-title">FAQ</h2>
+        <details>
+          <summary>Where do the funds go?</summary>
+          <p style="margin: 8px 0 0; color: var(--muted-ink);">Update this answer with your own research and campaign details. In general, your page should explain how donations support clean water projects through vetted local partners.</p>
+        </details>
+        <details>
+          <summary>How can my club or team join?</summary>
+          <p style="margin: 8px 0 0; color: var(--muted-ink);">Include a contact or instructions for forming a team, setting a shared goal, and tracking progress together.</p>
+        </details>
+        <details>
+          <summary>Is this an official charity: water page?</summary>
+          <p style="margin: 8px 0 0; color: var(--muted-ink);">This is a student-built demo for a class project inspired by charity: water’s mission and branding for educational purposes.</p>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer role="contentinfo">
+    <div class="wrap foot-grid">
+      <div class="foot-brand">
+        <span class="logo" aria-hidden="true"></span>
+        <span>charity: water • Campus</span>
+      </div>
+      <div class="foot-small">© <span id="y"></span> Student project. Built with HTML &amp; CSS.</div>
+    </div>
+    <script>
+      // Tiny, optional enhancement: set current year (delete if avoiding any JS at all)
+      document.getElementById('y').textContent = new Date().getFullYear();
+    </script>
+  </footer>
 </body>
 </html>
+
