@@ -5,42 +5,101 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Charity Water Landing Page</title>
     <link rel="stylesheet" href="styles.css">
+    <!-- Ensure hero content sits below the nav so it doesn't overlap -->
+    <style>
+      /* Set the navigation bar background color to a soft off-white,
+         and use Avenir for the nav text with sensible fallbacks */
+      .top-nav {
+        background-color: #FFF7E1; /* new nav color */
+        font-family: Avenir, "Avenir Next", "Helvetica Neue", Arial, sans-serif;
+      }
+
+      /* Simple horizontal layout for nav: brand at left, links at right */
+      .nav-inner {
+        max-width: 1100px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 12px 16px; /* small space inside the nav */
+      }
+
+      /* Inline list for the nav links */
+      .nav-links {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        gap: 16px;
+        align-items: center;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      /* Make the top-right donate link look like the primary donate button */
+      .donate-link {
+        background-color: #77A8BB; /* same blue as the donate button */
+        color: #ffffff;
+        padding: 10px 18px;
+        border-radius: 6px;
+        font-weight: bold;
+      }
+
+      /* Add enough top padding so the hero section clears the navigation bar.
+         Adjust the 110px value if your nav height is different. */
+      .hero {
+        padding-top: 110px; /* space between top of page (nav) and hero content */
+      }
+
+      /* Reset individual margins so the headline and paragraph align consistently */
+      .hero h1,
+      .hero p {
+        margin-top: 0;
+      }
+
+      /* Donate button color update */
+      .donate-button {
+        background-color: #77A8BB; /* updated button color */
+        color: #ffffff;            /* ensure text is readable */
+        text-decoration: none;
+        display: inline-block;
+        padding: 14px 32px;
+        border-radius: 6px;
+        font-weight: bold;
+      }
+    </style>
 </head>
 <body>
+    <!-- Top navigation bar: logo + links -->
+    <nav class="top-nav" role="navigation" aria-label="Main navigation">
+        <div class="nav-inner">
+            <!-- Logo inside the nav so it fits the layout -->
+            <a href="#" class="nav-brand" aria-label="Charity Water home">
+                <img src="img/cw_logo.png" alt="Charity: Water logo" class="site-logo">
+            </a>
+
+            <!-- Simple set of navigation links for the landing page -->
+            <ul class="nav-links" role="menubar">
+                <li role="none"><a role="menuitem" href="#about">About</a></li>
+                <li role="none"><a role="menuitem" href="#projects">Projects</a></li>
+                <li role="none"><a role="menuitem" href="#stories">Stories</a></li>
+                <li role="none"><a role="menuitem" href="#donate" class="donate-link">Donate</a></li>
+            </ul>
+        </div>
+    </nav>
     <!-- Hero Section: This is the main banner at the top of the page -->
     <section class="hero">
         <!-- Main headline -->
-        <h1>Clean Water for Everyone</h1>
+        <h1>Redefining What Global Change Looks Like</h1>
         <!-- Subheadline -->
-        <p>Join us in bringing safe, clean water to communities in need.</p>
-    </section>
-
-    <!-- Story Section: This tells the story of the nonprofit -->
-    <section class="story">
-        <h2>Our Story</h2>
-        <p>
-         
-    </section>
-
-    <!-- Real-World Impact Story Section -->
-    <section class="impact-story">
-        <!-- Section headline -->
-        <h2>Real Impact: Meet Amina</h2>
-        <!-- Container for image and text -->
-        <div class="impact-content">
-            <!-- Impact image -->
-            <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80" alt="Amina smiling with clean water" class="impact-image">
-            <!-- Impact story text -->
-            <p>
-                Amina used to walk miles every day to collect water for her family. Thanks to your support, her village now has a clean water well. Amina can go to school and her family is healthier and happier.
-            </p>
-        </div>
+        <p>At Charity:Water, we are building a future where every drop of clean water represents measurable progress - powered by data, trust, and people like YOU!!</p>
     </section>
 
     <!-- Call-to-Action Section: This encourages visitors to take action -->
     <section class="call-to-action">
-        <h2>Make a Difference</h2>
-        <p>Your support can help save lives. Every donation brings us closer to a world with clean water for all.</p>
         <a href="#" class="donate-button">Donate Now</a>
     </section>
 </body>
