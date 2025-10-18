@@ -1,198 +1,344 @@
-/* charity: water Brand Colors & Fonts
+/* Brand variables from README */
+:root {
+  --yellow: #FFC907; /* primary */
+  --blue: #2E9DF7; /* primary */
+  --dark-blue: #003366; /* secondary (updated per user request) */
+  --green: #4FCB53; /* secondary */
+  --bg: #ffc907;
+  --text: #07204a;
+}
 
-Primary Colors:
-- Yellow:     #FFC907
-- Blue:       #2E9DF7
-
-Secondary Colors:
-- Light Blue: #8BD1CB
-- Green:      #4FCB53
-- Orange:     #FF902A
-- Red:        #F5402C
-- Dark Green: #159A48
-- Pink:       #F16061
-
-Fonts:
-- Proxima Nova
-- Avenir
-
-*/
-
-/* 
-  Charity: Water Landing Page Styles
-  This CSS uses the provided color palette and beginner-friendly styles.
-*/
-
-/* Set up the main font and background color for the whole page */
+/* Basic reset */
+* { box-sizing: border-box; }
 body {
-  background-color: #f4f8fb; /* Soft light blue for a fresh look */
-  font-family: 'Avenir', 'Proxima Nova', Arial, sans-serif;
   margin: 0;
-  padding: 0;
-  color: #222;
+  /* prefer Proxima Nova for all text, keep fallbacks in case it's not installed */
+  font-family: 'Proxima Nova', Avenir, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  /* base yellow background */
+  background: var(--bg);
+  /* subtle black diagonal stripe pattern over the yellow */
+  background-image: repeating-linear-gradient(
+    135deg,
+    rgba(0,0,0,0.06) 0 2px,
+    rgba(0,0,0,0.00) 2px 24px
+  );
+  background-blend-mode: overlay;
+  color: var(--text);
 }
 
-/* Add a slight shadow and rounded corners to each section for depth */
-section {
-  background: #fff; /* White background for sections */
-  border-radius: 12px; /* Rounded corners */
-  box-shadow: 0 2px 8px rgba(46, 157, 247, 0.07); /* Soft blue shadow */
-  margin: 24px 10px; /* Space between sections */
-  padding: 24px 16px;
+.container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+/* Header */
+.site-header {
+  /* make the top background the requested yellow */
+  position: relative;
+  background: var(--yellow);
+  /* add same subtle pattern to the header so it blends with the page */
+  background-image: repeating-linear-gradient(
+    135deg,
+    rgba(0,0,0,0.06) 0 2px,
+    rgba(0,0,0,0.00) 2px 24px
+  );
+  background-blend-mode: overlay;
+  /* subtle separator that works on yellow */
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  padding: 18px 0; /* original spacing */
+  z-index: 2;
 }
 
-/* Hero Section Styles */
+/* Center the logo but restore original height */
+.logo {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  height: 36px; /* restored from 48px */
+}
+
+/* ensure links remain visible on the yellow background (adjust if you prefer a different color) */
+.site-header .nav a { color: var(--blue); text-decoration: none; margin-left: 18px; font-weight: 600; }
+
+.btn { display: inline-block; padding: 10px 16px; border-radius: 6px; text-decoration: none; font-weight: 700; }
+.btn-primary { background: var(--blue); color: white; }
+.btn-secondary { background: transparent; color: var(--blue); border: 2px solid transparent; }
+.btn-outline { border: 2px solid #e6eef7; padding: 8px 14px; border-radius: 6px; }
+
+/* Restore header container layout so logo and nav are spaced as before */
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 0; /* restored original padding */
+}
+
+/* Ensure header nav (donate button) sits at the far right of the header */
+.site-header .nav {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+}
+
+/* Hero */
 .hero {
-  position: relative; /* Needed for overlay */
-  /* Set a background image that covers the whole section */
-  background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1500&q=80');
-  background-size: cover;      /* Make the image cover the whole area */
-  background-position: center; /* Center the image */
-  background-repeat: no-repeat;
-  color: #fff;                 /* White text for contrast */
-  text-align: center;          /* Center the text */
-  padding: 60px 20px;          /* Add space above and below */
-  border-radius: 0 0 16px 16px; /* Only round bottom corners */
-
-  /* Add a dark overlay for better text readability */
-  /* This uses a simple linear-gradient overlay */
-  background-blend-mode: darken;
-  background-color: rgba(46, 157, 247, 0.45); /* Blue overlay */
+  /* reset to normal flow (no decorative pseudo-elements) */
+  position: relative; /* changed from static */
+  overflow: visible;
+  padding: 48px 0; /* keep hero spacing */
 }
 
-/* Make the headline bold and modern */
-.hero h1 {
-  font-size: 2.5em;
-  font-weight: bold;
-  letter-spacing: 1px;
-  margin-bottom: 15px;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.15); /* Soft shadow for readability */
+/* Diagonal black rectangle on the left side, behind text/image */
+.hero::before {
+  content: "";
+  position: absolute;
+  left: -220px;    /* push to the left */
+  top: 8%;
+  width: 760px;
+  height: 420px;
+  background: #0b0b0b; /* black rectangle */
+  transform: rotate(-12deg);
+  z-index: 0; /* behind hero content (.hero-copy / .hero-image use z-index:1) */
+  border-radius: 8px;
+  pointer-events: none;
 }
 
-/* Style the subheadline */
-.hero p {
-  font-size: 1.2em;
-  margin-top: 0;
-  text-shadow: 0 1px 4px rgba(0,0,0,0.12);
+/* ensure hero text and image render normally */
+.hero-copy,
+.hero-image {
+  position: relative;
+  z-index: 1;
 }
 
-/* Story Section Styles */
-.story {
-  background-color: #8BD1CB; /* Secondary Light Blue */
-  color: #222;
-  text-align: center;
-  padding: 30px 20px;
+/* keep left text first and image on the right in the flex row */
+.hero-copy { order: 1; }
+.hero-image { order: 2; }
+
+/* Change hero heading and subheading font color to the requested cream */
+.hero-copy h1 {
+  font-size: 64px;       /* made much larger */
+  line-height: 1.02;
+  margin: 0 0 12px 0;
+  color: #fff7e1;
 }
 
-/* Add accent color to section headings */
-h2 {
-  color: #2E9DF7; /* Primary blue */
-  margin-top: 0;
-  font-weight: bold;
+.hero-copy p {
+  color: #fff7e1;
+  font-size: 20px; /* slightly bigger (was ~18px) */
+  line-height: 1.45; /* improve readability */
+  margin: 0 0 20px 0;
 }
 
-/* Call-to-Action Section Styles */
-.call-to-action {
-  background-color: #FFC907; /* Primary Yellow */
-  color: #222;
-  text-align: center;
-  padding: 30px 20px;
+/* ensure the large heading scales on smaller screens */
+@media (max-width: 820px) {
+  .hero-copy h1 { font-size: 36px; }
 }
 
-/* Style the impact story image */
-.impact-image {
-  width: 100%;
-  max-width: 320px;
-  border-radius: 10px;
-  margin-bottom: 16px;
-  box-shadow: 0 2px 8px rgba(46, 157, 247, 0.10);
+/* Responsive */
+@media (max-width: 820px) {
+  .hero-inner { flex-direction: column-reverse; text-align: center; }
+  .hero-copy h1 { font-size: 30px; }
+  .hero-image { width: 100%; }
 }
 
-/* Donate Button Styles */
-.donate-button {
-  display: inline-block;
-  background-color: #4FCB53; /* Green */
-  color: #fff;
-  padding: 14px 32px;
-  text-decoration: none;
+/* helpers */
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+
+/* Make the Donate button in the header a dark-blue filled button */
+.site-header .nav a[href="#donate"] {
+  background: var(--dark-blue); /* dark blue background */
+  color: #fff7e1;               /* requested text color */
+  border: 1px solid var(--dark-blue);
+  padding: 8px 14px;
   border-radius: 6px;
-  font-weight: bold;
-  font-size: 1.1em;
-  margin-top: 18px;
-  box-shadow: 0 2px 8px rgba(79, 203, 83, 0.10);
-  transition: background 0.3s, transform 0.2s;
-  border: none;
+  text-decoration: none;
+  display: inline-block;
+  font-weight: 700;
+}
+
+/* Hover state */
+.site-header .nav a[href="#donate"]:hover {
+  background: #002546;
+  border-color: #002546;
+  color: #fff7e1;
+}
+
+/* Ensure hero row is horizontal and image sits on the right */
+.hero-inner {
+  display: flex;
+  flex-direction: row;   /* force horizontal layout */
+  align-items: stretch;
+  gap: 40px;
+  min-height: 420px;
+}
+
+/* left column (text) stays first */
+.hero-copy {
+  flex: 1 1 48%;
+  order: 1;
+  position: relative;
+  z-index: 1;
+}
+
+/* right column (image) stays second and right-aligns its content */
+.hero-image {
+  flex: 0 0 48%;
+  order: 2;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; /* push image to the right inside its column */
+  position: relative;
+  z-index: 1;
+}
+
+/* keep the image filling its column and cropped as needed */
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 20px 40px rgba(4,24,64,0.12);
+}
+
+/* Stats: put each stat into its own box */
+.stats {
+  list-style: none;
+  padding: 0;
+  margin: 22px 0 0 0;
+  display: flex;
+  gap: 20px;
+  justify-content: center; /* center the row of boxes */
+  align-items: stretch;
+}
+
+.stats li {
+  background: #ffffff;
+  padding: 18px 22px;
+  border-radius: 12px;
+  text-align: center;
+  /* make all boxes equal width and grow/shrink nicely */
+  flex: 1 1 140px;
+  min-width: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 20px rgba(4,24,64,0.06);
+  border: 1px solid rgba(4,24,64,0.06);
+}
+
+/* Slightly larger number and spacing inside the box */
+.stats strong {
+  display: block;
+  font-size: 20px;
+  color: var(--text);
+  line-height: 1;
+}
+
+.stats span {
+  font-size: 13px;
+  color: #547088;
+  margin-top: 6px;
+}
+
+/* Mobile: stack boxes vertically for narrow screens */
+@media (max-width: 520px) {
+  .stats { flex-direction: column; gap: 12px; }
+  .stats li { width: 100%; }
+}
+
+/* Simple empty text box used in the hero CTAs */
+.hero-input {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 2px solid #e6eef7;
+  background: #ffffff; /* visible box */
+  color: var(--text);
+  min-width: 200px;
+  font-size: 15px;
+  font-weight: 600;
+  box-sizing: border-box;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* Wrapper that holds the input and an inline donate button inside the input on the right */
+.hero-input-wrap {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* Give extra right padding so the input content doesn't overlap the button */
+.hero-input {
+  padding: 8px 14px;
+  padding-right: 110px; /* restored smaller space for the button */
+  border-radius: 6px;
+  border: 2px solid #e6eef7;
+  background: #ffffff;
+  color: var(--text);
+  /* removed explicit width so the input returns to its default/min-width behavior */
+  min-width: 200px;
+  max-width: none;
+  font-size: 15px;
+  font-weight: 600;
+  box-sizing: border-box;
+}
+
+/* The duplicate Donate button placed inside the input area on the right */
+.hero-input-btn {
+  position: absolute;
+  right: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--dark-blue);
+  color: #fff7e1;
+  border: 1px solid var(--dark-blue);
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-weight: 700;
   cursor: pointer;
 }
 
-/* Change button color when hovered */
-.donate-button:hover {
-  background-color: #159A48; /* Dark Green */
-  transform: translateY(-2px) scale(1.04); /* Slight lift */
+/* Hover state for the in-input donate button */
+.hero-input-btn:hover {
+  background: #002546;
+  border-color: #002546;
+  color: #fff7e1;
 }
 
-/* Add some spacing between sections */
-section {
-  margin-bottom: 20px;
+/* Mobile: stack the CTA elements for small screens so the button isn't cramped */
+@media (max-width: 520px) {
+  .hero-ctas { display: flex; flex-direction: column; gap: 10px; align-items: center; }
+  .hero-input { width: 100%; padding-right: 14px; min-width: auto; }
+  .hero-input-wrap { width: 100%; }
+  .hero-input-btn { position: static; transform: none; width: auto; margin-left: 0; }
 }
 
-/* 
-  Media Queries for Responsive Design
-  Media queries help make your website look good on different screen sizes,
-  like phones (small screens) and computers (large screens).
-*/
-
-/* This media query applies styles when the screen is 600px wide or less (like on most phones) */
-@media (max-width: 600px) {
-  /* Make hero section padding smaller on small screens */
-  .hero {
-    padding: 32px 8px;
-    font-size: 1em;
-  }
-
-  /* Make headline font size smaller so it fits on small screens */
-  .hero h1 {
-    font-size: 1.4em;
-  }
-
-  /* Make subheadline font size smaller */
-  .hero p {
-    font-size: 1em;
-  }
-
-  /* Make story and call-to-action sections have less padding */
-  .story,
-  .call-to-action,
-  .donation-section {
-    padding: 14px 8px;
-  }
-
-  /* Make impact story image smaller and stack above the text */
-  .impact-content {
-    display: block; /* Stack items vertically */
-    text-align: center;
-  }
-
-  .impact-image {
-    width: 90%;    /* Make image take up most of the width */
-    max-width: 220px;
-  }
+/* Block shown below the stats, constrained to the left column and prevented from overflowing */
+.below-stats {
+  margin-top: 20px;
+  text-align: left;
+  box-sizing: border-box;
+  max-width: 100%;            /* stay within the left column */
+  overflow-wrap: break-word;  /* break long words to avoid overflow */
+  word-break: break-word;
+  white-space: normal;
 }
 
-/* This media query applies styles when the screen is wider than 600px (like on tablets and computers) */
-@media (min-width: 601px) {
-  /* Show image and text side by side in the impact story */
-  .impact-content {
-    display: flex;           /* Place items in a row */
-    align-items: center;     /* Vertically center items */
-    justify-content: center; /* Center the whole group */
-    gap: 28px;               /* Space between image and text */
-    text-align: left;
-    max-width: 800px;
-    margin: 0 auto;
-  }
+/* Visual styling that matches hero text */
+.below-stats-title {
+  margin: 0 0 8px 0;
+  font-size: 18px;
+  color: #fff7e1;
+  font-weight: 700;
+}
 
-  .impact-image {
-    width: 300px;
-  }
+.below-stats-copy {
+  margin: 0;
+  color: #fff7e1;
+  line-height: 1.5;
+}
+
+/* Small screens: keep block full width of the column */
+@media (max-width: 820px) {
+  .below-stats { padding: 0 10px; }
 }

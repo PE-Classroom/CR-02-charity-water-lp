@@ -1,47 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Charity Water Landing Page</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <!-- Hero Section: This is the main banner at the top of the page -->
-    <section class="hero">
-        <!-- Main headline -->
-        <h1>Clean Water for Everyone</h1>
-        <!-- Subheadline -->
-        <p>Join us in bringing safe, clean water to communities in need.</p>
-    </section>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Charity Water — Clean Water for Everyone</title>
+		<link rel="stylesheet" href="styles.css" />
+	</head>
+	<body>
+		<!-- Header -->
+		<header class="site-header">
+			<div class="container">
+				<!-- use the provided white logo file -->
+				<img src="img/charitywater_logo_horizontal_AllWhite (1).png" alt="Charity Water logo (white)" class="logo" />
+				<nav class="nav">
+					<a href="#donate" class="btn btn-outline">Donate</a>
+				</nav>
+			</div>
+		</header>
 
-    <!-- Story Section: This tells the story of the nonprofit -->
-    <section class="story">
-        <h2>Our Story</h2>
-        <p>
-         
-    </section>
+		<!-- HERO -->
+		<main>
+			<section class="hero">
+				<div class="container hero-inner">
+					<div class="hero-copy">
+						<!-- Updated heading and subheading -->
+						<h1>Real Data. Real Impact. Real Leadership.</h1>
+						<p>
+							Discover how charity: water’s 100% Model turns every donation into verifiable
+							progress and inspires the next generation of leaders.
+						</p>
 
-    <!-- Real-World Impact Story Section -->
-    <section class="impact-story">
-        <!-- Section headline -->
-        <h2>Real Impact: Meet Amina</h2>
-        <!-- Container for image and text -->
-        <div class="impact-content">
-            <!-- Impact image -->
-            <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80" alt="Amina smiling with clean water" class="impact-image">
-            <!-- Impact story text -->
-            <p>
-                Amina used to walk miles every day to collect water for her family. Thanks to your support, her village now has a clean water well. Amina can go to school and her family is healthier and happier.
-            </p>
-        </div>
-    </section>
+						<!-- ...existing code... -->
+						<div class="hero-ctas">
+							<!-- Removed the "Donate now" button per request -->
+							<!-- previously: <a href="#donate" class="btn btn-primary">Donate now</a> -->
+							<!-- keep the input + duplicate donate button on the right -->
+							<div class="hero-input-wrap">
+								<input type="text" class="hero-input" aria-label="Empty input" value="Contribute Today" />
+								<button type="button" class="hero-input-btn">Donate</button>
+							</div>
+						</div>
+						<ul class="stats">
+							<li><strong>30,000+</strong><span>People helped</span></li>
+							<li><strong>1,200</strong><span>Projects</span></li>
+							<li><strong>10</strong><span>Years</span></li>
+						</ul>
 
-    <!-- Call-to-Action Section: This encourages visitors to take action -->
-    <section class="call-to-action">
-        <h2>Make a Difference</h2>
-        <p>Your support can help save lives. Every donation brings us closer to a world with clean water for all.</p>
-        <a href="#" class="donate-button">Donate Now</a>
-    </section>
-</body>
+						<!-- Added: left-column "Our approach" block placed directly under the three stat boxes -->
+						<div class="below-stats">
+							<h3 class="below-stats-title">Our approach</h3>
+							<p class="below-stats-copy">
+								We partner with local communities to build sustainable water systems and train locals
+								to maintain them. Every project is monitored and supported for years after construction.
+							</p>
+						</div>
+
+					</div>
+
+					<!-- Use the provided Ethiopia image on the right (place it at img/6391_Ethiopia_2019_CG- (1).png) -->
+					<div class="hero-image">
+						<!-- use the provided Ethiopia image on the right -->
+						<img src="img/6391_Ethiopia_2019_CG- (1).png" alt="Community receiving clean water in Ethiopia" />
+					</div>
+				</div>
+			</section>
+
+		</main>
+
+		<footer class="site-footer">
+			<div class="container">
+				<p>© <span id="year"></span> Charity Water — All rights reserved.</p>
+			</div>
+		</footer>
+
+		<script>
+			// Set current year in footer (beginner-friendly JS)
+			document.getElementById('year').textContent = new Date().getFullYear();
+		</script>
+	</body>
 </html>
