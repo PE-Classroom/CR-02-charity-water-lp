@@ -1,47 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Charity Water Landing Page</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <!-- Hero Section: This is the main banner at the top of the page -->
-    <section class="hero">
-        <!-- Main headline -->
-        <h1>Clean Water for Everyone</h1>
-        <!-- Subheadline -->
-        <p>Join us in bringing safe, clean water to communities in need.</p>
-    </section>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Charity Water — Clean Water for Everyone</title>
+		<link rel="stylesheet" href="styles.css" />
+	</head>
+	<body>
+		<!-- Header -->
+		<header class="site-header">
+			<div class="container">
+				<img src="img/cw_logo.png" alt="Charity Water logo" class="logo" />
+				<nav class="nav">
+					<a href="#about">About</a>
+					<a href="#projects">Projects</a>
+					<a href="#donate" class="btn btn-outline">Donate</a>
+				</nav>
+			</div>
+		</header>
 
-    <!-- Story Section: This tells the story of the nonprofit -->
-    <section class="story">
-        <h2>Our Story</h2>
-        <p>
-         
-    </section>
+		<!-- HERO -->
+		<main>
+			<section class="hero">
+				<div class="container hero-inner">
+					<div class="hero-copy">
+						<h1>Clean water changes everything</h1>
+						<p>
+							We bring clean and safe drinking water to people in developing
+							countries through community-owned water projects.
+						</p>
+						<div class="hero-ctas">
+							<a href="#donate" class="btn btn-primary">Donate now</a>
+							<a href="#learn" class="btn btn-secondary">Learn more</a>
+						</div>
+						<ul class="stats">
+							<li><strong>30,000+</strong><span>People helped</span></li>
+							<li><strong>1,200</strong><span>Projects</span></li>
+							<li><strong>10</strong><span>Years</span></li>
+						</ul>
+					</div>
 
-    <!-- Real-World Impact Story Section -->
-    <section class="impact-story">
-        <!-- Section headline -->
-        <h2>Real Impact: Meet Amina</h2>
-        <!-- Container for image and text -->
-        <div class="impact-content">
-            <!-- Impact image -->
-            <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80" alt="Amina smiling with clean water" class="impact-image">
-            <!-- Impact story text -->
-            <p>
-                Amina used to walk miles every day to collect water for her family. Thanks to your support, her village now has a clean water well. Amina can go to school and her family is healthier and happier.
-            </p>
-        </div>
-    </section>
+					<div class="hero-image">
+						<!-- Use the mockup screenshot given in the repository as the hero illustration. -->
+						<img src="img/Screenshot 2025-10-07 190333.png" alt="Landing page mockup" />
+					</div>
+				</div>
+			</section>
 
-    <!-- Call-to-Action Section: This encourages visitors to take action -->
-    <section class="call-to-action">
-        <h2>Make a Difference</h2>
-        <p>Your support can help save lives. Every donation brings us closer to a world with clean water for all.</p>
-        <a href="#" class="donate-button">Donate Now</a>
-    </section>
-</body>
+			<section id="about" class="info container">
+				<h2>Our approach</h2>
+				<p>
+					We partner with local communities to build sustainable water systems
+					and train locals to maintain them. Every project is monitored and
+					supported for years after construction.
+				</p>
+			</section>
+		</main>
+
+		<footer class="site-footer">
+			<div class="container">
+				<p>© <span id="year"></span> Charity Water — All rights reserved.</p>
+			</div>
+		</footer>
+
+		<script>
+			// Set current year in footer (beginner-friendly JS)
+			document.getElementById('year').textContent = new Date().getFullYear();
+		</script>
+	</body>
 </html>
