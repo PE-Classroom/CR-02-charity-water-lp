@@ -52,6 +52,36 @@ body {
 .site-footer { background: #ffffff; border-top: 1px solid #e6eef7; padding: 18px 0; margin-top: 40px; }
 .site-footer p { margin: 0; color: #547088; }
 
+/* Style the Donate link/button: dark blue background and cream text.
+   We target the exact donate anchor so other buttons are unchanged. */
+a[href="#donate"],
+a[href="#donate"].btn,
+a[href="#donate"].btn-outline,
+a[href="#donate"].btn-primary {
+	/* dark blue background */
+	background-color: #003366;
+	/* requested font color */
+	color: #fff7e1;
+	/* match border to background for a clean "box" look */
+	border: 1px solid #003366;
+	/* keep basic button spacing (may already exist in .btn) */
+	padding: 0.5rem 1rem;
+	text-decoration: none;
+	display: inline-block;
+}
+
+/* Slightly darker on hover for a visible interaction */
+a[href="#donate"]:hover,
+a[href="#donate"].btn:hover {
+	background-color: #002546;
+	border-color: #002546;
+	color: #fff7e1;
+}
+
+/* Change hero heading and subheading font color to the requested cream */
+.hero-copy h1 { color: #fff7e1; }
+.hero-copy p  { color: #fff7e1; }
+
 /* Responsive */
 @media (max-width: 820px) {
   .hero-inner { flex-direction: column-reverse; text-align: center; }
