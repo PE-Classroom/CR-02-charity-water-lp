@@ -25,7 +25,7 @@ Fonts:
 
 /* Set up the main font and background color for the whole page */
 body {
-  background-color: #f4f8fb; /* Soft light blue for a fresh look */
+  background-color: #fff; /* Soft light blue for a fresh look */
   font-family: 'Avenir', 'Proxima Nova', Arial, sans-serif;
   margin: 0;
   padding: 0;
@@ -34,7 +34,7 @@ body {
 
 /* Add a slight shadow and rounded corners to each section for depth */
 section {
-  background: #fff; /* White background for sections */
+  background: #2E9DF7; /* White background for sections */
   border-radius: 12px; /* Rounded corners */
   box-shadow: 0 2px 8px rgba(46, 157, 247, 0.07); /* Soft blue shadow */
   margin: 24px 10px; /* Space between sections */
@@ -44,29 +44,29 @@ section {
 /* Hero Section Styles */
 .hero {
   position: relative; /* Needed for overlay */
-  /* Set a background image that covers the whole section */
-  background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1500&q=80');
+  /* Use the project's hero image. The file is `img/image.png` (already present in the repo).
+     If you replace the image, keep the filename or update this path accordingly. */
+  background-image: url('img/image.png');
   background-size: cover;      /* Make the image cover the whole area */
-  background-position: center; /* Center the image */
+  /* Move the background down so the bottom of the image (legs) is visible.
+     100% aligns the bottom of the image with the bottom of the hero box. */
+  background-position: left 100%;
   background-repeat: no-repeat;
   color: #fff;                 /* White text for contrast */
-  text-align: center;          /* Center the text */
-  padding: 60px 20px;          /* Add space above and below */
-  border-radius: 0 0 16px 16px; /* Only round bottom corners */
+  text-align: left;            /* Left-align the text column */
+  padding: 0;                  /* We'll control spacing inside children */
+  border-radius: 0 0 6px 6px;  /* Slight rounding on bottom corners */
 
-  /* Add a dark overlay for better text readability */
-  /* This uses a simple linear-gradient overlay */
-  background-blend-mode: darken;
-  background-color: rgba(46, 157, 247, 0.45); /* Blue overlay */
+  /* Add a subtle overlay to increase contrast for text on top */
+  box-shadow: inset 0 0 0 1000px rgba(0,0,0,0.18);
 }
 
 /* Make the headline bold and modern */
 .hero h1 {
-  font-size: 2.5em;
-  font-weight: bold;
-  letter-spacing: 1px;
-  margin-bottom: 15px;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.15); /* Soft shadow for readability */
+  /* large, bold headline — we'll override in .hero-title for the special yellow style */
+  font-size: 2.2em;
+  font-weight: 700;
+  margin: 0 0 10px 0;
 }
 
 /* Style the subheadline */
@@ -78,7 +78,7 @@ section {
 
 /* Story Section Styles */
 .story {
-  background-color: #8BD1CB; /* Secondary Light Blue */
+  background-color: #2E9DF7; /* Secondary Light Blue */
   color: #222;
   text-align: center;
   padding: 30px 20px;
@@ -86,15 +86,15 @@ section {
 
 /* Add accent color to section headings */
 h2 {
-  color: #2E9DF7; /* Primary blue */
+  color: #FFC907; /* Primary blue */
   margin-top: 0;
   font-weight: bold;
 }
 
 /* Call-to-Action Section Styles */
 .call-to-action {
-  background-color: #FFC907; /* Primary Yellow */
-  color: #222;
+  background-color: #2E9DF7; /* Primary Yellow */
+  color: #fff;
   text-align: center;
   padding: 30px 20px;
 }
@@ -111,8 +111,8 @@ h2 {
 /* Donate Button Styles */
 .donate-button {
   display: inline-block;
-  background-color: #4FCB53; /* Green */
-  color: #fff;
+  background-color: #FFC907; /* Green */
+  color: #111;
   padding: 14px 32px;
   text-decoration: none;
   border-radius: 6px;
@@ -127,7 +127,7 @@ h2 {
 
 /* Change button color when hovered */
 .donate-button:hover {
-  background-color: #159A48; /* Dark Green */
+  background-color: #FFC907; /* Dark Green */
   transform: translateY(-2px) scale(1.04); /* Slight lift */
 }
 
@@ -195,4 +195,158 @@ section {
   .impact-image {
     width: 300px;
   }
+}
+
+/* ------------------------- */
+/* New styles for header and hero content (Canva-inspired) */
+/* ------------------------- */
+
+/* Simple container to center content and limit width */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Top site header with logo on the left and donate on the right */
+.site-header {
+  background: #fff; /* White background */
+  padding: 10px 0;  /* Space above and below */
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  position: relative; /* needed for absolute-corner positioning */
+}
+.header-inner {
+  display: flex;           /* Puts logo and button side by side */
+  align-items: center;     /* Vertically centers them */
+  justify-content: space-between; /* Space between logo and button */
+  padding: 18px 0;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.logo-mark {
+  display: block;
+  height: 52px;      /* target logo height */
+  width: auto;       /* keep aspect ratio */
+}
+
+.logo-text {
+  font-size: 26px;
+  letter-spacing: 2px;
+  color: #111;
+}
+.top-donate {
+  background: #ffd700;     /* Gold color */
+  color: #222;
+  padding: 8px 16px;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: bold;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+/* Put logo and donate button in the top corners */
+.site-header .brand {
+  position: absolute;
+  left: 16px;
+  top: 8px;
+}
+.site-header .top-donate {
+  position: absolute;
+  right: 16px;
+  top: 8px;
+}
+
+/* Mobile fallback: keep header items in normal flow on small screens */
+@media (max-width: 640px) {
+  .site-header .brand,
+  .site-header .top-donate {
+    position: static;
+    margin: 0 8px;
+  }
+  .header-inner { display:flex; justify-content:space-between; }
+}
+
+/* Hero internal grid: left spacer + right text column */
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1fr 560px; /* left image area + right content column */
+  align-items: center;
+  gap: 24px;
+  min-height: 1120px; /* doubled to make the photo area much longer */
+}
+.hero-spacer {
+  /* empty - visual interest comes from background image on .hero */
+  height: 1120px;
+}
+.hero-content {
+  color: #fff;
+  padding: 40px 32px;
+}
+
+/* Special yellow headline like the design */
+.hero-title {
+  color: #FFC907; /* bright yellow */
+  font-size: 64px;
+  line-height: 0.95;
+  margin: 0 0 16px 0;
+  font-weight: 800;
+  text-shadow: 0 6px 20px rgba(0,0,0,0.25);
+}
+.hero-sub {
+  color: rgba(255,255,255,0.92);
+  max-width: 420px;
+  margin-bottom: 22px;
+}
+
+/* Donation form: big rounded input + boxed donate button */
+.donation-form {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+.donation-input {
+  flex: 1;
+  padding: 18px 20px;
+  border-radius: 12px;
+  border: none;
+  background: rgba(255,255,255,0.95);
+  color: #333;
+  font-weight: 600;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+}
+.donation-input::placeholder { color: #bfbfbf; font-weight:600 }
+.donation-cta {
+  background: #FFC907; /* muted blue */
+  color: #08303b;
+  padding: 14px 22px;
+  border-radius: 10px;
+  border: none;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 900px) {
+  .hero-inner { grid-template-columns: 1fr 1fr; }
+  .hero-title { font-size: 44px; }
+  .hero-sub { max-width: 360px; }
+  .hero-spacer { height: 960px; }
+  /* on narrower screens move the image almost to the bottom so legs remain visible */
+  .hero { background-position: left 95%; }
+}
+
+@media (max-width: 640px) {
+  .hero-inner { grid-template-columns: 1fr; }
+  .hero-spacer { display: none; }
+  .hero-content { padding: 28px 18px; }
+  .hero-title { font-size: 32px; text-align: center; }
+  .hero-sub { text-align: center; margin-left: 0; }
+  .donation-form { justify-content: center; width: 100%; }
+  .donation-input { max-width: 320px; }
+  /* for phones, align to the bottom to keep legs visible */
+  .hero { background-position: center 95%; }
 }
