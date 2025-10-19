@@ -7,12 +7,36 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Hero Section: This is the main banner at the top of the page -->
+    <!-- Header with logo and top donate button -->
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="brand">
+                <!-- Logo image for charity: water. Make sure the image file is named 'charity-water-logo.png' and is in your project folder. -->
+                <img src="img/cw_logo-2.png" alt="charity: water logo" class="logo-mark">
+                <!-- The text is removed because it's part of the image. -->
+            </div>
+            <a href="#donate" class="top-donate">Donate</a>
+        </div>
+    </header>
+
+    <!-- Hero Section: large image with right-side text overlay -->
     <section class="hero">
-        <!-- Main headline -->
-        <h1>Clean Water for Everyone</h1>
-        <!-- Subheadline -->
-        <p>Join us in bringing safe, clean water to communities in need.</p>
+        <div class="hero-inner container">
+            <!-- Left: (image is set in CSS as background) spacer so text sits on the right -->
+            <div class="hero-spacer"></div>
+
+            <!-- Right: text column that overlays the image -->
+            <div class="hero-content">
+                <h1 class="hero-title">Change Lives With Just $10.</h1>
+                <p class="hero-sub">Donate in seconds. Every dollar goes straight to clean water projects you can track, proving your impact is real.</p>
+
+                <!-- Donation input and CTA grouped together -->
+                <form class="donation-form" id="donate" action="#" onsubmit="return false;">
+                    <input class="donation-input" type="text" placeholder="HELLO IT'S BRI" aria-label="Personal message or name">
+                    <button class="donation-cta">Donate</button>
+                </form>
+            </div>
+        </div>
     </section>
 
     <!-- Story Section: This tells the story of the nonprofit -->
