@@ -1,47 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Charity Water Landing Page</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Be the Change – Clean Water</title>
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Optional: Google Fonts (swap to your brand fonts) -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Hero Section: This is the main banner at the top of the page -->
-    <section class="hero">
-        <!-- Main headline -->
-        <h1>Clean Water for Everyone</h1>
-        <!-- Subheadline -->
-        <p>Join us in bringing safe, clean water to communities in need.</p>
-    </section>
+  <!-- ===== HERO ===== -->
+  <section class="hero" aria-label="Main hero">
+    <div class="container hero__wrap">
+      <!-- hero text moved into the right-side headline box below -->
 
-    <!-- Story Section: This tells the story of the nonprofit -->
-    <section class="story">
-        <h2>Our Story</h2>
-        <p>
-         
-    </section>
+      <!-- Group media and story box so they can sit side-by-side and align vertically -->
+      <div class="hero__media-group">
+        <!-- Optional image; replace with your brand image -->
+        <figure class="hero__media">
+          <!-- Local image added for the hero; kept simple for beginners -->
+          <img src="img/first.png"
+            alt="Hands holding a glass under a tap filling with water"
+            class="hero__image" />
+          <figcaption class="sr-only">Clean water impact</figcaption>
+        </figure>
 
-    <!-- Real-World Impact Story Section -->
-    <section class="impact-story">
-        <!-- Section headline -->
-        <h2>Real Impact: Meet Amina</h2>
-        <!-- Container for image and text -->
-        <div class="impact-content">
-            <!-- Impact image -->
-            <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80" alt="Amina smiling with clean water" class="impact-image">
-            <!-- Impact story text -->
-            <p>
-                Amina used to walk miles every day to collect water for her family. Thanks to your support, her village now has a clean water well. Amina can go to school and her family is healthier and happier.
+            <div class="hero__side">
+              <!-- Headline box moved here so the header appears on the right side -->
+              <div class="hero__headline-box">
+                <div class="hero__text">
+                  <h1>
+                    Be the <span class="hl">CHANGE</span><br />
+                    you WANT<br />
+                    in this WORLD
+                  </h1>
+                  <p class="hero__mission">
+                    Your contribution doesn’t just provide water — it builds community-led solutions that last for generations.
+                  </p>
+                </div>
+              </div>
+            <!-- CTA centered above the story box on the right side of the image -->
+            <div class="hero__cta hero__cta--above">
+              <h3>See the Change You Make — Every Drop, Every Life.</h3>
+              <p>Every donation funds clean, safe water and community-led solutions that last.</p>
+              <a href="#" class="donate-button">Donate Now</a>
+            </div>
+
+            <!-- Story box placed to the right of the hero image -->
+            <aside class="hero__story-box" aria-label="Our story summary">
+              <h2 class="section-title">Our Story</h2>
+              <p class="lead">
+                We believe that access to clean water is more than a necessity — it’s the foundation for a better life. What began as a simple desire to help communities thrive has grown into a global effort to ensure every person can drink safely, live healthily, and dream freely.
+              </p>
+            </aside>
+          </div>
+        <!-- Add Real Impact as a boxed panel inside the hero, to the right of the other columns -->
+        <aside class="hero__impact-box" aria-label="Real impact">
+          <div class="impact-copy-wrap">
+            <h2 class="section-title">Real Impact: Meet Amina</h2>
+            <p class="impact-copy">
+              Amina used to walk miles every day to collect water for her family. Thanks to your support, her village now has a
+              clean water well. Amina can go to school and her family is healthier and happier.
             </p>
-        </div>
-    </section>
+          </div>
+          <img
+            src="img/second.png"
+            alt="Amina smiling with clean water"
+            class="impact-image"
+          />
+        </aside>
+      </div>
+    </div>
+  </section>
 
-    <!-- Call-to-Action Section: This encourages visitors to take action -->
-    <section class="call-to-action">
-        <h2>Make a Difference</h2>
-        <p>Your support can help save lives. Every donation brings us closer to a world with clean water for all.</p>
-        <a href="#" class="donate-button">Donate Now</a>
-    </section>
+  <!-- original CTA removed (moved into hero) -->
+
+  <footer class="footer">
+    <div class="container footer__wrap">
+      <span class="brand">Be the Change</span>
+      <span>© <span id="year"></span> All rights reserved.</span>
+    </div>
+  </footer>
+
+  <!-- Optional 1-liner to keep year updated (remove if you want zero JS) -->
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
