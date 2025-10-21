@@ -1,47 +1,186 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Charity Water Landing Page</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Charity:Water - Make Waves</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Lato&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Hero Section: This is the main banner at the top of the page -->
+  <!-- Decorative background image to add visual interest -->
+  <img src="img/background.jpg" alt="Water Background" class="background-image">
+
+  <img src="img/Untitled design.svg.svg" alt="Overlay SVG" class="hide-mobile" style="position: absolute; top: 45%; left: 85%; width: 100%; max-width: 1400px; transform: translate(-50%, -50%); z-index: 1;" />
+    <p class="hide-mobile" style="color: #fff7e1; font-family: ProximaNova; background: rgba(255, 255, 255, 0); padding: 0.5rem 1rem; border-radius: 6px; font-size: 0.8rem; margin-bottom: 0.5rem; max-width: 180px; margin-left: auto; margin-right: auto; z-index: 1;position: absolute; top: 45%; left: 78%;">
+      "Support the cause, our cause for in your charity, the water drops."
+    </p>
+
+
+  <header>
+    <div class="logo">
+      <img src="img/cw_logo.png" alt="Charity:Water Logo">
+    </div>
+    <div class="give-container">
+      <button class="give-btn">GIVE</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Hero section with a short message and join button -->
     <section class="hero">
-        <!-- Main headline -->
-        <h1>Clean Water for Everyone</h1>
-        <!-- Subheadline -->
-        <p>Join us in bringing safe, clean water to communities in need.</p>
+      <h1>Make Waves, Change Lives with Charity Water!</h1>
+      <p>
+        Embrace the moral, our vision of generosity. It's not about giving too much or too little, but giving what feels right to you.
+        Your contribution, no matter the size, helps bring lasting change. Join us and transform lives one drop at a time.
+      </p>
+      <button class="join-btn">JOIN TODAY</button>
     </section>
 
-    <!-- Story Section: This tells the story of the nonprofit -->
-    <section class="story">
-        <h2>Our Story</h2>
-        <p>
-         
+
+
+    <!-- Simple search bar to look up projects -->
+    <section class="search-section">
+      <div class="search-bar">
+        <input type="text" placeholder="Search Projects or Countries">
+      </div>
     </section>
 
-    <!-- Real-World Impact Story Section -->
-    <section class="impact-story">
-        <!-- Section headline -->
-        <h2>Real Impact: Meet Amina</h2>
-        <!-- Container for image and text -->
-        <div class="impact-content">
-            <!-- Impact image -->
-            <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80" alt="Amina smiling with clean water" class="impact-image">
-            <!-- Impact story text -->
-            <p>
-                Amina used to walk miles every day to collect water for her family. Thanks to your support, her village now has a clean water well. Amina can go to school and her family is healthier and happier.
-            </p>
+    <!-- List of active projects -->
+    <section class="project-section">
+      <div class="project-box">
+        <div style="font-weight: bold; margin-bottom: 0.5rem; text-align: left;">Project History</div>
+        <div class="project">
+          <div class="project-title">
+            <img src="https://flagcdn.com/w40/zw.png" alt="Zimbabwe Flag">
+            Zimbabwe
+          </div>
+          <span>14,520 served</span>
         </div>
+        <div class="project">
+          <div class="project-title">
+            <img src="https://flagcdn.com/w40/rw.png" alt="Rwanda Flag">
+            Rwanda
+          </div>
+          <span>38,296 served</span>
+        </div>
+        <div class="project">
+          <div class="project-title">
+            <img src="https://flagcdn.com/w40/ug.png" alt="Uganda Flag">
+            Uganda
+          </div>
+          <span>60,676 served</span>
+        </div>
+        <div class="see-all">See All</div>
+      </div>
     </section>
+  </main>
 
-    <!-- Call-to-Action Section: This encourages visitors to take action -->
-    <section class="call-to-action">
-        <h2>Make a Difference</h2>
-        <p>Your support can help save lives. Every donation brings us closer to a world with clean water for all.</p>
-        <a href="#" class="donate-button">Donate Now</a>
-    </section>
+  <!-- Simple footer for a finished feel -->
+ <footer style="background-color: #77Abbb; color: #fefefe; padding: 1rem; text-align: center; font-size: 0.8rem; margin-top: 2rem;">
+  <div style="margin-bottom: 0.5rem;">
+    <strong>About Us:</strong>
+    <p style="max-width: 480px; margin: 0.25rem auto;">
+      We support clean water initiatives and empower students to act.
+    </p>
+  </div>
+  <div style="margin-top: 0.5rem;">
+    <strong>Follow Us</strong>
+    <div style="margin-top: 0.3rem;">
+      <a href="#" style="margin: 0 0.3rem; color:#FFC907; text-decoration: none;">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram" style="width: 20px; vertical-align: middle;" />
+      </a>
+      <a href="#" style="margin: 0 0.3rem; color:#FFC907; text-decoration: none;">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/twitter.svg" alt="Twitter" style="width: 20px; vertical-align: middle;" />
+      </a>
+      <a href="#" style="margin: 0 0.3rem; color:#FFC907; text-decoration: none;">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook" style="width: 20px; vertical-align: middle;" />
+      </a>
+      <a href="#" style="margin: 0 0.3rem; color:#FFC907; text-decoration: none;">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn" style="width: 20px; vertical-align: middle;" />
+      </a>
+    </div>
+  </div>
+  <p style="margin-top: 0.5rem; color: #ccc;">&copy; 2025 Charity:Water Student Initiative</p>
+</footer>
+<!-- Mute Button -->
+<button id="muteToggle" style="animation: pulseGlow 1s infinite alternate; position: fixed; bottom: 20px; left: 20px; z-index: 999; padding: 0.5rem 1rem; background-color: #ff408000; color: white; border: none; border-radius: 6px; cursor: pointer;">🔇</button>
+<audio id="rainAudio" loop autoplay>
+  <source src="https://www.soundjay.com/nature/rain-01.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
+<!-- Rain Button and Script -->
+<button id="rainToggle" style="animation: bounceGlow 1s infinite alternate; position: fixed; bottom: 20px; right: 20px; z-index: 999; padding: 0.5rem 1rem; background-color: #0077cc00; color: white; border: none; border-radius: 6px; cursor: pointer;">💧</button>
+<canvas id="rainCanvas" style="position: fixed; top: 0; left: 0; pointer-events: none; z-index: 998;"></canvas>
+<script>
+  window.addEventListener('load', () => {
+    raindrops = Array.from({ length: 150 }, createRaindrop);
+    drawRain();
+  });
+  const canvas = document.getElementById('rainCanvas');
+  const ctx = canvas.getContext('2d');
+  let raindrops = [];
+  let isRaining = true;
+  
+  function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  window.addEventListener('resize', resizeCanvas);
+  resizeCanvas();
+
+  function createRaindrop() {
+    return {
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      length: Math.random() * 25 + 15,
+      speed: Math.random() * 4 + 2
+    };
+  }
+
+  function drawRain() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.strokeStyle = 'rgba(0, 123, 255, 0.5)';
+    ctx.lineWidth = 2;
+    for (let drop of raindrops) {
+      ctx.beginPath();
+      ctx.moveTo(drop.x, drop.y);
+      ctx.lineTo(drop.x, drop.y + drop.length);
+      ctx.stroke();
+    }
+    updateRain();
+    if (isRaining) requestAnimationFrame(drawRain);
+  }
+
+  function updateRain() {
+    for (let drop of raindrops) {
+      drop.y += drop.speed;
+      if (drop.y > canvas.height) {
+        drop.x = Math.random() * canvas.width;
+        drop.y = 0;
+      }
+    }
+  }
+
+  document.getElementById('rainToggle').addEventListener('click', () => {
+    isRaining = !isRaining;
+    if (isRaining) {
+      raindrops = Array.from({ length: 150 }, createRaindrop);
+      drawRain();
+    } else {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }
+  });
+  const rainAudio = document.getElementById('rainAudio');
+  const muteToggle = document.getElementById('muteToggle');
+  let isMuted = false;
+
+  muteToggle.addEventListener('click', () => {
+    isMuted = !isMuted;
+    rainAudio.muted = isMuted;
+    muteToggle.textContent = isMuted ? '🔇' : '🔊';
+  });
+</script>
 </body>
 </html>
