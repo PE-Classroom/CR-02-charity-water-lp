@@ -1,47 +1,223 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Charity Water Landing Page</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Charity Water - Every Drop Counts</title>
+  <style>
+    /* Simple, beginner-friendly CSS with comments */
+
+    /* ----------------------------- */
+    /* COLOR PALETTE (for students) */
+    /* ----------------------------- */
+    /* Dark text color */ 
+    :root { --dark: #1a1a1a; --accent: #FFC907; --cream: #FFF7E1; }
+
+    /* ----------------------------- */
+    /* GLOBAL STYLES */
+    /* ----------------------------- */
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif; /* simple font for beginners */
+      color: var(--dark);
+      background-color: var(--cream); /* light cream background */
+      line-height: 1.6;
+    }
+
+    /* Headings use the dark color so they are clear on cream */
+    h1, h2, h3 {
+      color: var(--dark);
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      margin-bottom: 1rem;
+      font-size: 1.05rem;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    /* ----------------------------- */
+    /* HERO SECTION - now two-column */
+    /* ----------------------------- */
+    .hero {
+      /* keep a soft cream background so text is readable */
+      background-color: var(--cream);
+      /* make a horizontal layout with text and an image on the side */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem; /* space between text and image */
+      padding: 3rem 1.5rem;
+      box-sizing: border-box;
+    }
+
+    /* Container for the text side so it doesn't get cut by the image */
+    .hero-text {
+      flex: 1 1 420px; /* take available space but allow wrapping */
+      max-width: 700px;
+    }
+
+    .hero-text h1 {
+      font-size: 2.25rem;
+      margin: 0 0 0.5rem 0;
+      color: var(--dark); /* dark headline on cream */
+    }
+
+    .hero-text p {
+      font-size: 1.05rem;
+      margin: 0 0 1rem 0;
+      color: var(--dark);
+    }
+
+    /* Button remains the same look */
+    .donate-btn {
+      display: inline-block;
+      background-color: var(--accent);
+      color: var(--dark);
+      padding: 0.7rem 1.4rem;
+      border-radius: 40px;
+      font-weight: bold;
+      transition: background 0.2s ease;
+    }
+
+    .donate-btn:hover {
+      background-color: #e6b200; /* slightly darker yellow on hover */
+    }
+
+    /* The image side — we use an <img> so it never "cuts into" text */
+    .hero-image {
+      flex: 0 0 440px; /* fixed-ish width so it sits to the side */
+      max-width: 45%;
+    }
+
+    .hero-image img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+    }
+
+    /* ----------------------------- */
+    /* STORY SECTION */
+    /* ----------------------------- */
+    .story {
+      /* simple two-column layout using flex for beginners */
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      padding: 2.5rem 1.5rem;
+      background-color: var(--cream); /* same cream background for a soft feel */
+    }
+
+    /* Image in story uses a placeholder */
+    .story img {
+      flex: 1 1 320px;
+      max-width: 500px;
+      width: 100%;
+      border-radius: 8px;
+    }
+
+    .story-text {
+      flex: 1 1 320px;
+      padding: 1rem;
+    }
+
+    /* ----------------------------- */
+    /* CALL TO ACTION SECTION */
+    /* ----------------------------- */
+    .cta {
+      text-align: center;
+      padding: 2.5rem 1.5rem;
+      background-color: var(--dark); /* dark background for emphasis */
+      color: #fff; /* white text on dark background */
+    }
+
+    .cta h2 {
+      font-size: 1.6rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .cta p {
+      font-size: 1.05rem;
+      margin-bottom: 1rem;
+    }
+
+    /* Reuse the same donate button styling but ensure contrast on dark background */
+    .cta .donate-btn {
+      background-color: var(--accent);
+      color: var(--dark);
+    }
+
+    /* ----------------------------- */
+    /* FOOTER */
+    /* ----------------------------- */
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: var(--dark);
+      color: #fff;
+      font-size: 0.95rem;
+    }
+
+    /* ----------------------------- */
+    /* RESPONSIVE DESIGN */
+    /* ----------------------------- */
+    @media (max-width: 768px) {
+      /* Make hero text smaller on mobile for readability */
+      .hero-text h1 { font-size: 1.5rem; }
+      .hero-text p  { font-size: 0.95rem; }
+
+      /* Stack hero image and text vertically on small screens */
+      .hero { flex-direction: column; padding: 2rem 1rem; gap: 1rem; }
+      .hero-image { max-width: 100%; width: 100%; }
+
+      /* Stack story image and text vertically on small screens */
+      .story { flex-direction: column; }
+      .story img { margin-bottom: 1rem; }
+    }
+  </style>
 </head>
 <body>
-    <!-- Hero Section: This is the main banner at the top of the page -->
-    <section class="hero">
-        <!-- Main headline -->
-        <h1>Clean Water for Everyone</h1>
-        <!-- Subheadline -->
-        <p>Join us in bringing safe, clean water to communities in need.</p>
-    </section>
+  <!-- HERO SECTION: text on the left, image on the right (or stacked on mobile) -->
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Turn Your Values Into Clean Water</h1>
+      <p>Fund community-led, 100% transparent water projects that create lasting change. Quick to give, easy to trust—and every dollar drives real impact.</p>
+      <a href="https://www.charitywater.org/donate" target="_blank" class="donate-btn">Donate Now</a>
+    </div>
 
-    <!-- Story Section: This tells the story of the nonprofit -->
-    <section class="story">
-        <h2>Our Story</h2>
-        <p>
-         
-    </section>
+    <div class="hero-image">
+      <!-- use the CDN image as an <img> so it sits beside the text and never becomes page background -->
+      <img src="https://cdn2.dropmarkusercontent.com/52043/867f00c68a9d0d9b7cdd5b41721788428d01d0dd546259fd5df6dbbdbd5f35ca/cw_Selects_4x5_25.jpg?Expires=1761086420&Signature=bugHu6HDsOoKH~9nhykEOuXeezilkGk0JLWmAmkW6UO868oy~ExW5uSWfUJEFDni5ikxFymGYcq6dyRmRtpoBNKz-KrP92-caws1WFF3fSU4u5JJ31T2SE9BkdZLeUm2VGvesYjl~hjsZIRImuen2Yqhtt4BSrvkahO6N63ipejVMqS0giXTMgZyKQa~fy23pjA1fxWC4NKY9dnRpKR40Pa-DmX49fvjBa43fRo9BZMRo1SLRgi0UbDlLYCcxTuK2t94ZYStQtaXBuFqBIbZncQN4xM~l4vLHo4EkwIBzOjNvlkfrnkLVGHZZyEkCJbHZMewKfc8hnYDpAzerTOTeQ__&Key-Pair-Id=APKAITQYWVEN757ZA4KQ" alt="Community with clean water">
+    </div>
+  </section>
 
-    <!-- Real-World Impact Story Section -->
-    <section class="impact-story">
-        <!-- Section headline -->
-        <h2>Real Impact: Meet Amina</h2>
-        <!-- Container for image and text -->
-        <div class="impact-content">
-            <!-- Impact image -->
-            <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80" alt="Amina smiling with clean water" class="impact-image">
-            <!-- Impact story text -->
-            <p>
-                Amina used to walk miles every day to collect water for her family. Thanks to your support, her village now has a clean water well. Amina can go to school and her family is healthier and happier.
-            </p>
-        </div>
-    </section>
+  <!-- STORY SECTION -->
+  <section class="story">
+    <!-- Placeholder image to illustrate the community -->
+    <img src="https://via.placeholder.com/500x350" alt="Community with clean water">
+    <div class="story-text">
+      <h2>Changing Lives, One Well at a Time</h2>
+      <p>In villages across the world, access to clean water means healthier families, more children in school, and stronger communities.</p>
+      <p>Your support funds community-led projects that are transparent and designed to last — real impact you can trust.</p>
+    </div>
+  </section>
 
-    <!-- Call-to-Action Section: This encourages visitors to take action -->
-    <section class="call-to-action">
-        <h2>Make a Difference</h2>
-        <p>Your support can help save lives. Every donation brings us closer to a world with clean water for all.</p>
-        <a href="#" class="donate-button">Donate Now</a>
-    </section>
+  <!-- CALL TO ACTION SECTION -->
+  <section class="cta">
+    <h2>Be the Change. Donate Today.</h2>
+    <p>Your donation goes directly toward building clean water projects that save lives.</p>
+    <a href="https://www.charitywater.org/donate" target="_blank" class="donate-btn">Donate Now</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2025 Charity Water. All Rights Reserved.</p>
+  </footer>
+
 </body>
 </html>
