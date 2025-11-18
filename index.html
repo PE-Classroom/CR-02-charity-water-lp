@@ -1,47 +1,131 @@
+---
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Charity Water Landing Page</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Charity Water Landing Page</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Proxima Nova;
+      color: #ffc907;
+    }
+
+    /* Header bar */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: white;
+      padding: 15px 30px;
+    }
+
+    .header .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .header .logo img {
+      height: 30px;
+      margin-right: 10px;
+    }
+
+    .header .donate-button {
+      background-color: #fdd835;
+      color: #000;
+      border: none;
+      padding: 10px 20px;
+      font-weight: bold;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+
+    /* Hero section */
+    .hero {
+      position: relative;
+      background-image: url('https://cdn2.dropmarkusercontent.com/52043/cd5c538ad61f018de39c82fce55bc1812b8d8dbcda0e7f53549100d332d78a35/preview/Malawi_2023_CG-1961.jpg?Expires=1751770294&Signature=KFf9VsDuB5CxnLHktWLB76PV2JNwu-W6RPtt6ea97-oq3WddtO6cMcB5TjAppNbIBym4IRtb~Du49SfQvrP5dWNxQkBChIq655oDEvRL678tVlwKqnds3atfo4S~8d9LL-S0jHfdv9za3rHcWIW~SeOMSSZa8A1AKm14eCQXHAz~qsIE48X~R3rWyXdyZ8axKcsTdz3L-GW9Wl8U5O4qMDzjpg3scOCIKjnSRyZyoQvUW-j5McCEiGKWvPzwBZZbDvKAqPcGul6gfTixFI39GbCF7EYLc6JO0OYg1OuvSfeDEX8AOLT0AxwChAqPgcmdW77VwYYpU3pa7Di~yH8wZA__&Key-Pair-Id=APKAITQYWVEN757ZA4KQ'); /* replace with real image */
+      background-size: cover;
+      background-position: center;
+      color: white;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+      padding: 100px 30px;
+      text-align: left;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      max-width: 600px;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin-bottom: 30px;
+    }
+
+    .hero .campus-button {
+      background-color: ##8BD1CB;
+      color: #003366;
+      padding: 15px 25px;
+      border: none;
+      border-radius: 15px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .hero .subtext {
+      font-style: italic;
+      font-size: 0.9rem;
+      margin-top: 10px;
+      color: rgba(255,255,255,0.9);
+    }
+
+    /* Add hover effect for donate and campus buttons */
+    .donate-button:hover,
+    .campus-button:hover {
+      background-color: #ffeb3b; /* Changes button color on hover */
+      transform: scale(1.05);    /* Makes the button a little bigger on hover */
+      transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth animation */
+    }
+
+    /* Make it responsive */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .hero p {
+        font-size: 1rem;
+      }
+    }
+
+    /* Extra small screen responsive styles */
+    @media (max-width: 480px) {
+      .hero h1 {
+        font-size: 1.5rem; /* Smaller heading for very small screens */
+      }
+      .hero p {
+        font-size: 0.9rem; /* Smaller paragraph for very small screens */
+      }
+    }
+  </style>
 </head>
 <body>
-    <!-- Hero Section: This is the main banner at the top of the page -->
-    <section class="hero">
-        <!-- Main headline -->
-        <h1>Clean Water for Everyone</h1>
-        <!-- Subheadline -->
-        <p>Join us in bringing safe, clean water to communities in need.</p>
-    </section>
+  <header class="header">
+    <div class="logo">
+      <img src="img/cw_logo-2.png"/>
+    </div>
+    <button class="donate-button">DONATE NOW</button>
+  </header>
 
-    <!-- Story Section: This tells the story of the nonprofit -->
-    <section class="story">
-        <h2>Our Story</h2>
-        <p>
-         
-    </section>
-
-    <!-- Real-World Impact Story Section -->
-    <section class="impact-story">
-        <!-- Section headline -->
-        <h2>Real Impact: Meet Amina</h2>
-        <!-- Container for image and text -->
-        <div class="impact-content">
-            <!-- Impact image -->
-            <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80" alt="Amina smiling with clean water" class="impact-image">
-            <!-- Impact story text -->
-            <p>
-                Amina used to walk miles every day to collect water for her family. Thanks to your support, her village now has a clean water well. Amina can go to school and her family is healthier and happier.
-            </p>
-        </div>
-    </section>
-
-    <!-- Call-to-Action Section: This encourages visitors to take action -->
-    <section class="call-to-action">
-        <h2>Make a Difference</h2>
-        <p>Your support can help save lives. Every donation brings us closer to a world with clean water for all.</p>
-        <a href="#" class="donate-button">Donate Now</a>
-    </section>
+  <section class="hero">
+    <h1>Clean Water Is a Human Right</h1>
+    <p>Clean water is the foundation of health, education, and opportunity. Your donation goes directly to building clean water projects — opening doors to a brighter future that transforms lives, ensuring no one is left behind.</p>
+    <button class="campus-button">Be the Change on Your Campus</button>
+    <div class="subtext">Already part of a club or student org? This is your moment to lead.</div>
+  </section>
 </body>
 </html>
+
