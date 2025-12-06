@@ -1,47 +1,230 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Charity Water Landing Page</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Charity Water Supporter</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      color: white;
+      line-height: 1.6;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 40px;
+      z-index: 1000;
+    }
+
+    header img {
+      height: 50px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: underline;
+      margin-right: 250px;
+      font-weight: bold;
+      text-align: center;
+      font-size: 2rem;
+      text-underline-offset: 6px;
+    }
+
+    nav a:hover {
+      color: #2e9df7;
+    }
+
+    .hero {
+      background: url('img/7836_Ethiopia_2019_CG-.jpg') no-repeat center center/cover;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: left;
+      position: relative;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+    }
+
+    .hero-content {
+      position: relative;
+      max-width: 700px;
+      padding: 20px;
+      z-index: 1;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      color: #ffeb3b;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 25px;
+      border: 2px solid #ffeb3b; /* Blue border */
+      background: transparent;
+      color: #ffeb3b;            /* Blue text */
+      font-weight: bold;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    .btn:hover {
+      background: #ffeb3b; /* Blue background on hover */
+      color: white;        /* White text on hover */
+    }
+
+    main {
+      padding: 50px;
+      background: #f4f4f4;
+      color: black;
+      text-align: center;
+    }
+
+    footer {
+      background: #222;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    /* Additional styles for the new sections */
+    .impact-story {
+      background: #f4f4f4;
+      color: #333;
+      padding: 50px 20px;
+      margin: 20px 0;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .impact-story h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .impact-content {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .impact-image {
+      max-width: 400px; /* Make the image 400px */
+      height: 400px;    /* Make the image square */
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+
+    .call-to-action {
+      background: #ffeb3b;
+      color: #222;
+      padding: 50px 20px;
+      margin: 20px 0;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .call-to-action h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    .donate-button {
+      display: inline-block;
+      padding: 12px 25px;
+      border: none;
+      background: #222;
+      color: #ffeb3b;
+      font-weight: bold;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    .donate-button:hover {
+      background: #ffeb3b;
+      color: black;
+    }
+  </style>
 </head>
 <body>
-    <!-- Hero Section: This is the main banner at the top of the page -->
-    <section class="hero">
-        <!-- Main headline -->
-        <h1>Clean Water for Everyone</h1>
-        <!-- Subheadline -->
-        <p>Join us in bringing safe, clean water to communities in need.</p>
-    </section>
+  <header>
+    <img src="img/water-can-transparent.png" alt="Charity Water Logo" class="logo-img">
+    <nav class="nav-center">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#donate">Donate</a>
+    </nav>
+  </header>
 
-    <!-- Story Section: This tells the story of the nonprofit -->
-    <section class="story">
-        <h2>Our Story</h2>
-        <p>
-         
-    </section>
+  <section class="hero">
+    <div class="hero-content" style="max-width: 900px; margin: 0 auto; text-align: center;">
+      <h1>Watch your Generosity Change a Life</h1>
+      <p>100% funds clean water projects for developing countries with GPS proof and real stories.</p>
+      <a href="#donate" class="btn">Make a Difference</a>
+    </div>
+  </section>
 
-    <!-- Real-World Impact Story Section -->
-    <section class="impact-story">
-        <!-- Section headline -->
-        <h2>Real Impact: Meet Amina</h2>
-        <!-- Container for image and text -->
-        <div class="impact-content">
-            <!-- Impact image -->
-            <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80" alt="Amina smiling with clean water" class="impact-image">
-            <!-- Impact story text -->
-            <p>
-                Amina used to walk miles every day to collect water for her family. Thanks to your support, her village now has a clean water well. Amina can go to school and her family is healthier and happier.
-            </p>
-        </div>
-    </section>
+  <main id="about">
+    <h2>About Us</h2>
+    <p>We bring clean and safe drinking water to people in developing countries. Your support directly funds sustainable water solutions and transforms communities.</p>
+  </main>
 
-    <!-- Call-to-Action Section: This encourages visitors to take action -->
-    <section class="call-to-action">
-        <h2>Make a Difference</h2>
-        <p>Your support can help save lives. Every donation brings us closer to a world with clean water for all.</p>
-        <a href="#" class="donate-button">Donate Now</a>
-    </section>
+  <!-- Impact Story Section: Shows a real-world story with an image -->
+  <section class="impact-story">
+    <h2>Real Impact: Meet Amina</h2>
+    <div class="impact-content">
+      <!-- Impact image -->
+      <img src="img/7255_Ethiopia_2019_CG-.jpg" t="Amina smiling with clean water" class="impact-image">
+      <!-- Impact story text -->
+      <p>
+        Amina used to walk miles every day to collect water for her family. Thanks to your support, her village now has a clean water well. Amina can go to school and her family is healthier and happier.
+      </p>
+    </div>
+  </section>
+
+  <!-- Donation Section: Encourages visitors to donate -->
+  <section class="call-to-action">
+    <h2>Make a Difference</h2>
+    <p>Your support can help save lives. Every donation brings us closer to a world with clean water for all.</p>
+    <a href="#donate" class="donate-button">Donate Now</a>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Charity Water Supporter | All Rights Reserved</p>
+  </footer>
 </body>
 </html>
+

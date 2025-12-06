@@ -1,35 +1,21 @@
-/* charity: water Brand Colors & Fonts
-
-Primary Colors:
-- Yellow:     #FFC907
-- Blue:       #2E9DF7
-
-Secondary Colors:
-- Light Blue: #8BD1CB
-- Green:      #4FCB53
-- Orange:     #FF902A
-- Red:        #F5402C
-- Dark Green: #159A48
-- Pink:       #F16061
-
-Fonts:
-- Proxima Nova
-- Avenir
-
-*/
-
 /* 
   Charity: Water Landing Page Styles
-  This CSS uses the provided color palette and beginner-friendly styles.
+  Color Palette: Yellow (#FFC907), White, Blue (#2E9DF7)
+  Fonts: Friendly, simple, and easy to read
 */
 
 /* Set up the main font and background color for the whole page */
 body {
-  background-color: #f4f8fb; /* Soft light blue for a fresh look */
-  font-family: 'Avenir', 'Proxima Nova', Arial, sans-serif;
+  /* Set the background image for the whole page */
+  background-image: url('./img/7836_Ethiopia_2019_CG--2.jpg');
+  background-size: cover;      /* Make the image cover the whole screen */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat;/* Do not repeat the image */
+  background-attachment: fixed;/* Keep the image fixed during scroll */
+  font-family: 'Avenir', Arial, Helvetica, sans-serif; /* Friendly and simple font */
   margin: 0;
   padding: 0;
-  color: #222;
+  color: #222; /* Dark text for easy reading */
 }
 
 /* Add a slight shadow and rounded corners to each section for depth */
@@ -41,23 +27,78 @@ section {
   padding: 24px 16px;
 }
 
-/* Hero Section Styles */
-.hero {
-  position: relative; /* Needed for overlay */
-  /* Set a background image that covers the whole section */
-  background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1500&q=80');
-  background-size: cover;      /* Make the image cover the whole area */
-  background-position: center; /* Center the image */
-  background-repeat: no-repeat;
-  color: #fff;                 /* White text for contrast */
-  text-align: center;          /* Center the text */
-  padding: 60px 20px;          /* Add space above and below */
-  border-radius: 0 0 16px 16px; /* Only round bottom corners */
+/* Header Styles */
+/* 
+   The header is fixed at the top, with a dark background 
+   and centered navigation links.
+*/
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center everything horizontally */
+  padding: 10px 40px;
+  z-index: 1000;
+  height: 80px; /* Give header a fixed height for vertical centering */
+}
 
-  /* Add a dark overlay for better text readability */
-  /* This uses a simple linear-gradient overlay */
+/* Center the navigation links horizontally in the header */
+.nav-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+  margin: 0 auto;
+}
+
+/* Remove left margin from nav links for better centering */
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.25rem;
+  padding: 0 10px;
+  margin-left: 0;
+  transition: color 0.2s;
+}
+
+/* Make the logo image the same height as the nav links (about 1.25rem) */
+.logo-img {
+  height: 2.7em; /* Match nav link font size (1.25rem) plus a little extra for balance */
+  width: auto;
+  vertical-align: middle;
+  margin-right: 8px;
+}
+
+/* Hero Section Styles */
+/* 
+   The hero section uses a background image, 
+   centers the text, and makes the section stand out.
+*/
+.hero {
+  /* Use the new background image for the hero section */
+  background-image: url('img/7836_Ethiopia_2019_CG-.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #fff;
+  text-align: center;
+  padding: 60px 20px;
+  border-radius: 0 0 16px 16px;
   background-blend-mode: darken;
-  background-color: rgba(46, 157, 247, 0.45); /* Blue overlay */
+  background-color: rgba(46, 157, 247, 0.45);
+}
+
+/* Center the content and let it fill a bit more of the page */
+.hero-content {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 40px 20px;
 }
 
 /* Make the headline bold and modern */
@@ -67,6 +108,7 @@ section {
   letter-spacing: 1px;
   margin-bottom: 15px;
   text-shadow: 0 2px 8px rgba(0,0,0,0.15); /* Soft shadow for readability */
+  color: #FFC907; /* Yellow headline for encouragement */
 }
 
 /* Style the subheadline */
@@ -74,61 +116,111 @@ section {
   font-size: 1.2em;
   margin-top: 0;
   text-shadow: 0 1px 4px rgba(0,0,0,0.12);
+  color: #fff; /* White text for clarity */
 }
 
 /* Story Section Styles */
 .story {
-  background-color: #8BD1CB; /* Secondary Light Blue */
-  color: #222;
+  background-color: #2E9DF7; /* Blue background for story */
+  color: #fff; /* White text for contrast */
   text-align: center;
   padding: 30px 20px;
 }
 
 /* Add accent color to section headings */
 h2 {
-  color: #2E9DF7; /* Primary blue */
+  color: #2E9DF7; /* Blue for headings */
   margin-top: 0;
   font-weight: bold;
+  font-family: 'Avenir', Arial, Helvetica, sans-serif;
+}
+
+/* Make story section headings yellow for emphasis */
+.story h2 {
+  color: #FFC907; /* Yellow heading in story section */
+}
+
+/* Impact Story Section Styles */
+/* This section tells a real-world story with an image and text */
+.impact-story {
+  background: #fff; /* White background for clarity */
+  color: #222;      /* Dark text for easy reading */
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(46, 157, 247, 0.07);
+  margin: 24px 10px;
+  padding: 24px 16px;
+  text-align: center;
+}
+
+/* Layout for image and text in the impact story */
+.impact-content {
+  display: flex;
+  flex-direction: column; /* Stack on small screens */
+  align-items: center;
+  gap: 20px;
+  margin-top: 16px;
+}
+
+/* Impact story image style */
+.impact-image {
+  width: 100%;
+  max-width: 400px;   /* Make the image 400px */
+  height: 400px;      /* Make the image square */
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 8px;
+  box-shadow: 0 2px 8px rgba(46, 157, 247, 0.10);
+}
+
+/* Responsive: side by side on larger screens */
+@media (min-width: 601px) {
+  .impact-content {
+    flex-direction: row;
+    justify-content: center;
+    text-align: left;
+    max-width: 800px;
+    margin: 16px auto 0 auto;
+  }
+  .impact-image {
+    width: 400px;
+    height: 400px;    /* Keep square and 400px on large screens */
+    margin-bottom: 0;
+  }
 }
 
 /* Call-to-Action Section Styles */
 .call-to-action {
-  background-color: #FFC907; /* Primary Yellow */
-  color: #222;
+  background-color: #FFC907; /* Yellow background for call to action */
+  color: #222; /* Dark text for readability */
   text-align: center;
   padding: 30px 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(46, 157, 247, 0.07);
+  margin: 24px 10px;
 }
 
-/* Style the impact story image */
-.impact-image {
-  width: 100%;
-  max-width: 320px;
-  border-radius: 10px;
-  margin-bottom: 16px;
-  box-shadow: 0 2px 8px rgba(46, 157, 247, 0.10);
-}
-
-/* Donate Button Styles */
+/* Bold Donate Now button */
 .donate-button {
   display: inline-block;
-  background-color: #4FCB53; /* Green */
+  background-color: #2E9DF7; /* Blue button */
   color: #fff;
-  padding: 14px 32px;
+  padding: 16px 36px;
   text-decoration: none;
-  border-radius: 6px;
+  border-radius: 8px;
   font-weight: bold;
-  font-size: 1.1em;
+  font-size: 1.2em;
   margin-top: 18px;
-  box-shadow: 0 2px 8px rgba(79, 203, 83, 0.10);
-  transition: background 0.3s, transform 0.2s;
+  box-shadow: 0 2px 8px rgba(46, 157, 247, 0.10);
+  transition: background 0.3s, color 0.3s, transform 0.2s;
   border: none;
   cursor: pointer;
 }
 
-/* Change button color when hovered */
+/* When hovered, make the button blue (#2E9DF7) and text white */
 .donate-button:hover {
-  background-color: #159A48; /* Dark Green */
-  transform: translateY(-2px) scale(1.04); /* Slight lift */
+  background-color: #2E9DF7;
+  color: #fff;
+  transform: translateY(-2px) scale(1.04);
 }
 
 /* Add some spacing between sections */
@@ -138,61 +230,18 @@ section {
 
 /* 
   Media Queries for Responsive Design
-  Media queries help make your website look good on different screen sizes,
-  like phones (small screens) and computers (large screens).
+  These styles help the site look good on phones and computers.
 */
-
-/* This media query applies styles when the screen is 600px wide or less (like on most phones) */
 @media (max-width: 600px) {
   /* Make hero section padding smaller on small screens */
   .hero {
-    padding: 32px 8px;
-    font-size: 1em;
+    padding: 30px 10px;
   }
-
-  /* Make headline font size smaller so it fits on small screens */
-  .hero h1 {
-    font-size: 1.4em;
+  .hero-content {
+    padding: 20px 8px;
   }
-
-  /* Make subheadline font size smaller */
-  .hero p {
-    font-size: 1em;
-  }
-
-  /* Make story and call-to-action sections have less padding */
-  .story,
-  .call-to-action,
-  .donation-section {
-    padding: 14px 8px;
-  }
-
-  /* Make impact story image smaller and stack above the text */
-  .impact-content {
-    display: block; /* Stack items vertically */
-    text-align: center;
-  }
-
-  .impact-image {
-    width: 90%;    /* Make image take up most of the width */
-    max-width: 220px;
-  }
-}
-
-/* This media query applies styles when the screen is wider than 600px (like on tablets and computers) */
-@media (min-width: 601px) {
-  /* Show image and text side by side in the impact story */
-  .impact-content {
-    display: flex;           /* Place items in a row */
-    align-items: center;     /* Vertically center items */
-    justify-content: center; /* Center the whole group */
-    gap: 28px;               /* Space between image and text */
-    text-align: left;
-    max-width: 800px;
-    margin: 0 auto;
-  }
-
-  .impact-image {
-    width: 300px;
+  section {
+    padding: 16px 8px;
+    margin: 16px 4px;
   }
 }
