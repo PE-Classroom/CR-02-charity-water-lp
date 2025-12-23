@@ -152,8 +152,7 @@ section {
 
   /* Make headline font size smaller so it fits on small screens */
   .hero h1 {
-    font-size: 1.4em;
-  }
+*  }
 
   /* Make subheadline font size smaller */
   .hero p {
