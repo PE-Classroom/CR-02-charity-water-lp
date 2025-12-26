@@ -1,47 +1,230 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Charity Water Landing Page</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Style for the logo in the corner */
+        .corner-logo {
+            position: fixed;
+            top: 0.5rem;
+            right: 1rem;
+            z-index: 1001;
+            width: 60px;
+            height: auto;
+        }
+
+        /* Add a subtle shadow to all text */
+        * {
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Make sure html and body take full height */
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Set the background image and basic layout for the page */
+        body {
+            background: url('https://cdn2.dropmarkusercontent.com/52043/6c1703416420ca967346d7d9ab4c3acaada25b878252e516c7117c1247f040c6/preview/6391_Ethiopia_2019_CG-.jpg?Expires=1751829904&Signature=j4ptibuj~Aq~lrzlOHvu~HrT9sJgSlL72-O8jzjWIhSSzlIEL4gyO2pJJoaHNlKwc86fxBz74k4ITJrV9xlvct5EUqXkMiKZYouzXHiFsBdxPhvIv2lf9aidhLCcdIqobl-l9G~hqfo7KXLhY53403vCW5iPzSNsESWgMndRJT61CQqucXAe7wIdui5zrZ9x78bnmuHYUOoYxT-xKxBTAv-eo1f2VWNAY8QRdpxbALrcpfyJJJfqUYm0UQLv~aljCJ968dIig8Ve2QiUKBBdFhIaSjmVRigkeRnFWWl89DjEqidwbR5FuxRwEc9ZWAuiUZp8qBmyyeNf8xkxKgc~XA__&Key-Pair-Id=APKAITQYWVEN757ZA4KQ');
+            background-size: cover;
+            /* Make the background image cover the whole page */
+            background-position: center;
+            /* Center the background image */
+            background-repeat: no-repeat;
+            /* Prevent the background from repeating */
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            color: #003366;
+            text-align: left;
+            position: relative;
+            padding: 8vh 4vw;
+        }
+
+        /* Main content area */
+        .content {
+            position: relative;
+            z-index: 1;
+            max-width: 400px;
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+            text-align: left;
+            align-items: flex-start;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: #003366;
+            text-align: left;
+        }
+
+        /* Style for the call-to-action button */
+        .cta-button {
+            display: inline-block;
+            background-color: #ffc907;
+            color: #003366;
+            padding: 1rem 2rem;
+            font-size: 0.9rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #e6b800;
+        }
+
+        /* Footer text style */
+        .footer-text {
+            font-size: 1rem;
+            color: #77a8bb;
+            text-align: left;
+            max-width: 600px;
+        }
+
+        /* Footer logo style */
+        .footer-logo {
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            margin: 0;
+            z-index: 1;
+        }
+
+        .footer-logo img {
+            max-width: 200px;
+            height: auto;
+            background: transparent;
+        }
+
+        /* Impact story popup */
+        .impact-story {
+            display: none;
+            position: absolute;
+            top: 70%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1rem;
+            text-align: left;
+            box-sizing: border-box;
+            border: 2px solid #003366;
+            border-radius: 8px;
+            z-index: 10;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        /* Responsive styles for smaller screens */
+        @media (max-width: 768px) {
+            .content {
+                max-width: 90vw;
+                padding: 1rem;
+            }
+
+            .impact-story {
+                padding: 1.5rem 1rem;
+                font-size: 0.95rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            .cta-button {
+                padding: 0.6rem 1rem;
+                font-size: 0.9rem;
+            }
+
+            .footer-text {
+                font-size: 0.8rem;
+            }
+
+            .footer-logo {
+                text-align: right;
+                padding: 1rem 2rem;
+            }
+
+            .footer-logo img {
+                max-width: 200px;
+                height: auto;
+                background: transparent;
+            }
+
+            .content {
+                max-width: 95vw;
+                padding: 1rem;
+            }
+
+            .impact-story {
+                padding: 1rem;
+            }
+
+            .impact-story p {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+    <script>
+        // Hide the header bar when scrolling down
+        window.addEventListener('scroll', function () {
+            const header = document.getElementById('header-bar');
+            if (window.scrollY > 50) {
+                header.style.opacity = '0';
+            } else {
+                header.style.opacity = '1';
+            }
+        });
+    </script>
 </head>
+
 <body>
-    <!-- Hero Section: This is the main banner at the top of the page -->
-    <section class="hero">
-        <!-- Main headline -->
-        <h1>Clean Water for Everyone</h1>
-        <!-- Subheadline -->
-        <p>Join us in bringing safe, clean water to communities in need.</p>
-    </section>
+    <!-- Header bar with logo -->
+    <div id="header-bar"
+        style="width: 100%; background-color: #000; padding: 0.5rem 1rem; box-sizing: border-box; display: flex; justify-content: flex-start; align-items: center; z-index: 1000; position: fixed; top: 0; left: 0; transition: opacity 0.5s ease-in-out;">
+        <img src="https://d11sa1anfvm2xk.cloudfront.net/media/downloads/logos/cw_horizontal_black.jpg"
+            alt="Charity Water Logo"
+            style="max-height: 50px; height: auto;">
+    </div>
 
-    <!-- Story Section: This tells the story of the nonprofit -->
-    <section class="story">
-        <h2>Our Story</h2>
-        <p>
-         
-    </section>
-
-    <!-- Real-World Impact Story Section -->
-    <section class="impact-story">
-        <!-- Section headline -->
-        <h2>Real Impact: Meet Amina</h2>
-        <!-- Container for image and text -->
-        <div class="impact-content">
-            <!-- Impact image -->
-            <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80" alt="Amina smiling with clean water" class="impact-image">
-            <!-- Impact story text -->
-            <p>
-                Amina used to walk miles every day to collect water for her family. Thanks to your support, her village now has a clean water well. Amina can go to school and her family is healthier and happier.
+    <!-- Main content section -->
+    <div class="content">
+        <h1>Changing Lives<br>Through Clean Water</h1>
+        <a href="https://www.charitywater.org" target="_blank" class="cta-button"
+            onmouseover="var box = document.querySelector('.impact-story'); box.style.display='block'; setTimeout(function(){ box.style.opacity='1'; }, 10);"
+            onmouseout="var box = document.querySelector('.impact-story'); box.style.opacity='0'; setTimeout(function(){ box.style.display='none'; }, 500);">
+            Clean Water For Everyone Starts Here
+        </a>
+        <div style="z-index: 3; position: relative;">
+            <p class="footer-text">
+                100% of YOUR donation goes directly to fund water projects.<br>
+                See the impact you make, one community at a time!
             </p>
         </div>
-    </section>
+    </div>
 
-    <!-- Call-to-Action Section: This encourages visitors to take action -->
-    <section class="call-to-action">
-        <h2>Make a Difference</h2>
-        <p>Your support can help save lives. Every donation brings us closer to a world with clean water for all.</p>
-        <a href="#" class="donate-button">Donate Now</a>
+    <!-- Impact story popup -->
+    <section class="impact-story">
+        <h2>Real Impact: Meet Amina</h2>
+        <p style="font-size: 1rem; line-height: 1.6; max-width: 600px; margin: 0 auto;">
+            Amina used to walk miles every day to collect water for her family. Thanks to your support, her village now has a
+            clean water well. Today, Amina attends school, and her family lives healthier lives with dignity and
+            opportunity.
+        </p>
     </section>
 </body>
+
 </html>
