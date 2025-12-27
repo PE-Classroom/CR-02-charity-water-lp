@@ -1,47 +1,64 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Charity Water Landing Page</title>
-    <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Charity: Water</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Hero Section: This is the main banner at the top of the page -->
-    <section class="hero">
-        <!-- Main headline -->
-        <h1>Clean Water for Everyone</h1>
-        <!-- Subheadline -->
-        <p>Join us in bringing safe, clean water to communities in need.</p>
-    </section>
+<div class="overlay"></div>
 
-    <!-- Story Section: This tells the story of the nonprofit -->
-    <section class="story">
-        <h2>Our Story</h2>
-        <p>
-         
-    </section>
+<nav>
+  <div class="logo">
+    <img src="img/cw_logo-2.png" alt="Charity Water Logo" style="height:40px;">
+  </div>
+  <!-- Hamburger menu button for small screens -->
+  <button class="hamburger" id="hamburgerBtn" aria-label="Open navigation">
+    <!-- Simple hamburger icon using spans -->
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  <ul id="navLinks">
+    <li><a href="#">Take Action</a></li>
+    <li><a href="#">About Us</a></li>
+    <li><a href="#">Why Water?</a></li>
+  </ul>
+</nav>
 
-    <!-- Real-World Impact Story Section -->
-    <section class="impact-story">
-        <!-- Section headline -->
-        <h2>Real Impact: Meet Amina</h2>
-        <!-- Container for image and text -->
-        <div class="impact-content">
-            <!-- Impact image -->
-            <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80" alt="Amina smiling with clean water" class="impact-image">
-            <!-- Impact story text -->
-            <p>
-                Amina used to walk miles every day to collect water for her family. Thanks to your support, her village now has a clean water well. Amina can go to school and her family is healthier and happier.
-            </p>
-        </div>
-    </section>
+<div class="content">
+<h1>Give water.<br>Change a story.</h1>
+<p>For just $10, three people will drink safe water all year. 100% of your gift helps families thrive—no middlemen, just impact.</p>
+<div class="donate-box">
+<span>$10</span>
+<button class="donate-btn" id="donateBtn">DONATE NOW</button>
+</div>
+<!-- This message will show after clicking the button -->
+<p id="thankYouMsg" style="display:none; color:#77a8bb; font-weight:bold; margin-top:20px;">
+  Thank you for making a difference!
+</p>
+</div>
+<!-- Add simple JavaScript at the end of the body -->
+<script>
+// This script shows a thank you message when the donate button is clicked
+var donateBtn = document.getElementById('donateBtn');
+var thankYouMsg = document.getElementById('thankYouMsg');
+donateBtn.onclick = function() {
+  thankYouMsg.style.display = 'block';
+};
 
-    <!-- Call-to-Action Section: This encourages visitors to take action -->
-    <section class="call-to-action">
-        <h2>Make a Difference</h2>
-        <p>Your support can help save lives. Every donation brings us closer to a world with clean water for all.</p>
-        <a href="#" class="donate-button">Donate Now</a>
-    </section>
+// Hamburger menu functionality for beginners
+var hamburgerBtn = document.getElementById('hamburgerBtn');
+var navLinks = document.getElementById('navLinks');
+
+// When the hamburger is clicked, show or hide the navigation links
+hamburgerBtn.onclick = function() {
+  // Toggle a class to show/hide the menu
+  navLinks.classList.toggle('show');
+};
+</script>
 </body>
 </html>
