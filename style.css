@@ -1,0 +1,187 @@
+/* Font stack using Proxima Nova (preferred), Avenir (fallback), Georgia (optional serif) */
+body {
+  font-family: 'Proxima Nova', 'Avenir', 'Georgia', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
+  color: #1a1a1a;
+}
+
+/* Header */
+header {
+  padding: 50px 0;
+  margin: 0;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.header-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff;
+  z-index: 2;
+}
+
+.logo {
+  position: relative;
+  z-index: 3;
+}
+
+.logo img {
+  max-height: 50px;
+  width: auto;
+  margin: 0;
+  padding: 0;
+  display: block;
+}
+
+/* Hero Section */
+.hero {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0px 5%;
+  background-color: #ffffff;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+/* Collage image */
+.image-grid {
+  width: 50%;
+  margin-right: 40px;
+  z-index: 2;
+  position: relative;
+}
+
+.image-grid img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 6px;
+}
+
+/* Text Block (with independent control) */
+.hero-text {
+  width: 45%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Heading Text */
+.hero-text h1 {
+  position: relative;
+  font-size: 3rem;
+  font-weight: 600;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  text-align: left;
+
+  /* 👇 MOVE THIS INDIVIDUALLY 👇 */
+  top: -60px;
+  left: 0px;
+}
+
+/* CTA Button */
+.cta-button {
+  position: relative;
+  background-color: #ffc907;
+  color: #1a1a1a;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 12px 20px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  margin-bottom: 20px;
+
+  /* 👇 MOVE THIS INDIVIDUALLY 👇 */
+  top: 110px;
+  left: 0px;
+}
+
+.cta-button:hover {
+  background-color: #bf6c46;
+  color: #ffffff;
+}
+
+/* Subtext */
+.subtext {
+  position: relative;
+  font-size: 1.2rem;
+  text-align: center;     /* Centers the text content */
+  align-self: center;     /* Centers the box inside the column */
+  
+  /* You can still move it individually */
+  top: 120px;
+  left: 25px;
+}
+
+
+/* Circles — UNCHANGED */
+.hero-text-bg-circles {
+  position: absolute;
+  top: -160px;
+  left: 75%;
+  width: 1200px;
+  height: 700px;
+  transform: translateX(-50%) rotate(10deg);
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.hero-text-bg-circles .circle1 {
+  position: absolute;
+  top: 0;
+  left: 10%;
+  width: 600px;
+  height: 600px;
+  background: rgba(254, 216, 193, 0.5);
+  border-radius: 50%;
+}
+
+.hero-text-bg-circles .circle2 {
+  position: absolute;
+  top: 0;
+  left: 40%;
+  width: 600px;
+  height: 600px;
+  background: rgba(191, 108, 70, 0.5);
+  border-radius: 50%;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 900px) {
+  .hero {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .image-grid,
+  .hero-text {
+    width: 100%;
+    margin-right: 0;
+  }
+
+  .hero-text {
+    align-items: center;
+  }
+
+  .hero-text h1,
+  .subtext {
+    text-align: center;
+  }
+
+  .cta-button {
+    align-self: center;
+  }
+}
