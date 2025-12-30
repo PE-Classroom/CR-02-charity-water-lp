@@ -1,47 +1,574 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Charity Water Landing Page</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Charity: Water</title>
+  <link rel="stylesheet" href="styles.css">
+  <!-- Beginner-friendly: Use Google Fonts for Proxima Nova alternative (Montserrat) -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:700&display=swap" rel="stylesheet">
+  <style>
+    /* Navigation Bar Styling */
+    .navbar {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      /* Make the navbar background fully transparent */
+      background-color: transparent;
+      padding: 15px 30px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+    }
+
+    .nav-logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: white;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    .nav-links li a:hover {
+      color: #e0f7ff;
+    }
+
+    body {
+      margin: 0;
+      /* Remove padding-top so the background image starts at the very top */
+      /* padding-top: 70px; */
+    }
+
+    /* Hero Section Styling */
+    .hero {
+      background-image: url("img/6003_Ethiopia_2019_CG-.jpg");
+      background-size: cover;
+      background-position: center;
+      color: white;
+      padding: 100px 20px;
+      text-align: center;
+      position: relative;
+      min-height: 100vh;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      /* Align content to the left for desktop */
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start; /* Aligns content to the left */
+      text-align: left;        /* Left-aligns the text */
+      max-width: 600px;        /* Keeps content from stretching too wide */
+      margin-left: 40px;       /* Adds some space from the edge */
+      margin-right: auto;      /* Pushes content to the left */
+    }
+
+    .hero-content h2 {
+      color: #fff;           /* Make header text white */
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+      margin-top: 0;
+    }
+
+    /* Responsive: stack content in center on small screens */
+    @media (max-width: 700px) {
+      .hero-content {
+        align-items: center;
+        text-align: center;
+        margin-right: 0;
+        margin-left: 0;
+      }
+    }
+
+    .donate-btn {
+      background-color: #f39c12;
+      color: white;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+
+    .donate-btn:hover {
+      background-color: #e67e22;
+    }
+
+    .payment-icons {
+      margin-top: 10px; /* Less space above icons */
+    }
+
+    .payment-icons img {
+      height: 40px;
+      margin: 0 10px;
+    }
+
+    /* Social Links Section */
+    .social-links {
+      background-color: #f4f4f9;
+      padding: 50px 20px;
+      text-align: center;
+    }
+
+    .social-links h3 {
+      margin-bottom: 30px;
+    }
+
+    .social-links ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .social-links li {
+      margin: 10px 0;
+    }
+
+    .social-links a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    .social-links a:hover {
+      color: #0077cc;
+    }
+
+    /* Stats Section */
+    .stats {
+      display: flex;
+      justify-content: space-around;
+      background-color: #fff;
+      padding: 50px 20px;
+      text-align: center;
+    }
+
+    .stat {
+      flex: 1;
+      margin: 0 10px;
+    }
+
+    .stat h3 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    .stat p {
+      font-size: 1.2rem;
+      color: #666;
+    }
+
+    /* Placeholder Sections */
+    section {
+      padding: 50px 20px;
+      text-align: center;
+    }
+
+    section h2 {
+      margin-bottom: 20px;
+      font-size: 2rem;
+    }
+
+    section p {
+      font-size: 1rem;
+      color: #333;
+      line-height: 1.5;
+    }
+
+    /* Make water drops bigger and animate them to look like they're dripping down and then coming back up */
+    .water-drop {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      /* Animation for drip down and back up */
+      animation: drip-down-up 2s infinite ease-in-out;
+    }
+    /* Each drop moves a little differently for a natural effect */
+    .stat:nth-child(2) .water-drop {
+      animation-delay: 0.5s;
+    }
+    .stat:nth-child(3) .water-drop {
+      animation-delay: 1s;
+    }
+    /* Keyframes for drip down and back up */
+    @keyframes drip-down-up {
+      0% { transform: translateY(0); }
+      30% { transform: translateY(30px); }
+      70% { transform: translateY(30px); }
+      100% { transform: translateY(0); }
+    }
+
+    /* Banner behind the navigation bar */
+    #nav-banner {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 70px; /* Adjust to match navbar height */
+      background-color: #77a8bb;
+      z-index: 999; /* Less than navbar z-index so navbar stays on top */
+      pointer-events: none; /* Allows clicks to pass through to navbar links */
+    }
+
+    /* Set all body text to Georgia */
+    body, p, li, input, label, button, a, small {
+      font-family: Georgia, serif;
+    }
+
+    /* Set all headers and subheadings to Proxima Nova (using Montserrat as a free alternative) */
+    h1, h2, h3, h4, h5, h6,
+    .nav-logo,
+    .nav-links li a,
+    .donate-btn,
+    .social-links h3,
+    section h2,
+    .stat h3 {
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-weight: bold;
+    }
+  </style>
 </head>
 <body>
-    <!-- Hero Section: This is the main banner at the top of the page -->
-    <section class="hero">
-        <!-- Main headline -->
-        <h1>Clean Water for Everyone</h1>
-        <!-- Subheadline -->
-        <p>Join us in bringing safe, clean water to communities in need.</p>
-    </section>
+  <!-- Banner behind the navigation bar -->
+  <!-- This div sits behind the navbar and stays at the top as you scroll -->
+  <div id="nav-banner"></div>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <!-- Replace text with the charity: water logo image -->
+    <div class="nav-logo">
+      <!-- Beginner-friendly: charity: water logo in the navbar -->
+      <img src="img/Copy of charitywater_logo_horizontal_AllWhite.png"
+           alt="charity: water logo"
+           style="height: 40px;">
+      <!-- The style sets the logo height to fit the navbar -->
+    </div>
+    <ul class="nav-links">
+      <li><a href="#social">Social Media</a></li>
+      <li><a href="#involved">Get Involved</a></li>
+      <li><a href="#news">News</a></li>
+      <li><a href="#foundation">The Foundation</a></li>
+    </ul>
+  </nav>
 
-    <!-- Story Section: This tells the story of the nonprofit -->
-    <section class="story">
-        <h2>Our Story</h2>
-        <p>
-         
-    </section>
+  <!-- Hero Section -->
+  <header class="hero">
+    <div class="overlay"></div>
+    <div class="hero-content">
+      <!-- Larger header, moved down the page, and bigger subtext -->
+      <h2 style="font-size: 3rem; margin-top: 60px; margin-bottom: 30px; font-weight: bold;">
+        MAKE GIVING <span style="display:block; color: #FFC907;">SIMPLE.</span>
+        MAKE CHANGE <span style="display:block; color: #FFC907;">VISIBLE.</span>
+      </h2>
+      <p style="font-size: 1.5rem; margin-bottom: 30px;">
+        Charity: water turns every $10 into clean, safe drinking water—showing you
+        exactly how your gift transforms lives.
+      </p>
+      <!-- The donate button text changed to "Make a splash. Donate Now" with new background color -->
+      <a href="#donate-section" class="donate-btn" style="background-color: #77a8bb;">
+        Make a splash. Donate Now
+      </a>
+      <!-- Removed payment icons for Apple Pay, Google Pay, Visa, and PayPal -->
+    </div>
+  </header>
 
-    <!-- Real-World Impact Story Section -->
-    <section class="impact-story">
-        <!-- Section headline -->
-        <h2>Real Impact: Meet Amina</h2>
-        <!-- Container for image and text -->
-        <div class="impact-content">
-            <!-- Impact image -->
-            <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80" alt="Amina smiling with clean water" class="impact-image">
-            <!-- Impact story text -->
-            <p>
-                Amina used to walk miles every day to collect water for her family. Thanks to your support, her village now has a clean water well. Amina can go to school and her family is healthier and happier.
-            </p>
+  <!-- Social Links -->
+  <section id="social" class="social-links"
+    style="
+      margin-top: 20px;
+      padding: 40px 0;
+      position: relative;
+      overflow: hidden;
+      border: 3px solid #77a8bb;
+      border-radius: 18px;
+      max-width: 350px;
+      margin-left: auto;
+      margin-right: auto;
+      background: #77a8bb;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.25rem; /* Beginner-friendly: make all text in the box bigger */
+    ">
+    <!-- 
+      Beginner-friendly comment:
+      - The box is now more vertical (taller than wide) and filled with #77a8bb.
+      - Text color is set to white for contrast.
+      - font-size increased for better readability.
+    -->
+    <div style="position: relative; z-index: 1;">
+      <h3 style="color: white; font-size: 1.5rem;">Support us on our Social Media:</h3>
+      <ul style="padding: 0; list-style: none;">
+        <li style="margin: 16px 0;">
+          <a href="https://www.instagram.com/charitywater" target="_blank" rel="noopener" style="color: white; text-decoration: underline; font-size: 1.15rem;">
+            Instagram @charitywater
+          </a>
+        </li>
+        <li style="margin: 16px 0;">
+          <a href="https://www.tiktok.com/@charitywater" target="_blank" rel="noopener" style="color: white; text-decoration: underline; font-size: 1.15rem;">
+            TikTok @charitywater
+          </a>
+        </li>
+        <li style="margin: 16px 0;">
+          <a href="https://www.facebook.com/charitywater" target="_blank" rel="noopener" style="color: white; text-decoration: underline; font-size: 1.15rem;">
+            Facebook charity:water
+          </a>
+        </li>
+        <li style="margin: 16px 0;">
+          <a href="https://twitter.com/charitywater" target="_blank" rel="noopener" style="color: white; text-decoration: underline; font-size: 1.15rem;">
+            X @charitywater
+          </a>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Stats Section with larger, dark blue, animated water drips above each stat -->
+  <section class="stats">
+    <!-- Each stat now has its own larger, animated water drop above it -->
+    <div class="stat">
+      <!-- Water drop SVG above the first stat -->
+      <!-- Beginner-friendly: SVG for a dark blue water drop with animation -->
+      <svg class="water-drop" width="60" height="75" viewBox="0 0 32 40" style="margin-bottom: 10px;" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="16" cy="28" rx="12" ry="12" fill="#003366"/>
+        <path d="M16 0 C10 12, 2 20, 16 40 C30 20, 22 12, 16 0 Z" fill="#003366"/>
+      </svg>
+      <h3>20.3+ million</h3>
+      <p>People helped worldwide</p>
+    </div>
+    <div class="stat">
+      <!-- Water drop SVG above the second stat -->
+      <svg class="water-drop" width="60" height="75" viewBox="0 0 32 40" style="margin-bottom: 10px;" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="16" cy="28" rx="12" ry="12" fill="#003366"/>
+        <path d="M16 0 C10 12, 2 20, 16 40 C30 20, 22 12, 16 0 Z" fill="#003366"/>
+      </svg>
+      <h3>$1+ Billion</h3>
+      <p>Raised to support 185,000 water projects</p>
+    </div>
+    <div class="stat">
+      <!-- Water drop SVG above the third stat -->
+      <svg class="water-drop" width="60" height="75" viewBox="0 0 32 40" style="margin-bottom: 10px;" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="16" cy="28" rx="12" ry="12" fill="#003366"/>
+        <path d="M16 0 C10 12, 2 20, 16 40 C30 20, 22 12, 16 0 Z" fill="#003366"/>
+      </svg>
+      <h3>29 Countries</h3>
+      <p>Served across Africa, Asia, Central and South America</p>
+    </div>
+  </section>
+
+  <!-- Placeholder Sections -->
+  <section id="involved">
+    <!-- Beginner-friendly: Get Involved section with clear text and action options -->
+    <h2 style="color: #77a8bb;">Get Involved</h2>
+    <p style="max-width: 500px; margin: 0 auto 30px auto;">
+      Every person has the power to change lives. Whether you give, share, or start your own fundraiser, you’re helping bring clean water to communities around the world. Together, we can solve the water crisis in our lifetime — but it takes all of us. Getting involved is simple. Pick the path that inspires you most.
+    </p>
+    <!-- Simple list of action options with water drop bullet points for beginners -->
+    <ul style="list-style: none; padding: 0; max-width: 400px; margin: 0 auto; text-align: left;">
+      <li style="margin-bottom: 18px; display: flex; align-items: flex-start;">
+        <!-- Water drop emoji as bullet -->
+        <span style="font-size: 1.3em; margin-right: 10px; color: #77a8bb;">💧</span>
+        <span><strong>Donate Monthly</strong> – Join a community of monthly givers creating lasting impact.</span>
+      </li>
+      <li style="margin-bottom: 18px; display: flex; align-items: flex-start;">
+        <span style="font-size: 1.3em; margin-right: 10px; color: #77a8bb;">💧</span>
+        <span><strong>Fundraise</strong> – Turn your birthday, a race, or any event into clean water for others.</span>
+      </li>
+      <li style="margin-bottom: 18px; display: flex; align-items: flex-start;">
+        <span style="font-size: 1.3em; margin-right: 10px; color: #77a8bb;">💧</span>
+        <span><strong>Share</strong> – Spread the word and inspire your friends and family to join.</span>
+      </li>
+      <li style="display: flex; align-items: flex-start;">
+        <span style="font-size: 1.3em; margin-right: 10px; color: #77a8bb;">💧</span>
+        <span><strong>Partner</strong> – Work with us through your business, school, or organization.</span>
+      </li>
+    </ul>
+  </section>
+
+  <!-- News Section with beginner-friendly comments and simple layout -->
+  <section id="news" style="background-color: #f9fafb; padding: 50px 20px;">
+    <!-- Section heading styled in #77a8bb for consistency -->
+    <h2 style="color: #77a8bb; font-size: 2.5rem; margin-bottom: 10px; font-family: 'Montserrat', Arial, sans-serif;">
+      Latest News & Stories
+    </h2>
+    <p class="intro" style="font-size: 1.1rem; margin-bottom: 40px; color: #555; max-width: 700px; margin-left: auto; margin-right: auto;">
+      Stay updated with the latest stories, project milestones, and community news. Every post shows how your support is bringing clean water and hope around the world.
+    </p>
+
+    <!-- Simple news cards in a column for beginners (no grid) -->
+    <div style="max-width: 900px; margin: 0 auto;">
+      <!-- News Card 2 REMOVED as requested -->
+
+      <!-- News Card 3 -->
+      <div style="background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1); margin-bottom: 0;">
+        <img src="img/7062_Ethiopia_2019_CG-.jpg" alt="Walk for Water Event" style="width: 100%; height: 200px; object-fit: cover;">
+        <div style="padding: 20px; text-align: left;">
+          <h3 style="font-size: 1.4rem; margin: 0 0 10px; color: #111; font-family: 'Montserrat', Arial, sans-serif;">
+            Join Our Global Walk for Water Challenge
+          </h3>
+          <p style="font-size: 1rem; color: #555; margin-bottom: 15px;">
+            Walk with us to raise awareness and funds for the 771 million people living without clean water.
+          </p>
+          <a href="https://www.charitywater.org/emily-crawford-1/walk-for-water-2025" target="_blank" style="color: #0077cc; text-decoration: none; font-weight: bold;">
+            Read More &rarr;
+          </a>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- Call-to-Action Section: This encourages visitors to take action -->
-    <section class="call-to-action">
-        <h2>Make a Difference</h2>
-        <p>Your support can help save lives. Every donation brings us closer to a world with clean water for all.</p>
-        <a href="#" class="donate-button">Donate Now</a>
-    </section>
+  <section id="foundation">
+    <!-- Beginner-friendly: The Foundation section with clear text and simple formatting -->
+    <h2 style="color: #77a8bb;">The Foundation</h2>
+    <p style="max-width: 600px; margin: 0 auto 24px auto;">
+      At charity: water, we believe in more than just building wells—we believe in building trust. The Foundation is our promise of transparency, accountability, and sustainability. From the very beginning, we’ve committed to a 100% model: every penny of public donations funds clean water projects, while private donors cover our operating costs. That means your gift goes exactly where you intend it to—bringing clean, safe drinking water to people in need.
+    </p>
+    <p style="max-width: 600px; margin: 0 auto 24px auto;">
+      Through The Foundation, we ensure:
+    </p>
+    <!-- Simple list for the three pillars -->
+    <ul style="max-width: 600px; margin: 0 auto 24px auto; text-align: left; list-style: none; padding: 0;">
+      <li style="margin-bottom: 14px;">
+        <strong>Transparency:</strong> Every project is tracked with GPS coordinates, photos, and impact reports so you can see the results of your generosity.
+      </li>
+      <li style="margin-bottom: 14px;">
+        <strong>Sustainability:</strong> We work with local partners to train communities and provide long-term maintenance, making sure projects last for generations.
+      </li>
+      <li style="margin-bottom: 14px;">
+        <strong>Accountability:</strong> Our finances are independently audited every year, and our commitment to honesty has made us one of the most trusted nonprofits worldwide.
+      </li>
+    </ul>
+    <p style="max-width: 600px; margin: 0 auto;">
+      The Foundation is not just about water—it’s about hope, dignity, and a future where no one has to drink dirty water again.
+    </p>
+  </section>
+
+  <!-- Donation Section (imported and simplified for beginners) -->
+  <section id="donate-section" style="background-color: #f7fbfc; padding: 50px 20px;">
+    <!-- Simple heading for the donation area -->
+    <h2 style="color: #333;">Give hope. Give water.</h2>
+    <p style="color: #666;">
+      Choose an amount below and continue to a secure payment page.
+      <br>
+      <small>This is a demo donation form. To accept real payments, connect to a payment provider like Stripe or PayPal.</small>
+    </p>
+    <!-- Made the donation box wider and a bit taller for beginners -->
+    <!-- Changed the donation box background color back to white (#fff) -->
+    <form id="donation-form" method="POST" action="/create-checkout-session"
+      style="max-width: 550px; min-height: 520px; margin: 0 auto; background: #fff; border-radius: 12px; padding: 32px; box-shadow: 0 6px 18px rgba(12,20,30,0.06); display: flex; flex-direction: column; align-items: center;">
+      <!-- Amount quick pick -->
+      <label style="align-self: flex-start;">Choose an amount</label>
+      <div style="display: flex; flex-direction: column; gap: 8px; width: 100%; margin-bottom: 12px;">
+        <button type="button" data-amount="25" style="padding:10px;border-radius:8px;border:1px solid #e6f0f3;background:transparent;font-weight:700;cursor:pointer;width:100%;">$25</button>
+        <button type="button" data-amount="50" style="padding:10px;border-radius:8px;border:1px solid #e6f0f3;background:transparent;font-weight:700;cursor:pointer;width:100%;">$50</button>
+        <button type="button" data-amount="100" style="padding:10px;border-radius:8px;border:1px solid #e6f0f3;background:transparent;font-weight:700;cursor:pointer;width:100%;">$100</button>
+        <button type="button" data-amount="250" style="padding:10px;border-radius:8px;border:1px solid #e6f0f3;background:transparent;font-weight:700;cursor:pointer;width:100%;">$250</button>
+        <button type="button" data-amount="custom" style="padding:10px;border-radius:8px;border:1px solid #e6f0f3;background:transparent;font-weight:700;cursor:pointer;width:100%;">Custom</button>
+      </div>
+      <!-- Custom amount -->
+      <div style="display: flex; flex-direction: column; gap: 8px; width: 100%; margin-bottom: 12px;">
+        <input id="custom-amount" name="amount" type="number" min="1" placeholder="Enter custom amount (USD)" style="padding:10px;border-radius:8px;border:1px solid #e1e8eb;width:100%;">
+      </div>
+      <!-- Frequency -->
+      <label style="align-self: flex-start;">Donation Frequency</label>
+      <div style="display: flex; flex-direction: column; gap: 8px; width: 100%; margin-bottom: 12px;">
+        <label style="display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:8px;border:1px solid #e1e8eb;cursor:pointer;width:100%;">
+          <input type="radio" name="frequency" value="one_time" checked> One-time
+        </label>
+        <label style="display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:8px;border:1px solid #e1e8eb;cursor:pointer;width:100%;">
+          <input type="radio" name="frequency" value="monthly"> Monthly
+        </label>
+      </div>
+      <!-- Donor details -->
+      <label for="name" style="align-self: flex-start;">Full name</label>
+      <input id="name" name="name" type="text" placeholder="Jane Doe" required style="width:100%;padding:10px;border-radius:8px;border:1px solid #e1e8eb;margin-bottom:12px;">
+      <label for="email" style="align-self: flex-start;">Email</label>
+      <input id="email" name="email" type="email" placeholder="you@example.com" required style="width:100%;padding:10px;border-radius:8px;border:1px solid #e1e8eb;margin-bottom:12px;">
+      <!-- Hidden field: this will be set to the selected amount before submit -->
+      <input id="selected-amount" name="selected_amount" type="hidden">
+      <div style="display: flex; flex-direction: column; gap: 12px; width: 100%; align-items: center;">
+        <button style="padding:12px 16px;border-radius:8px;border:none;cursor:pointer;font-weight:700;background:#5caec9;color:white;width:100%;" type="submit">Continue to payment</button>
+        <!-- Center the Pay with PayPal button -->
+        <a style="padding:12px 16px;border-radius:8px;border:1px solid #5caec9;color:#5caec9;font-weight:700;text-decoration:none;display:inline-block;min-width:200px;text-align:center;margin:0 auto;" href="#" onclick="alert('This is a demo. Replace with a real PayPal link.');return false">Pay with PayPal</a>
+      </div>
+      <p style="font-size:0.9rem;color:#666;margin-top:12px;text-align:center;">
+        Secure processing provided by your payment provider. This page only collects basic donor info and chosen amount.
+      </p>
+    </form>
+    <div style="max-width:400px;margin:18px auto 0;">
+      <strong>Why your gift matters</strong>
+      <ul style="font-size:0.9rem;color:#666;text-align:left;">
+        <li>Fix or build sustainable water projects</li>
+        <li>Provide sanitation education</li>
+        <li>Track results with GPS &amp; photos</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Add this script at the end of the body for the donation form logic -->
+  <script>
+    // Simple logic for amount selection and validation
+    (function(){
+      const amounts = document.querySelectorAll('#donate-section button[data-amount]');
+      const customInput = document.getElementById('custom-amount');
+      const selected = document.getElementById('selected-amount');
+
+      function clearActive(){amounts.forEach(b=>b.style.background='#fff'); amounts.forEach(b=>b.style.color='#111');}
+
+      amounts.forEach(btn=>{
+        btn.addEventListener('click', ()=>{
+          clearActive();
+          btn.style.background = '#5caec9';
+          btn.style.color = '#fff';
+          const val = btn.dataset.amount;
+          if(val === 'custom'){
+            customInput.focus();
+            selected.value = customInput.value || '';
+          } else {
+            selected.value = val;
+            customInput.value = '';
+          }
+        });
+      });
+
+      customInput.addEventListener('input', ()=>{
+        clearActive();
+        selected.value = customInput.value;
+      });
+
+      document.getElementById('donation-form').addEventListener('submit', function(e){
+        if(!selected.value || Number(selected.value) <= 0){
+          e.preventDefault();
+          alert('Please pick or enter a donation amount.');
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
+
+
