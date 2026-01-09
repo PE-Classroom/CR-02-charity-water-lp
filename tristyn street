@@ -1,0 +1,79 @@
+/* Base styles */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #fffaf0;
+  color: #1a1a1a;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Header */
+.top-bar {
+  background-color: #ffd9b3;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: bold;
+}
+
+.logo img {
+  width: 24px;
+  height: 24px;
+}
+
+.donate-btn {
+  background-color: #cc6633;
+  color: white;
+  padding: 10px 15px;
+  font-weight: bold;
+  border-radius: 3px;
+}
+
+/* Hero section */
+.hero {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+}
+
+.hero-image img {
+  width: 100%;
+  max-width: 500px;
+  display: block;
+}
+
+.hero-text {
+  flex: 1;
+  background-color: #a3c9d9;
+  padding: 30px;
+}
+
+.hero-text h1 {
+  color: #1a1a4b;
+  margin-bottom: 20px;
+}
+
+.hero-text p {
+  font-size: 1rem;
+  color: #1a1a4b;
+}
+
+/* CTA Banner */
+.cta-banner {
+  background-color: #cc6633;
+  color: #1a1a4b;
+  text-align: center;
+  padding: 15px;
+  font-size: 1.2rem;
+}
