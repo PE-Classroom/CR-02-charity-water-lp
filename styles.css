@@ -25,11 +25,30 @@ Fonts:
 
 /* Set up the main font and background color for the whole page */
 body {
-  background-color: #f4f8fb; /* Soft light blue for a fresh look */
-  font-family: 'Avenir', 'Proxima Nova', Arial, sans-serif;
+  font-family: 'Proxima Nova', 'Avenir', Arial, sans-serif; /* Use Proxima Nova or Avenir for all text */
   margin: 0;
   padding: 0;
+  background: #fff;
   color: #222;
+}
+
+/* Make sure all headings use the correct font */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Proxima Nova', 'Avenir', Arial, sans-serif; /* Use Proxima Nova or Avenir for headings */
+}
+
+/* Make sure hero content uses the correct font */
+.hero-content,
+.hero-content h1,
+.hero-subtext,
+.cta-main,
+.give-button,
+.logo-text,
+.story,
+.cta,
+.donate-button,
+.profile-box {
+  font-family: 'Proxima Nova', 'Avenir', Arial, sans-serif; /* Use Proxima Nova or Avenir everywhere */
 }
 
 /* Add a slight shadow and rounded corners to each section for depth */
@@ -41,39 +60,153 @@ section {
   padding: 24px 16px;
 }
 
-/* Hero Section Styles */
-.hero {
-  position: relative; /* Needed for overlay */
-  /* Set a background image that covers the whole section */
-  background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1500&q=80');
-  background-size: cover;      /* Make the image cover the whole area */
-  background-position: center; /* Center the image */
-  background-repeat: no-repeat;
-  color: #fff;                 /* White text for contrast */
-  text-align: center;          /* Center the text */
-  padding: 60px 20px;          /* Add space above and below */
-  border-radius: 0 0 16px 16px; /* Only round bottom corners */
-
-  /* Add a dark overlay for better text readability */
-  /* This uses a simple linear-gradient overlay */
-  background-blend-mode: darken;
-  background-color: rgba(46, 157, 247, 0.45); /* Blue overlay */
+/* Header styles */
+.site-header {
+  display: flex;
+  /* Space between logo and button (default layout) */
+  justify-content: space-between; /* Revert to original */
+  align-items: center;
+  background: #FFF6E0;
+  border-bottom: 1px solid #FFC907;
+  padding: 18px 24px;
+  gap: 18px; /* Add some space between logo and button */
 }
 
-/* Make the headline bold and modern */
-.hero h1 {
-  font-size: 2.5em;
+.logo-area {
+  display: flex;
+  align-items: center;
+}
+
+.logo-icon {
+  background: #FFC907;
+  color: #222;
+  border-radius: 6px;
+  padding: 6px 10px;
+  font-size: 1.3em;
+  margin-right: 10px;
+}
+
+.logo-text {
+  font-size: 1.6em;
   font-weight: bold;
   letter-spacing: 1px;
-  margin-bottom: 15px;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.15); /* Soft shadow for readability */
 }
 
-/* Style the subheadline */
-.hero p {
-  font-size: 1.2em;
-  margin-top: 0;
-  text-shadow: 0 1px 4px rgba(0,0,0,0.12);
+.give-button {
+  background: #FFC907;
+  color: #222;
+  padding: 12px 28px;
+  border-radius: 22px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1em;
+  transition: background 0.2s;
+  border: none;
+}
+
+.give-button:hover {
+  background: #FF902A;
+  color: #fff;
+}
+
+/* Style for the logo image in the header */
+.logo-img {
+  height: 40px;         /* Makes the logo image 40 pixels tall */
+  margin-right: 10px;   /* Adds space to the right of the image */
+  vertical-align: middle; /* Keeps the image lined up with the text */
+}
+
+/* Hero section styles */
+.hero-section {
+  position: relative;
+  background: none
+  color;(white)
+  text-align: left;
+  overflow: hidden;
+  padding-bottom: 40px;
+  min-height: 600px; /* Make sure the section is tall enough for the image and text */
+}
+
+/* Position the hero text to fit nicely over the picture */
+.hero-content {
+  position: absolute;
+  top: 40px;
+  left: 32px;
+  width: 90%;         /* Let the text use most of the width */
+  max-width: 420px;   /* Prevent text from stretching too wide */
+  background:none
+  border-radius: 10px; /* Rounded corners for the text box */
+  padding: 18px 20px;  /* Space inside the text box */
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  box-shadow: 0 2px 8px rgba(46, 157, 247, 0.10); /* Soft shadow for depth */
+  pointer-events: none;
+  color: #fff; /* Text color is now white */
+}
+
+.hero-image {
+  width: 100%;           /* Make image as wide as the section */
+  height: 600px;         /* Make the image taller */
+  object-fit: cover;     /* Crop the image to fill the space without stretching */
+  display: block;
+  margin: 0 auto;
+  margin-top: 18px;
+  border-radius: 20px;   /* Rounded edges for the image */
+}
+
+/* Style for the second image below the first, on the left side */
+/* Make the second image much larger */
+.hero-image-small {
+  width: 700px;           /* Make the image much wider */
+  height: 500px;          /* Make the image much taller */
+  object-fit: cover;      /* Crop the image to fill the space */
+  border-radius: 20px;    /* Rounded edges for the image */
+  display: block;         /* Make sure it starts on a new line */
+  margin-left: 0;         /* Align to the left side */
+  margin-top: 18px;       /* Space above the second image */
+}
+
+.hero-content h1 {
+  font-size: 2.5em;
+  font-weight: bold;
+  margin-bottom: 18px;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  color: #fff; /* Headline text is white */
+}
+
+.cta-main {
+  background: #FFC907;
+  color: #222;
+  padding: 12px 28px;
+  border-radius: 22px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1em;
+  margin-bottom: 28px;
+  margin-top: 8px;
+  transition: background 0.2s;
+  pointer-events: auto;
+}
+
+.cta-main:hover {
+  background: #FF902A;
+  color: #fff;
+}
+
+/* Style for the hero subtext */
+/* This moves the subtext further down by adding space above it */
+.hero-subtext {
+  background: none
+  color: #fff;                  /* White text color */
+  padding: 18px 20px;           /* Space inside the box */
+  border-radius: 10px;          /* Rounded corners */
+  max-width: 350px;             /* Limit the width */
+  margin: 200px auto 0 auto;     /* 200px space above, left, no space below */
+  font-size: 1.1em;             /* Slightly larger text */
+  pointer-events: auto;         /* Allow interaction */
 }
 
 /* Story Section Styles */
@@ -84,6 +217,13 @@ section {
   padding: 30px 20px;
 }
 
+/* Style for the story image */
+.story img {
+  width: 200px;
+  border-radius: 10px;
+  margin-top: 15px;
+}
+
 /* Add accent color to section headings */
 h2 {
   color: #2E9DF7; /* Primary blue */
@@ -92,11 +232,11 @@ h2 {
 }
 
 /* Call-to-Action Section Styles */
-.call-to-action {
+.cta {
   background-color: #FFC907; /* Primary Yellow */
   color: #222;
   text-align: center;
-  padding: 30px 20px;
+  padding: 35px 20px;
 }
 
 /* Style the impact story image */
@@ -108,32 +248,82 @@ h2 {
   box-shadow: 0 2px 8px rgba(46, 157, 247, 0.10);
 }
 
-/* Donate Button Styles */
+/* Style for the Donate button */
 .donate-button {
   display: inline-block;
-  background-color: #4FCB53; /* Green */
+  background-color: #F5402C; /* Brand red */
   color: #fff;
   padding: 14px 32px;
   text-decoration: none;
-  border-radius: 6px;
+  border-radius: 5px;
   font-weight: bold;
-  font-size: 1.1em;
   margin-top: 18px;
-  box-shadow: 0 2px 8px rgba(79, 203, 83, 0.10);
-  transition: background 0.3s, transform 0.2s;
+  transition: background 0.2s;
   border: none;
   cursor: pointer;
 }
 
 /* Change button color when hovered */
 .donate-button:hover {
-  background-color: #159A48; /* Dark Green */
-  transform: translateY(-2px) scale(1.04); /* Slight lift */
+  background-color: #FF902A; /* Brand orange */
 }
 
 /* Add some spacing between sections */
 section {
   margin-bottom: 20px;
+}
+
+/* If you have a profile box, you can make it longer (taller) like this: */
+.profile-box {
+  /* Makes the box taller */
+  height: 320px; /* You can adjust this number for more or less height */
+  /* Keeps the box looking nice */
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(46, 157, 247, 0.07);
+  padding: 24px 16px;
+  margin: 24px 10px;
+}
+
+/* Layout for the second image and its text box */
+.second-image-row {
+  display: flex; /* Place image and text side by side */
+  align-items: flex-end; /* Align items at the top */
+  margin-top: 24px; /* Space above the row */
+}
+
+/* Style for the text box beside the second image */
+/* Beginner-friendly: This makes the text box as long (tall) as the image */
+.second-image-text {
+  margin-left: 24px;      /* Space between image and text */
+  flex: 1;                /* Fill all available space beside the image */
+  background: #FFF6E0;    /* Light yellow background for visibility */
+  border-radius: 12px;    /* Rounded corners */
+  padding: 18px 20px;     /* Space inside the box */
+  color: #222;            /* Dark text for readability */
+  box-shadow: 0 2px 8px rgba(46, 157, 247, 0.07); /* Soft shadow */
+  font-family: 'Proxima Nova', 'Avenir', Arial, sans-serif; /* Use correct font */
+  max-width: none;        /* Remove width limit so it can grow */
+  height: 500px;          /* Make the text box as tall as the image */
+  box-sizing: border-box; /* Include padding in the height */
+  display: flex;          /* Use flex to help with vertical alignment */
+  flex-direction: column; /* Stack header and paragraph vertically */
+  justify-content: center;/* Center the text vertically */
+}
+
+/* Make the text in the box beside the second image larger */
+.second-image-text h2 {
+  color: #2E9DF7; /* Brand blue for header */
+  font-size: 2em; /* Larger header text */
+  margin-top: 24px;
+  margin-bottom: 16px;
+  font-weight: bold;
+}
+
+.second-image-text p {
+  font-size: 1.3em; /* Larger paragraph text */
+  margin: 24px;
+  line-height: 1.6;
 }
 
 /* 
@@ -194,5 +384,74 @@ section {
 
   .impact-image {
     width: 300px;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 700px) {
+  .hero-content h1 {
+    font-size: 1.4em;
+  }
+  .hero-subtext {
+    font-size: 1em;
+    padding: 12px 8px;
+  }
+  .hero-image {
+    max-height: 220px;
+  }
+  .site-header {
+    flex-direction: column;
+    gap: 10px;
+    padding: 12px 8px;
+  }
+}
+
+/* Make the second image and text box stack on small screens for better viewing */
+@media (max-width: 900px) {
+  .second-image-row {
+    flex-direction: column; /* Stack image and text vertically */
+    align-items: center;    /* Center items */
+  }
+  .hero-image-small {
+    width: 90%;             /* Make image fit the screen */
+    height: auto;           /* Keep image aspect ratio */
+    max-width: 500px;       /* Limit max width */
+  }
+  .second-image-text {
+    width: 90%;             /* Make text box fit the screen */
+    height: auto;           /* Let text box grow naturally */
+    margin-left: 0;         /* Remove left margin */
+    margin-top: 18px;       /* Add space above text box */
+    max-width: 500px;       /* Limit max width */
+  }
+}
+
+/* Make hero image responsive */
+@media (max-width: 900px) {
+  .hero-image {
+    width: 100%;
+    height: auto;           /* Keep image aspect ratio */
+    max-height: 350px;      /* Limit max height */
+  }
+}
+
+/* Make hero content readable on small screens */
+@media (max-width: 700px) {
+  .hero-content {
+    position: static;       /* Remove absolute positioning */
+    width: 100%;
+    max-width: 100%;
+    padding: 12px 8px;
+    box-shadow: none;
+    left: 0;
+    top: 0;
+  }
+  .hero-content h1 {
+    font-size: 1.4em;
+  }
+  .hero-subtext {
+    font-size: 1em;
+    padding: 12px 8px;
+    margin: 24px auto 0 auto;
   }
 }
