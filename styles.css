@@ -1,198 +1,267 @@
-/* charity: water Brand Colors & Fonts
-
-Primary Colors:
-- Yellow:     #FFC907
-- Blue:       #2E9DF7
-
-Secondary Colors:
-- Light Blue: #8BD1CB
-- Green:      #4FCB53
-- Orange:     #FF902A
-- Red:        #F5402C
-- Dark Green: #159A48
-- Pink:       #F16061
-
-Fonts:
-- Proxima Nova
-- Avenir
-
-*/
-
-/* 
-  Charity: Water Landing Page Styles
-  This CSS uses the provided color palette and beginner-friendly styles.
-*/
-
-/* Set up the main font and background color for the whole page */
 body {
-  background-color: #f4f8fb; /* Soft light blue for a fresh look */
-  font-family: 'Avenir', 'Proxima Nova', Arial, sans-serif;
   margin: 0;
-  padding: 0;
-  color: #222;
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
 }
 
-/* Add a slight shadow and rounded corners to each section for depth */
-section {
-  background: #fff; /* White background for sections */
-  border-radius: 12px; /* Rounded corners */
-  box-shadow: 0 2px 8px rgba(46, 157, 247, 0.07); /* Soft blue shadow */
-  margin: 24px 10px; /* Space between sections */
-  padding: 24px 16px;
+header {
+  background-color: #fff;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
 }
 
-/* Hero Section Styles */
-.hero {
-  position: relative; /* Needed for overlay */
-  /* Set a background image that covers the whole section */
-  background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1500&q=80');
-  background-size: cover;      /* Make the image cover the whole area */
-  background-position: center; /* Center the image */
-  background-repeat: no-repeat;
-  color: #fff;                 /* White text for contrast */
-  text-align: center;          /* Center the text */
-  padding: 60px 20px;          /* Add space above and below */
-  border-radius: 0 0 16px 16px; /* Only round bottom corners */
-
-  /* Add a dark overlay for better text readability */
-  /* This uses a simple linear-gradient overlay */
-  background-blend-mode: darken;
-  background-color: rgba(46, 157, 247, 0.45); /* Blue overlay */
+/* Container for nav links and donate button */
+.nav-donate {
+  display: flex;              /* Place nav and button side by side */
+  align-items: center;        /* Vertically center */
+  gap: 40px;                  /* Space between nav and donate button */
 }
 
-/* Make the headline bold and modern */
-.hero h1 {
-  font-size: 2.5em;
-  font-weight: bold;
-  letter-spacing: 1px;
-  margin-bottom: 15px;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.15); /* Soft shadow for readability */
-}
-
-/* Style the subheadline */
-.hero p {
-  font-size: 1.2em;
-  margin-top: 0;
-  text-shadow: 0 1px 4px rgba(0,0,0,0.12);
-}
-
-/* Story Section Styles */
-.story {
-  background-color: #8BD1CB; /* Secondary Light Blue */
-  color: #222;
-  text-align: center;
-  padding: 30px 20px;
-}
-
-/* Add accent color to section headings */
-h2 {
-  color: #2E9DF7; /* Primary blue */
-  margin-top: 0;
-  font-weight: bold;
-}
-
-/* Call-to-Action Section Styles */
-.call-to-action {
-  background-color: #FFC907; /* Primary Yellow */
-  color: #222;
-  text-align: center;
-  padding: 30px 20px;
-}
-
-/* Style the impact story image */
-.impact-image {
-  width: 100%;
-  max-width: 320px;
-  border-radius: 10px;
-  margin-bottom: 16px;
-  box-shadow: 0 2px 8px rgba(46, 157, 247, 0.10);
-}
-
-/* Donate Button Styles */
-.donate-button {
-  display: inline-block;
-  background-color: #4FCB53; /* Green */
-  color: #fff;
-  padding: 14px 32px;
+/* Make nav links bold and more clickable */
+header nav a {
+  margin: 0 10px;
   text-decoration: none;
-  border-radius: 6px;
-  font-weight: bold;
-  font-size: 1.1em;
-  margin-top: 18px;
-  box-shadow: 0 2px 8px rgba(79, 203, 83, 0.10);
-  transition: background 0.3s, transform 0.2s;
+  color: #333;
+  font-weight: bold;          /* Make links bold */
+  cursor: pointer;            /* Show pointer on hover */
+  transition: color 0.2s;     /* Smooth color change on hover */
+}
+
+/* Add a hover effect for nav links */
+header nav a:hover {
+  color: #FFC907;             /* Yellow color on hover */
+}
+
+header .donate-btn {
+  background-color: #FFC907;
+  margin-right: 20px;
   border: none;
+  padding: 10px 20px;
+  font-weight: bold;
   cursor: pointer;
+  border-radius: 8px; /* Rounded corners for consistency */
+  transition: background-color 0.2s, color 0.2s, transform 0.2s; /* Smooth effect */
 }
 
-/* Change button color when hovered */
-.donate-button:hover {
-  background-color: #159A48; /* Dark Green */
-  transform: translateY(-2px) scale(1.04); /* Slight lift */
+/* Add a hover effect to the Donate button */
+header .donate-btn:hover {
+  background-color: #000000; /* Button background turns black on hover */
+  color: #FFC907;          /* Button text turns yellow on hover */
+  transform: scale(1.05);    /* Make the button a bit bigger */
 }
 
-/* Add some spacing between sections */
-section {
+.hero {
+  display: flex;         /* This puts .hero-text on the left and .hero-image on the right */
+  flex-wrap: wrap;
+  background-color: #7aa8bb;
+  color: #111;
+  padding: 40px 20px;
+}
+
+.hero-text {
+  flex: 1;
+  min-width: 300px;
+}
+
+.hero-text h1 {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  margin-left: 20px;    /* Keep left margin for alignment */
+}
+
+.hero-text p {
+  margin-bottom: 30px;
+  margin-left: 20px;    /* Keep left margin for alignment */
+}
+
+/* The buttons below can be tapped to donate. */
+.hero-text .buttons button {
+  margin: 10px 5px 0 0;
+  padding: 10px 20px;
+  border: none;
+  background-color: #FFC907;
+  font-weight: bold;
+  cursor: pointer; /* Shows pointer for clickable buttons */
+}
+
+.hero-text .buttons p {
+  margin: 0 0 10px 0; /* Add space below the message */
+  font-size: 1.1rem;  /* Make the message a bit larger */
+}
+
+/* Make the icons a little bigger and add space */
+.hero-text .buttons span[title] {
+  font-size: 1.3rem;
+  margin-left: 5px;
+  margin-right: 5px;
+  vertical-align: middle;
+}
+
+
+.hero-image {
+  flex: 1;
+  min-width: 300px;
+}
+
+.hero-image img {
+  width: 500px;         /* Keep the image the same size */
+  max-width: 100%;      /* Prevent overflow on very small screens */
+  height: auto;
+  display: block;
+  margin-left: 92px;    /* Keep image aligned with text and donate box */
+  border-radius: 5px;
+}
+
+/* Make the donate box fit small screens */
+.donate-box {
+  max-width: 100%;    /* Allow the box to shrink on small screens */
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #cbccd1;
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  border-radius: 8px;
   margin-bottom: 20px;
+  margin-left: 20px;    /* Keep left margin for alignment */
+  max-width: 500px;
 }
 
-/* 
-  Media Queries for Responsive Design
-  Media queries help make your website look good on different screen sizes,
-  like phones (small screens) and computers (large screens).
-*/
+/* Text on the left side of the box */
+.donate-label {
+  margin-left: 10px;        /* Space between text and buttons */
+  min-width: 150px;
+  font-size: 1.2rem;
+}
 
-/* This media query applies styles when the screen is 600px wide or less (like on most phones) */
-@media (max-width: 600px) {
-  /* Make hero section padding smaller on small screens */
+/* Make "Quick and Secure" smaller and lighter */
+.donate-label .quick-secure {
+  font-size: 0.90rem;
+  margin-left: 5px;
+  color: #555;
+  font-style: proxima nova, sans-serif; 
+}
+
+/* Make donation buttons bigger and more noticeable */
+.donate-buttons button {
+  margin-right: 10px;
+  padding: 16px 32px;           /* Bigger padding for larger buttons */
+  font-size: 1.1rem;            /* Larger text */
+  background-color: #FFC907;    /* Bright yellow background */
+  color: #111;                  /* Dark text for contrast */
+  border: none;
+  border-radius: 6px;           /* Slightly rounded corners */
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04); /* Soft shadow for depth */
+  transition: transform 0.2s; /* Smooth effect */
+}
+
+/* Remove extra margin from last button */
+.donate-buttons button:last-child {
+  margin-right: 0;
+}
+
+.logo-area {
+  margin-left: 25px; /* Moves the logo 25px to the right */
+}
+
+/* Responsive adjustments for tablets and phones */
+@media (max-width: 768px) {
   .hero {
-    padding: 32px 8px;
-    font-size: 1em;
+    flex-direction: column; /* Stack text and image vertically */
+    padding: 20px 5px;      /* Less padding on small screens */
   }
-
-  /* Make headline font size smaller so it fits on small screens */
-  .hero h1 {
-    font-size: 1.4em;
+  .hero-image img {
+    width: 100%;           /* Image fills the container */
+    margin: 0 auto;        /* Center image */
   }
-
-  /* Make subheadline font size smaller */
-  .hero p {
-    font-size: 1em;
+  .donate-box {
+    flex-direction: column; /* Stack label and buttons vertically */
+    align-items: stretch;   /* Stretch to fit container */
+    padding: 10px;
+    margin-left: 0;
+    max-width: 100%;
   }
-
-  /* Make story and call-to-action sections have less padding */
-  .story,
-  .call-to-action,
-  .donation-section {
-    padding: 14px 8px;
+  .donate-label {
+    margin-bottom: 10px;   /* Space below label */
+    margin-right: 0;
+    margin-left: 0;
+    text-align: center;    /* Center label text */
   }
-
-  /* Make impact story image smaller and stack above the text */
-  .impact-content {
-    display: block; /* Stack items vertically */
-    text-align: center;
+  .donate-buttons {
+    display: flex;
+    flex-direction: column; /* Stack buttons vertically */
+    gap: 10px;              /* Space between buttons */
+    align-items: center;    /* Center buttons */
   }
-
-  .impact-image {
-    width: 90%;    /* Make image take up most of the width */
-    max-width: 220px;
+  .donate-buttons button {
+    width: 90%;             /* Make buttons fill most of the width */
+    margin-right: 0;
+  }
+  .hero-text h1,
+  .hero-text p {
+    margin-left: 0;         /* Remove left margin for mobile */
+    text-align: center;     /* Center text for mobile */
+  }
+  .story {
+    padding: 30px 10px;     /* Less padding for mobile */
+  }
+  .cta {
+    padding: 30px 10px;     /* Less padding for mobile */
   }
 }
 
-/* This media query applies styles when the screen is wider than 600px (like on tablets and computers) */
-@media (min-width: 601px) {
-  /* Show image and text side by side in the impact story */
-  .impact-content {
-    display: flex;           /* Place items in a row */
-    align-items: center;     /* Vertically center items */
-    justify-content: center; /* Center the whole group */
-    gap: 28px;               /* Space between image and text */
-    text-align: left;
-    max-width: 800px;
-    margin: 0 auto;
+@media (max-width: 520px) {
+  .hero-image img {
+    width: 100%;        /* Allow image to shrink on very small screens */
+    margin-left: 0;     /* Remove left margin for small screens */
   }
+  .hero-text h1,
+  .hero-text p,
+  .donate-box {
+    margin-left: 0;     /* Remove left margin for small screens */
+  }
+}
 
-  .impact-image {
-    width: 300px;
-  }
+.cta {
+  background-color: #cbccd1;
+  text-align: center;
+  padding: 40px 20px;
+}
+.cta button {
+  padding: 15px 25px;           /* Bigger button */
+  font-size: 1.1rem;            /* Larger text */
+  font-weight: bold;
+  background-color: #FFC907;    /* Yellow background */
+  color: #000000;
+  border: none;
+  border-radius: 8px;           /* Rounded corners */
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04); /* Soft shadow */
+  transition: background-color 0.2s, color 0.2s, transform 0.2s; /* Smooth effect */
+}
+
+/* Add a hover effect to make the Join Us button react */
+.cta button:hover {    
+  background-color: #000000;    /* Button background turns black on hover */
+  color: #FFC907;               /* Button text turns yellow on hover */
+  transform: scale(1.05);       /* Make the button a bit bigger */
+}
+
+/* Add a hover effect to make Apple Pay and PayPal buttons react */
+.donate-buttons button:hover {
+  background-color: #000000;    /* Button background turns black on hover */
+  color: #FFC907;               /* Button text turns yellow on hover */
+  transform: scale(1.05);       /* Make the button a bit bigger */
+}
+
+.story {
+  padding: 40px 40px;
+  background-color: #fff;
+  text-align: center; /* Center the heading and paragraph */
 }
