@@ -1,47 +1,295 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Charity Water Landing Page</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Charity: Water</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #e6f2fa; /* Soft blue background */
+      color: #000;
+    }
+
+    /* Header is now left-aligned with the footer using margin-left */
+    header {
+      display: flex;              /* Use flexbox for header layout */
+      align-items: center;        /* Vertically center header content */
+      padding: 1rem 0;            /* Remove side padding for left alignment */
+      margin-left: 2rem;          /* Align header with footer's left edge */
+      border-bottom: none;
+    }
+
+    .header-flex {
+      display: flex;              /* Put items in a row */
+      align-items: center;        /* Center items vertically */
+      gap: 2rem;                  /* Space between logo and links */
+      width: 100%;
+      max-width: 1000px;
+    }
+
+    /* Blue line under the header, aligned with header and footer */
+    .header-underline {
+      height: 3px;
+      background: #bcd7da;
+      max-width: 800px;      /* Make the blue line shorter */
+      margin-left: 2rem;     /* Same left margin as header and footer */
+      width: 100%;
+      margin-top: 1.5rem;    /* Raise the blue line a little more */
+      margin-bottom: 1.5rem; /* Space below the blue line for a gap */
+    }
+
+    /* Style navigation links to match the hero heading font and align with the logo */
+    nav {
+      display: flex;
+      gap: 1rem;
+      align-items: center; /* Align links vertically with the logo */
+    }
+
+    /* Style navigation links to look more like the logo font */
+    nav a {
+      text-decoration: none;
+      color: #000;
+      font-family: 'Inter', Arial, sans-serif; /* Use the same font as the hero heading */
+      font-weight: bold;                      /* Make the links bold */
+      font-size: 1.2rem;                      /* Make navigation link text larger */
+      text-transform: uppercase;               /* Make text uppercase */
+      letter-spacing: 1px;                     /* Add space between letters */
+      /* Remove extra styles for simplicity */
+    }
+
+    .hero {
+      flex: 1;                  /* Take up all available space on the left */
+      display: flex;            /* Use flexbox for easy centering */
+      flex-direction: column;   /* Stack items vertically */
+      align-items: center;      /* Center items horizontally */
+      justify-content: center;  /* Center items vertically (optional) */
+      padding: 3rem 0 3rem 0;
+      max-width: 100%;
+      margin-left: 0;
+      text-align: center;       /* Center text inside the hero section */
+    }
+
+    .hero h1 {
+      font-size: 3rem;      /* Make the main heading bigger */
+      margin-bottom: 1.2rem;
+    }
+
+    .hero p {
+      font-size: 1.5rem;    /* Make the supporting text bigger */
+      margin-bottom: 2.2rem;
+    }
+
+    .cta-button {
+      background-color: #fcd53f;
+      padding: 1rem 2rem;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #000;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .cta-button::after {
+      content: " \1F4A7"; /* Adds a water drop emoji after the button text */
+    }
+
+    /* This section controls the layout of the hero and images */
+    .hero-image-container {
+      display: flex;                 /* Put hero and images in a row */
+      align-items: flex-start;       /* Align items at the top */
+      justify-content: flex-end;     /* Move content to the right */
+      max-width: 1000px;
+      margin-left: 2rem;
+      margin-right: auto;
+      gap: 2rem;                     /* Space between text and images */
+    }
+
+    /* This section controls the images */
+    .image-section {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;         /* Align images to the right */
+      gap: 1rem;
+      padding: 0;
+      max-width: 350px;              /* Make sure images have enough space */
+      margin: 0;
+    }
+
+    .image-section img {
+      width: 350px;        /* Set image width to 200px */
+      border: 6px solid #cb7e54;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* On small screens, images will still be responsive */
+    @media (max-width: 700px) {
+      .image-section img {
+        width: 80%;        /* Images take up most of the container width on small screens */
+        border-width: 4px;
+      }
+    }
+
+    .impact-stats {
+      padding: 2rem;
+      font-size: 1rem;
+      max-width: 800px;
+      margin-left: 2rem;
+      text-align: left;
+    }
+
+    .impact-stats strong {
+      font-weight: bold;
+    }
+
+    /* Footer style for reference (black line is the border-top) */
+    footer {
+      text-align: left;
+      padding: 2rem;
+      font-size: 0.9rem;
+      max-width: 800px;      /* Footer width matches blue line */
+      margin-left: 2rem;     /* Footer is left-aligned */
+      border-top: 1px solid #ccc; /* This is the black/gray line */
+    }
+
+    footer a {
+      margin: 0 0.5rem;
+      color: #000;
+      text-decoration: none;
+    }
+
+    .logo {
+      height: 40px;
+    }
+
+    /* 
+      MEDIA QUERIES
+      Media queries help your website look good on both large screens (like desktops) and small screens (like phones).
+      The code below changes some styles when the screen is 700px wide or less.
+    */
+    @media (max-width: 700px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem;
+        margin-left: 0;         /* Remove left margin on small screens */
+        gap: 1rem;
+      }
+
+      .header-flex {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+      }
+
+      .header-underline {
+        margin-left: 0;         /* Remove left margin on small screens */
+      }
+
+      nav {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      .hero {
+        padding: 2rem 1rem;
+        margin-left: 0;
+        max-width: 100%;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .image-section {
+        align-items: center;
+        max-width: 100%;
+        padding: 1rem 0 0 0;
+      }
+
+      .impact-stats,
+      footer {
+        padding: 1rem;
+        margin-left: 0;
+        max-width: 100%;
+      }
+
+      /* Responsive: stack on small screens */
+      .hero-image-container {
+        flex-direction: column;
+        gap: 1rem;
+        margin-left: 0;
+        max-width: 100%;
+      }
+    }
+  </style>
 </head>
 <body>
-    <!-- Hero Section: This is the main banner at the top of the page -->
+  <header>
+    <!-- This container holds the logo and the navigation links -->
+    <div class="header-flex">
+      <!-- Use the local logo image from the img folder -->
+      <img src="img/cw_logo-2.png" class="logo" alt="Charity: Water logo">
+      <!-- Navigation links, aligned with the logo -->
+      <nav>
+        <a href="#">Take Action Here</a>
+        <a href="#">About Us</a>
+      </nav>
+    </div>
+  </header>
+  <!-- Blue line under the header, only as wide as the header content -->
+  <div class="header-underline"></div>
+
+  <!-- New container for hero and images side by side -->
+  <div class="hero-image-container">
     <section class="hero">
-        <!-- Main headline -->
-        <h1>Clean Water for Everyone</h1>
-        <!-- Subheadline -->
-        <p>Join us in bringing safe, clean water to communities in need.</p>
+      <h1>Turn Activism Into Impact</h1>
+      <p>Every dollar helps fund clean water – and we show you the real impact you made</p>
+      <button class="cta-button">Make The Change Today</button>
     </section>
 
-    <!-- Story Section: This tells the story of the nonprofit -->
-    <section class="story">
-        <h2>Our Story</h2>
-        <p>
-         
+    <section class="image-section">
+      <!-- Images are now on the right and smaller -->
+      <img src="img/ethopian_family.jpg" alt="Ethiopian family.">
+      <img src="img/yellow jerrycan.jpg" alt="Yellow jerrycan with water being poured">
     </section>
+  </div>
 
-    <!-- Real-World Impact Story Section -->
-    <section class="impact-story">
-        <!-- Section headline -->
-        <h2>Real Impact: Meet Amina</h2>
-        <!-- Container for image and text -->
-        <div class="impact-content">
-            <!-- Impact image -->
-            <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80" alt="Amina smiling with clean water" class="impact-image">
-            <!-- Impact story text -->
-            <p>
-                Amina used to walk miles every day to collect water for her family. Thanks to your support, her village now has a clean water well. Amina can go to school and her family is healthier and happier.
-            </p>
-        </div>
-    </section>
+  <section class="impact-stats">
+    <p>Over <strong>703 million people</strong> lack access to clean water. Every day, families walk hours for water that can make them sick. Since <strong>2006</strong>, charity: water has helped <strong>17.5 million people</strong> across <strong>29 countries</strong>—and proves every project with photos, GPS data, and real-time impact updates.</p>
+  </section>
 
-    <!-- Call-to-Action Section: This encourages visitors to take action -->
-    <section class="call-to-action">
-        <h2>Make a Difference</h2>
-        <p>Your support can help save lives. Every donation brings us closer to a world with clean water for all.</p>
-        <a href="#" class="donate-button">Donate Now</a>
-    </section>
+  <footer>
+    <!-- Footer section with social media icons -->
+    <p><strong>Follow us:</strong></p>
+    <p>
+      <!-- Instagram logo -->
+      <a href="#" title="Instagram">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/instagram.svg" alt="Instagram" style="height:24px; vertical-align:middle;">
+      </a>
+      <!-- Twitter logo -->
+      <a href="#" title="Twitter">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/twitter.svg" alt="Twitter" style="height:24px; vertical-align:middle;">
+      </a>
+      <!-- Facebook logo -->
+      <a href="#" title="Facebook">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/facebook.svg" alt="Facebook" style="height:24px; vertical-align:middle;">
+      </a>
+      <!-- TikTok logo -->
+      <a href="#" title="TikTok">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/tiktok.svg" alt="TikTok" style="height:24px; vertical-align:middle;">
+      </a>
+      <!-- YouTube logo -->
+      <a href="#" title="YouTube">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/youtube.svg" alt="YouTube" style="height:24px; vertical-align:middle;">
+      </a>
+    </p>
+  </footer>
 </body>
 </html>
