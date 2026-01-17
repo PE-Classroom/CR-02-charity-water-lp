@@ -1,3 +1,52 @@
+/* Responsive Design: Make layout adapt to different screen sizes */
+@media (max-width: 900px) {
+  .hero {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    padding: 24px 8px;
+  }
+  .hero-content {
+    max-width: 100%;
+  }
+  .hero-image {
+    max-width: 100%;
+    margin-left: 0;
+    margin-top: 18px;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero h1 {
+    font-size: 1.4em;
+  }
+  .hero p {
+    font-size: 1em;
+  }
+  .impact-content {
+    display: block;
+    text-align: center;
+  }
+  .impact-image {
+    width: 90%;
+    max-width: 220px;
+  }
+}
+
+@media (min-width: 601px) {
+  .impact-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 28px;
+    text-align: left;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .impact-image {
+    width: 300px;
+  }
+}
 /* charity: water Brand Colors & Fonts
 
 Primary Colors:
@@ -25,8 +74,9 @@ Fonts:
 
 /* Set up the main font and background color for the whole page */
 body {
-  background-color: #f4f8fb; /* Soft light blue for a fresh look */
-  font-family: 'Avenir', 'Proxima Nova', Arial, sans-serif;
+  background-color: #fff; /* White background for the whole page */
+  /* Use Proxima Nova as the main font. If not available, use Arial or a generic sans-serif font. */
+  font-family: 'Proxima Nova', Arial, sans-serif;
   margin: 0;
   padding: 0;
   color: #222;
@@ -36,36 +86,49 @@ body {
 section {
   background: #fff; /* White background for sections */
   border-radius: 12px; /* Rounded corners */
-  box-shadow: 0 2px 8px rgba(46, 157, 247, 0.07); /* Soft blue shadow */
+  box-shadow: 0 2px 8px rgba(255, 201, 7, 0.07); /* Soft yellow shadow */
   margin: 24px 10px; /* Space between sections */
   padding: 24px 16px;
 }
 
 /* Hero Section Styles */
 .hero {
-  position: relative; /* Needed for overlay */
-  /* Set a background image that covers the whole section */
-  background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1500&q=80');
-  background-size: cover;      /* Make the image cover the whole area */
-  background-position: center; /* Center the image */
-  background-repeat: no-repeat;
-  color: #fff;                 /* White text for contrast */
-  text-align: center;          /* Center the text */
-  padding: 60px 20px;          /* Add space above and below */
+  display: flex; /* Place content and image side by side */
+  align-items: center; /* Vertically center items */
+  justify-content: space-between; /* Space between text and image */
+  background: #fff; /* White background for hero section */
+  color: #222; /* Dark text for contrast */
+  text-align: left; /* Align text to the left */
+  padding: 40px 20px;
   border-radius: 0 0 16px 16px; /* Only round bottom corners */
-
-  /* Add a dark overlay for better text readability */
-  /* This uses a simple linear-gradient overlay */
-  background-blend-mode: darken;
-  background-color: rgba(46, 157, 247, 0.45); /* Blue overlay */
+  min-height: 320px;
 }
 
+/* Container for the hero text */
+.hero-content {
+  flex: 1;
+  max-width: 50%;
+}
+
+/* Hero image on the right */
+.hero-image {
+  flex: 1;
+  max-width: 340px;
+  width: 100%;
+  border-radius: 12px;
+  margin-left: 32px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+}
+}
+
+/* Make the headline bold and modern */
 /* Make the headline bold and modern */
 .hero h1 {
   font-size: 2.5em;
   font-weight: bold;
   letter-spacing: 1px;
   margin-bottom: 15px;
+  color: #FFC907; /* Yellow color for the headline */
   text-shadow: 0 2px 8px rgba(0,0,0,0.15); /* Soft shadow for readability */
 }
 
@@ -78,7 +141,7 @@ section {
 
 /* Story Section Styles */
 .story {
-  background-color: #8BD1CB; /* Secondary Light Blue */
+  background-color: #fff; /* White background for story section */
   color: #222;
   text-align: center;
   padding: 30px 20px;
@@ -86,14 +149,15 @@ section {
 
 /* Add accent color to section headings */
 h2 {
-  color: #2E9DF7; /* Primary blue */
+  color: #FFC907; /* Primary yellow */
   margin-top: 0;
   font-weight: bold;
 }
 
 /* Call-to-Action Section Styles */
+/* Call-to-Action Section Styles */
 .call-to-action {
-  background-color: #FFC907; /* Primary Yellow */
+  background-color: #fff; /* White background */
   color: #222;
   text-align: center;
   padding: 30px 20px;
@@ -109,25 +173,61 @@ h2 {
 }
 
 /* Donate Button Styles */
+/* Donate Button Styles with visual enhancements */
 .donate-button {
   display: inline-block;
-  background-color: #4FCB53; /* Green */
-  color: #fff;
+  background-color: #FFC907; /* Yellow */
+  color: #111; /* Black text for better contrast */
   padding: 14px 32px;
   text-decoration: none;
   border-radius: 6px;
   font-weight: bold;
   font-size: 1.1em;
   margin-top: 18px;
-  box-shadow: 0 2px 8px rgba(79, 203, 83, 0.10);
-  transition: background 0.3s, transform 0.2s;
+  box-shadow: 0 2px 8px rgba(255, 201, 7, 0.10);
+  transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
   border: none;
   cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Add a subtle animated shine effect on hover */
+.donate-button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(120deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.6) 60%, rgba(255,255,255,0.2) 100%);
+  transform: skewX(-20deg);
+  transition: left 0.5s;
+}
+.donate-button:hover::after {
+  left: 120%;
+}
+
+/* Change button color and add a pop effect on hover */
+.donate-button:hover {
+  background-color: #e6b800; /* Slightly darker yellow for hover */
+  color: #111;
+  transform: translateY(-2px) scale(1.06);
+  box-shadow: 0 6px 18px rgba(255, 201, 7, 0.18);
+}
+
+/* Add a soft shadow and scale effect to images on hover */
+.impact-image:hover {
+  box-shadow: 0 8px 24px rgba(79, 203, 83, 0.18);
+  transform: scale(1.04) rotate(-1deg);
+  transition: box-shadow 0.3s, transform 0.3s;
+}
 }
 
 /* Change button color when hovered */
 .donate-button:hover {
-  background-color: #159A48; /* Dark Green */
+  background-color: #e6b800; /* Slightly darker yellow for hover */
+  color: #111;
   transform: translateY(-2px) scale(1.04); /* Slight lift */
 }
 
@@ -144,10 +244,22 @@ section {
 
 /* This media query applies styles when the screen is 600px wide or less (like on most phones) */
 @media (max-width: 600px) {
-  /* Make hero section padding smaller on small screens */
+  /* Make hero section stack vertically on small screens */
   .hero {
-    padding: 32px 8px;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 24px 8px;
     font-size: 1em;
+  }
+
+  .hero-content {
+    max-width: 100%;
+  }
+
+  .hero-image {
+    max-width: 100%;
+    margin-left: 0;
+    margin-top: 18px;
   }
 
   /* Make headline font size smaller so it fits on small screens */
