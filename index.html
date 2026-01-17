@@ -1,47 +1,220 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Charity Water Landing Page</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Charity:Water</title>
+  <link href="https://fonts.googleapis.com/css2?family=Proxima+Nova:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Proxima Nova', sans-serif;
+      background-color: #75ac48;
+      color: #000000;
+    }
+
+    .header {
+      background-color: #ffffff;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      font-weight: bold;
+      gap: 10px;
+    }
+
+    .logo img {
+      height: 30px;
+    }
+
+    .donate-btn {
+      background-color: #ee941f;
+      color: #ffffff;
+      padding: 0.5rem 1rem;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 0.5rem;
+    }
+
+    .hero {
+      background-color: #75ac48;
+      text-align: center;
+      color: white;
+      padding: 4rem 2rem;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+    }
+
+    .hero .cta-button {
+      background-color: #ee941f;
+      color: #ffffff;
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .story {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 1rem;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .story-text {
+      flex: 1 1 300px;
+      padding: 1rem;
+    }
+
+    .story-text h2 {
+      font-size: 2rem;
+      margin-bottom: 0rem;
+    }
+
+    .story-text p {
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    .story-image {
+      flex: 1 1 300px;
+      text-align: center;
+    }
+
+    .story-image img {
+      width: 150%;
+      max-width: 400px;
+      border-radius: 15px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+
+    .cta-section {
+      text-align: center;
+      background-color: #75ac48;
+      color: white;
+      padding: 3rem 2rem;
+    }
+
+    .cta-section h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .cta-section .cta-button {
+      background-color: #ee941f;
+      color: #ffffff;
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    /* Media query for tablets */
+    @media (max-width: 1024px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      .hero p,
+      .story-text p {
+        font-size: 1.1rem;
+      }
+    }
+
+    /* Media query for mobile devices */
+    @media (max-width: 768px) {
+      .header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .hero p,
+      .story-text p {
+        font-size: 1rem;
+      }
+
+      .story {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .story-text h2,
+      .cta-section h2 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
 </head>
 <body>
-    <!-- Hero Section: This is the main banner at the top of the page -->
-    <section class="hero">
-        <!-- Main headline -->
-        <h1>Clean Water for Everyone</h1>
-        <!-- Subheadline -->
-        <p>Join us in bringing safe, clean water to communities in need.</p>
-    </section>
+  <div class="header">
+    <div class="logo">
+      <img src="img/water-can-transparent.png" alt="Charity Water logo">
+      Charity:Water
+    </div>
+    <button class="donate-btn" onclick="celebrate(this)">Donate Here</button>
+  </div>
 
-    <!-- Story Section: This tells the story of the nonprofit -->
-    <section class="story">
-        <h2>Our Story</h2>
-        <p>
-         
-    </section>
+  <section class="hero">
+    <h1>From Your Home to Theirs: Clean Water That Connects Us</h1>
+    <p>Help bring clean water to communities worldwide.  We show you where every drop goes.</p>
+    <button class="cta-button" onclick="celebrate(this)">Donate Here TODAY</button>
+  </section>
 
-    <!-- Real-World Impact Story Section -->
-    <section class="impact-story">
-        <!-- Section headline -->
-        <h2>Real Impact: Meet Amina</h2>
-        <!-- Container for image and text -->
-        <div class="impact-content">
-            <!-- Impact image -->
-            <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80" alt="Amina smiling with clean water" class="impact-image">
-            <!-- Impact story text -->
-            <p>
-                Amina used to walk miles every day to collect water for her family. Thanks to your support, her village now has a clean water well. Amina can go to school and her family is healthier and happier.
-            </p>
-        </div>
-    </section>
+  <section class="story">
+    <div class="story-text">
+      <h2>A Ripple of Hope: The Story of Clean Water</h2>
+      <p>In a small village once burdened by drought, clean water arrived not just as a resource—but as a lifeline.
+      <p>No longer did children spend hours walking miles under the sun to fetch water. Instead, they returned to school, their laughter echoing across the village. Mothers had time to care for their families and grow gardens, while fathers found new energy to rebuild their communities. 
+      <p>With every drop from the new well, hope flowed. Illness declined, crops thrived, and neighbors shared more than just water—they shared dreams.
+      <p>Access to clean water doesn't just save lives—it brings people together. It connects villages and cities, donors and recipients, showing that no matter where we live, we all depend on the same simple gift: water.
+      <p>When we give water, we give time. We give health. And most of all, we give a future—one that we all build together.</p>
+    </div>
+    <div class="story-image">
+      <img src="img/Story.png" alt="Impact story image">
+    </div>
+  </section>
 
-    <!-- Call-to-Action Section: This encourages visitors to take action -->
-    <section class="call-to-action">
-        <h2>Make a Difference</h2>
-        <p>Your support can help save lives. Every donation brings us closer to a world with clean water for all.</p>
-        <a href="#" class="donate-button">Donate Now</a>
-    </section>
+  <section class="cta-section">
+    <h2>Your Donation MATTERS.</h2>
+    <button class="cta-button" onclick="celebrate(this)">Donate Now</button>
+  </section>
+
+  <script>
+    function celebrate(button) {
+      confetti({
+        particleCount: 100,
+        spread: 70,
+        origin: { y: 0.6 }
+      });
+      button.textContent = '🎉 Thank You!';
+      button.disabled = true;
+      button.style.backgroundColor = '#8BD1CB';
+    }
+  </script>
 </body>
 </html>
