@@ -1,47 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Charity Water Landing Page</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>charity: water</title>
+  <link href="styles.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
 </head>
 <body>
-    <!-- Hero Section: This is the main banner at the top of the page -->
-    <section class="hero">
-        <!-- Main headline -->
-        <h1>Clean Water for Everyone</h1>
-        <!-- Subheadline -->
-        <p>Join us in bringing safe, clean water to communities in need.</p>
-    </section>
 
-    <!-- Story Section: This tells the story of the nonprofit -->
-    <section class="story">
-        <h2>Our Story</h2>
-        <p>
-         
-    </section>
+<nav>
+  <div class="logo">
+    <img src="img/cw_logo.png" alt="Logo">
+  </div>
+  <div class="nav-links">
+    <a href="#impact">Impact</a>
+    <a href="#story">Story</a>
+    <a href="#donate" class="btn">Donate</a>
+  </div>
+</nav>
 
-    <!-- Real-World Impact Story Section -->
-    <section class="impact-story">
-        <!-- Section headline -->
-        <h2>Real Impact: Meet Amina</h2>
-        <!-- Container for image and text -->
-        <div class="impact-content">
-            <!-- Impact image -->
-            <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80" alt="Amina smiling with clean water" class="impact-image">
-            <!-- Impact story text -->
-            <p>
-                Amina used to walk miles every day to collect water for her family. Thanks to your support, her village now has a clean water well. Amina can go to school and her family is healthier and happier.
-            </p>
-        </div>
-    </section>
+<header class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-text">
+    <h1>Be Broke <span>AND</span> Generous</h1>
+    <p>For less than your Netflix subscription, you can give someone clean water for life. $5 a month. Real impact, no guilt.</p>
+    <a href="#donate" class="cta-button">Donate $5/Month</a>
+  </div>
+</header>
 
-    <!-- Call-to-Action Section: This encourages visitors to take action -->
-    <section class="call-to-action">
-        <h2>Make a Difference</h2>
-        <p>Your support can help save lives. Every donation brings us closer to a world with clean water for all.</p>
-        <a href="#" class="donate-button">Donate Now</a>
-    </section>
+<!-- Dots placed BELOW hero -->
+<div class="dots">
+  <span class="dot active"></span>
+  <span class="dot"></span>
+  <span class="dot"></span>
+</div>
+
+<main>
+  <section id="impact" class="impact">
+    <h2>Your Impact</h2>
+    <div class="counters">
+      <div><h3>50,000+</h3><p>Projects Funded</p></div>
+      <div><h3>15 Million</h3><p>Lives Impacted</p></div>
+      <div><h3>29</h3><p>Countries Served</p></div>
+    </div>
+  </section>
+
+  <section id="map" class="map-section">
+    <h2>Our Projects Around the World</h2>
+    <div id="mapid"></div>
+  </section>
+
+  <section class="how">
+    <h2>How It Works</h2>
+    <div class="how-steps">
+      <div><h3>Donate</h3><p>Just $5/month changes a life forever.</p></div>
+      <div><h3>Build</h3><p>100% goes straight to the field.</p></div>
+      <div><h3>See Proof</h3><p>Track your impact with updates & GPS.</p></div>
+    </div>
+  </section>
+
+  <section id="story" class="story">
+    <div class="story-content">
+      <img src="img/story1.jpg" alt="Water Project">
+      <div>
+        <h2>Real Stories</h2>
+        <p>Meet kids whose lives have changed thanks to clean water. You make this happen.</p>
+        <a href="#donate" class="cta-button">Join for $5/Month</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="newsletter">
+    <h2>Stay Connected</h2>
+    <p>Sign up for our newsletter to get updates on new projects and stories of hope.</p>
+    <form>
+      <input type="email" placeholder="Your email" required>
+      <button type="submit">Subscribe</button>
+    </form>
+  </section>
+
+  <section class="testimonials">
+    <h2>What Supporters Say</h2>
+    <div id="testimonial-slider">
+      <div class="slide active">“I trust charity: water because they show exactly where my money goes.” — Alex R.</div>
+      <div class="slide">“Seeing real impact keeps me giving every month.” — Priya M.</div>
+    </div>
+  </section>
+
+  <section id="donate" class="donate-cta">
+    <h2>Ready to Make a Difference?</h2>
+    <p>Your $5/month brings hope and clean water — join today.</p>
+    <a href="#" class="cta-button">Start Giving</a>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; 2025 charity: water | 100% Model | Transparent Reporting</p>
+  <div class="socials">
+    <a href="https://instagram.com/charitywater" target="_blank">
+      <img src="img/instagram.png" alt="Instagram">
+    </a>
+    <a href="https://facebook.com/charitywater" target="_blank">
+      <img src="img/facebook.png" alt="Facebook">
+    </a>
+    <a href="https://twitter.com/charitywater" target="_blank">
+      <img src="img/twitter.png" alt="Twitter">
+    </a>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script src="scripts.js"></script>
+
 </body>
 </html>
