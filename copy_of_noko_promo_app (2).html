@@ -15,7 +15,7 @@
       background-color: #000000;
       display: flex;
       justify-content: space-between;
-      align-items: center;
+      align-items: flex-start;
       padding: 1rem 2rem;
       color: white;
       flex-wrap: wrap;
@@ -32,7 +32,9 @@
     nav {
       display: flex;
       gap: 1.5rem;
-      align-items: center;
+      align-items: flex-end;
+      margin-top: 2.5rem;
+      margin-left: 2rem;
     }
 
     nav a {
@@ -87,7 +89,7 @@
       flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
-      margin: -1.55rem 2rem 2rem 2rem;
+      margin: -1rem 2rem 2rem 2rem;
       border-radius: 20px;
       position: relative;
       z-index: 1;
@@ -249,15 +251,17 @@
 
 <header>
   <div class="left-header">
-    <button type="button" class="donate-btn">Donate Here →</button>
     <img src="https://i.postimg.cc/NMhk08fw/charitywater-logo-horizontal-White-Text.png" alt="Charity: Water Logo" style="height: 40px;">
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">About us</a>
+      <a href="#">What do we do?</a>
+    </nav>
   </div>
-  <nav>
-    <a href="#">Home</a>
-    <a href="#">About us</a>
-    <a href="#">What do we do?</a>
-  </nav>
-</header>
+  <button type="button" class="donate-btn" style="margin-top: 1.5rem; align-self: flex-start;">Donate Here →</button>
+  </header>
+
+
 
 <section class="hero">
   <div class="hero-text">
