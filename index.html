@@ -1,47 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Charity Water Landing Page</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Charity: Water Landing Page</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    <!-- Hero Section: This is the main banner at the top of the page -->
-    <section class="hero">
+  <!-- Centered logo at the top of the page -->
+  <img src="img/charitywater_logo_horizontal_BlackText.png" alt="Charity Water Logo" class="top-logo">
+
+  <!-- Simple navigation bar -->
+  <nav class="navbar">
+    <!-- Navigation links -->
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#donate">Donate</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <!-- Main container for the content -->
+  <div class="container">
+    <!-- Image and logo section -->
+    <div class="image-section">
+      <!-- Use your own photo by placing it in the img folder.
+           If your file name has spaces, make sure to type it exactly as shown below. -->
+      <img src="img/charity water photo.jpg" alt="Child filling Jerry Can" />
+      <!-- The logo in the corner of the image has been removed -->
+    </div>
+
+    <!-- Text and call-to-action section -->
+    <div class="text-section">
+      <!-- First box: headline and subheadline -->
+      <div class="text-box">
         <!-- Main headline -->
-        <h1>Clean Water for Everyone</h1>
+        <h1>Help Communities Thrive with Clean Water</h1>
         <!-- Subheadline -->
-        <p>Join us in bringing safe, clean water to communities in need.</p>
-    </section>
-
-    <!-- Story Section: This tells the story of the nonprofit -->
-    <section class="story">
-        <h2>Our Story</h2>
+        <h2>One small action creates waves of change</h2>
+      </div>
+      <!-- Second box: description and button -->
+      <div class="text-box">
+        <!-- Description paragraph -->
         <p>
-         
-    </section>
+          At Charity: Water, we believe everyone deserves clean, safe water. Change starts with people like you. 100% of your donation funds real projects around the world—and you’ll see exactly how your support transforms lives. Join a movement of young changemakers proving that small actions create lasting impact.
+        </p>
+        <!-- Call-to-action button -->
+        <a href="https://www.charitywater.org/donate" class="cta-button" id="ctaBtn" target="_blank">Help a Community Today</a>
+      </div>
+    </div>
+  </div>
 
-    <!-- Real-World Impact Story Section -->
-    <section class="impact-story">
-        <!-- Section headline -->
-        <h2>Real Impact: Meet Amina</h2>
-        <!-- Container for image and text -->
-        <div class="impact-content">
-            <!-- Impact image -->
-            <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80" alt="Amina smiling with clean water" class="impact-image">
-            <!-- Impact story text -->
-            <p>
-                Amina used to walk miles every day to collect water for her family. Thanks to your support, her village now has a clean water well. Amina can go to school and her family is healthier and happier.
-            </p>
-        </div>
-    </section>
+  <!-- Simple script to show a fireworks effect when the button is clicked -->
+  <script>
+    // Get the button by its ID
+    const button = document.getElementById('ctaBtn');
 
-    <!-- Call-to-Action Section: This encourages visitors to take action -->
-    <section class="call-to-action">
-        <h2>Make a Difference</h2>
-        <p>Your support can help save lives. Every donation brings us closer to a world with clean water for all.</p>
-        <a href="#" class="donate-button">Donate Now</a>
-    </section>
+    // Function to create a single firework burst
+    function showFireworks() {
+      // Number of fireworks particles
+      const particles = 18;
+      // Center of the screen
+      const centerX = window.innerWidth / 2;
+      const centerY = window.innerHeight / 2;
+
+      for (let i = 0; i < particles; i++) {
+        // Create a circle for each particle
+        const circle = document.createElement('div');
+        // Give it a random bright color
+        const colors = ['#FFD700', '#77a8bb', '#ffc907', '#226089', '#fff7e1', '#ff6f61', '#6fff61'];
+        circle.style.background = colors[Math.floor(Math.random() * colors.length)];
+        circle.style.position = 'fixed';
+        circle.style.left = centerX + 'px';
+        circle.style.top = centerY + 'px';
+        circle.style.width = '18px';
+        circle.style.height = '18px';
+        circle.style.borderRadius = '50%';
+        circle.style.zIndex = 10000;
+        circle.style.pointerEvents = 'none';
+        circle.style.opacity = 0.9;
+        // Animation: move outwards in a circle
+        const angle = (2 * Math.PI * i) / particles;
+        const distance = 140 + Math.random() * 40; // How far the particle moves
+        const x = Math.cos(angle) * distance;
+        const y = Math.sin(angle) * distance;
+        // Animate with transition
+        circle.style.transition = 'transform 0.8s cubic-bezier(.62,.04,.31,.99), opacity 0.8s';
+        document.body.appendChild(circle);
+        // Start animation after a short delay
+        setTimeout(() => {
+          circle.style.transform = `translate(${x}px, ${y}px) scale(0.7)`;
+          circle.style.opacity = 0;
+        }, 10);
+        // Remove the circle after animation
+        setTimeout(() => {
+          circle.remove();
+        }, 900);
+      }
+    }
+
+    // When the button is clicked, show fireworks and then go to the donation page
+    button.addEventListener('click', function(event) {
+      event.preventDefault(); // Stop the page from jumping right away
+      showFireworks();
+      // Wait a moment so the user sees the fireworks, then go to the donation page
+      setTimeout(function() {
+        window.open('https://www.charitywater.org/donate', '_blank');
+      }, 900); // 900ms matches the fireworks animation
+    });
+  </script>
 </body>
 </html>
