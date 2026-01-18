@@ -23,22 +23,22 @@ Fonts:
   This CSS uses the provided color palette and beginner-friendly styles.
 */
 
-/* Set up the main font and background color for the whole page */
+/* Give the whole page a soft light blue background for a fresh, clean look */
 body {
-  background-color: #f4f8fb; /* Soft light blue for a fresh look */
-  font-family: 'Avenir', 'Proxima Nova', Arial, sans-serif;
+  background-color: #e6f4fa; /* Soft light blue */
+  font-family: 'Helvetica Neue', sans-serif;
   margin: 0;
   padding: 0;
-  color: #222;
+  color: #000;
 }
 
-/* Add a slight shadow and rounded corners to each section for depth */
+/* Make all sections have a white background with a slight shadow for contrast */
 section {
-  background: #fff; /* White background for sections */
-  border-radius: 12px; /* Rounded corners */
-  box-shadow: 0 2px 8px rgba(46, 157, 247, 0.07); /* Soft blue shadow */
-  margin: 24px 10px; /* Space between sections */
-  padding: 24px 16px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(46, 157, 247, 0.07);
+  margin: 20px 40px;
+  padding: 20px 40px;
 }
 
 /* Hero Section Styles */
@@ -76,17 +76,80 @@ section {
   text-shadow: 0 1px 4px rgba(0,0,0,0.12);
 }
 
+/* 
+  Hero Section: Tilted Yellow Background
+  This creates the yellow tilted background at the top of the page.
+*/
+.hero-container {
+  position: relative; /* Needed for absolute positioning of background */
+  min-height: 420px;  /* Enough height for content */
+  overflow: hidden;   /* Hide overflow from the tilt */
+  margin: 0;
+  padding: 0;
+  border-radius: 0 0 16px 16px; /* Only round bottom corners */
+  box-shadow: none; /* Remove default section shadow */
+}
+
+.hero-bg {
+  /* Yellow background with a tilt */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70%;
+  background: #FFC907; /* Charity: water yellow */
+  box-shadow: 0 8px 32px rgba(0,0,0,0.18); /* Drop shadow for depth */
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 3; /* Place content above the underlap image */
+  padding: 32px 24px 24px 32px;
+  background: rgba(255,255,255,0.85); /* Semi-transparent white */
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  max-width: 600px;
+  margin: 32px 0 0 48px;
+}
+
+/* For smaller screens, stack the logo and text, and adjust button size */
+@media (max-width: 700px) {
+  .hero-content {
+    margin: 16px 8px 0 8px;
+    padding: 16px 8px 12px 8px;
+    max-width: 98%;
+  }
+  .cta-btn {
+    top: 12px;
+    right: 8px;
+    padding: 10px 12px;
+    font-size: 0.95em;
+  }
+  .hero-content h1 {
+    font-size: 1.3em;
+  }
+}
+
 /* Story Section Styles */
 .story {
-  background-color: #8BD1CB; /* Secondary Light Blue */
+  background-color: #FFC907; /* Black */
   color: #222;
   text-align: center;
   padding: 30px 20px;
 }
 
+/* Subheading for the story section - smaller and lighter */
+.story-subheading {
+  font-size: 1em; /* Smaller than normal text */
+  color: #555;
+  margin-top: 8px;
+  margin-bottom: 0;
+}
+
 /* Add accent color to section headings */
 h2 {
-  color: #2E9DF7; /* Primary blue */
+  color: #000; /* Primary blue */
   margin-top: 0;
   font-weight: bold;
 }
@@ -111,13 +174,13 @@ h2 {
 /* Donate Button Styles */
 .donate-button {
   display: inline-block;
-  background-color: #4FCB53; /* Green */
+  background-color: #000; /* Black */
   color: #fff;
-  padding: 14px 32px;
+  padding: 6px 12px; /* Smaller padding */
   text-decoration: none;
-  border-radius: 6px;
+  border-radius: 4px;
   font-weight: bold;
-  font-size: 1.1em;
+  font-size: 0.95em;    /* Slightly smaller text */
   margin-top: 18px;
   box-shadow: 0 2px 8px rgba(79, 203, 83, 0.10);
   transition: background 0.3s, transform 0.2s;
@@ -127,7 +190,7 @@ h2 {
 
 /* Change button color when hovered */
 .donate-button:hover {
-  background-color: #159A48; /* Dark Green */
+  background-color: #000; /* Black */
   transform: translateY(-2px) scale(1.04); /* Slight lift */
 }
 
@@ -195,4 +258,93 @@ section {
   .impact-image {
     width: 300px;
   }
+}
+
+/* 
+  Additional Styles for Logo and CTA Button in Hero Section
+  These styles are for the logo row and call-to-action button
+*/
+.logo-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.logo-img {
+  width: 48px;
+  height: auto;
+}
+
+.logo-text {
+  font-size: 1.4em;
+  font-weight: bold;
+  color: #444;
+  letter-spacing: 1px;
+}
+
+.cta-btn {
+  position: absolute;
+  top: 24px;
+  right: 32px;
+  background: #222;
+  color: #fff;
+  padding: 14px 28px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1em;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+}
+
+@media (max-width: 700px) {
+  .hero-content {
+    padding: 24px 8px 16px 8px;
+  }
+  .cta-btn {
+    top: 12px;
+    right: 8px;
+    padding: 10px 12px;
+    font-size: 0.95em;
+  }
+  .hero-content h1 {
+    font-size: 1.3em;
+  }
+}
+
+/* Underlap image as a backdrop under the yellow tilt, not overlapping text */
+.hero-underlap-img-wrap {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 58%; /* Adjust to control how much of the image shows */
+  overflow: hidden;
+  z-index: 2; /* Above yellow bg, below content */
+}
+
+.underlap-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 0 0 16px 16px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+}
+
+.hero-container {
+  position: relative;
+  min-height: 420px;
+  overflow: hidden;
+  border-radius: 0 0 16px 16px;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 3;
+}
+
+.hero-bg {
+  z-index: 1;
 }
