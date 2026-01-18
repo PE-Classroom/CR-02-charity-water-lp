@@ -1,3 +1,5 @@
+  width: 100%;
+}
 /* charity: water Brand Colors & Fonts
 
 Primary Colors:
@@ -25,11 +27,17 @@ Fonts:
 
 /* Set up the main font and background color for the whole page */
 body {
-  background-color: #f4f8fb; /* Soft light blue for a fresh look */
-  font-family: 'Avenir', 'Proxima Nova', Arial, sans-serif;
-  margin: 0;
-  padding: 0;
+  /* Set the background image */
+  background-image: url(#003366);
+  /* Make the image cover the whole background */
+  background-size: cover;
+  /* Center the background image */
+  background-position: center;
+  /* Prevent the image from repeating */
+  background-repeat: no-repeat;
+
   color: #222;
+  font-family: 'Proxima Nova', Arial, sans-serif;
 }
 
 /* Add a slight shadow and rounded corners to each section for depth */
@@ -42,7 +50,20 @@ section {
 }
 
 /* Hero Section Styles */
+/* Responsive logo in hero section */
+.hero img[alt="Charity Water Logo"] {
+  width: 120px;
+  height: auto;
+  max-width: 30vw;
+  min-width: 80px;
+  top: 16px;
+  left: 16px;
+}
+
 .hero {
+  /* Add a background color to the right side and margins */
+  background-color: #003366;
+  box-shadow: 0 0 0 100vw #003366; /* Extend color to margins and right side visually */
   position: relative; /* Needed for overlay */
   /* Set a background image that covers the whole section */
   background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1500&q=80');
@@ -110,7 +131,9 @@ h2 {
 
 /* Donate Button Styles */
 .donate-button {
-  display: inline-block;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
   background-color: #4FCB53; /* Green */
   color: #fff;
   padding: 14px 32px;
@@ -144,6 +167,20 @@ section {
 
 /* This media query applies styles when the screen is 600px wide or less (like on most phones) */
 @media (max-width: 600px) {
+  /* Responsive hero logo for small screens */
+  .hero img[alt="Charity Water Logo"] {
+    width: 80px;
+    left: 8px;
+    top: 8px;
+  }
+  .hero h1 span {
+    font-size: 2em !important;
+  }
+  .hero-content {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
   /* Make hero section padding smaller on small screens */
   .hero {
     padding: 32px 8px;
@@ -195,4 +232,106 @@ section {
   .impact-image {
     width: 300px;
   }
+}/* Reset some default styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Proxima Nova;
+    background-color: #f1f1f1;
+    color: #333;
+}
+
+/* Hero section with background color and image overlay */
+.hero {
+  position: relative;
+  background-color: #003366; /* Primary color */
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  text-align: left;
+  color: white;
+  padding: 20px;
+  overflow: hidden; /* Prevent image overflow */
+}
+
+/* Add the image as a background overlay using ::before */
+/* Show the image at full strength, no overlay */
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('img/eyJidWNrZXQiOiJkcm9wbWFyayIsImtleSI6IjUyMDQzL2IxMWQ1Y2U2ZmNiNmE5YTllMmU5MmZiZWQ1YTFiZGU3NzdjMDBkZGMzNjAxZWEyNmU4NDhlMzRmNDg0NzJhYTcvcHJldmlldy9NYWRhZ2FzY2FyXzIwMTlfQ0ctNDMyMi5qcGciLCJlZGl0cyI6eyJyZXNpemUiOnsid2lkdGgiOjYwMCwiaGVpZ2h0Ijo2MDA.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 1;
+}
+
+/* Make sure content stays above the image */
+.hero > * {
+  position: relative;
+  z-index: 2;
+}
+}
+
+.hero h1 {
+    font-size: 3 rem;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-button {
+    background-color: #77A8BB; /* Accent color for the button */
+    color: #FFC907;
+    text-decoration: none;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #003366;
+}
+
+.image-section {
+    text-align: center;
+    margin: 40px 0;
+}
+
+.image-section img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: white;
+}
+
+footer p {
+    font-size: 1rem;
+}
+footer a {
+    color: #ffbc00;
+    text-decoration: none;
 }
