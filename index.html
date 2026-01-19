@@ -1,47 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Charity Water Landing Page</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Charity: Water - Help Bring Water</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+  /* Add hover effect to navigation buttons */
+  .nav a:hover {
+    background: #FFC709; /* yellow background on hover */
+    color: #111; /* dark text on hover */
+    border-radius: 6px;
+    padding: 6px 12px;
+    transition: background 0.2s, color 0.2s;
+  }
+  /* Add hover effect to the share button */
+  .share-button:hover {
+    background: #FFD84A;
+    color: #111;
+  }
+  /* Use Avenir for all headlines (h1, h2, h3) */
+  h1, h2, h3 {
+    font-family: 'Avenir', Arial, sans-serif;
+  }
+  /* Responsive styles for mobile devices */
+  @media (max-width: 700px) {
+    .header {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 10px;
+    }
+    .logo {
+      margin-bottom: 10px;
+    }
+    .nav {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+    .nav a {
+      display: inline-block;
+      margin: 5px 5px 5px 0;
+      font-size: 1em;
+    }
+    .share-button {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+    .main {
+      flex-direction: column;
+      padding: 10px !important;
+    }
+    .content {
+      margin-right: 0 !important;
+      min-width: 0 !important;
+    }
+    h1 {
+      font-size: 2em !important;
+    }
+    .donate-button {
+      width: 100%;
+      font-size: 1em !important;
+      padding: 14px 0 !important;
+    }
+    .contact div {
+      font-size: 0.95em;
+    }
+  }
+  </style>
 </head>
 <body>
-    <!-- Hero Section: This is the main banner at the top of the page -->
-    <section class="hero">
-        <!-- Main headline -->
-        <h1>Clean Water for Everyone</h1>
-        <!-- Subheadline -->
-        <p>Join us in bringing safe, clean water to communities in need.</p>
-    </section>
 
-    <!-- Story Section: This tells the story of the nonprofit -->
-    <section class="story">
-        <h2>Our Story</h2>
-        <p>
-         
-    </section>
+<header class="header">
+  <div class="logo" style="display: flex; align-items: center;">
+    <!-- Logo image for Charity: Water -->
+    <img src="img/cw_logo.png" style="height:60px; margin-right:10px;" alt="Charity: Water Logo">
+    <!-- Charity: Water text with colored 'r' -->
+    <span style="font-weight: bold; font-size: 1.3em;">CHARITY: WATE<span style="color: #FFC709;">R</span></span>
+  </div>
+  <nav class="nav">
+    <a href="#" class="active">Home</a>
+    <a href="#">About Us</a>
+    <a href="#">Get involved</a>
+    <a href="#">Login</a>
+  </nav>
+  <button class="share-button">Share with a loved one</button>
+</header>
 
-    <!-- Real-World Impact Story Section -->
-    <section class="impact-story">
-        <!-- Section headline -->
-        <h2>Real Impact: Meet Amina</h2>
-        <!-- Container for image and text -->
-        <div class="impact-content">
-            <!-- Impact image -->
-            <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80" alt="Amina smiling with clean water" class="impact-image">
-            <!-- Impact story text -->
-            <p>
-                Amina used to walk miles every day to collect water for her family. Thanks to your support, her village now has a clean water well. Amina can go to school and her family is healthier and happier.
-            </p>
-        </div>
-    </section>
+<main class="main" style="display: flex; flex-wrap: wrap; align-items: flex-start; background: CBCCD1; min-height: 70vh;">
+  <section class="content" style="flex: 1; min-width: 320px; margin-right: 30px;">
+    <h1 style="font-size: 3em; font-weight: bold; margin-bottom: 0.5em;">HELP Bring<br>Water to Those<br>in Need.</h1>
+    <p style="font-size: 1.1em; margin-bottom: 2em;">Charity: Water can garuntee sustainable wells that bring safe drinking water to even the smallest villages</p>
+    <button class="donate-button" style="background: #FFC907; color: #fff; border: none; padding: 18px 40px; font-size: 1.2em; font-weight: bold; border-radius: 30px; cursor: pointer; margin-bottom: 2em; transition: background 0.2s;">&#9679; DONATE</button>
+    <div class="contact" style="margin-top: 0;">
+      <div style="display: flex; align-items: center; margin-bottom: 10px;"><span style="background: #111; color: #fff; border-radius: 50%; padding: 8px; margin-right: 10px;">&#9742;</span> 1 (646) 688-2323</div>
+      <div style="display: flex; align-items: center; margin-bottom: 10px;"><span style="background: #111; color: #fff; border-radius: 50%; padding: 8px; margin-right: 10px;">&#9993;</span> team@charitywater.org</div>
+      <div style="display: flex; align-items: center;"><span style="background: #111; color: #fff; border-radius: 50%; padding: 8px; margin-right: 10px;">&#8962;</span>230 Franklin Rd., Ste. 11-11<br>Franklin, TN<br>37064</div>
+    </div>
+  </section>
+  <!-- Removed the hero-image section with the photo on the right -->
+</main>
 
-    <!-- Call-to-Action Section: This encourages visitors to take action -->
-    <section class="call-to-action">
-        <h2>Make a Difference</h2>
-        <p>Your support can help save lives. Every donation brings us closer to a world with clean water for all.</p>
-        <a href="#" class="donate-button">Donate Now</a>
-    </section>
+<footer class="footer" style="display: none;"></footer>
+
+<script>
+// Make the Donate button interactive
+const donateBtn = document.querySelector('.donate-button');
+donateBtn.addEventListener('click', function() {
+  alert('Thank you for your interest in donating!');
+});
+// Make the Share button interactive
+const shareBtn = document.querySelector('.share-button');
+shareBtn.addEventListener('click', function() {
+  alert('Share this page with a loved one!');
+});
+</script>
+
 </body>
 </html>
