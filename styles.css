@@ -196,3 +196,152 @@ section {
     width: 300px;
   }
 }
+/* ===========================
+   BRAND VARIABLES
+=========================== */
+:root {
+  --yellow: #FFC907;
+  --blue: #2E9DF7;
+  --light-blue: #8BD1CB;
+  --green: #4FCB53;
+  --orange: #FF902A;
+  --red: #F5402C;
+  --dark-green: #159A48;
+  --pink: #F16061;
+}
+
+/* ===========================
+   GLOBAL STYLES
+=========================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Avenir", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #000;
+  background-color: #ffffff;
+}
+
+/* ===========================
+   HERO SECTION
+=========================== */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  background-image: url("img/hero.jpg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  padding: 2rem;
+}
+
+/* Dark overlay for readability */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+/* Hero content */
+.hero-content {
+  position: relative;
+  max-width: 600px;
+  color: #ffffff;
+  z-index: 2;
+}
+
+.hero-content h1 {
+  font-size: 2.75rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+.hero-content h1 span {
+  color: var(--yellow);
+}
+
+.hero-text {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+/* CTA Button */
+.cta-button {
+  display: inline-block;
+  background-color: var(--yellow);
+  color: #000;
+  text-decoration: none;
+  padding: 0.8rem 1.75rem;
+  font-weight: bold;
+  border-radius: 4px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cta-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
+}
+
+/* Logo */
+.logo {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 2rem;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 1.2rem;
+  z-index: 2;
+}
+
+.logo span {
+  color: var(--yellow);
+}
+
+/* ===========================
+   MISSION SECTION
+=========================== */
+.mission {
+  padding: 4rem 2rem;
+  background-color: var(--light-blue);
+  text-align: center;
+}
+
+.mission h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.mission p {
+  max-width: 650px;
+  margin: 0 auto;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+/* ===========================
+   RESPONSIVE DESIGN
+=========================== */
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero-text {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-content h1 {
+    font-size: 1.8rem;
+  }
+
+  .mission h2 {
+    font-size: 1.5rem;
+  }
+}
