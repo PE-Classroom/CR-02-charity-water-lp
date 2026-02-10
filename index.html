@@ -3,45 +3,201 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Charity Water Landing Page</title>
+    <title>charity: water</title>
+
+    <!-- this is where the CSS belongs -->
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-    <!-- Hero Section: This is the main banner at the top of the page -->
-    <section class="hero">
-        <!-- Main headline -->
-        <h1>Clean Water for Everyone</h1>
-        <!-- Subheadline -->
-        <p>Join us in bringing safe, clean water to communities in need.</p>
-    </section>
 
-    <!-- Story Section: This tells the story of the nonprofit -->
-    <section class="story">
-        <h2>Our Story</h2>
-        <p>
-         
-    </section>
+    <<!-- NAV -->
+<nav class="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="#">charity: water</a>
 
-    <!-- Real-World Impact Story Section -->
-    <section class="impact-story">
-        <!-- Section headline -->
-        <h2>Real Impact: Meet Amina</h2>
-        <!-- Container for image and text -->
-        <div class="impact-content">
-            <!-- Impact image -->
-            <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80" alt="Amina smiling with clean water" class="impact-image">
-            <!-- Impact story text -->
-            <p>
-                Amina used to walk miles every day to collect water for her family. Thanks to your support, her village now has a clean water well. Amina can go to school and her family is healthier and happier.
-            </p>
-        </div>
-    </section>
+    <div class="navlinks">
+      <a href="#about">About</a>
+      <a href="#features">How it works</a>
+      <a class="nav-cta" href="#cta">Donate</a>
+    </div>
+  </div>
+</nav>
 
-    <!-- Call-to-Action Section: This encourages visitors to take action -->
-    <section class="call-to-action">
-        <h2>Make a Difference</h2>
-        <p>Your support can help save lives. Every donation brings us closer to a world with clean water for all.</p>
-        <a href="#" class="donate-button">Donate Now</a>
-    </section>
-</body>
-</html>
+<!-- HERO -->
+<section class="hero">
+  <div class="container hero-grid">
+    <div class="hero-copy">
+      <p class="kicker">Clean water changes everything</p>
+
+      <h1>Turn Your Beliefs Into Action</h1>
+
+      <p class="subhead">
+        Your donation funds clean water projects with measurable and accountable results.
+      </p>
+
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#cta">Donate Now</a>
+        <a class="btn" href="#about">See Our Impact</a>
+      </div>
+    </div>
+
+    <div class="hero-media">
+  <img class="hero-image" src="img/here.jpg" alt="Girl collecting clean water from a pump">
+
+  <div class="hero-card" id="donate">
+    <h3>Quick Donate</h3>
+    <p>Choose an amount to get started.</p>
+
+    <div class="amounts">
+      <a class="amount" href="#">$5</a>
+      <a class="amount" href="#">$10</a>
+      <a class="amount" href="#">$15</a>
+      <a class="amount outline" href="#">Other</a>
+    </div>
+  </div>
+</div>
+</section>
+<!-- ABOUT -->
+<section id="about" class="section">
+  <div class="container two-col">
+    <div>
+      <h2>Our Story</h2>
+      <p class="lead">
+        Millions of people still lack access to clean water. charity: water funds sustainable
+        projects with local partners so communities can thrive.
+      </p>
+      <p>
+        When clean water is available, children can go to school, families stay healthier,
+        and time is returned to everyday life.
+      </p>
+    </div>
+
+    <div class="panel">
+      <h3>What you can expect</h3>
+      <ul>
+        <li>Clear, measurable project results</li>
+        <li>Partners with community expertise</li>
+        <li>Updates that show where support goes</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how" class="section">
+  <div class="container">
+    <h2>How it works</h2>
+    <p class="lead">Simple steps. Real impact.</p>
+
+    <div class="cards">
+      <div class="card">
+        <h3>Donate</h3>
+        <p>Your gift funds clean water solutions in communities that need it most.</p>
+      </div>
+
+      <div class="card">
+        <h3>Build</h3>
+        <p>Local partners install sustainable water projects and train communities.</p>
+      </div>
+
+      <div class="card">
+        <h3>Prove Impact</h3>
+        <p>We track results and share updates so you can see where support goes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- HOW IT WORKS -->
+<section id="how" class="section">
+  <div class="container">
+    <h2>How it works</h2>
+    <p class="lead">Simple steps. Real impact.</p>
+
+    <div class="cards">
+      <div class="card">
+        <h3>Donate</h3>
+        <p>Your gift funds clean water solutions in communities that need it most.</p>
+      </div>
+
+      <div class="card">
+        <h3>Build</h3>
+        <p>Local partners install sustainable water projects and train communities.</p>
+      </div>
+
+      <div class="card">
+        <h3>Prove Impact</h3>
+        <p>We track results and share updates so you can see where support goes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT / STORY -->
+<section id="about" class="section">
+  <div class="container two-col">
+    <div>
+      <h2>Our Story</h2>
+      <p>
+        Millions of people still lack access to clean water. charity: water funds sustainable
+        water projects with local partners, so communities can thrive.
+      </p>
+      <p>
+        When clean water is available, children can go to school, families stay healthier,
+        and time is returned to everyday life.
+      </p>
+    </div>
+
+    <div class="panel">
+      <h3>What you can expect</h3>
+      <ul>
+        <li>Clear, measurable project results</li>
+        <li>Partners with community expertise</li>
+        <li>Updates that show where support goes</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section id="features" class="section features">
+  <div class="container">
+    <h2>How it Works</h2>
+    <p class="lead">Simple steps. Real accountability.</p>
+
+    <div class="cards">
+      <div class="card">
+        <h3>1. You Give</h3>
+        <p>Donate in minutes and help fund clean water projects.</p>
+      </div>
+
+      <div class="card">
+        <h3>2. We Build</h3>
+        <p>We partner with local experts to implement sustainable solutions.</p>
+      </div>
+
+      <div class="card">
+        <h3>3. You See Impact</h3>
+        <p>Track measurable, accountable results through updates and reporting.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta" class="cta">
+  <div class="container cta-inner">
+    <div>
+      <h2>Help bring clean water to someone today.</h2>
+      <p>Your generosity can create lasting change.</p>
+    </div>
+
+    <a class="btn btn-primary" href="#">Donate $10</a>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <p>© charity: water — Student project landing page</p>
+  </div>
+</footer>
