@@ -4,22 +4,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Charity Water Landing Page</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@400;500;600&display=swap">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Header Section: Simple header with logo and text -->
+    <header class="site-header">
+        <img src="img/water-can-transparent.png" alt="charity:water logo" class="logo">
+        <span class="logo-text">charity:water</span>
+    </header>
+
     <!-- Hero Section: This is the main banner at the top of the page -->
     <section class="hero">
-        <!-- Main headline -->
-        <h1>Clean Water for Everyone</h1>
-        <!-- Subheadline -->
-        <p>Join us in bringing safe, clean water to communities in need.</p>
+        <div class="brand-vertical">charity.water</div>
+
+        <div class="hero-left">
+            <h1>About us</h1>
+            <p>
+                We’re on a mission to bring clean and safe drinking water to every person in the world. Since 2010, we’ve funded more than 400 water projects in 29 countries, providing clean water to over 11 million people.
+            </p>
+        </div>
+
+        <div class="hero-right" aria-hidden="true">
+            <div class="donate-widget">
+                <div class="dw-header">Help today</div>
+                <button class="dw-donate">Donate</button>
+                <div class="dw-options">
+                    <button class="dw-amount">$10/mo</button>
+                    <button class="dw-amount">$20/mo</button>
+                    <button class="dw-amount">$50/mo</button>
+                    <button class="dw-amount">$100/mo</button>
+                    <input type="number" class="dw-custom-input" placeholder="Other amount" min="1" step="1">
+                </div>
+                <div class="per-month">per month</div>
+            </div>
+        </div>
     </section>
 
     <!-- Story Section: This tells the story of the nonprofit -->
     <section class="story">
         <h2>Our Story</h2>
-        <p>
-         
+        <div class="story-content">
+            <!-- Story image -->
+            <img src="img/0207_Ethiopia_2019_CG-.jpg" alt="Water project in Ethiopia" class="story-image">
+            <!-- Story text overlay on image -->
+            <p>
+                Since 2010, charity:water has been building sustainable clean water projects in Africa, South America, and Asia. We believe that everyone deserves access to clean water. It's a basic human right. Together, we're making a difference in over 29 countries and improving the lives of millions.
+            </p>
+        </div>
     </section>
 
     <!-- Real-World Impact Story Section -->
@@ -28,8 +60,8 @@
         <h2>Real Impact: Meet Amina</h2>
         <!-- Container for image and text -->
         <div class="impact-content">
-            <!-- Impact image -->
-            <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80" alt="Amina smiling with clean water" class="impact-image">
+            <!-- Impact story image -->
+            <img src="img/0008_Ethiopia_2019_CG-.jpg" alt="Amina smiling at well in Ethiopia">
             <!-- Impact story text -->
             <p>
                 Amina used to walk miles every day to collect water for her family. Thanks to your support, her village now has a clean water well. Amina can go to school and her family is healthier and happier.
@@ -43,5 +75,8 @@
         <p>Your support can help save lives. Every donation brings us closer to a world with clean water for all.</p>
         <a href="#" class="donate-button">Donate Now</a>
     </section>
+
+    <!-- Decorative yellow stripe at the bottom of the viewport -->
+    <div class="site-stripe" aria-hidden="true"></div>
 </body>
 </html>
