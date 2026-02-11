@@ -85,7 +85,7 @@ body {
 .hero__bg {
   position: absolute;
   inset: 0;
-  background-image: url("https://via.placeholder.com/1600x900");
+  background-image: url("img/girl_scooping_water.jpg");
   background-size: cover;
   background-position: center;
   transform: scale(1.02);
