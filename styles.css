@@ -25,76 +25,259 @@ Fonts:
 
 /* Set up the main font and background color for the whole page */
 body {
-  background-color: #f4f8fb; /* Soft light blue for a fresh look */
-  font-family: 'Avenir', 'Proxima Nova', Arial, sans-serif;
+  background-color: #072027; /* Dark teal background */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   margin: 0;
   padding: 0;
-  color: #222;
+  color: #f4f8fb; /* Light text on dark background */
+  font-weight: 400;
 }
+
+/* Black header bar at the top of the page */
+/* Removed conflicting pseudo-elements that were hiding the header */
+
+/* Header with logo */
+.site-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 24px;
+  background: #1a1a1a;
+  position: sticky;
+  top: 0;
+  z-index: 99;
+}
+
+/* Logo image styling */
+.logo {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  background: #1a1a1a(0, 0%, 2%);
+  padding: 6px;
+  border-radius: 4px;
+}
+
+/* Logo text styling - same color as logo */
+.logo-text {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #FFC907;
+  letter-spacing: 1px;
+}
+
+/* Logo container removed - using direct flex layout */
 
 /* Add a slight shadow and rounded corners to each section for depth */
 section {
-  background: #fff; /* White background for sections */
+  background: rgba(7,32,39,0.85); /* Inverted: dark sections with smooth opacity */
   border-radius: 12px; /* Rounded corners */
-  box-shadow: 0 2px 8px rgba(46, 157, 247, 0.07); /* Soft blue shadow */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.35);
   margin: 24px 10px; /* Space between sections */
   padding: 24px 16px;
 }
 
 /* Hero Section Styles */
 .hero {
-  position: relative; /* Needed for overlay */
-  /* Set a background image that covers the whole section */
-  background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1500&q=80');
-  background-size: cover;      /* Make the image cover the whole area */
-  background-position: center; /* Center the image */
-  background-repeat: no-repeat;
-  color: #fff;                 /* White text for contrast */
-  text-align: center;          /* Center the text */
-  padding: 60px 20px;          /* Add space above and below */
-  border-radius: 0 0 16px 16px; /* Only round bottom corners */
-
-  /* Add a dark overlay for better text readability */
-  /* This uses a simple linear-gradient overlay */
-  background-blend-mode: darken;
-  background-color: rgba(46, 157, 247, 0.45); /* Blue overlay */
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+  padding: 48px 24px;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  background: url('img/Uganda-2018-charitywater-cubbygraham-0327.jpg') center top/cover;
+  background-attachment: fixed;
+  background-size: cover;
+  min-height: 60vh;
 }
 
-/* Make the headline bold and modern */
-.hero h1 {
-  font-size: 2.5em;
-  font-weight: bold;
-  letter-spacing: 1px;
-  margin-bottom: 15px;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.15); /* Soft shadow for readability */
+/* Vertical brand label on the left edge */
+.brand-vertical {
+  position: absolute;
+  left: 6px;
+  top: 50%;
+  transform: translateY(-50%) rotate(-90deg);
+  transform-origin: left top;
+  font-weight: 700;
+  color: #f4f8fb;
+  letter-spacing: 2px;
 }
 
-/* Style the subheadline */
-.hero p {
-  font-size: 1.2em;
-  margin-top: 0;
-  text-shadow: 0 1px 4px rgba(0,0,0,0.12);
+.hero-left {
+  padding: 16px 12px;
+}
+
+.hero-left h1 {
+  font-size: 3.2rem;
+  margin: 0 0 18px 0;
+  color: #f4f8fb;
+}
+
+.hero-left p {
+  font-size: 1.15rem;
+  color: #d9eef2;
+  line-height: 1.6;
+  max-width: 520px;
+}
+
+.hero-right {
+  height: 420px;
+  border-radius: 6px;
+  overflow: hidden;
+  position: relative;
+  background-color: transparent;
+}
+
+/* Donate widget overlay on top of the image */
+.donate-widget {
+  position: absolute;
+  right: 18px;
+  top: 20px;
+  width: 200px;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 12px;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.donate-widget .dw-header {
+  font-weight: 700;
+  color: #f4f8fb;
+}
+
+.donate-widget .dw-donate {
+  background: #f4f8fb;
+  color: #072027;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  align-self: flex-end;
+}
+
+.dw-options { display: flex; gap: 8px; flex-wrap: wrap; }
+.dw-amount {
+  background: #064f4c; /* darker teal for inverted look */
+  color: #f4f8fb;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.dw-amount:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 18px rgba(7,34,34,0.08);
+}
+
+.dw-custom-input {
+  background: transparent;
+  color: #f4f8fb;
+  border: 1px dashed rgba(244,248,251,0.24);
+  padding: 8px 10px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  min-width: 100px;
+}
+
+.dw-custom-input::placeholder { color: rgba(244,248,251,0.5); }
+.dw-custom-input:focus {
+  outline: none;
+  border-color: rgba(244,248,251,0.5);
+  background: rgba(244,248,251,0.06);
+}
+
+.per-month {
+  font-size: 0.9rem;
+  color: #f4f8fb;
+  opacity: 0.95;
+  margin-top: 6px;
+  margin-bottom: 6px;
+}
+
+.site-stripe {
+  height: 18px;
+  background: #f4f8fb; /* inverted stripe to contrast dark background */
+  width: 100%;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 60;
+  opacity: 0.9;
 }
 
 /* Story Section Styles */
 .story {
-  background-color: #8BD1CB; /* Secondary Light Blue */
-  color: #222;
+  background-color: transparent;
+  color: #f4f8fb;
+  padding: 0;
+}
+
+/* Story heading */
+.story h2 {
   text-align: center;
-  padding: 30px 20px;
+  margin-bottom: 24px;
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* Story content with image overlay */
+.story-content {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+}
+
+/* Story image styling */
+.story-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Story text overlay */
+.story-content p {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(7,32,39,0.95), rgba(7,32,39,0.7), transparent);
+  color: #f4f8fb;
+  margin: 0;
+  padding: 32px 24px 24px;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  text-align: center;
 }
 
 /* Add accent color to section headings */
+h1, h2 {
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
 h2 {
-  color: #2E9DF7; /* Primary blue */
+  color: #FFC907; /* Yellow headings for contrast */
   margin-top: 0;
-  font-weight: bold;
+  font-size: 2rem;
 }
 
 /* Call-to-Action Section Styles */
 .call-to-action {
-  background-color: #FFC907; /* Primary Yellow */
-  color: #222;
+  background-color: #072027; /* dark CTA */
+  color: #f4f8fb;
   text-align: center;
   padding: 30px 20px;
 }
@@ -105,30 +288,83 @@ h2 {
   max-width: 320px;
   border-radius: 10px;
   margin-bottom: 16px;
-  box-shadow: 0 2px 8px rgba(46, 157, 247, 0.10);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.6);
+}
+
+/* Impact story section */
+.impact-story {
+  background-color: #072027;
+  color: #f4f8fb;
+  text-align: center;
+  padding: 30px 20px;
+}
+
+/* Impact content container */
+.impact-content {
+  position: relative;
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+}
+
+/* Impact story image */
+.impact-content img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Impact story paragraph text */
+.impact-content p {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to bottom, rgba(7,32,39,0.95), rgba(7,32,39,0.7), transparent);
+  color: #f4f8fb;
+  margin: 0;
+  padding: 32px 24px 40px;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  text-align: center;
 }
 
 /* Donate Button Styles */
 .donate-button {
   display: inline-block;
-  background-color: #4FCB53; /* Green */
-  color: #fff;
+  background-color: #f4f8fb; /* light CTA on dark background */
+  color: #072027; /* dark text for contrast */
   padding: 14px 32px;
   text-decoration: none;
   border-radius: 6px;
-  font-weight: bold;
-  font-size: 1.1em;
+  font-weight: 700;
+  font-size: 1.05rem;
   margin-top: 18px;
-  box-shadow: 0 2px 8px rgba(79, 203, 83, 0.10);
-  transition: background 0.3s, transform 0.2s;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
   border: none;
   cursor: pointer;
 }
 
-/* Change button color when hovered */
+/* Hover/active states for the main donate CTA */
 .donate-button:hover {
-  background-color: #159A48; /* Dark Green */
-  transform: translateY(-2px) scale(1.04); /* Slight lift */
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px rgba(0,0,0,0.6);
+}
+
+/* Adjust donate widget primary button */
+.donate-widget .dw-donate {
+  background: #072027; /* dark accent */
+  color: #FFC907; /* yellow text for contrast inside widget */
+}
+
+.donate-widget .dw-donate:hover {
+  opacity: 0.95;
+  transform: translateY(-2px);
 }
 
 /* Add some spacing between sections */
@@ -136,63 +372,79 @@ section {
   margin-bottom: 20px;
 }
 
-/* 
+/*
   Media Queries for Responsive Design
-  Media queries help make your website look good on different screen sizes,
-  like phones (small screens) and computers (large screens).
+
+  Why we use media queries:
+  - Mobile-first: base styles should work well on small screens.
+  - At larger breakpoints we adjust spacing, typography, and layout
+    (for example switching stacked content to side-by-side) to take
+    advantage of extra screen real estate.
+
+  Breakpoints used below:
+  - up to 600px: phones (compact spacing, smaller type)
+  - 601px–999px: tablets (moderate spacing, side-by-side for some blocks)
+  - 1000px and up: desktop (wider containers, larger images)
 */
 
-/* This media query applies styles when the screen is 600px wide or less (like on most phones) */
+/* Small screens (phones) */
 @media (max-width: 600px) {
-  /* Make hero section padding smaller on small screens */
-  .hero {
-    padding: 32px 8px;
-    font-size: 1em;
-  }
+  /* Reduce large paddings so content fits comfortably on small screens */
+  section { padding: 16px 12px; margin: 12px; }
 
-  /* Make headline font size smaller so it fits on small screens */
-  .hero h1 {
-    font-size: 1.4em;
-  }
+  /* Stack the hero columns on small screens */
+  .hero { display: block; padding: 28px 12px; }
+  .brand-vertical { display: none; }
+  .hero-right { height: 240px; margin-top: 18px; }
 
-  /* Make subheadline font size smaller */
-  .hero p {
-    font-size: 1em;
-  }
+  .hero-left h1 { font-size: 1.8rem; }
+  .hero-left p  { font-size: 1rem; }
 
-  /* Make story and call-to-action sections have less padding */
-  .story,
-  .call-to-action,
-  .donation-section {
-    padding: 14px 8px;
-  }
+  /* Stack impact story content vertically on narrow screens */
+  .impact-content { display: block; text-align: center; }
+  .impact-image { width: 90%; max-width: 260px; margin: 0 auto 12px; }
 
-  /* Make impact story image smaller and stack above the text */
-  .impact-content {
-    display: block; /* Stack items vertically */
-    text-align: center;
-  }
-
-  .impact-image {
-    width: 90%;    /* Make image take up most of the width */
-    max-width: 220px;
-  }
+  /* Make CTA button easier to tap on mobile */
+  .donate-button { padding: 14px 22px; font-size: 1rem; }
 }
 
-/* This media query applies styles when the screen is wider than 600px (like on tablets and computers) */
-@media (min-width: 601px) {
-  /* Show image and text side by side in the impact story */
+/* Medium screens (tablets) */
+@media (min-width: 601px) and (max-width: 999px) {
+  section { padding: 36px 20px; }
+
+  .hero { padding: 60px 20px; min-height: 48vh; }
+  .hero h1 { font-size: 2.2rem; }
+
+  /* Use a horizontal layout for impact story to make use of width */
   .impact-content {
-    display: flex;           /* Place items in a row */
-    align-items: center;     /* Vertically center items */
-    justify-content: center; /* Center the whole group */
-    gap: 28px;               /* Space between image and text */
+    display: flex;
+    align-items: center;
+    gap: 22px;
     text-align: left;
-    max-width: 800px;
+    max-width: 880px;
     margin: 0 auto;
   }
+  .impact-image { width: 280px; }
 
-  .impact-image {
-    width: 300px;
+  .donate-button { padding: 14px 28px; }
+}
+
+/* Large screens (desktops) */
+@media (min-width: 1000px) {
+  section { padding: 48px 20px; }
+
+  .hero { padding: 80px 20px; min-height: 60vh; }
+  .hero h1 { font-size: 2.8rem; }
+
+  /* Wider layout: center content and allow larger images */
+  .impact-content {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    max-width: 1000px;
+    margin: 0 auto;
   }
+  .impact-image { width: 320px; }
+
+  .donate-button { padding: 16px 36px; font-size: 1.05rem; }
 }
