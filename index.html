@@ -1,47 +1,379 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Charity Water Landing Page</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Charity: Water Landing Page (Template)</title>
+  <style>
+    :root{
+      --navy:#0b3a5a;
+      --navy-2:#08314b;
+      --accent:#c46a4a;     /* donate / buttons */
+      --brand:#ffc629;      /* logo square */
+      --text:#0f172a;
+      --muted:#64748b;
+      --card:#ffffff;
+      --radius:14px;
+      --max:1100px;
+    }
+
+    *{ box-sizing:border-box; }
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color:var(--text);
+      background:#ffffff;
+      line-height:1.5;
+    }
+    a{ color:inherit; text-decoration:none; }
+    img{ max-width:100%; display:block; }
+
+    .container{
+      width:min(var(--max), 92vw);
+      margin:0 auto;
+    }
+
+    /* NAV */
+    .nav{
+      background:#fff;
+      border-bottom:1px solid #e6e9ef;
+    }
+    .nav-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:14px 0;
+      gap:16px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-weight:700;
+    }
+    .brand-badge{
+      width:56px; height:56px;
+      border-radius:12px;
+      background:transparent;
+      display:grid;
+      place-items:center;
+      font-weight:900;
+    }
+    .btn{
+      display:inline-block;
+      padding:10px 16px;
+      border-radius:10px;
+      background:var(--accent);
+      color:#fff;
+      font-weight:700;
+      border:0;
+    }
+    .btn:focus, .btn:hover{ filter:brightness(0.95); }
+
+    /* HERO */
+    .hero{
+      background:var(--navy);
+      position:relative;
+      overflow:hidden;
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.05fr 1fr;
+      min-height:620px;
+    }
+
+    .hero-left{
+      position:relative;
+      background:#ddd;
+    }
+    .hero-left img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    /* “make an impact today” bar + button (like the Canva mock) */
+    .hero-float{
+      position:absolute;
+      left:24px;
+      right:24px;
+      bottom:30px;
+      background:rgba(255,255,255,0.92);
+      border-radius:16px;
+      padding:14px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+    }
+    .hero-float .hint{
+      color:#94a3b8;
+      font-weight:600;
+    }
+
+    .hero-right{
+      padding:60px 48px 90px;
+      color:#fff;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      gap:14px;
+    }
+    .kicker{
+      font-size:68px;
+      line-height:1.03;
+      font-weight:800;
+      margin:0;
+      letter-spacing:-0.02em;
+    }
+    .kicker .soft{
+      color:#79a9c8;
+      display:block;
+      font-weight:700;
+    }
+    .subhead{
+      max-width:56ch;
+      color:#d7e7f2;
+      margin:0;
+      font-size:18px;
+    }
+
+    /* Diagonal band across bottom of hero (simple approximation) */
+    .hero-diagonal{
+      position:absolute;
+      left:0; right:0;
+      bottom:-1px;
+      height:170px;
+      background:var(--navy-2);
+      clip-path: polygon(0 45%, 100% 0, 100% 100%, 0 100%);
+    }
+
+    /* Two small images on the bottom-right like your design */
+    .hero-thumbs{
+      position:absolute;
+      right:28px;
+      bottom:22px;
+      display:flex;
+      gap:14px;
+      z-index:2;
+    }
+    .thumb{
+      width:120px;
+      height:120px;
+      border-radius:18px;
+      overflow:hidden;
+      border:3px solid rgba(255,255,255,0.25);
+      background:#fff;
+    }
+    .thumb img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    /* STORY SECTION */
+    .section{
+      padding:64px 0;
+    }
+    .story-grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:34px;
+      align-items:center;
+    }
+    .eyebrow{
+      color:var(--muted);
+      font-weight:800;
+      letter-spacing:0.08em;
+      text-transform:uppercase;
+      font-size:12px;
+      margin:0 0 10px;
+    }
+    h2{
+      margin:0 0 12px;
+      font-size:34px;
+      line-height:1.15;
+      letter-spacing:-0.02em;
+    }
+    .story p{
+      margin:0 0 12px;
+      color:#334155;
+      max-width:60ch;
+    }
+    .card-img{
+      border-radius:22px;
+      overflow:hidden;
+      box-shadow:0 10px 30px rgba(2, 6, 23, 0.12);
+    }
+    .card-img img{
+      width:100%;
+      height:360px;
+      object-fit:cover;
+    }
+
+    /* CTA SECTION */
+    .cta{
+      background:#f6f7fb;
+      border-top:1px solid #eef1f6;
+    }
+    .cta-box{
+      background:#fff;
+      border:1px solid #eef1f6;
+      border-radius:22px;
+      padding:28px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+      box-shadow:0 10px 30px rgba(2, 6, 23, 0.06);
+    }
+    .cta-box h3{
+      margin:0 0 6px;
+      font-size:22px;
+      letter-spacing:-0.01em;
+    }
+    .cta-box p{
+      margin:0;
+      color:#475569;
+      max-width:60ch;
+    }
+    .cta-actions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+    .btn.secondary{
+      background:#0f2f45;
+    }
+
+    /* FOOTER */
+    footer{
+      padding:24px 0;
+      color:#64748b;
+      font-size:14px;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px){
+      .hero-grid{
+        grid-template-columns: 1fr;
+        min-height:auto;
+      }
+      .hero-right{
+        padding:32px 18px 120px;
+      }
+      .kicker{ font-size:56px; }
+      .hero-left{ min-height:420px; }
+      .hero-thumbs{ right:16px; }
+      .story-grid{ grid-template-columns: 1fr; }
+      .card-img img{ height:280px; }
+      .cta-box{ flex-direction:column; align-items:flex-start; }
+      .cta-actions{ justify-content:flex-start; }
+    }
+  </style>
 </head>
 <body>
-    <!-- Hero Section: This is the main banner at the top of the page -->
-    <section class="hero">
-        <!-- Main headline -->
-        <h1>Clean Water for Everyone</h1>
-        <!-- Subheadline -->
-        <p>Join us in bringing safe, clean water to communities in need.</p>
-    </section>
 
-    <!-- Story Section: This tells the story of the nonprofit -->
-    <section class="story">
-        <h2>Our Story</h2>
-        <p>
-         
-    </section>
+  <!-- NAV -->
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="#">
+        <span class="brand-badge"><img src="img/water-can-transparent.png" alt="Water can illustration" width="56" height="56"></span>
+        <span>Charity:Water</span>
+      </a>
 
-    <!-- Real-World Impact Story Section -->
-    <section class="impact-story">
-        <!-- Section headline -->
-        <h2>Real Impact: Meet Amina</h2>
-        <!-- Container for image and text -->
-        <div class="impact-content">
-            <!-- Impact image -->
-            <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80" alt="Amina smiling with clean water" class="impact-image">
-            <!-- Impact story text -->
-            <p>
-                Amina used to walk miles every day to collect water for her family. Thanks to your support, her village now has a clean water well. Amina can go to school and her family is healthier and happier.
-            </p>
+      <a class="btn" href="#cta">Donate</a>
+    </div>
+  </header>
+
+  <!-- HERO (matches your split image + navy panel) -->
+  <section class="hero">
+    <div class="hero-grid">
+      <!-- Left image -->
+      <div class="hero-left">
+        <img src="img/image.png" alt="Community collecting clean water" decoding="async" />
+
+        <div class="hero-float" aria-label="Impact prompt">
+          <span class="hint">Make an Impact Today.</span>
+          <a class="btn" href="#cta">Get Involved</a>
         </div>
-    </section>
+      </div>
 
-    <!-- Call-to-Action Section: This encourages visitors to take action -->
-    <section class="call-to-action">
-        <h2>Make a Difference</h2>
-        <p>Your support can help save lives. Every donation brings us closer to a world with clean water for all.</p>
-        <a href="#" class="donate-button">Donate Now</a>
-    </section>
+      <!-- Right text panel -->
+      <div class="hero-right">
+        <h1 class="kicker">
+          <span class="soft">Small Actions.</span>
+          Real Change.
+        </h1>
+        <p class="subhead">
+          Your donation helps bring clean, safe water to people in need, backed by a
+          nonprofit where every public dollar funds water projects.
+        </p>
+      </div>
+    </div>
+
+    <!-- diagonal + thumbnails -->
+    <div class="hero-diagonal" aria-hidden="true"></div>
+
+    <div class="hero-thumbs" aria-label="Supporting images">
+      <div class="thumb">
+        <img src="img/image%20copy.png" alt="Local children drinking clean water" loading="lazy" decoding="async" />
+      </div>
+      <div class="thumb">
+        <img src="img/hands%20water2.jpg" alt="Hands holding water" loading="lazy" decoding="async" />
+      </div>
+    </div>
+  </section>
+
+  <!-- STORY SECTION -->
+  <section class="section story" id="story">
+    <div class="container story-grid">
+      <div>
+        <p class="eyebrow">Our Story</p>
+        <h2>Where your support goes</h2>
+        <p>
+          We believe people give more when they trust where their money is going.
+          This page is designed to keep things simple: clear message, real faces,
+          and one easy action.
+        </p>
+        
+      </div>
+
+      <div class="card-img">
+        <img src="img/image%20copy%202.png" alt="Community members accessing a water source" loading="lazy" decoding="async" />
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA SECTION -->
+  <section class="section cta" id="cta">
+    <div class="container">
+      <div class="cta-box">
+        <div>
+          <h3>Ready to turn small actions into real change?</h3>
+          <p>
+            Join the movement, share the mission, or make a donation today. Even a small
+            contribution can help fund clean water projects.
+          </p>
+        </div>
+
+        <div class="cta-actions">
+          <a class="btn" href="#">Donate Now</a>
+          <a class="btn secondary" href="#">Learn More</a>
+        </div>
+      </div>
+
+      <footer>
+        © <span id="year"></span> Charity: Water (Template) · Replace with your real footer links
+      </footer>
+    </div>
+  </section>
+
+  <!-- Tiny optional JS just for the year (remove if you want strictly HTML/CSS only) -->
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
