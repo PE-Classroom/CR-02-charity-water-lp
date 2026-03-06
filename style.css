@@ -1,0 +1,106 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+:root {
+    --yellow: #FFC907;
+    --dark-blue: #0A2540;
+    --black: #111;
+}
+
+/* HERO */
+.hero {
+    height: 100vh;
+    background-image: url("img/your-image-name.jpg")
+
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: var(--dark-blue);
+    color: white;
+    padding: 20px;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+/* BUTTONS */
+.btn {
+    padding: 12px 25px;
+    background-color: var(--yellow);
+    color: var(--dark-blue);
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background-color: #e6b800;
+}
+
+.btn-light {
+    background-color: white;
+    color: var(--dark-blue);
+}
+
+/* STORY */
+.story {
+    padding: 80px 10%;
+    background-color: #f9f9f9;
+}
+
+.story-container {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.story-image img {
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+.story-text h2 {
+    margin-bottom: 20px;
+    font-size: 2rem;
+    color: var(--dark-blue);
+}
+
+.story-text p {
+    margin-bottom: 15px;
+    line-height: 1.6;
+    color: var(--black);
+}
+
+/* CTA */
+.cta {
+    padding: 80px 10%;
+    text-align: center;
+    background-color: var(--dark-blue);
+    color: white;
+}
+
+.cta h2 {
+    margin-bottom: 20px;
+    font-size: 2rem;
+}
+
+.cta p {
+    margin-bottom: 30px;
+    font-size: 1.1rem;
+}
