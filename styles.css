@@ -25,7 +25,11 @@ Fonts:
 
 /* Set up the main font and background color for the whole page */
 body {
-  background-color: #f4f8fb; /* Soft light blue for a fresh look */
+  background-image: url('img/4666_Ethiopia_2019_CG-.jpg');
+  background-size: cover;      /* Make the image cover the whole page */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* Keep the image fixed when scrolling */
   font-family: 'Avenir', 'Proxima Nova', Arial, sans-serif;
   margin: 0;
   padding: 0;
@@ -44,20 +48,23 @@ section {
 /* Hero Section Styles */
 .hero {
   position: relative; /* Needed for overlay */
-  /* Set a background image that covers the whole section */
-  background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1500&q=80');
-  background-size: cover;      /* Make the image cover the whole area */
-  background-position: center; /* Center the image */
-  background-repeat: no-repeat;
+  background: transparent;     /* Make the box transparent so text is on the image */
   color: #fff;                 /* White text for contrast */
   text-align: center;          /* Center the text */
   padding: 60px 20px;          /* Add space above and below */
   border-radius: 0 0 16px 16px; /* Only round bottom corners */
+}
 
-  /* Add a dark overlay for better text readability */
-  /* This uses a simple linear-gradient overlay */
-  background-blend-mode: darken;
-  background-color: rgba(46, 157, 247, 0.45); /* Blue overlay */
+/* Hero Logo Styles */
+.hero-logo {
+  width: 200px; /* Set a fixed width for the logo */
+  height: auto; /* Maintain aspect ratio */
+  margin-bottom: 20px; /* Space below the logo */
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.2)); /* Add shadow for visibility */
+}
+
+.hero-logo-white {
+  filter: brightness(0) invert(1) drop-shadow(0 2px 8px rgba(0,0,0,0.2));
 }
 
 /* Make the headline bold and modern */
@@ -78,15 +85,43 @@ section {
 
 /* Story Section Styles */
 .story {
-  background-color: #8BD1CB; /* Secondary Light Blue */
+  background-color: rgba(216, 231, 82, 0.5); /* Transparent Light Blue */
   color: #222;
   text-align: center;
   padding: 30px 20px;
+  width: 360px;
+  height: 340px;
+  margin: 80px 750px 40px 10px;
+}
+
+.story h2 {
+  font-size: 29px;
+  color: #000;
+}
+
+.story p {
+  font-size: 22px;
+  margin-top: 2px;
+}
+
+.impact-story {
+  background: rgba(255, 255, 255, 0.5); /* Transparent White */
+  width: 600px;
+  height: 460px;
+  margin: 80px 10px 40px 10px;
+}
+
+.content-row {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 24px;
+  flex-wrap: wrap;
 }
 
 /* Add accent color to section headings */
 h2 {
-  color: #2E9DF7; /* Primary blue */
+  color: #77A8BB; /* Primary blue */
   margin-top: 0;
   font-weight: bold;
 }
@@ -111,7 +146,7 @@ h2 {
 /* Donate Button Styles */
 .donate-button {
   display: inline-block;
-  background-color: #4FCB53; /* Green */
+  background-color: #FFC907; /* Yellow */
   color: #fff;
   padding: 14px 32px;
   text-decoration: none;
@@ -119,7 +154,7 @@ h2 {
   font-weight: bold;
   font-size: 1.1em;
   margin-top: 18px;
-  box-shadow: 0 2px 8px rgba(79, 203, 83, 0.10);
+  box-shadow: 0 2px 8px rgba(255, 201, 7, 0.15);
   transition: background 0.3s, transform 0.2s;
   border: none;
   cursor: pointer;
@@ -127,7 +162,7 @@ h2 {
 
 /* Change button color when hovered */
 .donate-button:hover {
-  background-color: #159A48; /* Dark Green */
+  background-color: #e6b507; /* Darker yellow on hover */
   transform: translateY(-2px) scale(1.04); /* Slight lift */
 }
 
@@ -148,6 +183,12 @@ section {
   .hero {
     padding: 32px 8px;
     font-size: 1em;
+  }
+
+  /* Make logo smaller on mobile */
+  .hero-logo {
+    width: 120px; /* Smaller logo for mobile */
+    margin-bottom: 15px;
   }
 
   /* Make headline font size smaller so it fits on small screens */
@@ -195,4 +236,50 @@ section {
   .impact-image {
     width: 300px;
   }
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  background-color: #333;
+  overflow: hidden; 
+}
+
+nav li {
+  float: left;
+}
+
+nav li a {
+  display: block;
+  color: #1a1a1a;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+nav li a:hover {
+  background-color: #111;
+}
+nav {
+  background-color: yellow;
+  display: flex;         
+  align-items: center;    
+  padding: 5px 15px;      
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.nav-logo img {
+  height: 25px;          
+  width: auto;            
+  margin-right: 15px;     
+}
+
+nav ul {
+  display: flex;          
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
