@@ -195,4 +195,88 @@ section {
   .impact-image {
     width: 300px;
   }
+} /* Navigation */
+
+.navbar {
+    background: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+}
+
+.nav-left,
+.nav-right {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #222;
+    font-weight: bold;
+}
+
+.logo {
+    font-size: 2rem;
+    letter-spacing: 4px;
+}
+
+.contact-btn {
+    background: #e8cf87;
+    padding: 12px 24px;
+    border-radius: 8px;
+}
+
+/* Hero */
+
+.hero {
+    background: #C4744B;
+    text-align: center;
+    padding: 20px 20px 60px;
+}
+
+.hero-top {
+    color: #00D4A3;
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    color: #222;
+    font-size: 4rem;
+    font-style: italic;
+    max-width: 900px;
+    margin: auto;
+    line-height: 1.1;
+}
+
+.hero-image {
+    width: 70%;
+    max-width: 900px;
+    margin-top: 30px;
+    border-radius: 4px;
+}
+
+/* Mobile */
+
+@media (max-width: 768px) {
+
+    .navbar {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .hero-top {
+        font-size: 2rem;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero-image {
+        width: 95%;
+    }
 }
