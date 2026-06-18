@@ -3,45 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Charity Water Landing Page</title>
+    <title>Charity: Water Landing Page</title>
+    <!-- Import custom fonts from Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Hero Section: This is the main banner at the top of the page -->
+
+    <!-- Navigation bar: This is the header at the top of the page -->
+    <header class="navbar">
+        <div class="logo">
+            <img src="img/cw_logo-2.png" alt="Charity Water Logo">
+        </div>
+    </header>
+
+    <!-- Hero Section: Split design with left text and right image/form -->
     <section class="hero">
-        <!-- Main headline -->
-        <h1>Clean Water for Everyone</h1>
-        <!-- Subheadline -->
-        <p>Join us in bringing safe, clean water to communities in need.</p>
-    </section>
-
-    <!-- Story Section: This tells the story of the nonprofit -->
-    <section class="story">
-        <h2>Our Story</h2>
-        <p>
-         
-    </section>
-
-    <!-- Real-World Impact Story Section -->
-    <section class="impact-story">
-        <!-- Section headline -->
-        <h2>Real Impact: Meet Amina</h2>
-        <!-- Container for image and text -->
-        <div class="impact-content">
-            <!-- Impact image -->
-            <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80" alt="Amina smiling with clean water" class="impact-image">
-            <!-- Impact story text -->
+        <div class="hero-left">
+            <h1>"Small Donations, Big Changes"</h1>
             <p>
-                Amina used to walk miles every day to collect water for her family. Thanks to your support, her village now has a clean water well. Amina can go to school and her family is healthier and happier.
+                Join our community of supporters in helping bring
+                clean water to communities around the world.
             </p>
+        </div>
+
+        <div class="hero-right">
+            <form class="donation-form">
+                <input type="number" placeholder="$ Enter Donation Amount">
+                <button type="submit">Donate</button>
+            </form>
+            <img
+                src="img/hero-image/8439_Ethiopia_2019_CG-.jpg"
+                alt="Community carrying pipe for water project"
+                class="hero-image"
+            >
         </div>
     </section>
 
-    <!-- Call-to-Action Section: This encourages visitors to take action -->
-    <section class="call-to-action">
-        <h2>Make a Difference</h2>
-        <p>Your support can help save lives. Every donation brings us closer to a world with clean water for all.</p>
-        <a href="#" class="donate-button">Donate Now</a>
+    <!-- Impact Story Section: Real-world story with text and image -->
+    <section class="impact-story">
+        <div class="impact-copy">
+            <h2>Real Impact: Clean Water in Ethiopia</h2>
+            <p>
+                Together, our supporters helped build a new well for a village in Ethiopia. This project reduced illness, saved walking time, and gave children more time for school.
+            </p>
+            <p>
+                Your donation helps families access safe water, supports local teams, and changes lives for good.
+            </p>
+        </div>
+        <div class="impact-image-wrapper">
+            <img src="img/hero-image/8439_Ethiopia_2019_CG-.jpg" alt="Ethiopia clean water project" class="impact-image">
+        </div>
     </section>
+
+    <!-- Donation Call-to-Action Section -->
+    <section class="donation-cta">
+        <div class="donation-cta-content">
+            <h2>Help Bring Clean Water to More Communities</h2>
+            <p>
+                Every donation makes a direct difference. Join us today and become part of the solution.
+            </p>
+            <a href="#" class="donate-now-button">Donate Now</a>
+        </div>
+    </section>
+
 </body>
 </html>
