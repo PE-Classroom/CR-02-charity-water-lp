@@ -3,45 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Charity Water Landing Page</title>
+    <title>charity: water — Landing Page</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Hero Section: This is the main banner at the top of the page -->
-    <section class="hero">
-        <!-- Main headline -->
-        <h1>Clean Water for Everyone</h1>
-        <!-- Subheadline -->
-        <p>Join us in bringing safe, clean water to communities in need.</p>
-    </section>
 
-    <!-- Story Section: This tells the story of the nonprofit -->
-    <section class="story">
-        <h2>Our Story</h2>
-        <p>
-         
-    </section>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="img/cw_logo-2.png" alt="charity water logo" class="main-logo">
+        </div>
+        <ul class="nav-links">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#story">Our Story</a></li>
+            <li><a href="#cta">Take Action</a></li>
+            <li><a href="#why-water">Why Water</a></li>
+        </ul>
+        <!-- Menu button: three teardrop raindrops icon -->
+        <button class="menu-button" id="menuButton" aria-controls="overlayMenu" aria-expanded="false" aria-label="Open menu">
+            <svg viewBox="0 0 70 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor" aria-hidden="true">
+                <g>
+                    <path d="M10 0 C4 6 0 10 0 15 C0 20 4 24 10 24 C16 24 20 20 20 15 C20 10 16 6 10 0 Z" transform="translate(0,0)" />
+                    <path d="M10 0 C4 6 0 10 0 15 C0 20 4 24 10 24 C16 24 20 20 20 15 C20 10 16 6 10 0 Z" transform="translate(24,0)" />
+                    <path d="M10 0 C4 6 0 10 0 15 C0 20 4 24 10 24 C16 24 20 20 20 15 C20 10 16 6 10 0 Z" transform="translate(48,0)" />
+                </g>
+            </svg>
+        </button>
+    </nav>
 
-    <!-- Real-World Impact Story Section -->
-    <section class="impact-story">
-        <!-- Section headline -->
-        <h2>Real Impact: Meet Amina</h2>
-        <!-- Container for image and text -->
-        <div class="impact-content">
-            <!-- Impact image -->
-            <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80" alt="Amina smiling with clean water" class="impact-image">
-            <!-- Impact story text -->
-            <p>
-                Amina used to walk miles every day to collect water for her family. Thanks to your support, her village now has a clean water well. Amina can go to school and her family is healthier and happier.
-            </p>
+    <!-- HERO SECTION -->
+    <section class="hero" id="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <p class="eyebrow">Together we bring clean water to communities in need.</p>
+            <h1>Clean water changes everything.</h1>
+            <p class="hero-subtitle">Support life-changing wells, filters, and training for families around the world.</p>
+            <a class="donate-btn" href="https://www.charitywater.org/" target="_blank" rel="noopener noreferrer">Donate Now</a>
         </div>
     </section>
 
-    <!-- Call-to-Action Section: This encourages visitors to take action -->
-    <section class="call-to-action">
-        <h2>Make a Difference</h2>
-        <p>Your support can help save lives. Every donation brings us closer to a world with clean water for all.</p>
-        <a href="#" class="donate-button">Donate Now</a>
+    <!-- STORY SECTION -->
+    <section class="story" id="story">
+        <div class="story-text">
+            <h2>Real impact starts with water.</h2>
+            <p>When families get access to safe drinking water, children can attend school, parents can work, and communities become stronger.</p>
+            <p>Meet Sara: each morning she walks miles carrying her baby brother so her family can drink clean water. With a new well nearby, she can keep her sibling safe and still find time to learn.</p>
+        </div>
+        <div class="story-image">
+            <img src="https://cdn2.dropmarkusercontent.com/52043/004434ba4e03f8da3afd02df6ae33a44e1d230c894dc4d65788af643b7b02473/7255_Ethiopia_2019_CG-.jpg?Expires=1781756936&Signature=eBGf1RSBI9EfxuJlQ24JELIZDUno5wE4WW-JfbX7ti8P3k4uaPY3wmDpUaAYqS-EOXIxTueMRdjiExZxpSf2wIWiY8mOvJBGDu6RK13oSH4ntbR5kLK41mBzuPuTi46s8bf-v2ijg5ls5Sc8GeQrkNLOJQur9Zn9uNoNHinZW3BItiU5caxBHJVe73auN5~SeP~fZ3WnPTHjmRJzfEuogfdVLW2uDENzJMw7MoEyRUQzD~upV2StvxHtDB~-4-dGO51VAcMJiaJKkHZZAr3mt5vvAi4MHxr2CF-XnT1JwK1Ud6BelS4yOW0Y53ZtEP7IB77QaBrbBMyJJP2fgoct-Q__&Key-Pair-Id=APKAITQYWVEN757ZA4KQ" alt="Water collection scene" />
+        </div>
     </section>
+
+    <!-- CALL TO ACTION SECTION -->
+    <section class="cta" id="cta">
+        <div class="cta-card">
+            <h2>Help more communities find clean water.</h2>
+            <p>Your donation helps build wells, install filters, and train local leaders to maintain water systems for years to come.</p>
+            <a class="donate-btn" href="https://www.charitywater.org/" target="_blank" rel="noopener noreferrer">Donate Now</a>
+            <div class="cta-logo-row">
+                <img src="img/water-can-transparent.png" alt="Water can icon badge">
+            </div>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="contact-info">
+            <p>
+                <a href="https://www.charitywater.org/" target="_blank" rel="noopener noreferrer">charity: water | Help Bring Clean and Safe Water to Communities</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- Overlay menu that opens above the landing page -->
+    <div id="overlayMenu" class="overlay-menu" aria-hidden="true">
+        <div class="overlay-inner">
+            <button class="overlay-close" id="overlayClose" aria-label="Close menu">Close</button>
+            <nav class="overlay-nav">
+                <a href="#hero">Home</a>
+                <a href="#story">Our Story</a>
+                <a href="#cta">Take Action</a>
+                <a href="#why-water">Why Water</a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Device indicator for testing phone viewport -->
+    <div id="deviceIndicator" class="device-indicator" aria-hidden="true">Device: <span id="deviceLabel"></span></div>
+
+    <script src="script.js"></script>
 </body>
 </html>

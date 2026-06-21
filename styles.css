@@ -1,198 +1,482 @@
-/* charity: water Brand Colors & Fonts
+/* GLOBAL RESET: Remove browser defaults for a clean base */
+:root {
+    --yellow: #FFC907;
+    --nav-blue: #003366;
+    --accent-blue: #77A8BB;
+    --cream: #FFF7E1;
+    --text-dark: #1A1A1A;
+    --peach: #FED8C1;
+    --copper: #BF6C46;
+}
 
-Primary Colors:
-- Yellow:     #FFC907
-- Blue:       #2E9DF7
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Proxima Nova', Arial, Helvetica, sans-serif;
+}
 
-Secondary Colors:
-- Light Blue: #8BD1CB
-- Green:      #4FCB53
-- Orange:     #FF902A
-- Red:        #F5402C
-- Dark Green: #159A48
-- Pink:       #F16061
-
-Fonts:
-- Proxima Nova
-- Avenir
-
-*/
-
-/* 
-  Charity: Water Landing Page Styles
-  This CSS uses the provided color palette and beginner-friendly styles.
-*/
-
-/* Set up the main font and background color for the whole page */
 body {
-  background-color: #f4f8fb; /* Soft light blue for a fresh look */
-  font-family: 'Avenir', 'Proxima Nova', Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  color: #222;
+    background: var(--cream);
+    color: var(--text-dark);
 }
 
-/* Add a slight shadow and rounded corners to each section for depth */
-section {
-  background: #fff; /* White background for sections */
-  border-radius: 12px; /* Rounded corners */
-  box-shadow: 0 2px 8px rgba(46, 157, 247, 0.07); /* Soft blue shadow */
-  margin: 24px 10px; /* Space between sections */
-  padding: 24px 16px;
+/* NAVBAR STYLES */
+.navbar {
+    width: 100%;
+    padding: 20px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--cream);
 }
 
-/* Hero Section Styles */
-.hero {
-  position: relative; /* Needed for overlay */
-  /* Set a background image that covers the whole section */
-  background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1500&q=80');
-  background-size: cover;      /* Make the image cover the whole area */
-  background-position: center; /* Center the image */
-  background-repeat: no-repeat;
-  color: #fff;                 /* White text for contrast */
-  text-align: center;          /* Center the text */
-  padding: 60px 20px;          /* Add space above and below */
-  border-radius: 0 0 16px 16px; /* Only round bottom corners */
-
-  /* Add a dark overlay for better text readability */
-  /* This uses a simple linear-gradient overlay */
-  background-blend-mode: darken;
-  background-color: rgba(46, 157, 247, 0.45); /* Blue overlay */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
-/* Make the headline bold and modern */
-.hero h1 {
-  font-size: 2.5em;
-  font-weight: bold;
-  letter-spacing: 1px;
-  margin-bottom: 15px;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.15); /* Soft shadow for readability */
+.logo img {
+    width: 220px; /* larger default */
 }
 
-/* Style the subheadline */
-.hero p {
-  font-size: 1.2em;
-  margin-top: 0;
-  text-shadow: 0 1px 4px rgba(0,0,0,0.12);
+/* Responsive sizes for main logo */
+.logo img.main-logo {
+    width: 220px;
+    height: auto;
 }
-
-/* Story Section Styles */
-.story {
-  background-color: #8BD1CB; /* Secondary Light Blue */
-  color: #222;
-  text-align: center;
-  padding: 30px 20px;
+@media (max-width: 900px) {
+    .logo img.main-logo { width: 180px; }
 }
-
-/* Add accent color to section headings */
-h2 {
-  color: #2E9DF7; /* Primary blue */
-  margin-top: 0;
-  font-weight: bold;
-}
-
-/* Call-to-Action Section Styles */
-.call-to-action {
-  background-color: #FFC907; /* Primary Yellow */
-  color: #222;
-  text-align: center;
-  padding: 30px 20px;
-}
-
-/* Style the impact story image */
-.impact-image {
-  width: 100%;
-  max-width: 320px;
-  border-radius: 10px;
-  margin-bottom: 16px;
-  box-shadow: 0 2px 8px rgba(46, 157, 247, 0.10);
-}
-
-/* Donate Button Styles */
-.donate-button {
-  display: inline-block;
-  background-color: #4FCB53; /* Green */
-  color: #fff;
-  padding: 14px 32px;
-  text-decoration: none;
-  border-radius: 6px;
-  font-weight: bold;
-  font-size: 1.1em;
-  margin-top: 18px;
-  box-shadow: 0 2px 8px rgba(79, 203, 83, 0.10);
-  transition: background 0.3s, transform 0.2s;
-  border: none;
-  cursor: pointer;
-}
-
-/* Change button color when hovered */
-.donate-button:hover {
-  background-color: #159A48; /* Dark Green */
-  transform: translateY(-2px) scale(1.04); /* Slight lift */
-}
-
-/* Add some spacing between sections */
-section {
-  margin-bottom: 20px;
-}
-
-/* 
-  Media Queries for Responsive Design
-  Media queries help make your website look good on different screen sizes,
-  like phones (small screens) and computers (large screens).
-*/
-
-/* This media query applies styles when the screen is 600px wide or less (like on most phones) */
 @media (max-width: 600px) {
-  /* Make hero section padding smaller on small screens */
-  .hero {
-    padding: 32px 8px;
-    font-size: 1em;
-  }
-
-  /* Make headline font size smaller so it fits on small screens */
-  .hero h1 {
-    font-size: 1.4em;
-  }
-
-  /* Make subheadline font size smaller */
-  .hero p {
-    font-size: 1em;
-  }
-
-  /* Make story and call-to-action sections have less padding */
-  .story,
-  .call-to-action,
-  .donation-section {
-    padding: 14px 8px;
-  }
-
-  /* Make impact story image smaller and stack above the text */
-  .impact-content {
-    display: block; /* Stack items vertically */
-    text-align: center;
-  }
-
-  .impact-image {
-    width: 90%;    /* Make image take up most of the width */
-    max-width: 220px;
-  }
+    .logo img.main-logo { width: 160px; }
 }
 
-/* This media query applies styles when the screen is wider than 600px (like on tablets and computers) */
-@media (min-width: 601px) {
-  /* Show image and text side by side in the impact story */
-  .impact-content {
-    display: flex;           /* Place items in a row */
-    align-items: center;     /* Vertically center items */
-    justify-content: center; /* Center the whole group */
-    gap: 28px;               /* Space between image and text */
-    text-align: left;
-    max-width: 800px;
-    margin: 0 auto;
-  }
+.logo span {
+    font-size: 20px;
+    font-weight: bold;
+}
 
-  .impact-image {
-    width: 300px;
-  }
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #222;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+    color: var(--nav-blue);
+}
+
+/* HERO SECTION */
+.hero {
+    position: relative;
+    min-height: 70vh;
+    padding: 80px 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #ffffff;
+    background-image: url('https://cdn2.dropmarkusercontent.com/52043/d910e28c564617bfe51ca82a2cc7e15c94a0675c19b954d5af224ceb63909725/JS_20170803_2360.jpg?Expires=1781757175&Signature=Qycn-ocMBn-y7BdKBoL9EEK5YrrE2tUVwTB6cpoHF~JehJQFvjyT2qoqGt5nmzLHRuCN3IxHjTfX42WVrYpcCupSFToPEZIjjc-XNgt2iDX-w8SZ7HO-DUt2QZ8w8mXceRl1ke0Iu1-vNWbjiEjC6IstIrH7BqK287HzvM5IBTtQh5phIibPyeX6FghAs~aSqtXTaDD6Z646I-v1M1fdf54AyT51quD1A3FxrvkD2o~Bt8-u81AKcocj5zjuZAJ8rwlRM4HHkz4UPTQv9Tnmy-d-gIXaXWK4BvzXM7YjDwvHRDWXMrmv-giNdmJi2rRtDuIuCURdDFqsASL~kQsaDQ__&Key-Pair-Id=APKAITQYWVEN757ZA4KQ');
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 51, 102, 0.55);
+}
+
+.hero-content {
+    position: relative;
+    max-width: 700px;
+    z-index: 1;
+}
+
+.eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--yellow);
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+}
+
+.hero h1 {
+    font-size: 3.4rem;
+    line-height: 1.05;
+    margin-bottom: 18px;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    line-height: 1.8;
+}
+
+.donate-btn {
+    background: var(--yellow);
+    color: var(--text-dark);
+    padding: 16px 34px;
+    border: none;
+    border-radius: 999px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.donate-btn:hover {
+    background: var(--copper);
+    transform: translateY(-2px);
+}
+
+.hero-logos,
+.cta-logo-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+    margin-top: 24px;
+}
+
+.hero-logos img,
+.cta-logo-row img {
+    width: 56px;
+    height: auto;
+    border-radius: 12px;
+    background: rgba(255, 247, 225, 0.95);
+    padding: 8px;
+}
+
+/* STORY SECTION */
+.story {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1100px;
+    margin: 40px auto;
+    gap: 40px;
+    padding: 0 60px;
+}
+
+.story-text {
+    flex: 1;
+}
+
+.story-text h2 {
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+}
+
+.story-text p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--text-dark);
+    margin-bottom: 16px;
+}
+
+.story-image {
+    flex: 1;
+}
+
+.story-image img {
+    width: 100%;
+    border-radius: 18px;
+    display: block;
+    box-shadow: 0 24px 60px rgba(0, 51, 102, 0.14);
+}
+
+/* CALL TO ACTION SECTION */
+.cta {
+    background: var(--nav-blue);
+    color: #ffffff;
+    padding: 60px 20px;
+}
+
+.cta-card {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.cta-card h2 {
+    font-size: 2rem;
+    margin-bottom: 18px;
+}
+
+.cta-card p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #fff7e1;
+    margin-bottom: 28px;
+}
+
+/* Contact info styling: cream background and spacing */
+.contact-info {
+    background: var(--cream);
+    color: var(--text-dark);
+    margin: 18px auto 0;
+    padding: 12px 18px;
+    border-radius: 10px;
+    display: inline-block;
+}
+.contact-info a {
+    color: var(--nav-blue);
+    text-decoration: none;
+    font-weight: 600;
+}
+.contact-info a:hover {
+    text-decoration: underline;
+}
+
+/* Footer layout */
+.site-footer {
+    text-align: center;
+    padding: 20px 0 36px;
+    background: transparent;
+}
+
+/* Menu button: three raindrops icon */
+.menu-button {
+    background: transparent;
+    border: none;
+    color: var(--nav-blue);
+    padding: 6px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.12s ease, opacity 0.12s ease;
+}
+.menu-button svg {
+    width: 72px;
+    height: 28px;
+    display: block;
+}
+.menu-button:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+/* Overlay menu styles */
+.overlay-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0; /* start closed */
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.6);
+    transition: height 0.28s ease;
+    z-index: 1200;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+.overlay-menu.open {
+    height: 100vh;
+}
+.overlay-inner {
+    background: #fff;
+    margin-top: 8vh;
+    width: 92%;
+    max-width: 520px;
+    border-radius: 12px;
+    padding: 18px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.2);
+}
+.overlay-close {
+    background: transparent;
+    border: none;
+    color: var(--nav-blue);
+    font-weight: 700;
+    cursor: pointer;
+    float: right;
+}
+.overlay-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 8px;
+}
+.overlay-nav a {
+    color: var(--nav-blue);
+    text-decoration: none;
+    font-size: 1.05rem;
+    padding: 8px 6px;
+}
+.overlay-nav a:hover { text-decoration: underline; }
+
+/* Device indicator for quick testing */
+.device-indicator {
+    position: fixed;
+    right: 12px;
+    top: 12px;
+    background: rgba(0,0,0,0.6);
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 8px;
+    font-size: 12px;
+    z-index: 1300;
+    display: none;
+}
+@media (max-width: 600px) {
+    .device-indicator { display: block; }
+}
+
+/* RESPONSIVE STYLES */
+@media (max-width: 900px) {
+    .navbar {
+        flex-wrap: wrap;
+        padding: 20px 30px;
+    }
+
+    .nav-links {
+        gap: 18px;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .hero {
+        padding: 70px 30px;
+    }
+
+    .hero h1 {
+        font-size: 2.8rem;
+    }
+
+    .story {
+        flex-direction: column;
+        padding: 0 30px;
+    }
+}
+
+@media (max-width: 600px) {
+    .navbar {
+        padding: 16px 20px;
+    }
+
+    .hero {
+        min-height: auto;
+        padding: 60px 18px;
+    }
+
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .story-text h2 {
+        font-size: 1.9rem;
+    }
+
+    .story {
+        padding: 0 18px;
+    }
+
+    .cta-card h2 {
+        font-size: 1.7rem;
+    }
+}
+
+/* Responsive improvements: make layout fit desktop, laptop, and mobile */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.cta-card {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.contact-info {
+    display: inline-block;
+}
+
+@media (max-width: 900px) {
+    .cta-card {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+    .contact-info {
+        display: block;
+        width: 90%;
+        margin: 16px auto 0;
+    }
+}
+
+@media (max-width: 600px) {
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .cta-logo-row img,
+    .hero-logos img {
+        width: 48px;
+    }
+
+    .contact-info {
+        width: calc(100% - 36px);
+        margin: 12px auto 0;
+        padding: 10px 14px;
+        border-radius: 8px;
+    }
+
+    .hero {
+        padding: 50px 16px;
+    }
+}
+
+/* Mobile-specific: hide nav link text and center Menu button under logo */
+@media (max-width: 600px) {
+    .nav-links {
+        display: none !important;
+    }
+
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+        padding: 12px 16px;
+    }
+
+    .logo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+    }
+
+    .menu-button {
+        order: 2;
+        align-self: center;
+        margin-top: 6px;
+        width: auto;
+    }
+
+    /* ensure nav-links (if present) don't take up space */
+    .nav-links li { display: none; }
+}
+
+/* Desktop & Laptop: hide the teardrop menu button (show nav links instead) */
+@media (min-width: 601px) {
+    .menu-button {
+        display: none !important;
+    }
 }
