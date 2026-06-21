@@ -85,7 +85,7 @@ body {
     justify-content: center;
     text-align: center;
     color: #ffffff;
-    background-image: url('https://cdn2.dropmarkusercontent.com/52043/d910e28c564617bfe51ca82a2cc7e15c94a0675c19b954d5af224ceb63909725/JS_20170803_2360.jpg?Expires=1781757175&Signature=Qycn-ocMBn-y7BdKBoL9EEK5YrrE2tUVwTB6cpoHF~JehJQFvjyT2qoqGt5nmzLHRuCN3IxHjTfX42WVrYpcCupSFToPEZIjjc-XNgt2iDX-w8SZ7HO-DUt2QZ8w8mXceRl1ke0Iu1-vNWbjiEjC6IstIrH7BqK287HzvM5IBTtQh5phIibPyeX6FghAs~aSqtXTaDD6Z646I-v1M1fdf54AyT51quD1A3FxrvkD2o~Bt8-u81AKcocj5zjuZAJ8rwlRM4HHkz4UPTQv9Tnmy-d-gIXaXWK4BvzXM7YjDwvHRDWXMrmv-giNdmJi2rRtDuIuCURdDFqsASL~kQsaDQ__&Key-Pair-Id=APKAITQYWVEN757ZA4KQ');
+    background-image: url('img/hi 2.jpeg');
     background-size: cover;
     background-position: center;
 }
@@ -385,6 +385,10 @@ body {
 
     .story {
         padding: 0 18px;
+    }
+
+    .story-text {
+        text-align: center;
     }
 
     .cta-card h2 {
